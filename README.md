@@ -21,7 +21,7 @@ Aquest repositori conté el lloc web de suport al taller docent, estructurat en 
 | [`bloc6-recursos-visuals.html`](bloc6-recursos-visuals.html) | **6. Recursos visuals i citació** | Ús d'imatges creades per persones en lloc de generacions d'IA, icones SVG lleugeres (Lucide, Tabler), Unsplash i citació a peu d'imatge amb el patró TASL. |
 | [`bloc7-bones-practiques.html`](bloc7-bones-practiques.html) | **7. Bones pràctiques d'aula** | Consells abans de publicar a partir de la guia de *vibe coding responsable* (De Haro, 2026): rigor pedagògic, privadesa estricta de l'alumnat (RGPD) i pautes DUA. |
 | [`bloc8-verificacio.html`](bloc8-verificacio.html) | **8. Llista de verificació** | Checklist interactiva de 10 punts amb memòria local (`localStorage`) per revisar el recurs abans de compartir-lo amb el grup classe. |
-| [`bloc9-per-continuar-explorant.html`](bloc9-per-continuar-explorant.html) | **9. Per continuar explorant** | Models d'IA local per a privadesa absoluta, recursos en català de Softcatalà, xerrada de Jordi Mas i el directori Rebost.ai. |
+| [`bloc9-per-continuar-explorant.html`](bloc9-per-continuar-explorant.html) | **9. Per continuar explorant** | Models d'IA local per a privadesa absoluta, recursos en català de Softcatalà, ponència de Jordi Mas i el directori Rebost.ai. |
 | [`imprimir-tot.html`](imprimir-tot.html) | **Dossier complet per imprimir** | Vista continuada que aplega tots els continguts en un únic document dissenyat per a impressió en paper o exportació a PDF. |
 | [`credits.html`](credits.html) | **Crèdits i autoria** | Marc institucional del Servei Educatiu del Vallès Occidental II (CRP), referències pedagògiques d'inspiració i llicències dels recursos utilitzats. |
 
