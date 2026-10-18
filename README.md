@@ -2,7 +2,7 @@
 > **Guia pràctica per a la creació i publicació de materials educatius oberts**  
 > **Servei Educatiu del Vallès Occidental II — Centre de Recursos Pedagògics (CRP)**
 
-Aquest repositori conté el lloc web de suport a la ponència docent, estructurat en una **pàgina d'inici i vuit pàgines independents per a cadascun dels blocs temàtics**. Aquesta organització permet projectar còmodament durant la xerrada i compartir posteriorment el recurs amb el professorat perquè el pugui consultar de manera clara i sense sobrecàrrega visual.
+Aquest repositori conté el lloc web de suport a la ponència docent, estructurat en una **pàgina d'inici i nou pàgines independents per a cadascun dels blocs temàtics**. Aquesta organització permet projectar còmodament durant la xerrada i compartir posteriorment el recurs amb el professorat perquè el pugui consultar de manera clara i sense sobrecàrrega visual.
 
 🌐 **Lloc web de la guia:** [https://miquelangelfuentes.github.io/eines-ia-aula/](https://miquelangelfuentes.github.io/eines-ia-aula/)
 
@@ -10,7 +10,7 @@ Aquest repositori conté el lloc web de suport a la ponència docent, estructura
 
 ## Estructura de la web
 
-| Pàgina | Títol | Contingut clau |
+| Pàgina | Títol | Contingut principal |
 | :--- | :--- | :--- |
 | [`index.html`](index.html) | **Pàgina d'inici** | Presentació del recurs i índex de targetes per accedir a cada bloc. |
 | [`bloc1-marc.html`](bloc1-marc.html) | **1. Marc introductori** | De fer consultes a un xat a construir eines interactives sense saber programar. |
@@ -21,6 +21,7 @@ Aquest repositori conté el lloc web de suport a la ponència docent, estructura
 | [`bloc6-recursos-visuals.html`](bloc6-recursos-visuals.html) | **6. Recursos visuals i citació** | Evitar l'estigma d'imatges amb IA, ús d'icones (Lucide, Tabler), Unsplash i com citar a peu d'imatge. |
 | [`bloc7-bones-practiques.html`](bloc7-bones-practiques.html) | **7. Bones pràctiques d'aula** | Les 10 recomanacions de Vibe coding responsable de Juan José de Haro aplicades a l'aula. |
 | [`bloc8-verificacio.html`](bloc8-verificacio.html) | **8. Llista de verificació** | Checklist interactiva de 10 punts amb memòria local per revisar el recurs abans de compartir-lo. |
+| [`bloc9-per-continuar-explorant.html`](bloc9-per-continuar-explorant.html) | **9. Per continuar explorant** | Models d'IA local: privadesa absoluta, recursos en català de Softcatalà, xerrada de Jordi Mas i Rebost.ai. |
 
 ---
 
