@@ -363,9 +363,20 @@ body {
 
 /* Disposició equilibrada 2x2 per a conjunts de 4 targetes (evita files amb 3+1 i espais buits) */
 .cards-grid-2x2,
+.cards-grid.cards-grid-2x2,
 .cards-grid:has(> .card-item:nth-child(4):last-child),
 .clean-grid:has(> .card-item:nth-child(4):last-child) {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+
+/* Graella 2x2 per a la descomposició pràctica del mètode TASL */
+.tasl-breakdown-grid {
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
 }
 
 .card-item {
@@ -1084,8 +1095,8 @@ figcaption.edu-caption a {
   .content-box {
     padding: 1.25rem;
   }
-  .cards-grid, .clean-grid, .cards-grid-2x2, .cards-grid:has(> .card-item:nth-child(4):last-child), .clean-grid:has(> .card-item:nth-child(4):last-child), .licenses-comparison, .vibe-recommendations-list, .home-blocks-grid {
-    grid-template-columns: 1fr;
+  .cards-grid, .clean-grid, .cards-grid-2x2, .cards-grid.cards-grid-2x2, .cards-grid:has(> .card-item:nth-child(4):last-child), .clean-grid:has(> .card-item:nth-child(4):last-child), .tasl-breakdown-grid, .licenses-comparison, .vibe-recommendations-list, .home-blocks-grid {
+    grid-template-columns: 1fr !important;
   }
   .page-pagination {
     flex-direction: column;
