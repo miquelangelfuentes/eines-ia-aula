@@ -1584,3 +1584,225 @@ figcaption.edu-caption a {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ==========================================================================
+   Titular d'impacte Vibe Coding
+   ========================================================================== */
+.hero-impact-headline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: var(--bg-subtle);
+  border: 1.5px solid var(--accent-secondary);
+  color: var(--text-main);
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 700;
+  padding: 0.75rem 1.35rem;
+  border-radius: var(--radius-lg);
+  margin: 0.85rem auto 1.25rem;
+  line-height: 1.4;
+  box-shadow: var(--shadow-sm);
+  max-width: 760px;
+  text-align: center;
+}
+
+[data-theme="dark"] .hero-impact-headline {
+  background: rgba(13, 148, 136, 0.12);
+  border-color: rgba(45, 212, 191, 0.4);
+}
+
+/* ==========================================================================
+   Menú desplegable d'impressió
+   ========================================================================== */
+.print-menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+.print-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  min-width: 240px;
+  padding: 0.45rem;
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.print-dropdown.show {
+  display: flex;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.print-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-main);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition);
+  width: 100%;
+}
+
+.print-dropdown-item:hover {
+  background: var(--accent-light);
+  color: var(--accent-primary);
+}
+
+.print-dropdown-item i,
+.print-dropdown-item svg {
+  color: var(--accent-secondary);
+  flex-shrink: 0;
+}
+
+/* Banner de controls específic per a imprimir-tot.html */
+.print-banner-actions {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.85rem 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.print-banner-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.print-banner-info {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.print-banner-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+/* ==========================================================================
+   Regles d'impressió (@media print)
+   ========================================================================== */
+@media print {
+  /* Ocultar navegacions, botons i elements interactius */
+  .top-bar,
+  .blocks-nav-bar,
+  .page-pagination,
+  .print-banner-actions,
+  .copy-btn,
+  .btn-icon,
+  .print-menu-container,
+  #diagnostic-quiz-section,
+  .quiz-stepper-header,
+  .quiz-mode-toggle-btn,
+  .interactive-tool-box form,
+  .interactive-tool-box button,
+  .footer-links,
+  .skip-link {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 10.5pt !important;
+    line-height: 1.55 !important;
+  }
+
+  .main-content {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .content-box {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: none !important;
+    padding: 1.5rem !important;
+    margin-bottom: 2rem !important;
+    page-break-inside: avoid;
+  }
+
+  .print-section-break {
+    page-break-before: always;
+  }
+
+  .page-hero {
+    background: #ffffff !important;
+    border-bottom: 2px solid #cbd5e1 !important;
+    padding: 1.5rem 0 1rem !important;
+    text-align: left !important;
+    page-break-after: avoid;
+  }
+
+  .page-hero h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .hero-impact-headline {
+    border: 1.5px solid #0d9488 !important;
+    background: #f0fdfa !important;
+    color: #0f766e !important;
+    box-shadow: none !important;
+  }
+
+  .clean-table {
+    border: 1px solid #cbd5e1 !important;
+  }
+
+  .clean-table th, .clean-table td {
+    border-bottom: 1px solid #cbd5e1 !important;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 9.5pt !important;
+  }
+
+  .cards-grid {
+    display: block !important;
+  }
+
+  .card-item {
+    margin-bottom: 1rem !important;
+    page-break-inside: avoid;
+    border: 1px solid #e2e8f0 !important;
+  }
+
+  .ordered-step-item {
+    page-break-inside: avoid;
+    border: 1px solid #e2e8f0 !important;
+  }
+
+  .footer {
+    border-top: 1px solid #cbd5e1 !important;
+    margin-top: 2rem !important;
+    padding: 1rem 0 !important;
+    page-break-inside: avoid;
+  }
+}
+

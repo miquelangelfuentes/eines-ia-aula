@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eines d'intel·ligència artificial per a l'aula | Inici</title>
   <meta name="description" content="Xerrada i guia pràctica per a docents sobre Google Antigravity, GitHub Pages, llicències i Vibe coding responsable.">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="next" href="bloc1-marc.html">
 </head>
@@ -20,6 +20,21 @@
       </a>
 
       <div class="controls-group">
+        <div class="print-menu-container">
+          <button id="btn-print-menu" class="btn-icon" type="button" aria-label="Opcions d'impressió" title="Imprimir" aria-haspopup="true" aria-expanded="false">
+            <i data-lucide="printer"></i>
+          </button>
+          <div id="print-dropdown" class="print-dropdown" role="menu">
+            <button type="button" class="print-dropdown-item" id="btn-print-page" role="menuitem">
+              <i data-lucide="file-text" style="width:16px;height:16px;"></i>
+              <span>Imprimir aquesta pàgina</span>
+            </button>
+            <a href="imprimir-tot.html?print=1" class="print-dropdown-item" id="btn-print-all" role="menuitem">
+              <i data-lucide="book-open" style="width:16px;height:16px;"></i>
+              <span>Imprimir tota la presentació</span>
+            </a>
+          </div>
+        </div>
         <a href="index.html" class="btn-icon" title="Pàgina d'inici" aria-label="Pàgina d'inici">
           <i data-lucide="home"></i>
         </a>
@@ -51,6 +66,10 @@
     <div class="page-hero-inner">
       <span class="page-category-tag">Xerrada i taller docent — CRP Vallès Occidental II</span>
       <h1>Eines d'intel·ligència artificial per a l'aula</h1>
+      <div class="hero-impact-headline">
+        <i data-lucide="sparkles" class="lucide" style="width:20px;height:20px;color:var(--accent-secondary);flex-shrink:0;"></i>
+        <span>Amb el vibe coding no es guanya temps, però permet elevar els resultats</span>
+      </div>
       <p class="page-hero-subtitle">
         Com passar de la idea docent a la publicació d'un recurs web interactiu fent servir <strong>Google Antigravity</strong> i <strong>GitHub Pages</strong>, amb criteris de <strong>Vibe coding responsable</strong>.
       </p>
@@ -607,6 +626,6 @@
   </footer>
 
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>

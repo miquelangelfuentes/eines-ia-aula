@@ -6,6 +6,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   initLucide();
+  initPrintMenu();
   initKeyboardNavigation();
   initCopyButtons();
   initPromptGenerator();
@@ -567,3 +568,55 @@ function initDiagnosticQuiz() {
   updateWizardView();
   calculateAndRender(false);
 }
+
+/* ==========================================================================
+   8. Menú d'impressió (pàgina actual o presentació completa)
+   ========================================================================== */
+function initPrintMenu() {
+  const btnPrintMenu = document.getElementById("btn-print-menu");
+  const dropdown = document.getElementById("print-dropdown");
+  const btnPrintPage = document.getElementById("btn-print-page");
+
+  if (!btnPrintMenu || !dropdown) return;
+
+  function toggleDropdown(show) {
+    const isExpanded = show !== undefined ? show : !dropdown.classList.contains("show");
+    dropdown.classList.toggle("show", isExpanded);
+    btnPrintMenu.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+  }
+
+  btnPrintMenu.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleDropdown();
+  });
+
+  if (btnPrintPage) {
+    btnPrintPage.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleDropdown(false);
+      window.print();
+    });
+  }
+
+  document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target) && e.target !== btnPrintMenu) {
+      toggleDropdown(false);
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      toggleDropdown(false);
+    }
+  });
+
+  // Si és la pàgina imprimir-tot.html amb paràmetre print=1, activar la impressió automàtica
+  if (window.location.pathname.includes("imprimir-tot.html") && window.location.search.includes("print=1")) {
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        window.print();
+      }, 700);
+    });
+  }
+}
+

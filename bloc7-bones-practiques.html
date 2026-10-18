@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bloc 7: Bones pràctiques d'aula | Eines d'IA per a l'aula</title>
   <meta name="description" content="Les deu recomanacions de Vibe coding responsable per a docents: protecció de l'alumnat, rigor pedagògic, accessibilitat DUA i transparència.">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="prev" href="bloc6-recursos-visuals.html">
   <link rel="next" href="bloc8-verificacio.html">
@@ -21,6 +21,21 @@
       </a>
 
       <div class="controls-group">
+        <div class="print-menu-container">
+          <button id="btn-print-menu" class="btn-icon" type="button" aria-label="Opcions d'impressió" title="Imprimir" aria-haspopup="true" aria-expanded="false">
+            <i data-lucide="printer"></i>
+          </button>
+          <div id="print-dropdown" class="print-dropdown" role="menu">
+            <button type="button" class="print-dropdown-item" id="btn-print-page" role="menuitem">
+              <i data-lucide="file-text" style="width:16px;height:16px;"></i>
+              <span>Imprimir aquesta pàgina</span>
+            </button>
+            <a href="imprimir-tot.html?print=1" class="print-dropdown-item" id="btn-print-all" role="menuitem">
+              <i data-lucide="book-open" style="width:16px;height:16px;"></i>
+              <span>Imprimir tota la presentació</span>
+            </a>
+          </div>
+        </div>
         <a href="index.html" class="btn-icon" title="Tornar a l'inici" aria-label="Tornar a l'inici">
           <i data-lucide="home"></i>
         </a>
@@ -213,6 +228,6 @@
   </footer>
 
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossier complet per a impressió | Eines d'IA per a l'aula</title>
+  <meta name="description" content="Dossier complet i unificat de la formació d'eines d'intel·ligència artificial per a l'aula preparat per imprimir o desar en PDF.">
+  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    @media screen {
+      .print-doc-wrapper {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 4rem;
+      }
+      .print-section-divider {
+        margin: 3.5rem 0 2.5rem;
+        border: none;
+        border-top: 2px dashed var(--border-color);
+      }
+    }
+    @media print {
+      .print-doc-wrapper {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .print-section-divider {
+        display: none;
+      }
+      .print-block-section {
+        page-break-before: always;
+      }
+      .print-block-section:first-of-type {
+        page-break-before: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra d'accions en pantalla (oculta en imprimir) -->
+  <aside class="print-banner-actions" aria-label="Accions d'impressió">
+    <div class="print-banner-inner">
+      <div class="print-banner-info">
+        <i data-lucide="printer" style="width: 20px; height: 20px; color: var(--accent-secondary);"></i>
+        <span>Dossier complet per a impressió (tota la presentació)</span>
+      </div>
+      <div class="print-banner-buttons">
+        <button type="button" class="btn-primary-action" onclick="window.print()" style="padding: 0.45rem 0.95rem; font-size: 0.875rem;">
+          <i data-lucide="printer" style="width: 16px; height: 16px; margin-right: 4px;"></i>
+          <span>Imprimir o desar en PDF</span>
+        </button>
+        <a href="index.html" class="btn-pagination" style="padding: 0.45rem 0.85rem; font-size: 0.875rem; text-decoration: none;">
+          <i data-lucide="arrow-left" style="width: 15px; height: 15px; margin-right: 4px;"></i>
+          <span>Tornar a l'inici</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <div class="print-doc-wrapper">
+
+    <!-- Portada del dossier -->
+    <header class="page-hero" style="border-radius: var(--radius-lg); margin-bottom: 2rem;">
+      <div class="page-hero-inner">
+        <span class="page-category-tag">Dossier docent de la formació — Servei Educatiu del Vallès Occidental II</span>
+        <h1 style="margin-top: 0.5rem; font-size: 2.2rem;">Eines d'intel·ligència artificial per a l'aula</h1>
+        
+        <div class="hero-impact-headline">
+          <i data-lucide="sparkles" class="lucide" style="width:20px;height:20px;color:var(--accent-secondary);flex-shrink:0;"></i>
+          <span>Amb el vibe coding no es guanya temps, però permet elevar els resultats</span>
+        </div>
+
+        <p class="page-hero-subtitle" style="font-size: 1.05rem; line-height: 1.6;">
+          De la idea docent a la publicació d'un recurs web interactiu fent servir <strong>Google Antigravity</strong> i <strong>GitHub Pages</strong>, amb criteris de <strong>Vibe coding responsable</strong>, llicències lliures i accessibilitat DUA.
+        </p>
+      </div>
+    </header>
+
+    <!-- =========================================================================
+         BLOC 1: MARC GENERAL
+         ========================================================================= -->
+    <section class="print-block-section" id="dossier-bloc1">
+      <div class="content-box">
+        <span class="page-category-tag">Bloc 1</span>
+        <h2>Marc: De la idea al recurs publicat</h2>
+        <p class="lead-desc">Com s'articula el flux de creació docent amb eines d'intel·ligència artificial</p>
+        
+        <div class="pedagogical-highlight">
+          L'arribada dels assistents d'intel·ligència artificial permet als docents transformar indicacions pedagògiques en aplicacions web interactives autònomes (HTML, CSS i JavaScript) sense necessitat d'escriure codi a mà, seguint el paradigma del <em>Vibe coding responsable</em>.
+        </div>
+
+        <div class="cards-grid">
+          <div class="card-item">
+            <h3>1. El plantejament docent</h3>
+            <p>La persona educadora defineix l'objectiu pedagògic, el curs i els criteris d'accessibilitat <a href="https://xtec.gencat.cat/ca/curriculum/diversitat-i-inclusio/projectes-educatius-inclusius/disseny-universal-per-a-laprenentatge/" target="_blank" rel="noopener">DUA</a>.</p>
+          </div>
+          <div class="card-item">
+            <h3>2. L'agent de desenvolupament (Antigravity)</h3>
+            <p>L'agent llegeix les indicacions pedagògiques i genera els arxius de l'aplicació directament a la carpeta de treball del disc dur.</p>
+          </div>
+          <div class="card-item">
+            <h3>3. Publicació i sobirania (GitHub Pages)</h3>
+            <p>El projecte es publica com a pàgina web gratuïta, accessible des de qualsevol navegador sense registres ni anuncis.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="print-section-divider">
+
+    <!-- =========================================================================
+         BLOC 2: GOOGLE ANTIGRAVITY
+         ========================================================================= -->
+    <section class="print-block-section" id="dossier-bloc2">
+      <div class="content-box">
+        <span class="page-category-tag">Bloc 2</span>
+        <h2>Google Antigravity: entorn de desenvolupament per a docents</h2>
+        <p class="lead-desc">Instal·lació, selecció de models Gemini i pautes d'indicació pedagògica</p>
+
+        <div class="pedagogical-highlight">
+          Google Antigravity s'executa com una aplicació nativa al teu ordinador. Llegeix i escriu directament a la carpeta local que tu decideixis (workspace), permetent crear aplicacions completes de manera transparent i segura.
+        </div>
+
+        <ul style="padding-left: 1.25rem; font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.5rem;">
+          <li><strong>Instal·lació al portàtil del PEDC:</strong> es pot instal·lar sense privilegis d'administració, atès que s'allotja al perfil d'usuari local.</li>
+          <li><strong>Models Gemini:</strong> s'utilitzen models ràpids (Flash) per a consultes i esquemes, i models de raonament avançat (Pro) per estructurar activitats interactives complexes.</li>
+          <li><strong>Les 4 pautes d'indicació:</strong> especificar nivell i àmbit concret, demanar fitxer autònom (<code>index.html</code>), exigir accessibilitat DUA i prioritzar retroacció pedagògica positiva en comptes de només "correcte/incorrecte".</li>
+        </ul>
+
+        <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Comparativa: Google Antigravity, OpenAI Codex i Claude Code d'Anthropic</h3>
+        <div class="table-responsive">
+          <table class="clean-table">
+            <thead>
+              <tr>
+                <th style="width: 22%;">Eina</th>
+                <th style="width: 28%;">Interfície i entorn</th>
+                <th style="width: 28%;">Punts forts pedagògics</th>
+                <th style="width: 22%;">Adopció a l'aula</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Google Antigravity</strong></td>
+                <td>Entorn gràfic integrat (IDE d'escriptori) amb previsualització en viu i panell d'agents.</td>
+                <td>Diàleg en llenguatge natural, multimodalitat nativa (Gemini) i creació de projectes complets.</td>
+                <td><strong>Idoni per a docents:</strong> instal·lable al PEDC sense permisos d'administrador.</td>
+              </tr>
+              <tr>
+                <td><strong>OpenAI Codex / Copilot</strong></td>
+                <td>Extensió d'autocompletat per a editors clàssics (VS Code).</td>
+                <td>Molt veloç suggerint línies de codi i funcions mentre s'escriu manualment.</td>
+                <td>Pensat per a perfils que ja programen; requereix subscripció o llicència educativa.</td>
+              </tr>
+              <tr>
+                <td><strong>Claude Code (Anthropic)</strong></td>
+                <td>Línia d'ordres pura (terminal CLI a la consola del sistema).</td>
+                <td>Raonament excel·lent en enginyeria de programari complexa amb Claude Sonnet.</td>
+                <td>Barrera d'entrada alta per a docents no informàtics per manca d'interfície visual.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <hr class="print-section-divider">
+
+    <!-- =========================================================================
+         BLOC 3: GITHUB I GITHUB DESKTOP
+         ========================================================================= -->
+    <section class="print-block-section" id="dossier-bloc3">
+      <div class="content-box">
+        <span class="page-category-tag">Bloc 3</span>
+        <h2>GitHub i GitHub Desktop</h2>
+        <p class="lead-desc">Com desar les versions del recurs i sincronitzar-les amb seguretat</p>
+
+        <div class="pedagogical-highlight">
+          GitHub actua com un magatzem públic de repositoris que permet conservar l'historial de cada canvi (commits) i publicar la pàgina web gratuïtament amb el servei GitHub Pages.
+        </div>
+
+        <div class="cards-grid">
+          <div class="card-item">
+            <h3>El repositori (repo)</h3>
+            <p>És la carpeta del projecte. Perquè l'alumnat pugui accedir a l'activitat sense contrasenyes ni registres, ha de ser públic.</p>
+          </div>
+          <div class="card-item">
+            <h3>Commit i push</h3>
+            <p>Desar una foto de seguretat dels canvis locals (commit) i pujar-la a GitHub (push) per actualitzar la web en directe.</p>
+          </div>
+          <div class="card-item">
+            <h3>GitHub Desktop al PEDC</h3>
+            <p>Interfície visual senzilla per a Windows que s'instal·la al perfil d'usuari docent sense requerir permisos d'administrador.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="print-section-divider">
+
+    <!-- =========================================================================
+         BLOC 4: GITHUB PAGES I GOOGLE SITES
+         ========================================================================= -->
+    <section class="print-block-section" id="dossier-bloc4">
+      <div class="content-box">
+        <span class="page-category-tag">Bloc 4</span>
+        <h2>GitHub Pages en comparació amb Google Sites</h2>
+        <p class="lead-desc">Per què fer el pas cap a la publicació de codi propi amb assistència d'IA</p>
+
+        <div class="table-responsive">
+          <table class="clean-table">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Criteri</th>
+                <th style="width: 38%;">GitHub Pages (amb suport d'IA)</th>
+                <th style="width: 37%;">Google Sites (edició manual)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Creació i canvis</strong></td>
+                <td>Automatitzada per instruccions en llenguatge natural.</td>
+                <td>Manual i feixuga, clic a clic.</td>
+              </tr>
+              <tr>
+                <td><strong>Interactivitat pedagògica</strong></td>
+                <td>Completa: jocs de paraules, simuladors, retroacció didàctica immediata.</td>
+                <td>Limitada a documents estàtics o formularis incrustats.</td>
+              </tr>
+              <tr>
+                <td><strong>Sobirania i portabilitat</strong></td>
+                <td>Codi obert (HTML, CSS i JS) executable fins i tot fora de línia.</td>
+                <td>Plataforma tancada, no exportable fora de Google.</td>
+              </tr>
+              <tr>
+                <td><strong>Col·laboració docent</strong></td>
+                <td>Bifurcació senzilla (fork) per adaptar el recurs en segons.</td>
+                <td>Gestió rígida de permisos per correu electrònic.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <hr class="print-section-divider">
+
+    <!-- =========================================================================
+         BLOC 5: LLICÈNCIES I CODI OBERT
+         ========================================================================= -->
+    <section class="print-block-section" id="dossier-bloc5">
+      <div class="content-box">
+        <span class="page-category-tag">Bloc 5</span>
+        <h2>Llicències: Creative Commons, codi obert i recomanacions per a docents</h2>
+        <p class="lead-desc">Com protegir, compartir i reutilitzar adequadament continguts i codi</p>
+
+        <div class="pedagogical-highlight">
+          Un recurs web educatiu té dues dimensions: els <strong>continguts pedagògics</strong> (textos, activitats) i el <strong>codi informàtic</strong> (HTML, CSS i JS). Cal aplicar la llicència adequada a cadascuna mitjançant una declaració de doble llicència.
+        </div>
+
+        <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Taula de llicències recomanades per a docents</h3>
+        <div class="table-responsive">
+          <table class="clean-table">
+            <thead>
+              <tr>
+                <th style="width: 22%;">Tipus de recurs</th>
+                <th style="width: 26%;">Llicència recomanada</th>
+                <th style="width: 28%;">Què permet als companys docents</th>
+                <th style="width: 24%;">Què cal evitar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Contingut didàctic</strong></td>
+                <td><strong>CC BY-SA 4.0</strong> (o CC BY 4.0)</td>
+                <td>Descarregar, adaptar a l'aula i millorar, exigint compartir les millores en obert (REO).</td>
+                <td>Evitar ND (impedeix el DUA i traduir) i NC (inseguretat jurídica en tallers i AFA).</td>
+              </tr>
+              <tr>
+                <td><strong>Codi font web</strong></td>
+                <td><strong>Llicència MIT</strong> (o GNU GPL v3)</td>
+                <td>Clonar, estudiar i executar lliurement a qualsevol ordinador d'aula o del PEDC.</td>
+                <td>Evitar aplicar llicències Creative Commons al codi informàtic.</td>
+              </tr>
+              <tr>
+                <td><strong>Icones</strong></td>
+                <td><strong>ISC / MIT</strong> (Lucide, Tabler)</td>
+                <td>Ús lliure en aplicacions sense restriccions ni costos.</td>
+                <td>Evitar paquets privatius amb copyright tancat.</td>
+              </tr>
+              <tr>
+                <td><strong>Imatges</strong></td>
+                <td><strong>Llicències Unsplash / Pexels / CC</strong></td>
+                <td>Il·lustrar amb imatges reals d'alta qualitat citant amb patró TASL.</td>
+                <td>Evitar imatges de Google sense filtrar drets.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <hr class="print-section-divider">
+
+    <!-- =========================================================================
+         BLOC 6: IMATGES I ICONES
+         ========================================================================= -->
+    <section class="print-block-section" id="dossier-bloc6">
+      <div class="content-box">
+        <span class="page-category-tag">Bloc 6</span>
+        <h2>Recursos visuals: evitar l'excés d'IA, icones i citació d'imatges</h2>
+        <p class="lead-desc">Com construir materials rigorosos respectant l'autoria humana</p>
+
+        <div class="pedagogical-highlight">
+          Evitem generar imatges artificials per a finalitats purament decoratives: l'estètica hiperestilitzada de la IA pot restar credibilitat pedagògica. Prioritzem iconografia funcional (Lucide, Tabler) i fotografies reals de bancs gratuïts citades adequadament.
+        </div>
+
+        <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">El patró TASL per a l'atribució a peu d'imatge:</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+          <strong>T</strong>ítol del recurs, <strong>A</strong>utoria (amb enllaç al creador), <strong>S</strong>ource / Font (plataforma on s'allotja) i <strong>L</strong>licència (amb enllaç a les condicions legals).
+        </p>
+      </div>
+    </section>
+
+    <hr class="print-section-divider">
+
+    <!-- =========================================================================
+         BLOC 7: BONES PRÀCTIQUES
+         ========================================================================= -->
+    <section class="print-block-section" id="dossier-bloc7">
+      <div class="content-box">
+        <span class="page-category-tag">Bloc 7</span>
+        <h2>Bones pràctiques: Vibe coding responsable a l'aula</h2>
+        <p class="lead-desc">Deu recomanacions essencials per a un ús ètic, segur i de qualitat</p>
+
+        <ol style="padding-left: 1.5rem; font-size: 0.95rem; line-height: 1.7; color: var(--text-main);">
+          <li><strong>Revisar el contingut:</strong> fer l'activitat com a alumne abans de publicar-la; mai delegar el rigor a la IA.</li>
+          <li><strong>Protecció de dades:</strong> no introduir mai dades de l'alumnat; crear activitats que s'executin en local al navegador.</li>
+          <li><strong>Entendre el codi:</strong> demanar a l'agent que comenti i expliqui el funcionament de cada part.</li>
+          <li><strong>Autonomia:</strong> no dependre d'enllaços a servidors externs que puguin caure.</li>
+          <li><strong>Accessibilitat (DUA):</strong> contrast elevat, mides de text llegibles i navegació per teclat.</li>
+          <li><strong>Atribució:</strong> citar fonts, fotografies i fragments de codi amb el patró TASL.</li>
+          <li><strong>Traçabilitat:</strong> guardar les indicacions donades al fitxer <code>README.md</code>.</li>
+          <li><strong>Transparència:</strong> declarar al peu de la pàgina l'ús d'IA i la revisió humana docent.</li>
+          <li><strong>Llicència a la vista:</strong> indicar llicència oberta (com CC BY-SA 4.0) per garantir seguretat jurídica.</li>
+          <li><strong>Compartir el codi:</strong> enllaçar el repositori públic perquè altres docents puguin bifurcar i adaptar el recurs.</li>
+        </ol>
+      </div>
+    </section>
+
+    <hr class="print-section-divider">
+
+    <!-- =========================================================================
+         BLOC 8: VERIFICACIÓ D'AULA
+         ========================================================================= -->
+    <section class="print-block-section" id="dossier-bloc8">
+      <div class="content-box">
+        <span class="page-category-tag">Bloc 8</span>
+        <h2>Llista de verificació abans de portar el recurs a l'aula</h2>
+        <p class="lead-desc">Comprovacions imprescindibles de contingut, privadesa i usabilitat</p>
+
+        <ul style="padding-left: 1.25rem; font-size: 0.95rem; line-height: 1.7; color: var(--text-muted);">
+          <li>✓ Respostes i continguts pedagògics verificats personalment pel docent.</li>
+          <li>✓ Zero sol·licitud de dades personals de l'alumnat (cap formulari de registre).</li>
+          <li>✓ Provat en telèfons mòbils, tauletes i pantalles petites amb disseny adaptatiu.</li>
+          <li>✓ Botons grans i fàcils de prémer, contrast cromàtic que compleixi pautes WCAG.</li>
+          <li>✓ Llicència clara indicada al peu de pàgina i enllaç al repositori públic.</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="print-section-divider">
+
+    <!-- =========================================================================
+         BLOC 9: IA LOCAL
+         ========================================================================= -->
+    <section class="print-block-section" id="dossier-bloc9">
+      <div class="content-box">
+        <span class="page-category-tag">Bloc 9</span>
+        <h2>Per continuar explorant: models d'intel·ligència artificial local</h2>
+        <p class="lead-desc">Privadesa absoluta, funcionament fora de línia i recursos en català</p>
+
+        <div class="pedagogical-highlight">
+          L'execució de models en local permet gaudir de la intel·ligència artificial sense enviar cap dada a servidors aliens, amb independència de connexió a internet i garantint la sobirania tecnològica del centre educatiu.
+        </div>
+
+        <ul style="padding-left: 1.25rem; font-size: 0.95rem; line-height: 1.7; color: var(--text-muted);">
+          <li><strong>Xerrada de Jordi Mas (Softcatalà):</strong> sessió divulgativa de referència per entendre el funcionament de la IA local i la importància de disposar de models en català.</li>
+          <li><strong>Catàlegs de Softcatalà:</strong> comparatives de models de llenguatge (LLM) avaluats específicament en català.</li>
+          <li><strong>Rebost.ai:</strong> directori comunitari obert de recursos d'intel·ligència artificial en llengua catalana.</li>
+          <li><strong>Eines visuals:</strong> programes intuïtius com <em>LM Studio</em> o <em>Ollama</em> amb interfícies com <em>Page Assist</em> o <em>Open WebUI</em> per executar models d'entre 1B i 8B paràmetres en equips convencionals.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Peu del dossier -->
+    <footer class="footer" style="margin-top: 3rem; text-align: center;">
+      <p><strong>Eines d'intel·ligència artificial per a l'aula</strong> — Servei Educatiu del Vallès Occidental II.</p>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.35rem;">
+        Distribuït amb llicència lliure Creative Commons Reconeixement-CompartirIgual 4.0 Internacional (CC BY-SA 4.0) per al contingut i Llicència MIT per al codi informàtic.
+      </p>
+      <p style="font-size: 0.825rem; color: var(--text-muted); margin-top: 0.25rem;">
+        Repositori del projecte: <a href="https://github.com/miquelangelfuentes/eines-ia-aula" target="_blank" rel="noopener">github.com/miquelangelfuentes/eines-ia-aula</a>
+      </p>
+    </footer>
+
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="app.js?v=4"></script>
+</body>
+</html>

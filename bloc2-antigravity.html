@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bloc 2: Google Antigravity | Eines d'IA per a l'aula</title>
   <meta name="description" content="Instal·lació i configuració de Google Antigravity per a docents per primera vegada: carpetes de treball, models i instruccions educatives.">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="prev" href="bloc1-marc.html">
   <link rel="next" href="bloc3-github.html">
@@ -21,6 +21,21 @@
       </a>
 
       <div class="controls-group">
+        <div class="print-menu-container">
+          <button id="btn-print-menu" class="btn-icon" type="button" aria-label="Opcions d'impressió" title="Imprimir" aria-haspopup="true" aria-expanded="false">
+            <i data-lucide="printer"></i>
+          </button>
+          <div id="print-dropdown" class="print-dropdown" role="menu">
+            <button type="button" class="print-dropdown-item" id="btn-print-page" role="menuitem">
+              <i data-lucide="file-text" style="width:16px;height:16px;"></i>
+              <span>Imprimir aquesta pàgina</span>
+            </button>
+            <a href="imprimir-tot.html?print=1" class="print-dropdown-item" id="btn-print-all" role="menuitem">
+              <i data-lucide="book-open" style="width:16px;height:16px;"></i>
+              <span>Imprimir tota la presentació</span>
+            </a>
+          </div>
+        </div>
         <a href="index.html" class="btn-icon" title="Tornar a l'inici" aria-label="Tornar a l'inici">
           <i data-lucide="home"></i>
         </a>
@@ -192,6 +207,115 @@
       </div>
     </div>
 
+    <!-- Caixa 2: Comparativa de Google Antigravity amb OpenAI Codex i Claude Code -->
+    <div class="content-box">
+      <h2>Comparativa: Google Antigravity, OpenAI Codex i Claude Code d'Anthropic</h2>
+      <p class="lead-desc">Com es posiciona Antigravity respecte a altres eines líders de generació de codi amb intel·ligència artificial des de la perspectiva educativa</p>
+
+      <div class="pedagogical-highlight">
+        El desenvolupament assistit per intel·ligència artificial ha evolucionat en diverses direccions. Mentre que algunes eines han estat creades per a enginyers de programari habituats a la consola o a editors tradicionals, <strong>Google Antigravity</strong> s'estructura com un entorn integrat orientat a la creació autònoma d'aplicacions completes mitjançant diàleg en llenguatge natural, convertint-lo en l'opció més accessible per a l'aula.
+      </div>
+
+      <div class="table-responsive">
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th style="width: 22%;">Eina</th>
+              <th style="width: 26%;">Format i interfície</th>
+              <th style="width: 28%;">Punts forts pedagògics</th>
+              <th style="width: 24%;">Consideracions d'aula</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <strong><a href="https://antigravity.google" target="_blank" rel="noopener">Google Antigravity</a></strong><br>
+                <small style="color:var(--text-muted);">(Google DeepMind)</small>
+              </td>
+              <td>
+                <span class="badge-feature badge-positive">Entorn gràfic integrat (IDE)</span><br>
+                Aplicació d'escriptori completa amb panell lateral d'agents, gestor visual d'arxius i previsualització interactiva directa al mateix espai.
+              </td>
+              <td>
+                <ul style="padding-left:1.15rem;margin:0.25rem 0;font-size:0.875rem;line-height:1.55;color:var(--text-muted);">
+                  <li>Interacció en llenguatge natural sense necessitat de tocar la línia d'ordres.</li>
+                  <li>Capacitat multimodal dels models <a href="https://deepmind.google/technologies/gemini/" target="_blank" rel="noopener">Gemini</a> (llegeix imatges, diagrames didàctics i taules).</li>
+                  <li>Genera projectes web complets (HTML, CSS i JS) llestos per funcionar.</li>
+                </ul>
+              </td>
+              <td>
+                <span class="badge-feature badge-positive">Idoni per a docents</span><br>
+                S'instal·la al perfil local als portàtils del PEDC sense necessitat de permisos d'administrador. Accés directe amb el compte educatiu de Google.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong><a href="https://openai.com" target="_blank" rel="noopener">OpenAI Codex</a></strong><br>
+                <small style="color:var(--text-muted);">(OpenAI / GitHub Copilot)</small>
+              </td>
+              <td>
+                <span class="badge-feature" style="background:var(--bg-subtle);border:1px solid var(--border-color);color:var(--text-main);">Extensió per a editors de codi</span><br>
+                S'integra com a complement dins d'entorns de desenvolupament tradicionals (com Visual Studio Code o JetBrains) o via API.
+              </td>
+              <td>
+                <ul style="padding-left:1.15rem;margin:0.25rem 0;font-size:0.875rem;line-height:1.55;color:var(--text-muted);">
+                  <li>Excel·lent autocompletat mentre s'escriu codi línia a línia.</li>
+                  <li>Gran rapidesa suggerint funcions petites i tancant etiquetes.</li>
+                  <li>Molt consolidat en la indústria del desenvolupament de programari.</li>
+                </ul>
+              </td>
+              <td>
+                <span class="badge-feature badge-negative">Requereix coneixements previs</span><br>
+                Pensat per a qui ja programa. No és un entorn autònom per a principiants i normalment requereix subscripció (tot i que GitHub Education ofereix accés gratuït a professorat verificat).
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong><a href="https://claude.ai" target="_blank" rel="noopener">Claude Code</a></strong><br>
+                <small style="color:var(--text-muted);">(Anthropic)</small>
+              </td>
+              <td>
+                <span class="badge-feature badge-negative">Línia d'ordres pura (CLI / Terminal)</span><br>
+                Agent autònom que s'executa a la consola de text del sistema operatiu (PowerShell o terminal Bash).
+              </td>
+              <td>
+                <ul style="padding-left:1.15rem;margin:0.25rem 0;font-size:0.875rem;line-height:1.55;color:var(--text-muted);">
+                  <li>Extraordinari raonament lògic i resolució d'errors complexes gràcies als models Claude Sonnet.</li>
+                  <li>Modifica repositoris sencers i executa tasques del sistema automàticament.</li>
+                </ul>
+              </td>
+              <td>
+                <span class="badge-feature badge-negative">Barrera tècnica elevada</span><br>
+                Manca d'interfície visual: cal dominar comandes de consola. Requereix configurar credencials d'API de pagament d'Anthropic i permisos avançats al sistema.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cards-grid" style="margin-top: 1.5rem;">
+        <div class="card-item">
+          <div class="card-item-icon">
+            <i data-lucide="layout"></i>
+          </div>
+          <h3>Per què triem Google Antigravity per a la formació docent?</h3>
+          <p>
+            Antigravity elimina la barrera del codi sense amagar la realitat dels fitxers. Permet que qualsevol mestre o professora, sense coneixements de terminal ni d'extensió, pugui veure com es construeix una aplicació interactiva, provar-la en directe i desar-la a la seva pròpia carpeta.
+          </p>
+        </div>
+
+        <div class="card-item">
+          <div class="card-item-icon">
+            <i data-lucide="graduation-cap"></i>
+          </div>
+          <h3>Quin paper tenen Codex i Claude Code?</h3>
+          <p>
+            Són eines molt útils per a docents d'informàtica, cicles formatius de desenvolupament d'aplicacions web o professionals del programari que necessiten suport en grans projectes de codi. Per a la creació de recursos pedagògics generals a primària i secundària, l'entorn visual d'Antigravity resulta molt més directe i acollidor.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <!-- Paginació inferior -->
     <div class="page-pagination">
       <a href="bloc1-marc.html" class="btn-pagination" data-nav="prev">
@@ -215,6 +339,6 @@
   </footer>
 
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
