@@ -110,10 +110,10 @@ Objectiu pedagògic: ${objectiu}
 
 Requisits de bones pràctiques i accessibilitat (DUA):
 1. Protecció de dades: l'alumnat no s'ha d'identificar ni registrar. Tot s'executa al navegador en local.
-2. Accessibilitat: ${dua}. Colors amb alt contrast (WCAG AA), text gran i llegible, navegable per teclat i adaptable a mòbils.
+2. Accessibilitat: ${dua}. Colors amb alt contrast (WCAG AA) i bona navegació per teclat o mòbils.
 3. Rigor: contingut exacte, sense invencions de dades, amb retroacció explicativa quan l'alumne s'equivoca.
 4. Independència: sense enllaços externs a imatges fràgils; utilitzar estils CSS nets o icones SVG bàsiques.
-5. Codi obert: codi net, ben estructurat i comentat, amb peu de pàgina de transparència d'ús d'IA i llicència Creative Commons BY-SA per al contingut i llicència MIT per al codi.
+5. Codi obert: codi net i ben comentat, amb peu de pàgina de transparència d'ús d'IA i llicència Creative Commons BY-SA per al contingut i llicència MIT per al codi.
 
 Genera el codi complet i llest per desar a la carpeta local i publicar a GitHub Pages.`;
 
@@ -378,10 +378,10 @@ function initDiagnosticQuiz() {
     } else if (avgScore < 3.2) {
       profileKey = "intermedi";
       profileTitle = "Perfil intermedi: consolidació de bones pràctiques i autonomia";
-      profileDesc = "Compteu amb una bona base digital. La sessió us aportarà el rigor tècnic i metodològic que us falta per deixar enrere plataformes tancades, aplicar llicències obertes i dissenyar recursos accessibles.";
+      profileDesc = "Compteu amb una bona base digital. La sessió us aportarà el rigor tècnic i metodològic que us falta per deixar enrere plataformes tancades i dissenyar recursos oberts i accessibles.";
 
       recommendedModules = [
-        `<strong><a href="bloc4-pages-sites.html">Bloc 4: GitHub Pages i Google Sites</a></strong>: anàlisi detallada dels avantatges d'independència, velocitat i reutilització real.`,
+        `<strong><a href="bloc4-pages-sites.html">Bloc 4: GitHub Pages i Google Sites</a></strong>: anàlisi detallada dels avantatges d'independència i reutilització real.`,
         `<strong><a href="bloc5-llicencies.html">Bloc 5: llicències (Creative Commons i codi)</a></strong>: com combinar la llicència MIT per al codi font amb CC BY-SA 4.0 per als continguts pedagògics.`,
         `<strong><a href="bloc6-recursos-visuals.html">Bloc 6: imatges i icones en comptes d'IA</a></strong>: la regla TASL per citar fotografies de bancs lliures i l'ús d'icones Lucide sense carregar la pàgina.`,
         `<strong><a href="bloc7-bones-practiques.html">Bloc 7: bones pràctiques i privacitat a l'aula</a></strong>: criteris de privacitat estricta (sense registre de l'alumnat) i pautes del DUA.`
@@ -398,10 +398,10 @@ function initDiagnosticQuiz() {
     } else {
       profileKey = "avancat";
       profileTitle = "Perfil avançat: disseny educatiu obert i exploració d'IA local";
-      profileDesc = "Teniu una trajectòria àmplia i domini dels entorns digitals. Aquesta ponència us permetrà perfeccionar el vostre flux de creació, assegurar l'ètica i accessibilitat dels materials i explorar noves fronteres com la IA local.";
+      profileDesc = "Teniu una trajectòria àmplia i domini dels entorns digitals. Aquesta ponència us permetrà perfeccionar el vostre flux de creació i explorar fronteres com la IA local.";
 
       recommendedModules = [
-        `<strong><a href="bloc6-recursos-visuals.html">Bloc 6: imatges i icones</a></strong> i <strong><a href="bloc7-bones-practiques.html">Bloc 7: bones pràctiques</a></strong>: rigor en la citació TASL, accessibilitat DUA i transparència en l'ús d'IA.`,
+        `<strong><a href="bloc6-recursos-visuals.html">Bloc 6: imatges i icones</a></strong> i <strong><a href="bloc7-bones-practiques.html">Bloc 7: bones pràctiques</a></strong>: rigor en la citació TASL i compliment de pautes DUA.`,
         `<strong><a href="bloc8-verificacio.html">Bloc 8: llista de verificació</a></strong>: model d'auditoria transferible a altres docents del vostre departament o claustre.`,
         `<strong><a href="bloc9-per-continuar-explorant.html">Bloc 9: per continuar explorant (IA local)</a></strong>: eines d'IA que funcionen 100% en local a l'ordinador (Ollama, LM Studio), models en català de Projecte AINA i Rebost.ai.`
       ];
