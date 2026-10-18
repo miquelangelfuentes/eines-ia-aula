@@ -68,6 +68,9 @@
 
       <div class="cards-grid">
         <div class="card-item">
+          <div class="card-item-icon">
+            <i data-lucide="eye-off"></i>
+          </div>
           <h3>La fatiga de la imatge artificial</h3>
           <p>
             L'estètica hiperestilitzada de la IA (mirades estranyes, textures de plàstic o mans incoherents) distreu de l'objectiu educatiu. Quan un material està saturat d'imatges decoratives sense valor informatiu real, l'activitat perd credibilitat.
@@ -75,6 +78,9 @@
         </div>
 
         <div class="card-item">
+          <div class="card-item-icon">
+            <i data-lucide="heart-handshake"></i>
+          </div>
           <h3>Respecte per la comunitat artística</h3>
           <p>
             A l'escola eduquem en valors. Fer servir fotografies o il·lustracions fetes per persones reals i reconèixer-ne la feina és una oportunitat educativa de primer ordre per ensenyar a l'alumnat el respecte per la creació i la cultura compartida.
@@ -82,6 +88,9 @@
         </div>
 
         <div class="card-item">
+          <div class="card-item-icon">
+            <i data-lucide="compass"></i>
+          </div>
           <h3>Criteri pedagògic abans que decoració</h3>
           <p>
             Una imatge en un recurs d'aula només hauria d'aparèixer si aporta informació: un mapa, un gràfic científic, una obra d'art o una fotografia històrica. Si només és per omplir espai buit, és millor no posar-ne cap.
@@ -96,6 +105,9 @@
 
       <div class="clean-grid">
         <div class="card-item">
+          <div class="card-item-icon">
+            <i data-lucide="smile"></i>
+          </div>
           <h3>Els emojis del sistema</h3>
           <p>
             Tots els ordinadors, tauletes i telèfons incorporen centenars d'emojis de sèrie (com ara 📚, 🔬, 🌍, ⏱️ o 💡). No pesen ni un sol byte a la pàgina, es veuen nítids a qualsevol pantalla i ajuden a estructurar la informació sense distreure.
@@ -103,6 +115,9 @@
         </div>
 
         <div class="card-item">
+          <div class="card-item-icon">
+            <i data-lucide="shapes"></i>
+          </div>
           <h3>Biblioteques d'icones lliures</h3>
           <p>
             Hi ha col·leccions d'icones professionals dissenyades per persones, amb llicències que en permeten l'ús educatiu i gratuït:
@@ -161,18 +176,30 @@
 
       <div class="cards-grid">
         <div class="card-item">
+          <div class="card-item-icon">
+            <i data-lucide="heading"></i>
+          </div>
           <h3>T — Títol (Title)</h3>
           <p>El nom o descripció de la fotografia (per exemple, "Erupció del volcà Etna").</p>
         </div>
         <div class="card-item">
+          <div class="card-item-icon">
+            <i data-lucide="user"></i>
+          </div>
           <h3>A — Autoria (Author)</h3>
           <p>El nom de la persona que ha fet la foto, amb enllaç al seu perfil si és possible.</p>
         </div>
         <div class="card-item">
+          <div class="card-item-icon">
+            <i data-lucide="link"></i>
+          </div>
           <h3>S — Font (Source)</h3>
           <p>L'enllaç al web d'on s'ha obtingut la fotografia (per exemple, a Unsplash o Wikimedia Commons).</p>
         </div>
         <div class="card-item">
+          <div class="card-item-icon">
+            <i data-lucide="badge-check"></i>
+          </div>
           <h3>L — Llicència (License)</h3>
           <p>El tipus de llicència (per exemple, "Llicència Unsplash" o "CC BY-SA 4.0") amb el seu enllaç.</p>
         </div>
@@ -189,13 +216,23 @@
           <button class="copy-btn" data-target="snippet-figure-code">Copiar codi</button>
         </div>
         <pre id="snippet-figure-code"><code>&lt;figure class="edu-figure"&gt;
-  &lt;img src="imatges/volca-etna.jpg" alt="Erupció nocturna del volcà Etna amb columnes de lava"&gt;
+  &lt;img src="https://images.unsplash.com/photo-1518457607834-6e8d80c183c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Erupció i cràter del volcà Etna a Sicília"&gt;
   &lt;figcaption class="edu-caption"&gt;
-    Fotografia de &lt;a href="https://unsplash.com/@autor" target="_blank" rel="noopener"&gt;Nom del Fotògraf&lt;/a&gt; 
-    a &lt;a href="https://unsplash.com" target="_blank" rel="noopener"&gt;Unsplash&lt;/a&gt; 
+    Fotografia de &lt;a href="https://unsplash.com/@alain_b" target="_blank" rel="noopener"&gt;Alain Bonnardeaux&lt;/a&gt; 
+    a &lt;a href="https://unsplash.com/photos/vR7J465Wv5Y" target="_blank" rel="noopener"&gt;Unsplash&lt;/a&gt; 
     (Llicència gratuïta d'Unsplash).
   &lt;/figcaption&gt;
 &lt;/figure&gt;</code></pre>
+      </div>
+
+      <div style="margin: 1.5rem 0;">
+        <h4 style="margin-bottom: 0.5rem; font-size: 1rem; color: var(--text-color);">Com es visualitza a la pràctica a la pàgina:</h4>
+        <figure class="edu-figure">
+          <img src="https://images.unsplash.com/photo-1518457607834-6e8d80c183c5?auto=format&fit=crop&w=1200&q=80" alt="Erupció i cràter del volcà Etna a Sicília" loading="lazy">
+          <figcaption class="edu-caption">
+            Fotografia: <a href="https://unsplash.com/@alain_b" target="_blank" rel="noopener">Alain Bonnardeaux</a> a <a href="https://unsplash.com/photos/vR7J465Wv5Y" target="_blank" rel="noopener">Unsplash</a> (<a href="https://unsplash.com/license" target="_blank" rel="noopener">Llicència Unsplash</a>).
+          </figcaption>
+        </figure>
       </div>
 
       <div class="pedagogical-highlight" style="margin-top: 1.5rem;">
@@ -225,6 +262,7 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script src="app.js"></script>
 </body>
 </html>

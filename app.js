@@ -5,11 +5,18 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
+  initLucide();
   initKeyboardNavigation();
   initCopyButtons();
   initPromptGenerator();
   initChecklist();
 });
+
+function initLucide() {
+  if (window.lucide && typeof window.lucide.createIcons === "function") {
+    window.lucide.createIcons();
+  }
+}
 
 /* 1. Gestió del tema (clar o fosc) */
 function initTheme() {
@@ -161,8 +168,11 @@ function initChecklist() {
 function updateChecklistProgress() {
   const total = document.querySelectorAll(".vibe-checklist-input").length;
   const checked = document.querySelectorAll(".vibe-checklist-input:checked").length;
+  const countEl = document.getElementById("checklist-progress-count");
   const counterEl = document.getElementById("checklist-progress-text");
-  if (counterEl) {
+  if (countEl) {
+    countEl.textContent = `${checked} de ${total} punts verificats`;
+  } else if (counterEl) {
     counterEl.textContent = `${checked} de ${total} punts verificats`;
   }
 }
