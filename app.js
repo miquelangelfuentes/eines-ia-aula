@@ -1,12 +1,11 @@
 /* ==========================================================================
    EINES D'INTEL·LIGÈNCIA ARTIFICIAL PER A L'AULA
-   Lògica interactiva: modes de visualització, eines docents i verificació
+   Lògica per al lloc web multipàgina: tema, dreceres de teclat i eines
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
-  initViewMode();
-  initStepwiseNavigation();
+  initKeyboardNavigation();
   initCopyButtons();
   initPromptGenerator();
   initChecklist();
@@ -38,111 +37,23 @@ function updateThemeIcon(theme) {
   icon.textContent = theme === "dark" ? "☀️" : "🌙";
 }
 
-/* 2. Selector de mode (document complet vs. pas a pas per no sobrecarregar) */
-let currentMode = "guide"; // 'guide' (complet) | 'stepwise' (pas a pas)
-let currentStepIndex = 0;
-const sections = [];
-
-function initViewMode() {
-  const btnModeGuide = document.getElementById("btn-mode-guide");
-  const btnModeStepwise = document.getElementById("btn-mode-stepwise");
-  const cards = document.querySelectorAll(".block-card");
-
-  cards.forEach((card) => {
-    sections.push(card);
-  });
-
-  const savedMode = localStorage.getItem("eines-ia:mode") || "guide";
-  setMode(savedMode);
-
-  if (btnModeGuide && btnModeStepwise) {
-    btnModeGuide.addEventListener("click", () => setMode("guide"));
-    btnModeStepwise.addEventListener("click", () => setMode("stepwise"));
-  }
-}
-
-function setMode(mode) {
-  currentMode = mode;
-  localStorage.setItem("eines-ia:mode", mode);
-  const btnModeGuide = document.getElementById("btn-mode-guide");
-  const btnModeStepwise = document.getElementById("btn-mode-stepwise");
-
-  if (mode === "stepwise") {
-    document.body.classList.add("mode-stepwise");
-    btnModeStepwise?.classList.add("active");
-    btnModeGuide?.classList.remove("active");
-    showStep(currentStepIndex);
-  } else {
-    document.body.classList.remove("mode-stepwise");
-    btnModeGuide?.classList.add("active");
-    btnModeStepwise?.classList.remove("active");
-    sections.forEach(card => card.classList.remove("step-active"));
-  }
-}
-
-/* 3. Navegació del mode pas a pas */
-function initStepwiseNavigation() {
-  const btnPrev = document.getElementById("btn-step-prev");
-  const btnNext = document.getElementById("btn-step-next");
-
-  btnPrev?.addEventListener("click", () => navigateStep(-1));
-  btnNext?.addEventListener("click", () => navigateStep(1));
+/* 2. Navegació amb tecles de fletxa entre blocs (ideal per a la xerrada) */
+function initKeyboardNavigation() {
+  const linkPrev = document.querySelector('link[rel="prev"]') || document.querySelector('.btn-pagination[data-nav="prev"]');
+  const linkNext = document.querySelector('link[rel="next"]') || document.querySelector('.btn-pagination[data-nav="next"]');
 
   window.addEventListener("keydown", (e) => {
-    if (currentMode !== "stepwise") return;
     if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA" || e.target.tagName === "SELECT") return;
 
-    if (e.key === "ArrowRight" || e.key === "PageDown") {
-      e.preventDefault();
-      navigateStep(1);
-    } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
-      e.preventDefault();
-      navigateStep(-1);
+    if (e.key === "ArrowRight" && linkNext) {
+      window.location.href = linkNext.getAttribute("href");
+    } else if (e.key === "ArrowLeft" && linkPrev) {
+      window.location.href = linkPrev.getAttribute("href");
     }
   });
 }
 
-function navigateStep(delta) {
-  const target = currentStepIndex + delta;
-  if (target >= 0 && target < sections.length) {
-    showStep(target);
-  }
-}
-
-function showStep(index) {
-  if (sections.length === 0) return;
-  currentStepIndex = index;
-
-  sections.forEach((sec, i) => {
-    if (i === index) {
-      sec.classList.add("step-active");
-      sec.scrollIntoView({ behavior: "smooth", block: "start" });
-    } else {
-      sec.classList.remove("step-active");
-    }
-  });
-
-  const counter = document.getElementById("stepwise-counter-display");
-  if (counter) {
-    counter.textContent = `Secció ${index + 1} de ${sections.length}`;
-  }
-
-  const btnPrev = document.getElementById("btn-step-prev");
-  const btnNext = document.getElementById("btn-step-next");
-  if (btnPrev) btnPrev.disabled = index === 0;
-  if (btnNext) btnNext.disabled = index === sections.length - 1;
-
-  const stepNavItems = document.querySelectorAll(".step-nav-item");
-  stepNavItems.forEach((item, i) => {
-    if (i === index) {
-      item.classList.add("active");
-    } else {
-      item.classList.remove("active");
-    }
-  });
-}
-
-/* 4. Copiar fragments de text o codi */
+/* 3. Copiar fragments de codi o textos */
 function initCopyButtons() {
   document.querySelectorAll(".copy-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -163,7 +74,7 @@ function initCopyButtons() {
   });
 }
 
-/* 5. Generador de prompts educatius per a Antigravity */
+/* 4. Formulari generador de prompts per a Antigravity */
 function initPromptGenerator() {
   const form = document.getElementById("prompt-generator-form");
   const resultBox = document.getElementById("generated-prompt-text");
@@ -211,7 +122,7 @@ Genera el codi complet i llest per desar a la carpeta local i publicar a GitHub 
   });
 }
 
-/* 6. Llista de verificació interactiva de bones pràctiques */
+/* 5. Llista de verificació interactiva de bones pràctiques */
 function initChecklist() {
   const checkboxes = document.querySelectorAll(".vibe-checklist-input");
   const savedChecks = JSON.parse(localStorage.getItem("eines-ia:checklist") || "{}");

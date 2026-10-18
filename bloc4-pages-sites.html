@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloc 4: Pages enfront de Sites | Eines d'IA per a l'aula</title>
+  <meta name="description" content="Comparativa entre GitHub Pages i Google Sites: automatització amb IA, riquesa interactiva, sobirania dels materials i treball col·laboratiu entre docents.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="prev" href="bloc3-github.html">
+  <link rel="next" href="bloc5-llicencies.html">
+</head>
+<body>
+  <a href="#contingut-principal" class="skip-link">Salta directament al contingut</a>
+
+  <!-- Barra superior -->
+  <header class="top-bar">
+    <div class="top-bar-container">
+      <a href="index.html" class="brand-section">
+        <span class="badge-crp">Servei educatiu</span>
+        <div class="brand-title">Eines d'IA per a l'aula</div>
+      </a>
+
+      <div class="controls-group">
+        <a href="index.html" class="btn-icon" title="Tornar a l'inici">🏠</a>
+        <button id="btn-toggle-theme" class="btn-icon" type="button" aria-label="Canviar tema" title="Canviar tema">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navegació de blocs -->
+  <nav class="blocks-nav-bar" aria-label="Índex de blocs">
+    <ul class="blocks-nav-list">
+      <li><a href="index.html" class="block-nav-link">Inici</a></li>
+      <li><a href="bloc1-marc.html" class="block-nav-link"><span class="nav-num-pill">1</span> Marc</a></li>
+      <li><a href="bloc2-antigravity.html" class="block-nav-link"><span class="nav-num-pill">2</span> Antigravity</a></li>
+      <li><a href="bloc3-github.html" class="block-nav-link"><span class="nav-num-pill">3</span> GitHub</a></li>
+      <li><a href="bloc4-pages-sites.html" class="block-nav-link active"><span class="nav-num-pill">4</span> Pages vs. Sites</a></li>
+      <li><a href="bloc5-llicencies.html" class="block-nav-link"><span class="nav-num-pill">5</span> Llicències</a></li>
+      <li><a href="bloc6-bones-practiques.html" class="block-nav-link"><span class="nav-num-pill">6</span> Bones pràctiques</a></li>
+      <li><a href="bloc7-verificacio.html" class="block-nav-link"><span class="nav-num-pill">7</span> Verificació</a></li>
+    </ul>
+  </nav>
+
+  <!-- Capçalera del bloc -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="page-category-tag">Bloc 4</span>
+      <h1>GitHub Pages enfront de Google Sites</h1>
+      <p class="page-hero-subtitle">
+        Per què fer el pas cap a la publicació de codi propi amb assistència d'intel·ligència artificial transforma la creació de materials pedagògics.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contingut del bloc 4 -->
+  <main id="contingut-principal" class="main-content">
+    <div class="content-box">
+      <h2>Una comparativa des de la pràctica d'aula</h2>
+      <p class="lead-desc">Comprendre els avantatges i les limitacions de cada model</p>
+
+      <div class="pedagogical-highlight">
+        Google Sites és una eina clàssica i coneguda als centres educatius perquè funciona com un tauler on s'arrosseguen caixes de text i enllaços a Google Drive. Tanmateix, quan combinem l'ajuda d'un agent d'intel·ligència artificial amb <strong>GitHub Pages</strong>, passem d'un document estàtic a una <strong>autèntica aplicació interactiva</strong> creada sense esforç de maquetació manual.
+      </div>
+
+      <div class="table-responsive">
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th style="width: 24%;">Criteri</th>
+              <th style="width: 38%;">GitHub Pages (amb suport d'IA)</th>
+              <th style="width: 38%;">Google Sites (edició manual)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Creació i canvis</strong></td>
+              <td>
+                <span class="badge-feature badge-positive">Automatitzada per instruccions</span><br>
+                Demanes a l'agent el que necessites en llenguatge natural ("afegeix cinc preguntes més", "canvia els colors per millorar el contrast") i la pàgina s'actualitza sola en segons.
+              </td>
+              <td>
+                <span class="badge-feature badge-negative">Manual i feixuga</span><br>
+                Cal fer desenes de clics, moure caixes de text, reajustar columnes a mà i enllaçar fitxers un per un.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Interactivitat pedagògica</strong></td>
+              <td>
+                <span class="badge-feature badge-positive">Interactivitat completa</span><br>
+                Permet qüestionaris amb càlcul immediat de nota, targetes que giren, rellotges de compte enrere, jocs de paraules, sintetitzadors de veu i petits simuladors científics.
+              </td>
+              <td>
+                <span class="badge-feature badge-negative">Molt limitada</span><br>
+                Pràcticament es limita a mostrar caixes de text fixes, fotografies i documents o formularis incrustats de Google Drive.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Recuperació d'errades</strong></td>
+              <td>
+                <span class="badge-feature badge-positive">Control de versions absolut</span><br>
+                Cada vegada que deses un canvi (commit), es guarda una foto de seguretat. Si una modificació no agrada o espatlla un exercici, pots tornar enrere a la versió anterior amb un sol clic.
+              </td>
+              <td>
+                <span class="badge-feature badge-negative">Historial limitat</span><br>
+                Si sobreescrius o esborres sense voler una secció complexa, pot ser molt difícil tornar al disseny exacte anterior.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Sobirania i portabilitat</strong></td>
+              <td>
+                <span class="badge-feature badge-positive">Codi estàndard i lliure</span><br>
+                Tots els fitxers són teus en format obert (HTML, CSS i JavaScript). Els pots copiar a un llapis USB, desar-los al teu disc dur o executar-los fins i tot sense connexió a Internet.
+              </td>
+              <td>
+                <span class="badge-feature badge-negative">Plataforma tancada</span><br>
+                El lloc web només viu dins de Google. No pots descarregar el codi de la pàgina per migrar-la a una altra plataforma ni obrir-la fora d'aquest ecosistema.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Col·laboració entre docents</strong></td>
+              <td>
+                <span class="badge-feature badge-positive">Bifurcació senzilla (fork)</span><br>
+                Qualsevol company o companya d'un altre institut pot prémer el botó <em>Fork</em> i fer una còpia del teu projecte per adaptar les preguntes a la seva matèria en pocs segons.
+              </td>
+              <td>
+                <span class="badge-feature badge-negative">Gestió rígida de permisos</span><br>
+                Cal compartir permisos per correu electrònic, amb el perill que dos docents toquin la mateixa caixa alhora i es trepitgin els continguts.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Quan té sentit fer servir cadascuna?</h3>
+      <div class="cards-grid">
+        <div class="card-item">
+          <h3>Fes servir Google Sites quan...</h3>
+          <p>
+            Només necessitis compartir un tauler d'anuncis senzill per a les famílies amb documents PDF de circulars o avisos informatius curts que no requereixin cap interactivitat per part de l'alumnat.
+          </p>
+        </div>
+
+        <div class="card-item">
+          <h3>Fes servir GitHub Pages amb IA quan...</h3>
+          <p>
+            Vulguis oferir a l'alumnat activitats interactives, pràctiques d'autoaprenentatge, simulacions, activitats autocorrectives o materials que vulguis compartir en codi obert amb la comunitat educativa.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paginació inferior -->
+    <div class="page-pagination">
+      <a href="bloc3-github.html" class="btn-pagination" data-nav="prev">
+        ◀ <span>Anterior: Bloc 3 • GitHub</span>
+      </a>
+      <a href="bloc5-llicencies.html" class="btn-pagination primary" data-nav="next">
+        <span>Següent: Bloc 5 • Llicències</span> ▶
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p><strong>Eines d'intel·ligència artificial per a l'aula</strong> — Servei Educatiu del Vallès Occidental II.</p>
+      <div class="footer-links">
+        <a href="https://github.com/miquelangelfuentes/eines-ia-aula" target="_blank" rel="noopener">Repositori</a>
+        <span>•</span>
+        <a href="https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html" target="_blank" rel="noopener">Vibe coding responsable</a>
+        <span>•</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-SA 4.0</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

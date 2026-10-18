@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloc 5: Llicències i codi obert | Eines d'IA per a l'aula</title>
+  <meta name="description" content="Com llicenciar materials educatius digitals: per què no aplicar Creative Commons al codi i com utilitzar la fórmula híbrida amb la llicència MIT.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="prev" href="bloc4-pages-sites.html">
+  <link rel="next" href="bloc6-bones-practiques.html">
+</head>
+<body>
+  <a href="#contingut-principal" class="skip-link">Salta directament al contingut</a>
+
+  <!-- Barra superior -->
+  <header class="top-bar">
+    <div class="top-bar-container">
+      <a href="index.html" class="brand-section">
+        <span class="badge-crp">Servei educatiu</span>
+        <div class="brand-title">Eines d'IA per a l'aula</div>
+      </a>
+
+      <div class="controls-group">
+        <a href="index.html" class="btn-icon" title="Tornar a l'inici">🏠</a>
+        <button id="btn-toggle-theme" class="btn-icon" type="button" aria-label="Canviar tema" title="Canviar tema">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navegació de blocs -->
+  <nav class="blocks-nav-bar" aria-label="Índex de blocs">
+    <ul class="blocks-nav-list">
+      <li><a href="index.html" class="block-nav-link">Inici</a></li>
+      <li><a href="bloc1-marc.html" class="block-nav-link"><span class="nav-num-pill">1</span> Marc</a></li>
+      <li><a href="bloc2-antigravity.html" class="block-nav-link"><span class="nav-num-pill">2</span> Antigravity</a></li>
+      <li><a href="bloc3-github.html" class="block-nav-link"><span class="nav-num-pill">3</span> GitHub</a></li>
+      <li><a href="bloc4-pages-sites.html" class="block-nav-link"><span class="nav-num-pill">4</span> Pages vs. Sites</a></li>
+      <li><a href="bloc5-llicencies.html" class="block-nav-link active"><span class="nav-num-pill">5</span> Llicències</a></li>
+      <li><a href="bloc6-bones-practiques.html" class="block-nav-link"><span class="nav-num-pill">6</span> Bones pràctiques</a></li>
+      <li><a href="bloc7-verificacio.html" class="block-nav-link"><span class="nav-num-pill">7</span> Verificació</a></li>
+    </ul>
+  </nav>
+
+  <!-- Capçalera del bloc -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="page-category-tag">Bloc 5</span>
+      <h1>Llicències: Creative Commons i llicències de codi obert</h1>
+      <p class="page-hero-subtitle">
+        Com protegir, compartir i reutilitzar adequadament tant els continguts pedagògics com els fitxers de programació.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contingut del bloc 5 -->
+  <main id="contingut-principal" class="main-content">
+    <div class="content-box">
+      <h2>Per què cal distingir entre contingut i codi?</h2>
+      <p class="lead-desc">Com aplicar la llicència correcta a cada element de la teva aplicació educativa</p>
+
+      <div class="pedagogical-highlight">
+        Quan creem una pàgina web amb Google Antigravity, el material té dues parts clarament diferenciades: d'una banda, els <strong>continguts pedagògics</strong> (les explicacions, les preguntes de l'activitat, els esquemes i els exemples); de l'altra, el <strong>codi informàtic</strong> (les etiquetes HTML, els estils CSS i les funcions en JavaScript que fan que la pàgina funcioni al navegador).
+      </div>
+
+      <div class="licenses-comparison">
+        <div class="license-box cc">
+          <h3>Per al contingut: Creative Commons</h3>
+          <span class="license-for">S'aplica a: textos, enunciats, explicacions, dibuixos i guies docents.</span>
+          <p>
+            Les llicències Creative Commons estan pensades específicament per a obres literàries, artístiques i científiques:
+          </p>
+          <ul>
+            <li><strong>CC BY (Reconeixement):</strong> permet que qualsevol persona utilitzi, modifiqui i comparteixi el material, sempre que reconegui l'autoria original.</li>
+            <li><strong>CC BY-SA (Reconeixement-CompartirIgual):</strong> molt recomanada per a materials educatius públics. Permet adaptar i millorar l'activitat, però exigeix que qualsevol obra derivada es publiqui també sota aquesta mateixa llicència lliure.</li>
+          </ul>
+        </div>
+
+        <div class="license-box software">
+          <h3>Per al codi font: llicències de programari</h3>
+          <span class="license-for">S'aplica a: fitxers de codi (HTML, CSS i JavaScript).</span>
+          <p>
+            La mateixa organització Creative Commons desaconsella fer servir les seves llicències per a codi de programari, perquè no regulen aspectes tècnics com la compilació o la distribució de codi executable:
+          </p>
+          <ul>
+            <li><strong>Llicència MIT:</strong> la llicència més breu, senzilla i habitual en projectes web. Permet que tothom pugui reutilitzar i adaptar el codi amb l'única condició de mantenir l'avís d'autoria.</li>
+            <li><strong>Llicència GNU GPL:</strong> llicència que garanteix que qualsevol programa que utilitzi el codi continuarà sent sempre de codi obert.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Com aplicar la fórmula híbrida al teu recurs d'aula:</h3>
+      <p style="color: var(--text-muted); font-size: 0.925rem; line-height: 1.6; margin-bottom: 1rem;">
+        La manera més senzilla i professional de resoldre-ho és afegir una petita declaració al peu de la teva pàgina web o al fitxer <code>README.md</code> del repositori, combinant ambdues llicències:
+      </p>
+
+      <div class="terminal-block">
+        <div class="terminal-header">
+          <span>Model de declaració de doble llicència per al teu recurs</span>
+          <button class="copy-btn" data-target="snippet-llicencies-bloc">Copiar text</button>
+        </div>
+        <pre id="snippet-llicencies-bloc"><code>Aquest recurs educatiu obert es distribueix amb una doble llicència:
+- El contingut educatiu, les preguntes i les explicacions es publiquen sota llicència Creative Commons Reconeixement-CompartirIgual 4.0 Internacional (CC BY-SA 4.0).
+- El codi font de la pàgina web (HTML, CSS i JavaScript) es publica sota llicència lliure MIT.</code></pre>
+      </div>
+
+      <div class="cards-grid" style="margin-top: 1.5rem;">
+        <div class="card-item">
+          <h3>Per què és important posar llicència?</h3>
+          <p>
+            Si publiques un material a Internet sense indicar cap llicència, legalment s'aplica el principi de "tots els drets reservats". Això vol dir que cap altre docent podrà adaptar o descarregar el teu material amb seguretat jurídica, encara que estigui penjat públicament a GitHub.
+          </p>
+        </div>
+
+        <div class="card-item">
+          <h3>Com ajuda a la comunitat educativa?</h3>
+          <p>
+            Quan indiques clarament una llicència com CC BY-SA i MIT, estàs donant permís formal als teus companys i companyes de centre i de tot el territori per adaptar les preguntes, traduir el vocabulari o ajustar el nivell sense haver de demanar autoritzacions personals.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paginació inferior -->
+    <div class="page-pagination">
+      <a href="bloc4-pages-sites.html" class="btn-pagination" data-nav="prev">
+        ◀ <span>Anterior: Bloc 4 • Pages vs. Sites</span>
+      </a>
+      <a href="bloc6-bones-practiques.html" class="btn-pagination primary" data-nav="next">
+        <span>Següent: Bloc 6 • Bones pràctiques</span> ▶
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p><strong>Eines d'intel·ligència artificial per a l'aula</strong> — Servei Educatiu del Vallès Occidental II.</p>
+      <div class="footer-links">
+        <a href="https://github.com/miquelangelfuentes/eines-ia-aula" target="_blank" rel="noopener">Repositori</a>
+        <span>•</span>
+        <a href="https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html" target="_blank" rel="noopener">Vibe coding responsable</a>
+        <span>•</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-SA 4.0</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

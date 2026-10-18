@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eines d'intel·ligència artificial per a l'aula | Guia docent</title>
-  <meta name="description" content="Guia pràctica per a docents: instal·lació de Google Antigravity, publicació a GitHub Pages, llicències obertes i bones pràctiques de creació de materials.">
+  <title>Eines d'intel·ligència artificial per a l'aula | Inici</title>
+  <meta name="description" content="Xerrada i guia pràctica per a docents sobre Google Antigravity, GitHub Pages, llicències i Vibe coding responsable.">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="next" href="bloc1-marc.html">
 </head>
 <body>
   <a href="#contingut-principal" class="skip-link">Salta directament al contingut</a>
@@ -14,23 +15,12 @@
   <!-- Barra superior -->
   <header class="top-bar">
     <div class="top-bar-container">
-      <div class="brand-section">
+      <a href="index.html" class="brand-section">
         <span class="badge-crp">Servei educatiu</span>
         <div class="brand-title">Eines d'IA per a l'aula</div>
-      </div>
+      </a>
 
       <div class="controls-group">
-        <!-- Selector de mode de lectura -->
-        <div class="mode-selector" role="group" aria-label="Mode de lectura">
-          <button id="btn-mode-guide" class="btn-toggle-mode active" type="button" title="Veure tot el contingut en una sola pàgina">
-            📄 <span>Document continu</span>
-          </button>
-          <button id="btn-mode-stepwise" class="btn-toggle-mode" type="button" title="Veure secció per secció de manera guiada">
-            👣 <span>Pas a pas</span>
-          </button>
-        </div>
-
-        <!-- Mode fosc o clar -->
         <button id="btn-toggle-theme" class="btn-icon" type="button" aria-label="Canviar entre mode clar i fosc" title="Canviar tema">
           <span id="theme-icon">🌙</span>
         </button>
@@ -38,745 +28,144 @@
     </div>
   </header>
 
-  <!-- Capçalera -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-meta">
-        <span>Guia pràctica de suport docent • CRP Vallès Occidental II</span>
-      </div>
-      <h1>Eines d'intel·ligència artificial per a l'aula</h1>
-      <p class="hero-subtitle">
-        De la idea pedagògica al recurs web interactiu: com utilitzar <strong>Google Antigravity</strong> i <strong>GitHub Pages</strong> per crear, publicar i compartir materials educatius oberts.
-      </p>
-      <div class="hero-chips">
-        <span class="chip">Google Antigravity pas a pas</span>
-        <span class="chip">GitHub per a novells</span>
-        <span class="chip">GitHub Pages i Google Sites</span>
-        <span class="chip">Llicències obertes i codi</span>
-        <span class="chip">Bones pràctiques d'aula</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Navegació per seccions -->
-  <nav class="steps-nav-bar" aria-label="Índex de seccions de la guia">
-    <ul class="steps-list">
-      <li>
-        <a href="#seccio-1" class="step-nav-item">
-          <span class="step-num-pill">1</span>
-          <span>Marc introductori</span>
-        </a>
-      </li>
-      <li>
-        <a href="#seccio-2" class="step-nav-item">
-          <span class="step-num-pill">2</span>
-          <span>Google Antigravity</span>
-        </a>
-      </li>
-      <li>
-        <a href="#seccio-3" class="step-nav-item">
-          <span class="step-num-pill">3</span>
-          <span>Configuració de GitHub</span>
-        </a>
-      </li>
-      <li>
-        <a href="#seccio-4" class="step-nav-item">
-          <span class="step-num-pill">4</span>
-          <span>Pages enfront de Sites</span>
-        </a>
-      </li>
-      <li>
-        <a href="#seccio-5" class="step-nav-item">
-          <span class="step-num-pill">5</span>
-          <span>Llicències i codi</span>
-        </a>
-      </li>
-      <li>
-        <a href="#seccio-6" class="step-nav-item">
-          <span class="step-num-pill">6</span>
-          <span>Bones pràctiques</span>
-        </a>
-      </li>
-      <li>
-        <a href="#seccio-7" class="step-nav-item">
-          <span class="step-num-pill">7</span>
-          <span>Llista de verificació</span>
-        </a>
-      </li>
+  <!-- Navegació de blocs -->
+  <nav class="blocks-nav-bar" aria-label="Índex de blocs">
+    <ul class="blocks-nav-list">
+      <li><a href="index.html" class="block-nav-link active">Inici</a></li>
+      <li><a href="bloc1-marc.html" class="block-nav-link"><span class="nav-num-pill">1</span> Marc</a></li>
+      <li><a href="bloc2-antigravity.html" class="block-nav-link"><span class="nav-num-pill">2</span> Antigravity</a></li>
+      <li><a href="bloc3-github.html" class="block-nav-link"><span class="nav-num-pill">3</span> GitHub</a></li>
+      <li><a href="bloc4-pages-sites.html" class="block-nav-link"><span class="nav-num-pill">4</span> Pages vs. Sites</a></li>
+      <li><a href="bloc5-llicencies.html" class="block-nav-link"><span class="nav-num-pill">5</span> Llicències</a></li>
+      <li><a href="bloc6-bones-practiques.html" class="block-nav-link"><span class="nav-num-pill">6</span> Bones pràctiques</a></li>
+      <li><a href="bloc7-verificacio.html" class="block-nav-link"><span class="nav-num-pill">7</span> Verificació</a></li>
     </ul>
   </nav>
 
-  <!-- Contingut principal -->
+  <!-- Capçalera d'inici -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="page-category-tag">Xerrada i taller docent • CRP Vallès Occidental II</span>
+      <h1>Eines d'intel·ligència artificial per a l'aula</h1>
+      <p class="page-hero-subtitle">
+        Com passar de la idea docent a la publicació d'un recurs web interactiu fent servir <strong>Google Antigravity</strong> i <strong>GitHub Pages</strong>, amb criteris de <strong>Vibe coding responsable</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contingut principal: índex de targetes de blocs -->
   <main id="contingut-principal" class="main-content">
 
-    <!-- Barra de navegació per al mode pas a pas -->
-    <div class="stepwise-toolbar">
-      <div class="stepwise-counter">
-        <span id="stepwise-counter-display">Secció 1 de 7</span>
-      </div>
-      <div class="stepwise-nav-btns">
-        <button id="btn-step-prev" class="btn-step-nav" type="button" disabled>
-          ◀ <span>Anterior</span>
-        </button>
-        <button id="btn-step-next" class="btn-step-nav" type="button">
-          <span>Següent</span> ▶
-        </button>
-      </div>
+    <div class="pedagogical-highlight">
+      Aquesta guia està organitzada en pàgines independents per seguir la ponència pas a pas o consultar cada apartat de manera autònoma. Pots navegar fent clic a les targetes, amb els botons inferiors o utilitzant les tecles de fletxa del teclat (◀ / ▶).
     </div>
 
-    <!-- ====================================================================
-         SECCIÓ 1: MARC INTRODUCTORI
-         ==================================================================== -->
-    <article id="seccio-1" class="block-card" data-step="1">
-      <header class="block-header">
-        <div class="block-badge-num">1</div>
-        <div class="block-title-box">
-          <h2>Marc: de consultar un xat a crear les nostres eines</h2>
-          <p>Com la intel·ligència artificial permet als docents crear materials digitals sense saber programar</p>
-        </div>
-      </header>
-
-      <div class="pedagogical-highlight">
-        Fins ara, fer servir la intel·ligència artificial a l'educació solia consistir a demanar idees o textos a un xat. Amb eines d'assistència tècnica com Google Antigravity, podem passar a <strong>crear aplicacions web interactives</strong> (com ara qüestionaris autocorrectius, jocs de paraules o simuladors) simplement descrivint en català què necessita el nostre alumnat.
-      </div>
-
-      <div class="clean-grid">
-        <div class="card-item">
-          <h3>La limitació dels xats habituals</h3>
-          <p>
-            Quan demanem activitats a un xat convencional, obtenim un text pla que hem de copiar, enganxar i donar format a mà en un document imprès o en una presentació. L'alumnat rep una fitxa estàtica.
+    <div class="home-blocks-grid">
+      <!-- Bloc 1 -->
+      <a href="bloc1-marc.html" class="home-block-card">
+        <div>
+          <div class="home-card-header">
+            <div class="home-card-num">1</div>
+            <div class="home-card-title">Marc: de consultar a crear</div>
+          </div>
+          <p class="home-card-desc">
+            Per què anar més enllà dels xats de text convencionals i com la intel·ligència artificial permet crear eines interactives sense saber programar.
           </p>
         </div>
-        <div class="card-item">
-          <h3>Què vol dir crear amb assistència d'IA?</h3>
-          <p>
-            El docent aporta el criteri pedagògic, el tema, el nivell del grup i els exemples. L'agent d'intel·ligència artificial s'encarrega de generar els fitxers tècnics necessaris perquè l'activitat funcioni directament a la pantalla.
+        <div class="home-card-action">Explorar bloc 1 →</div>
+      </a>
+
+      <!-- Bloc 2 -->
+      <a href="bloc2-antigravity.html" class="home-block-card">
+        <div>
+          <div class="home-card-header">
+            <div class="home-card-num">2</div>
+            <div class="home-card-title">Google Antigravity pas a pas</div>
+          </div>
+          <p class="home-card-desc">
+            Instal·lació de l'entorn al dispositiu, carpeta de treball, models adequats (Flash vs. Pro) i formulari per redactar la teva primera instrucció.
           </p>
         </div>
-        <div class="card-item">
-          <h3>Materials autònoms i oberts</h3>
-          <p>
-            El resultat final és una petita pàgina web que no depèn de subscripcions de pagament, que funciona a qualsevol ordinador o tauleta i que es pot compartir fàcilment amb altres escoles i instituts.
+        <div class="home-card-action">Explorar bloc 2 →</div>
+      </a>
+
+      <!-- Bloc 3 -->
+      <a href="bloc3-github.html" class="home-block-card">
+        <div>
+          <div class="home-card-header">
+            <div class="home-card-num">3</div>
+            <div class="home-card-title">Configuració de GitHub</div>
+          </div>
+          <p class="home-card-desc">
+            Repositoris, com crear el token d'accés (PAT), com activar GitHub Pages en tres clics i particularitats del fitxer index.html.
           </p>
         </div>
-      </div>
-    </article>
+        <div class="home-card-action">Explorar bloc 3 →</div>
+      </a>
 
-    <!-- ====================================================================
-         SECCIÓ 2: GOOGLE ANTIGRAVITY PER A DOCENTS
-         ==================================================================== -->
-    <article id="seccio-2" class="block-card" data-step="2">
-      <header class="block-header">
-        <div class="block-badge-num">2</div>
-        <div class="block-title-box">
-          <h2>Google Antigravity: instal·lació i configuració per primera vegada</h2>
-          <p>Com començar des de zero i quines opcions són realment rellevants per a la feina d'aula</p>
-        </div>
-      </header>
-
-      <div class="pedagogical-highlight">
-        Google Antigravity és un entorn de treball que s'instal·la al teu ordinador. A diferència d'un xat web ordinari, Antigravity pot crear carpetes, escriure fitxers complets de pàgines web i comprovar que no hi hagi errors tècnics.
-      </div>
-
-      <div class="ordered-steps">
-        <div class="ordered-step-item">
-          <div class="step-indicator">1</div>
-          <div class="step-content">
-            <h3>Instal·lació de l'aplicació</h3>
-            <p>
-              Descarrega l'instal·lador oficial corresponent al teu sistema operatiu (Windows o macOS). Segueix els passos habituals d'instal·lació i inicia sessió amb el teu compte de Google.
-            </p>
-            <span class="step-tip">Consell: no cal cap configuració especial de xarxa per començar.</span>
+      <!-- Bloc 4 -->
+      <a href="bloc4-pages-sites.html" class="home-block-card">
+        <div>
+          <div class="home-card-header">
+            <div class="home-card-num">4</div>
+            <div class="home-card-title">Pages enfront de Google Sites</div>
           </div>
-        </div>
-
-        <div class="ordered-step-item">
-          <div class="step-indicator">2</div>
-          <div class="step-content">
-            <h3>Triar la carpeta de treball</h3>
-            <p>
-              Abans d'escriure cap petició, crea una carpeta específica al teu ordinador, per exemple a <code>Documents/Materials-Aula</code>, i obre-la amb Antigravity (a través del menú <em>Open Folder</em> o <em>Workspace</em>).
-            </p>
-            <span class="step-tip">Per què importa: tots els fitxers que creï l'agent es guardaran ordenats en aquesta carpeta del teu ordinador, sense barrejar-se amb altres documents.</span>
-          </div>
-        </div>
-
-        <div class="ordered-step-item">
-          <div class="step-indicator">3</div>
-          <div class="step-content">
-            <h3>Selecció del model d'intel·ligència artificial</h3>
-            <p>
-              A la configuració o a la part inferior de la finestra pots triar el model de treball. Per a docents, la regla pràctica és:
-            </p>
-            <p>
-              • <strong>Models ràpids (Flash):</strong> ideals per fer consultes curtes, redactar preguntes o demanar idees ràpides.<br>
-              • <strong>Models avançats (Pro):</strong> recomanats quan demanem que creï o modifiqui l'estructura d'una pàgina web sencera, ja que raonen millor el codi i cometen menys errades.
-            </p>
-          </div>
-        </div>
-
-        <div class="ordered-step-item">
-          <div class="step-indicator">4</div>
-          <div class="step-content">
-            <h3>Com donar les instruccions inicials</h3>
-            <p>
-              Per obtenir un bon material educatiu, és convenient indicar sempre quatre dades a la teva petició:
-            </p>
-            <p>
-              1. <strong>Nivell i matèria:</strong> per exemple, "1r d'ESO, ciències de la naturalesa".<br>
-              2. <strong>Format autònom:</strong> demana que tot funcioni en un fitxer web senzill (<code>index.html</code>) perquè l'alumnat no hagi d'instal·lar res.<br>
-              3. <strong>Pedagogia i retroacció:</strong> demana que si l'alumne falla una resposta, s'ofereixi una explicació breu i amable del motiu.<br>
-              4. <strong>Accessibilitat:</strong> demana lletra clara, contrast adequat i que es pugui fer servir tant amb pantalla tàctil com amb teclat.
-            </p>
-            <span class="step-tip">Regla pràctica: demana els canvis d'un en un. És molt millor demanar primer l'estructura bàsica i després anar afegint millores ("ara afegeix un botó per tornar a començar") que demanar-ho tot de cop.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Eina interactiva: generador de prompt -->
-      <div class="interactive-tool-box">
-        <h3>Assistent per redactar la teva primera petició</h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem;">
-          Tria les opcions del teu recurs per generar automàticament un text d'instrucció llest per enganxar a Google Antigravity:
-        </p>
-
-        <form id="prompt-generator-form" class="prompt-generator-form" onsubmit="event.preventDefault();">
-          <div class="form-group">
-            <label for="prompt-materia">Matèria o àmbit:</label>
-            <select id="prompt-materia">
-              <option value="Llengua catalana">Llengua catalana</option>
-              <option value="Llengua castellana">Llengua castellana</option>
-              <option value="Anglès">Anglès</option>
-              <option value="Matemàtiques">Matemàtiques</option>
-              <option value="Ciències socials i història">Ciències socials i història</option>
-              <option value="Biologia i geologia">Biologia i geologia</option>
-              <option value="Tecnologia">Tecnologia</option>
-              <option value="Suport educatiu i diversitat">Suport educatiu i diversitat</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="prompt-nivell">Nivell educatiu:</label>
-            <select id="prompt-nivell">
-              <option value="Cicle superior de primària">Primària (cicle superior)</option>
-              <option value="1r i 2n d'ESO" selected>1r i 2n d'ESO</option>
-              <option value="3r i 4t d'ESO">3r i 4t d'ESO</option>
-              <option value="Batxillerat">Batxillerat</option>
-              <option value="Cicles formatius">Cicles formatius</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="prompt-tipus">Format de l'activitat:</label>
-            <select id="prompt-tipus">
-              <option value="Qüestionari autocorrectiu amb explicació de cada resposta">Qüestionari amb retroacció</option>
-              <option value="Targetes interactives de conceptes i vocabulari">Targetes giratòries (flashcards)</option>
-              <option value="Activitat de relacionar o ordenar conceptes">Relacionar o ordenar conceptes</option>
-              <option value="Calculadora o simulador senzill">Simulador interactiu</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="prompt-dua">Criteri d'accessibilitat:</label>
-            <select id="prompt-dua">
-              <option value="Contrast elevat de colors, text gran i navegació per teclat">Visual i navegació</option>
-              <option value="Frases curtes, suport d'exemples i llenguatge clar">Suport cognitiu</option>
-              <option value="Sense límit de temps per reduir l'ansietat">Ritme lliure</option>
-            </select>
-          </div>
-
-          <div class="form-group" style="grid-column: 1 / -1;">
-            <label for="prompt-objectiu">Tema o contingut concret a treballar:</label>
-            <input type="text" id="prompt-objectiu" value="Identificar els diferents tipus de relleu i rius de Catalunya">
-          </div>
-        </form>
-
-        <div id="generated-prompt-text" class="generated-prompt-result"></div>
-
-        <button id="btn-copy-prompt" class="btn-step-nav" type="button" style="margin-top: 0.75rem;">
-          Copiar prompt per a Google Antigravity
-        </button>
-      </div>
-    </article>
-
-    <!-- ====================================================================
-         SECCIÓ 3: GITHUB PER A DOCENTS
-         ==================================================================== -->
-    <article id="seccio-3" class="block-card" data-step="3">
-      <header class="block-header">
-        <div class="block-badge-num">3</div>
-        <div class="block-title-box">
-          <h2>Configuració de GitHub per primera vegada</h2>
-          <p>Com crear el teu espai al núvol per guardar i publicar materials educatius de manera gratuïta</p>
-        </div>
-      </header>
-
-      <div class="pedagogical-highlight">
-        GitHub és conegut com una eina de programadors, però per al professorat és <strong>l'armari de recursos educatius ideal</strong>: conserva totes les versions dels teus materials, permet que altres docents puguin aprofitar-los i ofereix un servei gratuït (GitHub Pages) per publicar les teves pàgines a Internet.
-      </div>
-
-      <div class="clean-grid">
-        <div class="card-item">
-          <h3>Què és un repositori?</h3>
-          <p>
-            Un repositori (o <em>repo</em>) és simplement una carpeta al núvol on es guarden tots els fitxers d'un projecte educatiu (per exemple, la pàgina web d'una unitat didàctica). Perquè l'alumnat pugui veure el material lliurement, el repositori ha de ser <strong>públic</strong>.
+          <p class="home-card-desc">
+            Comparativa detallada: creació per instruccions amb IA vs. maquetació manual, interactivitat real, historial d'errors i sobirania dels fitxers.
           </p>
         </div>
-        <div class="card-item">
-          <h3>Què són un commit i un push?</h3>
-          <p>
-            Un <strong>commit</strong> és com desar una còpia de seguretat amb una petita nota explicativa (per exemple, "afegides 5 preguntes noves"). Un <strong>push</strong> consisteix a pujar aquesta còpia des del teu ordinador cap al repositori de GitHub.
+        <div class="home-card-action">Explorar bloc 4 →</div>
+      </a>
+
+      <!-- Bloc 5 -->
+      <a href="bloc5-llicencies.html" class="home-block-card">
+        <div>
+          <div class="home-card-header">
+            <div class="home-card-num">5</div>
+            <div class="home-card-title">Llicències i codi obert</div>
+          </div>
+          <p class="home-card-desc">
+            Per què no s'ha d'aplicar Creative Commons al codi de programari i com aplicar la fórmula híbrida (CC BY-SA per al contingut i MIT per al codi).
           </p>
         </div>
-        <div class="card-item">
-          <h3>Què és un token d'accés (PAT)?</h3>
-          <p>
-            Per motius de seguretat, GitHub no permet pujar canvis amb la contrasenya habitual. Es fa servir un <em>Personal Access Token</em> (PAT): una clau especial que es genera una sola vegada i que autoritza l'ordinador a guardar fitxers al teu compte.
+        <div class="home-card-action">Explorar bloc 5 →</div>
+      </a>
+
+      <!-- Bloc 6 -->
+      <a href="bloc6-bones-practiques.html" class="home-block-card">
+        <div>
+          <div class="home-card-header">
+            <div class="home-card-num">6</div>
+            <div class="home-card-title">Bones pràctiques a l'aula</div>
+          </div>
+          <p class="home-card-desc">
+            Les deu recomanacions de Vibe coding responsable de Juan José de Haro aplicades directament a la protecció de l'alumnat i l'accessibilitat.
           </p>
         </div>
-      </div>
+        <div class="home-card-action">Explorar bloc 6 →</div>
+      </a>
 
-      <!-- Passos per configurar el compte i el token -->
-      <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Com crear el token d'accés pas a pas a GitHub:</h3>
-      <div class="ordered-steps">
-        <div class="ordered-step-item">
-          <div class="step-indicator">1</div>
-          <div class="step-content">
-            <h3>Crear el compte</h3>
-            <p>
-              Entra a <a href="https://github.com" target="_blank" rel="noopener">github.com</a> i registra't amb el teu correu electrònic.
-            </p>
+      <!-- Bloc 7 -->
+      <a href="bloc7-verificacio.html" class="home-block-card">
+        <div>
+          <div class="home-card-header">
+            <div class="home-card-num">7</div>
+            <div class="home-card-title">Llista de verificació d'aula</div>
           </div>
-        </div>
-
-        <div class="ordered-step-item">
-          <div class="step-indicator">2</div>
-          <div class="step-content">
-            <h3>Accedir a la configuració de desenvolupador</h3>
-            <p>
-              Fes clic a la teva foto de perfil (a dalt a la dreta) i tria <strong>Settings</strong>. A la columna de l'esquerra, baixa fins al final i entra a <strong>Developer settings</strong>.
-            </p>
-          </div>
-        </div>
-
-        <div class="ordered-step-item">
-          <div class="step-indicator">3</div>
-          <div class="step-content">
-            <h3>Generar el token clàssic</h3>
-            <p>
-              Dins de <em>Personal access tokens</em>, tria <strong>Tokens (classic)</strong> i prem <em>Generate new token (classic)</em>. Posa-li un nom com ara "Antigravity docent", selecciona la durada que vulguis i marca la casella <strong>repo</strong> (això dóna permís per pujar materials als teus repositoris).
-            </p>
-          </div>
-        </div>
-
-        <div class="ordered-step-item">
-          <div class="step-indicator">4</div>
-          <div class="step-content">
-            <h3>Guardar la clau</h3>
-            <p>
-              Prem el botó verd al final de la pàgina per generar-lo. Copia la cadena de caràcters que apareix i guarda-la en un lloc segur: no es tornarà a mostrar mai més. Aquesta és la clau que faràs servir quan Antigravity o el teu ordinador et demani identificar-te per primera vegada.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Com activar GitHub Pages -->
-      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Com activar GitHub Pages per publicar la teva web en 3 clics:</h3>
-      <div class="pedagogical-highlight">
-        Un cop has creat el repositori i hi has pujat els fitxers de la teva activitat, activar la publicació web és immediat:
-      </div>
-
-      <div class="ordered-steps">
-        <div class="ordered-step-item">
-          <div class="step-indicator">1</div>
-          <div class="step-content">
-            <h3>Entra a la configuració del repositori</h3>
-            <p>
-              Dins del teu repositori a GitHub, fes clic a la pestanya <strong>Settings</strong> (la roda d'engranatge a la part superior).
-            </p>
-          </div>
-        </div>
-
-        <div class="ordered-step-item">
-          <div class="step-indicator">2</div>
-          <div class="step-content">
-            <h3>Entra a la secció Pages</h3>
-            <p>
-              Al menú de l'esquerra, fes clic a l'apartat <strong>Pages</strong>.
-            </p>
-          </div>
-        </div>
-
-        <div class="ordered-step-item">
-          <div class="step-indicator">3</div>
-          <div class="step-content">
-            <h3>Tria la branca principal i desa</h3>
-            <p>
-              A l'apartat <em>Build and deployment > Branch</em>, selecciona la branca <strong>main</strong> i la carpeta arrel <code>/ (root)</code>. Fes clic a <strong>Save</strong>.
-            </p>
-            <span class="step-tip">En un minut o dos, GitHub et mostrarà l'enllaç públic de la teva pàgina: <code>https://el-teu-usuari.github.io/nom-del-repositori/</code>. Aquest és l'enllaç que pots compartir directament amb l'alumnat o penjar al Classroom/Moodle.</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Particularitats essencials -->
-      <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Dues particularitats indispensables que has de tenir en compte:</h3>
-      <div class="clean-grid">
-        <div class="card-item">
-          <h3>1. El fitxer s'ha de dir `index.html`</h3>
-          <p>
-            Tots els servidors web busquen automàticament un fitxer anomenat exactament <code>index.html</code> (tot en minúscules) com a pàgina de benvinguda. Si l'anomenes d'una altra manera (com ara <code>activitat.html</code> o <code>Inici.html</code>), l'adreça web donarà un error 404 tret que l'alumne escrigui el nom exacte al final de l'enllaç.
+          <p class="home-card-desc">
+            Checklist interactiva dels deu punts amb memòria local per revisar qualsevol activitat abans de portar-la al grup classe.
           </p>
         </div>
-        <div class="card-item">
-          <h3>2. Les rutes han de ser relatives</h3>
-          <p>
-            Quan facis referència a un full d'estil o a una imatge desada al projecte, no posis una barra a l'inici. Fes servir <code>styles.css</code> o <code>imatges/foto.jpg</code> en lloc de <code>/styles.css</code>. D'aquesta manera funcionarà sense problemes dins del subdirectori de GitHub Pages.
-          </p>
-        </div>
-      </div>
-    </article>
+        <div class="home-card-action">Explorar bloc 7 →</div>
+      </a>
+    </div>
 
-    <!-- ====================================================================
-         SECCIÓ 4: GITHUB PAGES ENFRONT DE GOOGLE SITES
-         ==================================================================== -->
-    <article id="seccio-4" class="block-card" data-step="4">
-      <header class="block-header">
-        <div class="block-badge-num">4</div>
-        <div class="block-title-box">
-          <h2>GitHub Pages enfront de Google Sites</h2>
-          <p>Per què fer el pas cap a pàgines pròpies amb assistència d'intel·ligència artificial</p>
-        </div>
-      </header>
-
-      <div class="pedagogical-highlight">
-        Google Sites ha estat l'eina clàssica per crear espais web a l'escola perquè permet arrossegar elements sense tocar codi. Tanmateix, quan combinem un agent d'intel·ligència artificial amb GitHub Pages, les possibilitats pedagògiques canvien completament.
-      </div>
-
-      <div class="table-responsive">
-        <table class="clean-table">
-          <thead>
-            <tr>
-              <th style="width: 25%;">Aspecte</th>
-              <th style="width: 37%;">GitHub Pages (amb suport d'IA)</th>
-              <th style="width: 38%;">Google Sites (edició manual)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Creació i canvis</strong></td>
-              <td>
-                <span class="badge-feature badge-positive">Automatitzada</span><br>
-                Demanes a l'agent el que vols en llenguatge natural i genera o corregeix tota la pàgina en qüestió de segons.
-              </td>
-              <td>
-                <span class="badge-feature badge-negative">Manual i feixuga</span><br>
-                Cal fer clics continus, ajustar caixes a mà, arrossegar fitxers i quadrar espais bloc a bloc.
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Tipus d'activitats</strong></td>
-              <td>
-                <span class="badge-feature badge-positive">Interactivitat completa</span><br>
-                Permet qüestionaris amb càlcul de puntuació, exercicis autocorrectius amb retroacció immediata, rellotges de compte enrere, jocs i simuladors visuals.
-              </td>
-              <td>
-                <span class="badge-feature badge-negative">Contingut estàtic</span><br>
-                Es limita pràcticament a caixes de text, imatges i documents de Google Drive incrustats.
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Recuperació d'errades</strong></td>
-              <td>
-                <span class="badge-feature badge-positive">Control de versions</span><br>
-                Cada canvi queda registrat. Si una modificació no funciona o trenca un exercici, pots tornar enrere en un segon sense perdre res.
-              </td>
-              <td>
-                <span class="badge-feature badge-negative">Historial limitat</span><br>
-                Si sobreescrius o esborres contingut complex sense voler, pot ser molt complicat recuperar exactament el disseny anterior.
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Sobirania del recurs</strong></td>
-              <td>
-                <span class="badge-feature badge-positive">Formats web lliures</span><br>
-                El codi està en fitxers estàndard (HTML, CSS, JS). Els pots guardar en un llapis de memòria, utilitzar sense Internet o portar a qualsevol altre servidor.
-              </td>
-              <td>
-                <span class="badge-feature badge-negative">Plataforma tancada</span><br>
-                El lloc només existeix dins de l'entorn de Google. No pots descarregar el codi de la pàgina per traslladar-lo a una altra eina.
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Compartir entre professorat</strong></td>
-              <td>
-                <span class="badge-feature badge-positive">Bifurcació senzilla (fork)</span><br>
-                Un company d'un altre centre pot duplicar el teu repositori i adaptar les preguntes a la seva aula amb total llibertat.
-              </td>
-              <td>
-                <span class="badge-feature badge-negative">Gestió de permisos</span><br>
-                Cal donar permisos individuals per correu, amb el perill que diverses persones modifiquin la mateixa pàgina alhora i es trepitgin la feina.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </article>
-
-    <!-- ====================================================================
-         SECCIÓ 5: LLICÈNCIES DE CODI ENFRONT DE CREATIVE COMMONS
-         ==================================================================== -->
-    <article id="seccio-5" class="block-card" data-step="5">
-      <header class="block-header">
-        <div class="block-badge-num">5</div>
-        <div class="block-title-box">
-          <h2>Llicències: Creative Commons i llicències de codi obert</h2>
-          <p>Com protegir i compartir adequadament els materials i el programari que creem</p>
-        </div>
-      </header>
-
-      <div class="pedagogical-highlight">
-        Quan publiquem un recurs educatiu que conté tant explicacions docents com codi informàtic, ens trobem amb dos tipus d'obres diferents. La mateixa organització Creative Commons <strong>desaconsella expressament fer servir llicències Creative Commons per a codi de programari</strong>, perquè estan pensades per a textos i obres culturals, no per a instruccions informàtiques executables.
-      </div>
-
-      <div class="licenses-comparison">
-        <div class="license-box cc">
-          <h3>Per al contingut educatiu: Creative Commons</h3>
-          <span class="license-for">Aplica a: textos explicatius, enunciats, qüestionaris, imatges pròpies i guies pedagògiques.</span>
-          <p>
-            Les llicències Creative Commons permeten que altres docents sàpiguen en quines condicions poden fer servir o modificar les teves explicacions:
-          </p>
-          <ul>
-            <li><strong>CC BY (Reconeixement):</strong> permet qualsevol ús i adaptació sempre que se citi qui és l'autor o autora original.</li>
-            <li><strong>CC BY-SA (Reconeixement-CompartirIgual):</strong> molt recomanada en educació. Permet adaptar el recurs, però obliga a compartir l'obra derivada sota aquesta mateixa llicència lliure.</li>
-          </ul>
-        </div>
-
-        <div class="license-box software">
-          <h3>Per al codi font: llicències de programari lliure</h3>
-          <span class="license-for">Aplica a: fitxers HTML, CSS i JavaScript que fan funcionar l'aplicació.</span>
-          <p>
-            El codi necessita llicències que contemplin aspectes tècnics com ara la no-responsabilitat en cas d'errors d'execució i el permís explícit de compilació i còpia:
-          </p>
-          <ul>
-            <li><strong>Llicència MIT:</strong> és la més senzilla, breu i popular en recursos educatius. Permet que qualsevol persona utilitzi, modifiqui i distribueixi el codi lliurement, mantenint l'avís de copyright original.</li>
-            <li><strong>Llicència GNU GPL:</strong> llicència que garanteix que el codi i qualsevol millora futura romanguin sempre lliures i accessibles.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- La fórmula híbrida docent -->
-      <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Com aplicar-ho fàcilment al teu material: la fórmula híbrida</h3>
-      <p style="color: var(--text-muted); font-size: 0.925rem; margin-bottom: 1rem;">
-        La manera més neta i professional d'indicar la llicència és afegir una petita nota al peu de la pàgina web o al fitxer <code>README.md</code> del repositori, combinant ambdues llicències:
-      </p>
-
-      <div class="terminal-block">
-        <div class="terminal-header">
-          <span>Exemple de declaració de llicència per al teu recurs</span>
-          <button class="copy-btn" data-target="snippet-licencia">Copiar text</button>
-        </div>
-        <pre id="snippet-licencia"><code>Aquest recurs educatiu es distribueix amb una doble llicència:
-- El contingut pedagògic, els textos i les activitats es publiquen sota llicència Creative Commons Reconeixement-CompartirIgual 4.0 Internacional (CC BY-SA 4.0).
-- El codi font de l'aplicació (HTML, CSS i JavaScript) es publica sota llicència lliure MIT.</code></pre>
-      </div>
-    </article>
-
-    <!-- ====================================================================
-         SECCIÓ 6: BONES PRÀCTIQUES (VIBE CODING RESPONSABLE)
-         ==================================================================== -->
-    <article id="seccio-6" class="block-card" data-step="6">
-      <header class="block-header">
-        <div class="block-badge-num">6</div>
-        <div class="block-title-box">
-          <h2>Bones pràctiques en la creació de materials amb IA</h2>
-          <p>Consells essencials per a un ús ètic, segur i pedagògicament sòlid a l'aula</p>
-        </div>
-      </header>
-
-      <div class="pedagogical-highlight">
-        La guia de referència <a href="https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html" target="_blank" rel="noopener">Vibe coding responsable</a> (elaborada per Juan José de Haro) proposa deu recomanacions fonamentals abans de publicar qualsevol material creat amb intel·ligència artificial. Aquestes són les pautes aplicades a la nostra pràctica d'aula:
-      </div>
-
-      <div class="vibe-recommendations-list">
-        <!-- 1 -->
-        <div class="vibe-card">
-          <div class="vibe-num">1</div>
-          <div class="vibe-body">
-            <h3>Revisar el contingut sense delegar-lo a la IA</h3>
-            <p>La intel·ligència artificial pot inventar dades o donar respostes falses per correctes amb total seguretat. Fes el recorregut sencer de l'activitat com si fossis un alumne abans de compartir-la.</p>
-            <div class="vibe-edu-tip">A l'aula: comprova especialment que les respostes donades per bones siguin rigoroses.</div>
-          </div>
-        </div>
-
-        <!-- 2 -->
-        <div class="vibe-card">
-          <div class="vibe-num">2</div>
-          <div class="vibe-body">
-            <h3>No enviar dades personals de l'alumnat</h3>
-            <p>El nom, el correu o les qualificacions són dades personals protegides (RGPD). La solució més neta és crear materials que funcionin al navegador sense demanar registre ni contrasenyes.</p>
-            <div class="vibe-edu-tip">A l'aula: l'alumnat fa l'activitat directament; no es guarda cap dada en servidors aliens.</div>
-          </div>
-        </div>
-
-        <!-- 3 -->
-        <div class="vibe-card">
-          <div class="vibe-num">3</div>
-          <div class="vibe-body">
-            <h3>Entendre què fa el material</h3>
-            <p>No acceptis el codi com una caixa misteriosa. Demana a Google Antigravity: "Explica'm de manera senzilla com funciona aquesta pàgina per dins".</p>
-            <div class="vibe-edu-tip">A l'aula: codi ordenat i comentat per poder-hi fer petites correccions en el futur.</div>
-          </div>
-        </div>
-
-        <!-- 4 -->
-        <div class="vibe-card">
-          <div class="vibe-num">4</div>
-          <div class="vibe-body">
-            <h3>No dependre de serveis que puguin desaparèixer</h3>
-            <p>Si la teva pàgina carrega imatges d'enllaços externs desconeguts, l'activitat deixarà de funcionar quan aquests llocs tanquin. Guarda els recursos a la mateixa carpeta del teu projecte.</p>
-            <div class="vibe-edu-tip">A l'aula: materials autònoms que durin en el temps.</div>
-          </div>
-        </div>
-
-        <!-- 5 -->
-        <div class="vibe-card">
-          <div class="vibe-num">5</div>
-          <div class="vibe-body">
-            <h3>Fer-lo accessible a qualsevol persona (DUA)</h3>
-            <p>L'excés d'efectes visuals o animacions sovint dificulta l'aprenentatge. Assegura't que el text tingui un bon contrast, que la lletra sigui gran i que es pugui navegar sense ratolí.</p>
-            <div class="vibe-edu-tip">A l'aula: disseny universal per atendre la diversitat de necessitats del grup.</div>
-          </div>
-        </div>
-
-        <!-- 6 -->
-        <div class="vibe-card">
-          <div class="vibe-num">6</div>
-          <div class="vibe-body">
-            <h3>Citar l'autoria del que es pren d'altres persones</h3>
-            <p>Si incorpores imatges, esquemes o sons creats per altres autors, indica'n l'origen i la llicència al peu de pàgina de l'activitat.</p>
-            <div class="vibe-edu-tip">A l'aula: donem exemple de respecte als drets d'autoria.</div>
-          </div>
-        </div>
-
-        <!-- 7 -->
-        <div class="vibe-card">
-          <div class="vibe-num">7</div>
-          <div class="vibe-body">
-            <h3>Guardar el rastre de com es va fer</h3>
-            <p>Anota les instruccions principals (prompts) i les decisions que vas prendre en crear l'activitat. Et serà molt útil per reprendre la feina el curs vinent.</p>
-            <div class="vibe-edu-tip">A l'aula: memòria docent per compartir amb el departament o cicle.</div>
-          </div>
-        </div>
-
-        <!-- 8 -->
-        <div class="vibe-card">
-          <div class="vibe-num">8</div>
-          <div class="vibe-body">
-            <h3>Declarar l'ús d'IA i el que s'ha comprovat</h3>
-            <p>Inclou una frase al peu indicant quina eina d'intel·ligència artificial s'ha utilitzat i que el contingut ha estat supervisat i validat per un docent.</p>
-            <div class="vibe-edu-tip">A l'aula: transparència pedagògica davant de la comunitat educativa.</div>
-          </div>
-        </div>
-
-        <!-- 9 -->
-        <div class="vibe-card">
-          <div class="vibe-num">9</div>
-          <div class="vibe-body">
-            <h3>Publicar amb una llicència lliure a la vista</h3>
-            <p>Un material sense llicència clara genera inseguretat i ningú sap si té permís per reutilitzar-lo. Posa una llicència com CC BY-SA a la vista.</p>
-            <div class="vibe-edu-tip">A l'aula: compartir materials amb garanties per a tothom.</div>
-          </div>
-        </div>
-
-        <!-- 10 -->
-        <div class="vibe-card">
-          <div class="vibe-num">10</div>
-          <div class="vibe-body">
-            <h3>Oferir el codi perquè altres persones l'adaptin</h3>
-            <p>Publica a GitHub perquè qualsevol docent pugui descarregar o duplicar el recurs i adaptar les preguntes o el nivell a les necessitats de la seva classe.</p>
-            <div class="vibe-edu-tip">A l'aula: fer créixer una comunitat de recursos educatius oberts (REO).</div>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- ====================================================================
-         SECCIÓ 7: LLISTA DE VERIFICACIÓ D'AULA
-         ==================================================================== -->
-    <article id="seccio-7" class="block-card" data-step="7">
-      <header class="block-header">
-        <div class="block-badge-num">7</div>
-        <div class="block-title-box">
-          <h2>Llista de verificació abans de portar el recurs a classe</h2>
-          <p>Comprovació ràpida per assegurar que el material és segur, rigorós i accessible</p>
-        </div>
-      </header>
-
-      <div class="pedagogical-highlight">
-        Abans de compartir l'enllaç de la teva pàgina amb l'alumnat, revisa aquests deu punts. Pots marcar-los directament en aquesta pantalla; el navegador recordarà les teves respostes:
-      </div>
-
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
-        <span id="checklist-progress-text" style="font-weight: 700; color: var(--accent-secondary);">0 de 10 punts verificats</span>
-        <button id="btn-reset-checklist" class="copy-btn" type="button">Reiniciar comprovacions</button>
-      </div>
-
-      <div class="checklist-container">
-        <label class="check-item" for="chk-1">
-          <input type="checkbox" id="chk-1" class="vibe-checklist-input">
-          <span class="check-text"><strong>1. Revisió docent:</strong> he comprovat totes les preguntes i solucions amb criteri professional i no hi ha errades de contingut.</span>
-        </label>
-        <label class="check-item" for="chk-2">
-          <input type="checkbox" id="chk-2" class="vibe-checklist-input">
-          <span class="check-text"><strong>2. Privacitat (RGPD):</strong> el recurs no demana noms, cognoms ni correus de l'alumnat i funciona directament al navegador.</span>
-        </label>
-        <label class="check-item" for="chk-3">
-          <input type="checkbox" id="chk-3" class="vibe-checklist-input">
-          <span class="check-text"><strong>3. Codi entès:</strong> he demanat a la IA una explicació senzilla de com funciona l'arxiu i el codi està net.</span>
-        </label>
-        <label class="check-item" for="chk-4">
-          <input type="checkbox" id="chk-4" class="vibe-checklist-input">
-          <span class="check-text"><strong>4. Recursos propis:</strong> les imatges o icones estan desades dins del projecte i no depenen d'enllaços d'altres webs que puguin fallar.</span>
-        </label>
-        <label class="check-item" for="chk-5">
-          <input type="checkbox" id="chk-5" class="vibe-checklist-input">
-          <span class="check-text"><strong>5. Accessibilitat:</strong> la lletra es llegeix bé en pantalles petites de mòbil i els colors tenen prou contrast.</span>
-        </label>
-        <label class="check-item" for="chk-6">
-          <input type="checkbox" id="chk-6" class="vibe-checklist-input">
-          <span class="check-text"><strong>6. Autoria i crèdits:</strong> s'indica clarament la font de les imatges o recursos de tercers que s'hagin incorporat.</span>
-        </label>
-        <label class="check-item" for="chk-7">
-          <input type="checkbox" id="chk-7" class="vibe-checklist-input">
-          <span class="check-text"><strong>7. Rastre guardat:</strong> he guardat les peticions (prompts) principals al fitxer README per poder reprendre la feina més endavant.</span>
-        </label>
-        <label class="check-item" for="chk-8">
-          <input type="checkbox" id="chk-8" class="vibe-checklist-input">
-          <span class="check-text"><strong>8. Declaració d'ús d'IA:</strong> la pàgina inclou un petit text explicant que s'ha creat amb assistència d'intel·ligència artificial i supervisió docent.</span>
-        </label>
-        <label class="check-item" for="chk-9">
-          <input type="checkbox" id="chk-9" class="vibe-checklist-input">
-          <span class="check-text"><strong>9. Llicència visible:</strong> s'indiquen les llicències lliures (Creative Commons per al contingut i MIT per al codi).</span>
-        </label>
-        <label class="check-item" for="chk-10">
-          <input type="checkbox" id="chk-10" class="vibe-checklist-input">
-          <span class="check-text"><strong>10. Codi obert:</strong> el repositori és públic a GitHub perquè qualsevol altre docent pugui duplicar i adaptar el material.</span>
-        </label>
-      </div>
-
-      <!-- Enllaços de consulta -->
-      <div style="margin-top: 1.75rem; padding: 1.25rem; background: var(--bg-subtle); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-        <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Enllaços de referència per aprofundir:</h3>
-        <ul style="padding-left: 1.25rem; line-height: 1.7; font-size: 0.9rem; color: var(--text-muted);">
-          <li><a href="https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html" target="_blank" rel="noopener">Guia de Vibe coding responsable (Juan José de Haro)</a></li>
-          <li><a href="https://education.github.com/teachers" target="_blank" rel="noopener">GitHub Education per a docents (Global Campus)</a></li>
-          <li><a href="https://pages.github.com/" target="_blank" rel="noopener">Guia oficial de GitHub Pages</a></li>
-          <li><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">Llicència Creative Commons Reconeixement-CompartirIgual 4.0</a></li>
-          <li><a href="https://opensource.org/license/mit" target="_blank" rel="noopener">Llicència de programari lliure MIT</a></li>
-        </ul>
-      </div>
-    </article>
+    <!-- Paginació inferior -->
+    <div class="page-pagination" style="justify-content: flex-end;">
+      <a href="bloc1-marc.html" class="btn-pagination primary" data-nav="next">
+        <span>Començar pel bloc 1: Marc introductori</span> ▶
+      </a>
+    </div>
 
   </main>
 
@@ -784,7 +173,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <p>
-        <strong>Eines d'intel·ligència artificial per a l'aula</strong> — Guia d'aprenentatge i creació de materials educatius oberts per al professorat.
+        <strong>Eines d'intel·ligència artificial per a l'aula</strong> — Servei Educatiu del Vallès Occidental II (CRP).
       </p>
       <div class="footer-links">
         <a href="https://github.com/miquelangelfuentes/eines-ia-aula" target="_blank" rel="noopener">Repositori a GitHub</a>
@@ -793,9 +182,6 @@
         <span>•</span>
         <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-SA 4.0</a>
       </div>
-      <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 0.35rem;">
-        Material elaborat amb suport de Google Antigravity i revisió docent, aplicant els principis de transparència ètica i codi obert.
-      </p>
     </div>
   </footer>
 

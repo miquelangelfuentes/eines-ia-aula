@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloc 3: Configuració de GitHub | Eines d'IA per a l'aula</title>
+  <meta name="description" content="Configuració de GitHub per a docents: repositoris, com crear el token PAT, activació de GitHub Pages en tres clics i particularitats del fitxer index.html.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="prev" href="bloc2-antigravity.html">
+  <link rel="next" href="bloc4-pages-sites.html">
+</head>
+<body>
+  <a href="#contingut-principal" class="skip-link">Salta directament al contingut</a>
+
+  <!-- Barra superior -->
+  <header class="top-bar">
+    <div class="top-bar-container">
+      <a href="index.html" class="brand-section">
+        <span class="badge-crp">Servei educatiu</span>
+        <div class="brand-title">Eines d'IA per a l'aula</div>
+      </a>
+
+      <div class="controls-group">
+        <a href="index.html" class="btn-icon" title="Tornar a l'inici">🏠</a>
+        <button id="btn-toggle-theme" class="btn-icon" type="button" aria-label="Canviar tema" title="Canviar tema">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navegació de blocs -->
+  <nav class="blocks-nav-bar" aria-label="Índex de blocs">
+    <ul class="blocks-nav-list">
+      <li><a href="index.html" class="block-nav-link">Inici</a></li>
+      <li><a href="bloc1-marc.html" class="block-nav-link"><span class="nav-num-pill">1</span> Marc</a></li>
+      <li><a href="bloc2-antigravity.html" class="block-nav-link"><span class="nav-num-pill">2</span> Antigravity</a></li>
+      <li><a href="bloc3-github.html" class="block-nav-link active"><span class="nav-num-pill">3</span> GitHub</a></li>
+      <li><a href="bloc4-pages-sites.html" class="block-nav-link"><span class="nav-num-pill">4</span> Pages vs. Sites</a></li>
+      <li><a href="bloc5-llicencies.html" class="block-nav-link"><span class="nav-num-pill">5</span> Llicències</a></li>
+      <li><a href="bloc6-bones-practiques.html" class="block-nav-link"><span class="nav-num-pill">6</span> Bones pràctiques</a></li>
+      <li><a href="bloc7-verificacio.html" class="block-nav-link"><span class="nav-num-pill">7</span> Verificació</a></li>
+    </ul>
+  </nav>
+
+  <!-- Capçalera del bloc -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="page-category-tag">Bloc 3</span>
+      <h1>Configuració de GitHub per a docents</h1>
+      <p class="page-hero-subtitle">
+        Com obrir el teu espai al núvol, crear la teva clau d'accés (token) i publicar el teu primer recurs web sense pagar servidors.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contingut del bloc 3 -->
+  <main id="contingut-principal" class="main-content">
+    <div class="content-box">
+      <h2>GitHub explicat per a docents principiants</h2>
+      <p class="lead-desc">Com entendre el servei sense termes informàtics innecessaris</p>
+
+      <div class="pedagogical-highlight">
+        Pensa en GitHub com <strong>un gran magatzem públic de carpetes</strong>. Cada vegada que prepares una activitat interactiva amb Google Antigravity, la guardes en una carpeta de GitHub (anomenada <em>repositori</em>). A més de conservar totes les teves versions de manera gratuïta, GitHub ofereix el servei <strong>GitHub Pages</strong>, que converteix automàticament aquesta carpeta en una pàgina web visible per a tothom.
+      </div>
+
+      <div class="cards-grid">
+        <div class="card-item">
+          <h3>El repositori (repo)</h3>
+          <p>
+            És la carpeta del teu projecte. Per exemple: <code>verbs-irregulars-angles</code>. Perquè l'alumnat pugui accedir a la pàgina sense contrasenyes ni registres, el repositori ha de ser <strong>públic</strong>.
+          </p>
+        </div>
+
+        <div class="card-item">
+          <h3>Commit i push</h3>
+          <p>
+            Fer un <strong>commit</strong> és desar una còpia de seguretat dels canvis amb una petita descripció (com ara "afegides 10 preguntes noves"). Fer un <strong>push</strong> consisteix a pujar aquesta còpia des del teu ordinador cap al repositori de GitHub.
+          </p>
+        </div>
+
+        <div class="card-item">
+          <h3>El token d'accés (PAT)</h3>
+          <p>
+            GitHub no permet utilitzar la contrasenya habitual per pujar fitxers des de programes externs. Es fa servir una clau especial anomenada <em>Personal Access Token</em> que generes una sola vegada i que actua com a permís segur.
+          </p>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Com generar el teu token d'accés (PAT) pas a pas:</h3>
+      <div class="ordered-steps">
+        <div class="ordered-step-item">
+          <div class="step-indicator">1</div>
+          <div class="step-content">
+            <h3>Accedeix a la configuració del teu perfil</h3>
+            <p>
+              Inicia sessió a <a href="https://github.com" target="_blank" rel="noopener">github.com</a>, fes clic a la teva foto de perfil (a la cantonada superior dreta) i selecciona <strong>Settings</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="ordered-step-item">
+          <div class="step-indicator">2</div>
+          <div class="step-content">
+            <h3>Entra a Developer settings</h3>
+            <p>
+              A la columna de l'esquerra, baixa fins al final i fes clic a l'últim apartat: <strong>Developer settings</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="ordered-step-item">
+          <div class="step-indicator">3</div>
+          <div class="step-content">
+            <h3>Genera un token clàssic</h3>
+            <p>
+              Al menú lateral, fes clic a <em>Personal access tokens</em> i després a <strong>Tokens (classic)</strong>. Prem el botó <em>Generate new token</em> i tria l'opció <strong>Generate new token (classic)</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="ordered-step-item">
+          <div class="step-indicator">4</div>
+          <div class="step-content">
+            <h3>Marca el permís de repositoris i desa</h3>
+            <p>
+              Posa-li un nom descriptiu a la casella de nota (per exemple, "Antigravity docent") i marca la casella <strong>repo</strong> (això dóna accés per pujar i modificar els teus materials educatius).
+            </p>
+            <p>
+              Baixa al final de la pàgina i fes clic al botó verd <strong>Generate token</strong>.
+            </p>
+            <span class="step-tip">Important: copia la cadena de caràcters que comença per <code>ghp_...</code> i guarda-la al teu gestor de notes o contrasenyes. GitHub no la tornarà a mostrar mai més. Aquesta és la clau que faràs servir quan el programa et demani autenticar-te per primera vegada.</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Com activar GitHub Pages en 3 clics:</h3>
+      <div class="ordered-steps">
+        <div class="ordered-step-item">
+          <div class="step-indicator">1</div>
+          <div class="step-content">
+            <h3>Entra a Settings del repositori</h3>
+            <p>
+              Obre el repositori on has desat la teva activitat i fes clic a la pestanya <strong>Settings</strong> (la roda d'engranatge a la barra superior del repositori).
+            </p>
+          </div>
+        </div>
+
+        <div class="ordered-step-item">
+          <div class="step-indicator">2</div>
+          <div class="step-content">
+            <h3>Fes clic a Pages</h3>
+            <p>
+              A la columna de l'esquerra, fes clic a la secció <strong>Pages</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="ordered-step-item">
+          <div class="step-indicator">3</div>
+          <div class="step-content">
+            <h3>Tria la branca principal i prem Save</h3>
+            <p>
+              A l'apartat <em>Build and deployment > Branch</em>, selecciona la branca <strong>main</strong> (o <em>master</em>) i la carpeta arrel <code>/ (root)</code>. Prem <strong>Save</strong>.
+            </p>
+            <span class="step-tip">Resultat: en un o dos minuts, GitHub et mostrarà l'adreça web pública del teu recurs: <code>https://el-teu-usuari.github.io/nom-del-repositori/</code>. Aquest enllaç és permanent, gratuït i segur (HTTPS).</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Dues particularitats indispensables per no tenir errors:</h3>
+      <div class="clean-grid">
+        <div class="card-item">
+          <h3>1. El fitxer principal s'ha de dir `index.html`</h3>
+          <p>
+            Tots els servidors web necessiten saber quina és la pàgina inicial. Si l'arxiu es diu <code>index.html</code> (tot en minúscules), es carregarà de manera immediata en obrir l'adreça del repositori. Si el nombres d'una altra manera (com <code>inici.html</code> o <code>activitat.html</code>), l'enllaç donarà un error 404 tret que l'alumne n'escrigui el nom complet a la barra del navegador.
+          </p>
+        </div>
+
+        <div class="card-item">
+          <h3>2. Les rutes han de ser relatives</h3>
+          <p>
+            Quan enllacis imatges o fitxers desats a la teva carpeta, no posis una barra a l'inici. Fes servir rutes relatives com ara <code>styles.css</code> o <code>imatges/mapa.png</code>, en comptes de <code>/styles.css</code>. D'aquesta manera funcionarà correctament dins del subdomini de GitHub Pages.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paginació inferior -->
+    <div class="page-pagination">
+      <a href="bloc2-antigravity.html" class="btn-pagination" data-nav="prev">
+        ◀ <span>Anterior: Bloc 2 • Antigravity</span>
+      </a>
+      <a href="bloc4-pages-sites.html" class="btn-pagination primary" data-nav="next">
+        <span>Següent: Bloc 4 • Pages vs. Sites</span> ▶
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p><strong>Eines d'intel·ligència artificial per a l'aula</strong> — Servei Educatiu del Vallès Occidental II.</p>
+      <div class="footer-links">
+        <a href="https://github.com/miquelangelfuentes/eines-ia-aula" target="_blank" rel="noopener">Repositori</a>
+        <span>•</span>
+        <a href="https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html" target="_blank" rel="noopener">Vibe coding responsable</a>
+        <span>•</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-SA 4.0</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

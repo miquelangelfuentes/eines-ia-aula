@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloc 7: Llista de verificació | Eines d'IA per a l'aula</title>
+  <meta name="description" content="Llista de comprovació interactiva per revisar un recurs educatiu abans de portar-lo a l'aula i enllaços d'aprofundiment.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="prev" href="bloc6-bones-practiques.html">
+  <link rel="next" href="index.html">
+</head>
+<body>
+  <a href="#contingut-principal" class="skip-link">Salta directament al contingut</a>
+
+  <!-- Barra superior -->
+  <header class="top-bar">
+    <div class="top-bar-container">
+      <a href="index.html" class="brand-section">
+        <span class="badge-crp">Servei educatiu</span>
+        <div class="brand-title">Eines d'IA per a l'aula</div>
+      </a>
+
+      <div class="controls-group">
+        <a href="index.html" class="btn-icon" title="Tornar a l'inici">🏠</a>
+        <button id="btn-toggle-theme" class="btn-icon" type="button" aria-label="Canviar tema" title="Canviar tema">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navegació de blocs -->
+  <nav class="blocks-nav-bar" aria-label="Índex de blocs">
+    <ul class="blocks-nav-list">
+      <li><a href="index.html" class="block-nav-link">Inici</a></li>
+      <li><a href="bloc1-marc.html" class="block-nav-link"><span class="nav-num-pill">1</span> Marc</a></li>
+      <li><a href="bloc2-antigravity.html" class="block-nav-link"><span class="nav-num-pill">2</span> Antigravity</a></li>
+      <li><a href="bloc3-github.html" class="block-nav-link"><span class="nav-num-pill">3</span> GitHub</a></li>
+      <li><a href="bloc4-pages-sites.html" class="block-nav-link"><span class="nav-num-pill">4</span> Pages vs. Sites</a></li>
+      <li><a href="bloc5-llicencies.html" class="block-nav-link"><span class="nav-num-pill">5</span> Llicències</a></li>
+      <li><a href="bloc6-bones-practiques.html" class="block-nav-link"><span class="nav-num-pill">6</span> Bones pràctiques</a></li>
+      <li><a href="bloc7-verificacio.html" class="block-nav-link active"><span class="nav-num-pill">7</span> Verificació</a></li>
+    </ul>
+  </nav>
+
+  <!-- Capçalera del bloc -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <span class="page-category-tag">Bloc 7</span>
+      <h1>Llista de verificació abans de portar el recurs a classe</h1>
+      <p class="page-hero-subtitle">
+        Una eina interactiva per comprovar que la teva activitat és segura, rigorosa i accessible abans d'obrir-la amb l'alumnat.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contingut del bloc 7 -->
+  <main id="contingut-principal" class="main-content">
+    <div class="content-box">
+      <h2>Comprovació ràpida del material</h2>
+      <p class="lead-desc">Marca cadascun dels deu punts; el navegador recordarà les teves respostes</p>
+
+      <div class="pedagogical-highlight">
+        Aquesta llista sintetitza les deu recomanacions essencials en deu preguntes directes. Pots fer-la servir per a qualsevol recurs web que creïs abans d'enviar l'enllaç al grup classe:
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.5rem;">
+        <span id="checklist-progress-text" style="font-weight: 700; color: var(--accent-secondary); font-size: 0.95rem;">
+          0 de 10 punts verificats
+        </span>
+        <button id="btn-reset-checklist" class="copy-btn" type="button">Reiniciar comprovacions</button>
+      </div>
+
+      <div class="checklist-container">
+        <label class="check-item" for="chk-1">
+          <input type="checkbox" id="chk-1" class="vibe-checklist-input">
+          <span class="check-text"><strong>1. Revisió docent:</strong> he comprovat totes les preguntes i solucions amb criteri professional i no hi ha errades de contingut.</span>
+        </label>
+
+        <label class="check-item" for="chk-2">
+          <input type="checkbox" id="chk-2" class="vibe-checklist-input">
+          <span class="check-text"><strong>2. Privacitat (RGPD):</strong> el recurs no demana noms, cognoms ni correus de l'alumnat i funciona directament al navegador.</span>
+        </label>
+
+        <label class="check-item" for="chk-3">
+          <input type="checkbox" id="chk-3" class="vibe-checklist-input">
+          <span class="check-text"><strong>3. Codi entès:</strong> he demanat a la IA una explicació senzilla de com funciona l'arxiu i el codi està net i comentat.</span>
+        </label>
+
+        <label class="check-item" for="chk-4">
+          <input type="checkbox" id="chk-4" class="vibe-checklist-input">
+          <span class="check-text"><strong>4. Recursos propis:</strong> les imatges o icones estan desades dins del projecte i no depenen d'enllaços d'altres webs que puguin fallar.</span>
+        </label>
+
+        <label class="check-item" for="chk-5">
+          <input type="checkbox" id="chk-5" class="vibe-checklist-input">
+          <span class="check-text"><strong>5. Accessibilitat:</strong> la lletra es llegeix bé en pantalles petites de mòbil i els colors tenen prou contrast per a tothom.</span>
+        </label>
+
+        <label class="check-item" for="chk-6">
+          <input type="checkbox" id="chk-6" class="vibe-checklist-input">
+          <span class="check-text"><strong>6. Autoria i crèdits:</strong> s'indica clarament la font de les imatges o recursos de tercers que s'hagin incorporat.</span>
+        </label>
+
+        <label class="check-item" for="chk-7">
+          <input type="checkbox" id="chk-7" class="vibe-checklist-input">
+          <span class="check-text"><strong>7. Rastre guardat:</strong> he guardat les peticions (prompts) principals al fitxer README per poder reprendre la feina més endavant.</span>
+        </label>
+
+        <label class="check-item" for="chk-8">
+          <input type="checkbox" id="chk-8" class="vibe-checklist-input">
+          <span class="check-text"><strong>8. Declaració d'ús d'IA:</strong> la pàgina inclou un petit text explicant que s'ha creat amb assistència d'intel·ligència artificial i supervisió docent.</span>
+        </label>
+
+        <label class="check-item" for="chk-9">
+          <input type="checkbox" id="chk-9" class="vibe-checklist-input">
+          <span class="check-text"><strong>9. Llicència visible:</strong> s'indiquen les llicències lliures (Creative Commons per al contingut i MIT per al codi).</span>
+        </label>
+
+        <label class="check-item" for="chk-10">
+          <input type="checkbox" id="chk-10" class="vibe-checklist-input">
+          <span class="check-text"><strong>10. Codi obert:</strong> el repositori és públic a GitHub perquè qualsevol altre docent pugui duplicar i adaptar el material.</span>
+        </label>
+      </div>
+
+      <!-- Enllaços de consulta -->
+      <div style="margin-top: 2rem; padding: 1.25rem; background: var(--bg-subtle); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+        <h3 style="font-size: 1rem; margin-bottom: 0.5rem;">Enllaços de referència per continuar aprenent:</h3>
+        <ul style="padding-left: 1.25rem; line-height: 1.7; font-size: 0.9rem; color: var(--text-muted);">
+          <li><a href="https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html" target="_blank" rel="noopener">Guia oficial de Vibe coding responsable (Juan José de Haro)</a></li>
+          <li><a href="https://education.github.com/teachers" target="_blank" rel="noopener">GitHub Education per a docents (sol·licitud gratuïta d'avantatges per a professorat)</a></li>
+          <li><a href="https://pages.github.com/" target="_blank" rel="noopener">Documentació de GitHub Pages</a></li>
+          <li><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">Llicència Creative Commons Reconeixement-CompartirIgual (CC BY-SA 4.0)</a></li>
+          <li><a href="https://opensource.org/license/mit" target="_blank" rel="noopener">Llicència de programari lliure MIT</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Paginació inferior -->
+    <div class="page-pagination">
+      <a href="bloc6-bones-practiques.html" class="btn-pagination" data-nav="prev">
+        ◀ <span>Anterior: Bloc 6 • Bones pràctiques</span>
+      </a>
+      <a href="index.html" class="btn-pagination primary" data-nav="next">
+        <span>Tornar a la pàgina d'inici</span> 🏠
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p><strong>Eines d'intel·ligència artificial per a l'aula</strong> — Servei Educatiu del Vallès Occidental II.</p>
+      <div class="footer-links">
+        <a href="https://github.com/miquelangelfuentes/eines-ia-aula" target="_blank" rel="noopener">Repositori</a>
+        <span>•</span>
+        <a href="https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html" target="_blank" rel="noopener">Vibe coding responsable</a>
+        <span>•</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-SA 4.0</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
