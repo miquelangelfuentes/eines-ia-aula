@@ -1,18 +1,18 @@
 /* ==========================================================================
-   EINES IA PER A L'AULA - Lògica interactiva de la presentació
+   EINES D'INTEL·LIGÈNCIA ARTIFICIAL PER A L'AULA
+   Lògica interactiva: modes de visualització, eines docents i verificació
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   initViewMode();
-  initSlidesNavigation();
-  initSpeakerTimer();
+  initStepwiseNavigation();
   initCopyButtons();
   initPromptGenerator();
   initChecklist();
 });
 
-/* 1. Gestió del Tema (Clar / Fosc) */
+/* 1. Gestió del tema (clar o fosc) */
 function initTheme() {
   const themeToggle = document.getElementById("btn-toggle-theme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -38,26 +38,26 @@ function updateThemeIcon(theme) {
   icon.textContent = theme === "dark" ? "☀️" : "🌙";
 }
 
-/* 2. Selector de Mode (Diapositives vs Guia Completa) */
-let currentMode = "guide"; // 'guide' | 'slides'
-let currentSlideIndex = 0;
-const slides = [];
+/* 2. Selector de mode (document complet vs. pas a pas per no sobrecarregar) */
+let currentMode = "guide"; // 'guide' (complet) | 'stepwise' (pas a pas)
+let currentStepIndex = 0;
+const sections = [];
 
 function initViewMode() {
   const btnModeGuide = document.getElementById("btn-mode-guide");
-  const btnModeSlides = document.getElementById("btn-mode-slides");
+  const btnModeStepwise = document.getElementById("btn-mode-stepwise");
   const cards = document.querySelectorAll(".block-card");
 
-  cards.forEach((card, idx) => {
-    slides.push(card);
+  cards.forEach((card) => {
+    sections.push(card);
   });
 
   const savedMode = localStorage.getItem("eines-ia:mode") || "guide";
   setMode(savedMode);
 
-  if (btnModeGuide && btnModeSlides) {
+  if (btnModeGuide && btnModeStepwise) {
     btnModeGuide.addEventListener("click", () => setMode("guide"));
-    btnModeSlides.addEventListener("click", () => setMode("slides"));
+    btnModeStepwise.addEventListener("click", () => setMode("stepwise"));
   }
 }
 
@@ -65,147 +65,84 @@ function setMode(mode) {
   currentMode = mode;
   localStorage.setItem("eines-ia:mode", mode);
   const btnModeGuide = document.getElementById("btn-mode-guide");
-  const btnModeSlides = document.getElementById("btn-mode-slides");
+  const btnModeStepwise = document.getElementById("btn-mode-stepwise");
 
-  if (mode === "slides") {
-    document.body.classList.add("mode-slides");
-    btnModeSlides?.classList.add("active");
+  if (mode === "stepwise") {
+    document.body.classList.add("mode-stepwise");
+    btnModeStepwise?.classList.add("active");
     btnModeGuide?.classList.remove("active");
-    showSlide(currentSlideIndex);
+    showStep(currentStepIndex);
   } else {
-    document.body.classList.remove("mode-slides");
+    document.body.classList.remove("mode-stepwise");
     btnModeGuide?.classList.add("active");
-    btnModeSlides?.classList.remove("active");
-    slides.forEach(card => card.classList.remove("slide-active"));
+    btnModeStepwise?.classList.remove("active");
+    sections.forEach(card => card.classList.remove("step-active"));
   }
 }
 
-/* 3. Navegació de Diapositives */
-function initSlidesNavigation() {
-  const btnPrev = document.getElementById("btn-slide-prev");
-  const btnNext = document.getElementById("btn-slide-next");
+/* 3. Navegació del mode pas a pas */
+function initStepwiseNavigation() {
+  const btnPrev = document.getElementById("btn-step-prev");
+  const btnNext = document.getElementById("btn-step-next");
 
-  btnPrev?.addEventListener("click", () => navigateSlide(-1));
-  btnNext?.addEventListener("click", () => navigateSlide(1));
+  btnPrev?.addEventListener("click", () => navigateStep(-1));
+  btnNext?.addEventListener("click", () => navigateStep(1));
 
-  // Teclat per avançar/retrocedir
   window.addEventListener("keydown", (e) => {
-    if (currentMode !== "slides") return;
+    if (currentMode !== "stepwise") return;
     if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA" || e.target.tagName === "SELECT") return;
 
-    if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") {
+    if (e.key === "ArrowRight" || e.key === "PageDown") {
       e.preventDefault();
-      navigateSlide(1);
+      navigateStep(1);
     } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
       e.preventDefault();
-      navigateSlide(-1);
+      navigateStep(-1);
     }
   });
 }
 
-function navigateSlide(delta) {
-  const target = currentSlideIndex + delta;
-  if (target >= 0 && target < slides.length) {
-    showSlide(target);
+function navigateStep(delta) {
+  const target = currentStepIndex + delta;
+  if (target >= 0 && target < sections.length) {
+    showStep(target);
   }
 }
 
-function showSlide(index) {
-  if (slides.length === 0) return;
-  currentSlideIndex = index;
+function showStep(index) {
+  if (sections.length === 0) return;
+  currentStepIndex = index;
 
-  slides.forEach((slide, i) => {
+  sections.forEach((sec, i) => {
     if (i === index) {
-      slide.classList.add("slide-active");
-      slide.scrollIntoView({ behavior: "smooth", block: "start" });
+      sec.classList.add("step-active");
+      sec.scrollIntoView({ behavior: "smooth", block: "start" });
     } else {
-      slide.classList.remove("slide-active");
+      sec.classList.remove("step-active");
     }
   });
 
-  const counter = document.getElementById("slides-counter-display");
+  const counter = document.getElementById("stepwise-counter-display");
   if (counter) {
-    counter.textContent = `Bloc ${index + 1} de ${slides.length}`;
+    counter.textContent = `Secció ${index + 1} de ${sections.length}`;
   }
 
-  const btnPrev = document.getElementById("btn-slide-prev");
-  const btnNext = document.getElementById("btn-slide-next");
+  const btnPrev = document.getElementById("btn-step-prev");
+  const btnNext = document.getElementById("btn-step-next");
   if (btnPrev) btnPrev.disabled = index === 0;
-  if (btnNext) btnNext.disabled = index === slides.length - 1;
+  if (btnNext) btnNext.disabled = index === sections.length - 1;
 
-  // Actualitzar pas a la barra de temps
-  const timelineSteps = document.querySelectorAll(".timeline-step");
-  timelineSteps.forEach((step, i) => {
+  const stepNavItems = document.querySelectorAll(".step-nav-item");
+  stepNavItems.forEach((item, i) => {
     if (i === index) {
-      step.classList.add("active");
+      item.classList.add("active");
     } else {
-      step.classList.remove("active");
+      item.classList.remove("active");
     }
   });
 }
 
-/* 4. Temporitzador de la Ponència (2 hores / 120 min) */
-let timerSeconds = 0;
-let timerInterval = null;
-let isTimerRunning = false;
-
-function initSpeakerTimer() {
-  const timerDisplay = document.getElementById("timer-display");
-  const btnToggleTimer = document.getElementById("btn-timer-toggle");
-  const btnResetTimer = document.getElementById("btn-timer-reset");
-
-  if (!timerDisplay) return;
-
-  btnToggleTimer?.addEventListener("click", () => {
-    if (isTimerRunning) {
-      clearInterval(timerInterval);
-      isTimerRunning = false;
-      btnToggleTimer.textContent = "▶️";
-      btnToggleTimer.title = "Començar temporitzador";
-    } else {
-      timerInterval = setInterval(() => {
-        timerSeconds++;
-        updateTimerDisplay();
-      }, 1000);
-      isTimerRunning = true;
-      btnToggleTimer.textContent = "⏸️";
-      btnToggleTimer.title = "Pausar";
-    }
-  });
-
-  btnResetTimer?.addEventListener("click", () => {
-    clearInterval(timerInterval);
-    isTimerRunning = false;
-    timerSeconds = 0;
-    updateTimerDisplay();
-    if (btnToggleTimer) {
-      btnToggleTimer.textContent = "▶️";
-    }
-  });
-}
-
-function updateTimerDisplay() {
-  const display = document.getElementById("timer-display");
-  if (!display) return;
-
-  const mins = Math.floor(timerSeconds / 60);
-  const secs = timerSeconds % 60;
-  const padMins = String(mins).padStart(2, "0");
-  const padSecs = String(secs).padStart(2, "0");
-
-  display.textContent = `${padMins}:${padSecs} / 120:00`;
-
-  // Indicació visual de temps passat
-  if (mins >= 120) {
-    display.style.color = "var(--accent-danger)";
-  } else if (mins >= 100) {
-    display.style.color = "var(--accent-warm)";
-  } else {
-    display.style.color = "var(--accent-primary)";
-  }
-}
-
-/* 5. Copiar fragments de codi */
+/* 4. Copiar fragments de text o codi */
 function initCopyButtons() {
   document.querySelectorAll(".copy-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -216,7 +153,7 @@ function initCopyButtons() {
       navigator.clipboard.writeText(targetEl.innerText.trim()).then(() => {
         const orig = btn.innerText;
         btn.innerText = "✓ Copiat!";
-        btn.style.background = "#059669";
+        btn.style.background = "#0f766e";
         setTimeout(() => {
           btn.innerText = orig;
           btn.style.background = "";
@@ -226,7 +163,7 @@ function initCopyButtons() {
   });
 }
 
-/* 6. Generador de Prompts Educatius Interactiu */
+/* 5. Generador de prompts educatius per a Antigravity */
 function initPromptGenerator() {
   const form = document.getElementById("prompt-generator-form");
   const resultBox = document.getElementById("generated-prompt-text");
@@ -235,27 +172,27 @@ function initPromptGenerator() {
   if (!form || !resultBox) return;
 
   function generatePrompt() {
-    const materia = document.getElementById("prompt-materia")?.value || "Llengua";
+    const materia = document.getElementById("prompt-materia")?.value || "Llengua catalana";
     const nivell = document.getElementById("prompt-nivell")?.value || "1r d'ESO";
     const tipus = document.getElementById("prompt-tipus")?.value || "Activitat autocorrectiva";
     const dua = document.getElementById("prompt-dua")?.value || "Accessibilitat alta";
-    const objectiu = document.getElementById("prompt-objectiu")?.value || "practicar el tema";
+    const objectiu = document.getElementById("prompt-objectiu")?.value || "practicar el contingut";
 
     const prompt = `Actua com a dissenyador tecnològic i expert en pedagogia.
 Vull crear un recurs web educatiu d'una sola pàgina (HTML, CSS i JavaScript integrats o en fitxers senzills) per a l'aula.
 
-🎯 **Context i Nivell:** ${nivell} - Matèria: ${materia}
-🧩 **Tipus de Recurs:** ${tipus}
-🎯 **Objectiu d'aprenentatge:** ${objectiu}
+Context i nivell: ${nivell} — matèria: ${materia}
+Tipus de recurs: ${tipus}
+Objectiu pedagògic: ${objectiu}
 
-📋 **Requisits de Vibe Coding Responsable i DUA:**
-1. **Zero dades personals:** L'alumnat no s'ha d'identificar ni registrar. Tot s'executa al navegador en local (Client-side).
-2. **Accessibilitat (DUA):** ${dua}. Colors amb alt contrast (WCAG AA), text gran i llegible, navegable per teclat i compatible amb mòbil/tauleta.
-3. **Pedagogia rigorosa:** Contingut exacte, sense al·lucinacions, amb retroacció explicativa quan l'alumne s'equivoca.
-4. **Independència tecnològica:** Sense enllaços externs a imatges fràgils; utilitza icones SVG inline o estils CSS purs.
-5. **Codi obert:** Deixa el codi net, ben comentat i inclou una declaració d'ús d'IA i llicència Creative Commons BY-SA al peu.
+Requisits de bones pràctiques i accessibilitat (DUA):
+1. Protecció de dades: l'alumnat no s'ha d'identificar ni registrar. Tot s'executa al navegador en local.
+2. Accessibilitat: ${dua}. Colors amb alt contrast (WCAG AA), text gran i llegible, navegable per teclat i adaptable a mòbils.
+3. Rigor: contingut exacte, sense invencions de dades, amb retroacció explicativa quan l'alumne s'equivoca.
+4. Independència: sense enllaços externs a imatges fràgils; utilitza estils CSS nets o icones SVG bàsiques.
+5. Codi obert: codi net, ben estructurat i comentat, amb peu de pàgina de transparència d'ús d'IA i llicència Creative Commons BY-SA per al contingut i llicència MIT per al codi.
 
-Si us plau, genera el codi complet llest per provar i publicar directament a GitHub Pages.`;
+Genera el codi complet i llest per desar a la carpeta local i publicar a GitHub Pages.`;
 
     resultBox.textContent = prompt;
   }
@@ -268,13 +205,13 @@ Si us plau, genera el codi complet llest per provar i publicar directament a Git
     navigator.clipboard.writeText(resultBox.textContent).then(() => {
       btnCopy.innerText = "✓ Prompt copiat!";
       setTimeout(() => {
-        btnCopy.innerText = "📋 Copiar Prompt per a Google Antigravity";
+        btnCopy.innerText = "Copiar prompt per a Google Antigravity";
       }, 2000);
     });
   });
 }
 
-/* 7. Checklist interactiva de Vibe Coding Responsable */
+/* 6. Llista de verificació interactiva de bones pràctiques */
 function initChecklist() {
   const checkboxes = document.querySelectorAll(".vibe-checklist-input");
   const savedChecks = JSON.parse(localStorage.getItem("eines-ia:checklist") || "{}");
@@ -315,6 +252,6 @@ function updateChecklistProgress() {
   const checked = document.querySelectorAll(".vibe-checklist-input:checked").length;
   const counterEl = document.getElementById("checklist-progress-text");
   if (counterEl) {
-    counterEl.textContent = `${checked} de ${total} recomanacions complertes`;
+    counterEl.textContent = `${checked} de ${total} punts verificats`;
   }
 }
