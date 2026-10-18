@@ -293,7 +293,95 @@
       </div>
     </div>
 
-    <!-- Caixa 2: Comparativa de Google Antigravity amb OpenAI Codex i Claude Code -->
+    <!-- Caixa 2: Pràctica d'automatització amb Antigravity -->
+    <div class="content-box">
+      <h2>Pràctica guiada: Descàrrega massiva de documents PDF d'un lloc web a Documents</h2>
+      <p class="lead-desc">Com utilitzar la potència d'un agent d'Antigravity per estalviar hores de feina mecànica descarregant materials educatius</p>
+
+      <div class="pedagogical-highlight">
+        Sovint trobareu pàgines educatives, portals de recursos o seus oficials on hi ha desenes de documents PDF (models de proves, dossiers d'activitats, rúbriques o guies curriculars). Descarregar-los un per un al navegador requereix una feinada mecànica i feixuga de clics. Com que <strong>Google Antigravity</strong> és un agent amb accés a eines de sistema i lectura web, podeu demanar-li que n'extregui tots els PDF i us els desi directament a la vostra carpeta de <strong>Documents</strong> de manera autònoma i ordenada.
+      </div>
+
+      <div class="ordered-steps">
+        <div class="ordered-step-item">
+          <div class="step-indicator">1</div>
+          <div class="step-content">
+            <h3>Trieu la pàgina web d'origen i la carpeta de destinació</h3>
+            <p>
+              Copieu l'adreça web (URL) on hi ha el llistat de fitxers i penseu un nom clar per a la carpeta on voleu desar-los dins de Documents (per exemple: <code>Documents/dossiers-didactics</code> o <code>Documents/curriculum-primaria</code>).
+            </p>
+          </div>
+        </div>
+
+        <div class="ordered-step-item">
+          <div class="step-indicator">2</div>
+          <div class="step-content">
+            <h3>Envieu la indicació a l'assistent de Google Antigravity</h3>
+            <p>
+              Obriu Antigravity i escriviu la petició en llenguatge natural al xat. Podeu fer servir la plantilla d'indicació que teniu a continuació. L'assistent analitzarà el codi de la pàgina web, cercarà tots els enllaços que acaben en <code>.pdf</code> i prepararà un pla d'acció.
+            </p>
+          </div>
+        </div>
+
+        <div class="ordered-step-item">
+          <div class="step-indicator">3</div>
+          <div class="step-content">
+            <h3>Reviseu el pla i comproveu la carpeta al vostre ordinador</h3>
+            <p>
+              Gràcies al mode <em>Plan Review</em> que hem configurat abans, Antigravity us indicarà primer quants documents ha detectat (per exemple: "He trobat 18 arxius PDF"). En prémer el botó d'aprovació, l'agent crearà la carpeta local i descarregarà tots els fitxers un darrere l'altre. Quan acabi, podreu obrir directament el gestor d'arxius de Windows o macOS per consultar els documents.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.75rem; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.35rem 1.5rem;">
+        <h3 style="font-size: 1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.45rem;">
+          <i data-lucide="terminal" style="width: 18px; height: 18px; color: var(--accent-primary);"></i>
+          Plantilla d'indicació llesta per copiar i fer servir a Antigravity:
+        </h3>
+        <p style="font-size: 0.865rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+          Només cal que substituïu la URL i el nom de la carpeta pel vostre cas concret:
+        </p>
+
+        <pre id="pdf-prompt-template" style="background: var(--bg-card); padding: 1rem 1.15rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.85rem; line-height: 1.6; white-space: pre-wrap; word-break: break-word; color: var(--text-main); margin: 0;">Necessito que analitzis la següent pàgina web i em descarreguis tots els documents PDF que conté:
+URL: [ENGANXEU AQUÍ L'ADREÇA WEB DE LA PÀGINA]
+
+Si us plau, segueix aquestes instruccions:
+1. Inspecciona la pàgina i localitza tots els enllaços que apuntin a documents que acabin en .pdf.
+2. Crea una carpeta local a la meva carpeta de Documents que es digui "[Nom de la carpeta, ex: dossiers-competencials]".
+3. Descarrega-hi tots els fitxers PDF de manera ordenada, conservant el seu nom original o posant un títol clar que identifiqui el document.
+4. Si algun enllaç falla o està trencat, anota'l i continua amb els altres.
+5. Quan acabis, mostra'm un resum amb la llista completa de fitxers descarregats i la seva mida en megabytes.</pre>
+
+        <button class="copy-btn btn-primary-action" data-target="pdf-prompt-template" type="button" style="margin-top: 0.85rem; font-size: 0.85rem; padding: 0.55rem 1rem;">
+          Copiar indicació de descàrrega per a Antigravity
+        </button>
+      </div>
+
+      <div class="clean-grid" style="margin-top: 1.5rem;">
+        <div class="card-item" style="border-left: 4px solid var(--accent-primary);">
+          <h3 style="font-size: 0.95rem; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem;">
+            <i data-lucide="globe" style="width: 16px; height: 16px; color: var(--accent-primary);"></i>
+            Pàgines d'accés obert
+          </h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
+            Aquesta automatització funciona en pàgines públiques (repositoris de materials, publicacions educatives, seus electròniques). Si la pàgina demana iniciar sessió amb usuari i contrasenya privats, l'assistent no hi podrà accedir per garantir la seguretat.
+          </p>
+        </div>
+
+        <div class="card-item" style="border-left: 4px solid #059669;">
+          <h3 style="font-size: 0.95rem; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem;">
+            <i data-lucide="folder-check" style="width: 16px; height: 16px; color: #059669;"></i>
+            Carpeta neta i sense duplicats
+          </h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">
+            Tindreu tots els materials organitzats en una sola carpeta a Documents, sense haver d'anar a buscar fitxers dispersos a la carpeta de Baixades ni haver de reanomenar arxius a mà.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Caixa 3: Comparativa de Google Antigravity amb OpenAI Codex i Claude Code -->
     <div class="content-box">
       <h2>Comparativa: Google Antigravity, OpenAI Codex i Claude Code d'Anthropic</h2>
       <p class="lead-desc">Com es posiciona Antigravity respecte a altres eines líders de generació de codi amb intel·ligència artificial des de la perspectiva educativa</p>
