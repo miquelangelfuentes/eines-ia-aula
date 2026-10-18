@@ -12,31 +12,31 @@ Aquest repositori conté el lloc web de suport al taller docent, estructurat en 
 
 | Pàgina | Títol | Contingut principal |
 | :--- | :--- | :--- |
-| [`index.html`](index.html) | **Pàgina d'inici** | Presentació del recurs, orientacions i índex de targetes per accedir a cada bloc. |
-| [`bloc1-marc.html`](bloc1-marc.html) | **1. De consultar un xat a crear les nostres eines** | Canvi de perspectiva: de fer consultes a un xat a construir eines interactives sense necessitat de saber programar. |
-| [`bloc2-antigravity.html`](bloc2-antigravity.html) | **2. Google Antigravity** | Instal·lació (inclosos equips del PEDC), carpeta de treball, models Flash i Pro, assistent d'indicacions docents i pràctica guiada de descàrrega de fitxers PDF. |
-| [`bloc3-github.html`](bloc3-github.html) | **3. Configuració de GitHub** | Creació del repositori, token d'accés (PAT), activació de Pages en 3 clics, rutes relatives (amb videotutorial de suport) i alternativa visual amb GitHub Desktop. |
-| [`bloc4-pages-sites.html`](bloc4-pages-sites.html) | **4. Pages en comparació amb Sites** | Taula comparativa de creació amb assistència d'IA, riquesa interactiva, historial de canvis i sobirania dels fitxers. |
-| [`bloc5-llicencies.html`](bloc5-llicencies.html) | **5. Llicències i codi obert** | Creative Commons per a textos (CC BY-SA) i llicències de programari (MIT) per a codi: la fórmula híbrida per a materials d'aula. |
-| [`bloc6-recursos-visuals.html`](bloc6-recursos-visuals.html) | **6. Recursos visuals i citació** | Ús d'imatges creades per persones en lloc de generacions d'IA, icones SVG lleugeres (Lucide, Tabler), Unsplash i citació a peu d'imatge amb el patró TASL. |
-| [`bloc7-bones-practiques.html`](bloc7-bones-practiques.html) | **7. Bones pràctiques d'aula** | Consells abans de publicar a partir de la guia de *vibe coding responsable* (De Haro, 2026): rigor pedagògic, privadesa estricta de l'alumnat (RGPD) i pautes DUA. |
-| [`bloc8-verificacio.html`](bloc8-verificacio.html) | **8. Llista de verificació** | Checklist interactiva de 10 punts amb memòria local (`localStorage`) per revisar el recurs abans de compartir-lo amb el grup classe. |
-| [`bloc9-per-continuar-explorant.html`](bloc9-per-continuar-explorant.html) | **9. Per continuar explorant** | Models d'IA local per a privadesa absoluta, recursos en català de Softcatalà, ponència de Jordi Mas i el directori Rebost.ai. |
-| [`imprimir-tot.html`](imprimir-tot.html) | **Dossier complet per imprimir** | Vista continuada que aplega tots els continguts en un únic document dissenyat per a impressió en paper o exportació a PDF. |
-| [`credits.html`](credits.html) | **Crèdits i autoria** | Marc institucional del Servei Educatiu del Vallès Occidental II (CRP), referències pedagògiques d'inspiració i llicències dels recursos utilitzats. |
+| [`index.html`](index.html) | **Pàgina d'inici** | Presentació del recurs, orientacions i accés a cada bloc. |
+| [`bloc1-marc.html`](bloc1-marc.html) | **1. De consultar un xat a crear les nostres eines** | Canvi de perspectiva: passar de demanar respostes a un xat a construir eines interactives que funcionen al navegador. |
+| [`bloc2-antigravity.html`](bloc2-antigravity.html) | **2. Google Antigravity** | Instal·lació pas a pas (inclosos equips del PEDC), assistent d'indicacions docents i pràctica guiada de descàrrega de documents. |
+| [`bloc3-github.html`](bloc3-github.html) | **3. Configuració de GitHub** | Creació del repositori, activació de Pages en 3 clics, rutes relatives (amb videotutorial) i alternativa visual amb GitHub Desktop. |
+| [`bloc4-pages-sites.html`](bloc4-pages-sites.html) | **4. Pages en comparació amb Sites** | Comparativa sobre independència tecnològica, opcions d'interactivitat i sobirania dels materials escolars. |
+| [`bloc5-llicencies.html`](bloc5-llicencies.html) | **5. Llicències i codi obert** | Creative Commons per a textos (CC BY-SA) i llicències de programari (MIT) per a codi: la fórmula híbrida d'aula. |
+| [`bloc6-recursos-visuals.html`](bloc6-recursos-visuals.html) | **6. Recursos visuals i citació** | Ús d'imatges creades per persones en comptes d'imatges generades amb IA, bancs lliures d'icones i citació amb el patró TASL. |
+| [`bloc7-bones-practiques.html`](bloc7-bones-practiques.html) | **7. Bones pràctiques d'aula** | Consells abans de publicar basats en la guia de *vibe coding responsable* (De Haro, 2026) per garantir la privadesa de l'alumnat (RGPD). |
+| [`bloc8-verificacio.html`](bloc8-verificacio.html) | **8. Llista de verificació** | Checklist interactiva de 10 punts amb memòria local per revisar el recurs abans de compartir-lo amb el grup classe. |
+| [`bloc9-per-continuar-explorant.html`](bloc9-per-continuar-explorant.html) | **9. Per continuar explorant** | Models d'IA local per a privadesa absoluta, recursos en català de Softcatalà i ponència de Jordi Mas. |
+| [`imprimir-tot.html`](imprimir-tot.html) | **Dossier complet per imprimir** | Vista continuada que aplega tots els continguts en un únic document preparat per a impressió o exportació a PDF. |
+| [`credits.html`](credits.html) | **Crèdits i autoria** | Marc institucional del Servei Educatiu del Vallès Occidental II (CRP), referències pedagògiques i llicències d'ús. |
 
 ---
 
 ## Característiques del recurs
 
-- **Navegació per teclat i botons seqüencials:** durant el taller podeu prémer `Fletxa Dreta` (▶) per anar al següent bloc o `Fletxa Esquerra` (◀) per tornar a l'anterior, de manera similar a unes diapositives però en pàgines web reals.
-- **Assistent d'indicacions integrat:** al bloc 2, per configurar instruccions pedagògiques adaptades a la matèria, el curs i l'objectiu d'aprenentatge.
-- **Pràctica d'automatització amb agent:** exemple real de descàrrega autònoma de fitxers PDF des d'un portal web directament a la carpeta de Documents del docent.
-- **Videotutorials de suport:** recursos audiovisuals incrustats per resoldre aspectes pràctics indispensables com les rutes relatives a la web.
-- **Llista de comprovació interactiva:** al bloc 8, amb desat automàtic de l'estat al navegador per verificar el compliment de criteris de privadesa, accessibilitat i rigor.
-- **Dossier unitari per imprimir:** versió completa a `imprimir-tot.html` per a lectura continuada o distribució en paper o format PDF.
-- **Mode clar i fosc:** commutador accessible des de la barra superior de totes les pàgines.
-- **Identitat visual i accessibilitat:** paleta de colors corporativa, disseny adaptatiu i compliment de contrastos i accessibilitat web (DUA).
+- **Navegació per teclat i botons seqüencials:** durant el taller podeu prémer `Fletxa Dreta` (▶) per anar al següent bloc o `Fletxa Esquerra` (◀) per tornar a l'anterior, com si fossin diapositives en pàgines web reals.
+- **Assistent d'indicacions integrat:** formulari al bloc 2 per redactar instruccions docents eficaces per a Google Antigravity segons les necessitats del grup classe.
+- **Pràctica d'automatització amb agent:** exercici guiat per descarregar documents PDF des d'un portal web directament a la carpeta de Documents de l'ordinador.
+- **Videotutorials de suport:** explicacions en vídeo sobre aspectes pràctics indispensables com les rutes relatives a la web.
+- **Llista de verificació interactiva:** checklist al bloc 8 amb memòria local al navegador per validar el rigor pedagògic i la privadesa del material.
+- **Dossier unitari per imprimir:** versió completa a `imprimir-tot.html` per a lectura continuada o distribució en PDF.
+- **Mode clar i fosc:** commutador ràpid disponible a la capçalera de totes les pàgines.
+- **Accessibilitat:** disseny adaptat a pantalles de qualsevol mida, amb contrastos contrastats segons les pautes DUA.
 
 ---
 
