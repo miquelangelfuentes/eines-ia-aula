@@ -353,7 +353,8 @@ body {
 }
 
 /* Graella de targetes */
-.cards-grid {
+.cards-grid,
+.clean-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 1.25rem;
@@ -1076,7 +1077,7 @@ figcaption.edu-caption a {
   .content-box {
     padding: 1.25rem;
   }
-  .cards-grid, .licenses-comparison, .vibe-recommendations-list, .home-blocks-grid {
+  .cards-grid, .clean-grid, .licenses-comparison, .vibe-recommendations-list, .home-blocks-grid {
     grid-template-columns: 1fr;
   }
   .page-pagination {
@@ -1783,7 +1784,8 @@ figcaption.edu-caption a {
     font-size: 9.5pt !important;
   }
 
-  .cards-grid {
+  .cards-grid,
+  .clean-grid {
     display: block !important;
   }
 
