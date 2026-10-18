@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eines IA per a l'aula | CRP Vallès Occidental II</title>
+  <meta name="description" content="Xerrada i guia per a docents: Instal·lació de Google Antigravity, GitHub Pages, Vibe Coding Responsable vs Google Sites. CRP Vallès Occidental II.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+</head>
+<body>
+  <a href="#contingut-principal" class="skip-link">Salta directament al contingut</a>
+
+  <!-- BARRA SUPERIOR STICKY -->
+  <header class="top-bar">
+    <div class="top-bar-container">
+      <div class="brand-section">
+        <span class="badge-crp">CRP Vallès Occ. II</span>
+        <div class="brand-title">Eines IA per a l'aula</div>
+      </div>
+
+      <div class="controls-group">
+        <!-- Selector Mode Diapositives vs Guia Completa -->
+        <div class="mode-selector" role="group" aria-label="Mode de visualització">
+          <button id="btn-mode-guide" class="btn-toggle-mode active" type="button" title="Veure com a guia i apunts continus">
+            📖 <span>Guia Docent</span>
+          </button>
+          <button id="btn-mode-slides" class="btn-toggle-mode" type="button" title="Veure en mode presentació / diapositives">
+            📽️ <span>Presentació</span>
+          </button>
+        </div>
+
+        <!-- Temporitzador de la xerrada de 2h -->
+        <div class="speaker-timer" title="Temporitzador de la sessió de 120 minuts">
+          <span>⏱️</span>
+          <span id="timer-display" class="timer-display">00:00 / 120:00</span>
+          <button id="btn-timer-toggle" class="btn-timer" type="button" title="Iniciar/Pausar temporitzador">▶️</button>
+          <button id="btn-timer-reset" class="btn-timer" type="button" title="Reiniciar">🔄</button>
+        </div>
+
+        <!-- Mode fosc/clar -->
+        <button id="btn-toggle-theme" class="btn-icon" type="button" aria-label="Canviar tema fosc o clar" title="Canviar tema">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO / CAPÇALERA -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-meta">
+        <span>📍 Centre de Recursos Pedagògics — Vallès Occidental II</span>
+        <span>•</span>
+        <span>⏱️ Durada: 2 hores (120 min)</span>
+      </div>
+      <h1>
+        <span class="gradient-text">Eines IA per a l'aula</span><br>
+        De la idea al recurs web interactiu
+      </h1>
+      <p class="hero-subtitle">
+        Com utilitzar <strong>Google Antigravity</strong> i <strong>GitHub Pages</strong> per crear i publicar materials educatius personalitzats, aplicant els principis del <strong>Vibe Coding Responsable</strong>.
+      </p>
+      <div class="hero-chips">
+        <span class="chip">🚀 Google Antigravity</span>
+        <span class="chip">🐙 GitHub & GitHub Pages</span>
+        <span class="chip">⚖️ GitHub Pages vs Google Sites</span>
+        <span class="chip">🛡️ Vibe Coding Responsable</span>
+        <span class="chip">♿ DUA i Accessibilitat</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRONOGRAMA DE LA SESSIÓ (120 MINUTS) -->
+  <nav class="session-timeline-nav" aria-label="Cronograma de la sessió de 2 hores">
+    <ul class="timeline-items">
+      <li>
+        <a href="#bloc-1" class="timeline-step">
+          <span class="step-time">00-15m</span>
+          <span>1. Marc i Vibe Coding</span>
+        </a>
+      </li>
+      <li>
+        <a href="#bloc-2" class="timeline-step">
+          <span class="step-time">15-40m</span>
+          <span>2. Google Antigravity</span>
+        </a>
+      </li>
+      <li>
+        <a href="#bloc-3" class="timeline-step">
+          <span class="step-time">40-65m</span>
+          <span>3. Configuració GitHub</span>
+        </a>
+      </li>
+      <li>
+        <a href="#bloc-4" class="timeline-step">
+          <span class="step-time">65-90m</span>
+          <span>4. Pages vs Sites</span>
+        </a>
+      </li>
+      <li>
+        <a href="#bloc-5" class="timeline-step">
+          <span class="step-time">90-110m</span>
+          <span>5. Bones Pràctiques</span>
+        </a>
+      </li>
+      <li>
+        <a href="#bloc-6" class="timeline-step">
+          <span class="step-time">110-120m</span>
+          <span>6. Cloenda i Checklist</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- CONTINGUT PRINCIPAL -->
+  <main id="contingut-principal" class="main-content">
+
+    <!-- BARRA D'EINES PER AL MODE DIAPOSITIVES -->
+    <div class="slides-toolbar">
+      <div class="slides-counter">
+        <span id="slides-counter-display">Bloc 1 de 6</span>
+      </div>
+      <div class="slides-nav-btns">
+        <button id="btn-slide-prev" class="btn-slide-nav" type="button" disabled>
+          ◀ <span>Anterior</span>
+        </button>
+        <button id="btn-slide-next" class="btn-slide-nav" type="button">
+          <span>Següent</span> ▶
+        </button>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         BLOC 1: BENVINGUDA I MARC CONCEPTUAL (15 MIN)
+         ==================================================================== -->
+    <article id="bloc-1" class="block-card" data-step="1">
+      <header class="block-header">
+        <div class="block-title-box">
+          <div class="block-badge-num">1</div>
+          <div>
+            <h2>Marc Conceptual: De la IA que xateja a la IA que construeix</h2>
+            <p class="text-dim">Superar la barrera tècnica per esdevenir creadors actius de materials d'aula</p>
+          </div>
+        </div>
+        <div class="block-timing-pill">
+          <span>⏱️ 15 minuts (00:00 - 00:15)</span>
+        </div>
+      </header>
+
+      <div class="slide-summary-box">
+        💡 <strong>Idea força per projectar:</strong> Els xats d'IA ens donen respostes de text, però el <em>Vibe Coding</em> amb agents com Google Antigravity ens permet crear <strong>aplicacions web completes i interactives</strong> per als nostres alumnes en minuts.
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h3>💬 1. El límit dels xats convencionals</h3>
+          <p>
+            Generen textos, llistes o suggeriments, però després el docent ha de copiar, enganxar, maquetar o adaptar el format a mà. L'alumne continua rebent un document estàtic.
+          </p>
+        </div>
+        <div class="feature-box">
+          <h3>🪄 2. Què és el "Vibe Coding" educatiu?</h3>
+          <p>
+            És la metodologia de crear programari descrivint <em>què vols aconseguir pedagògicament</em> en llenguatge natural. L'agent d'IA s'encarrega del codi tècnic (HTML, CSS, JS).
+          </p>
+        </div>
+        <div class="feature-box">
+          <h3>🎯 3. L'objectiu d'aquesta sessió de 2h</h3>
+          <p>
+            Que cada docent assistent del Vallès Occidental II surti amb Google Antigravity configurat, entengui GitHub sense por i tingui la capacitat de publicar la seva primera pàgina interactiva gratuïta.
+          </p>
+        </div>
+      </div>
+
+      <div class="guide-only">
+        <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Notes del ponent per a la introducció:</h3>
+        <ul style="padding-left: 1.25rem; color: var(--text-muted); line-height: 1.6;">
+          <li>Demanar quants docents a la sala han provat ChatGPT/Claude/Gemini per preparar classes (sovint el 90%).</li>
+          <li>Preguntar quants tenen una web pròpia interactiva amb simulacions o exercicis autocorrectius (sovint menys del 5%).</li>
+          <li>Subratllar que avui trenquem aquesta escletxa: <strong>no cal saber programar per tenir el teu propi entorn web d'aula</strong>.</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- ====================================================================
+         BLOC 2: GOOGLE ANTIGRAVITY (25 MIN)
+         ==================================================================== -->
+    <article id="bloc-2" class="block-card" data-step="2">
+      <header class="block-header">
+        <div class="block-title-box">
+          <div class="block-badge-num">2</div>
+          <div>
+            <h2>L'Eina: Com instal·lar i configurar Google Antigravity</h2>
+            <p class="text-dim">Passos d'instal·lació als dispositius docents i primer contacte amb l'entorn agentic</p>
+          </div>
+        </div>
+        <div class="block-timing-pill">
+          <span>⏱️ 25 minuts (00:15 - 00:40)</span>
+        </div>
+      </header>
+
+      <div class="slide-summary-box">
+        🛠️ <strong>Idea força per projectar:</strong> Google Antigravity no és un xat web: és un <em>entorn de desenvolupament assistit per agents</em> que pot crear carpetes, escriure fitxers web complets i executar comprovacions directament al teu ordinador.
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h3>💻 1. Requisits i Descàrrega</h3>
+          <p>
+            Disponible per a <strong>Windows</strong>, <strong>macOS</strong> i <strong>Linux</strong>. Requereix connexió a Internet i un compte de Google/Google Workspace per accedir als models Gemini.
+          </p>
+        </div>
+        <div class="feature-box">
+          <h3>⚙️ 2. Estructura de treball (Workspaces)</h3>
+          <p>
+            Treballa sobre carpetes locals del teu ordinador (p. ex. <code>Documents/Antigravity/el-meu-projecte</code>). Tot el que crea l'agent es queda al teu disc dur abans de publicar-lo.
+          </p>
+        </div>
+        <div class="feature-box">
+          <h3>🗣️ 3. Com "parlar-li" a l'agent</h3>
+          <p>
+            No li demanis "fes-me un exercici". Dóna-li context pedagògic: curs, matèria, objectiu DUA, necessitat d'autocorrecció i format web autònom en un sol fitxer.
+          </p>
+        </div>
+      </div>
+
+      <!-- Guia pas a pas d'instal·lació -->
+      <div style="margin-top: 1.5rem;">
+        <h3 style="margin-bottom: 0.75rem;">Guia d'instal·lació pas a pas per als docents:</h3>
+
+        <div class="terminal-block">
+          <div class="terminal-header">
+            <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+            <span>Passos ràpids d'arrencada als dispositius</span>
+            <button class="copy-btn" data-target="snippet-install">Copiar resum</button>
+          </div>
+          <pre id="snippet-install"><code>1. Descarrega l'instal·lador oficial de Google Antigravity per al teu sistema operatiu (Windows .exe / macOS .dmg).
+2. Obre l'aplicació i inicia sessió amb el teu compte educatiu o de Google.
+3. Tria o crea una carpeta de treball: "C:\Docents\Materials-IA" o "~/Documents/Materials-IA".
+4. Selecciona el model recomanat per a tasques complexes o ràpides (Gemini 2.5/3 Pro o Flash).
+5. Ja pots escriure la teva primera instrucció en català!</code></pre>
+        </div>
+      </div>
+
+      <!-- Eina interactiva: Generador de Prompts -->
+      <div class="interactive-tool-box">
+        <h3>✨ Generador de Prompt Docent per a Antigravity</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">
+          Tria els paràmetres de la teva activitat i copia aquest prompt directament a la finestra de xat de Google Antigravity per veure com crea el recurs complet en temps real:
+        </p>
+
+        <form id="prompt-generator-form" class="prompt-generator-form" onsubmit="event.preventDefault();">
+          <div class="form-group">
+            <label for="prompt-materia">Matèria / Àmbit:</label>
+            <select id="prompt-materia">
+              <option value="Llengua Catalana">Llengua Catalana</option>
+              <option value="Anglès (Llengua Estrangera)">Anglès</option>
+              <option value="Matemàtiques">Matemàtiques</option>
+              <option value="Ciències Socials i Història">Ciències Socials / Història</option>
+              <option value="Biologia i Geologia">Biologia i Geologia</option>
+              <option value="Tecnologia i Robòtica">Tecnologia i Robòtica</option>
+              <option value="Educació Especial / SIEI">Educació Especial / Suport</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="prompt-nivell">Nivell Educatiu:</label>
+            <select id="prompt-nivell">
+              <option value="Cicle Superior de Primària">Primària (CS)</option>
+              <option value="1r i 2n d'ESO" selected>1r i 2n d'ESO</option>
+              <option value="3r i 4t d'ESO">3r i 4t d'ESO</option>
+              <option value="1r de Batxillerat">Batxillerat</option>
+              <option value="Cicles Formatius (FP)">Formació Professional</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="prompt-tipus">Tipus de Recurs:</label>
+            <select id="prompt-tipus">
+              <option value="Qüestionari interactiu amb feedback immediat explicat">Qüestionari amb retroacció</option>
+              <option value="Joc de paraules i targetes giratòries (flashcards)">Targetes giratòries (Flashcards)</option>
+              <option value="Simulador interactiu amb controls lliscants">Simulador interactiu amb gràfics</option>
+              <option value="Activitat d'ordenar conceptes o línia del temps">Línia de temps interactiva</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="prompt-dua">Criteris DUA:</label>
+            <select id="prompt-dua">
+              <option value="Mode fosc/clar, botons grans, síntesi de veu opcional">Accessibilitat visual i auditiva</option>
+              <option value="Llenguatge planer, suport d'imatges i reforç pas a pas">Suport cognitiu i reforç</option>
+              <option value="Temps lliure sense límit i autocorrecció positiva">Gestió de l'estrès i ritme propi</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label for="prompt-objectiu">Tema o Objectiu específic:</label>
+            <input type="text" id="prompt-objectiu" value="Distingir entre substantius, adjectius i verbs amb exemples pràctics">
+          </div>
+        </form>
+
+        <div id="generated-prompt-text" class="generated-prompt-result"></div>
+
+        <button id="btn-copy-prompt" class="btn-slide-nav" type="button" style="margin-top: 0.75rem;">
+          📋 <span>Copiar Prompt per a Google Antigravity</span>
+        </button>
+      </div>
+    </article>
+
+    <!-- ====================================================================
+         BLOC 3: CONFIGURACIÓ DE GITHUB PER PRIMERA VEGADA (25 MIN)
+         ==================================================================== -->
+    <article id="bloc-3" class="block-card" data-step="3">
+      <header class="block-header">
+        <div class="block-title-box">
+          <div class="block-badge-num">3</div>
+          <div>
+            <h2>El Hub Docent: GitHub per primera vegada</h2>
+            <p class="text-dim">Perdre la por a Git: de la carpeta local al repositori públic gratuït</p>
+          </div>
+        </div>
+        <div class="block-timing-pill">
+          <span>⏱️ 25 minuts (00:40 - 01:05)</span>
+        </div>
+      </header>
+
+      <div class="slide-summary-box">
+        🐙 <strong>Idea força per projectar:</strong> GitHub no és només per a enginyers de programari. Per a un docent, és <strong>l'armari definitiu de recursos</strong>: preserva el teu material, permet compartir-lo amb altres professors i et regala un servidor web d'alta velocitat per sempre.
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h3>🧑‍🏫 1. Registre i GitHub Education</h3>
+          <p>
+            Crear un compte a <a href="https://github.com" target="_blank" rel="noopener">github.com</a>. Consell docent: Si es valida el correu docent a <em>GitHub Global Campus</em>, s'obtenen eines educatives premium completament de franc.
+          </p>
+        </div>
+        <div class="feature-box">
+          <h3>🔑 2. Credencials fàcils (Tokens PAT)</h3>
+          <p>
+            GitHub ja no utilitza contrasenyes convencionals per pujar codi: es fa servir un <em>Personal Access Token</em> o bé l'autenticació que Google Antigravity i GitHub Desktop gestionen amb un sol clic.
+          </p>
+        </div>
+        <div class="feature-box">
+          <h3>🗂️ 3. El teu primer repositori</h3>
+          <p>
+            Crear un repositori anomenat <code>les-meves-activitats</code>. Marcar-lo com a <strong>Públic</strong> perquè els alumnes puguin visualitzar la pàgina sense requerir contrasenyes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Glossari en clau educativa -->
+      <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Desmitificant els termes de Git per a docents:</h3>
+      <div class="table-responsive">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Terme informàtic</th>
+              <th>Què és en realitat per a un docent?</th>
+              <th>Exemple del dia a dia a l'institut</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Repository (Repo)</strong></td>
+              <td>Una carpeta de projecte al núvol</td>
+              <td>"La carpeta de la Unitat 1 de Ciències"</td>
+            </tr>
+            <tr>
+              <td><strong>Commit</strong></td>
+              <td>Un punt de restauració / "Foto de seguretat"</td>
+              <td>"Versió abans de canviar les preguntes del tema 2"</td>
+            </tr>
+            <tr>
+              <td><strong>Push</strong></td>
+              <td>Pujar els canvis de l'ordinador a Internet</td>
+              <td>Publicar les correccions perquè l'alumnat les vegi</td>
+            </tr>
+            <tr>
+              <td><strong>Fork</strong></td>
+              <td>Fer una còpia pròpia d'un material d'un altre docent</td>
+              <td>Agafar la web d'anglès d'un company i adaptar-la al teu grup</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="terminal-block">
+        <div class="terminal-header">
+          <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+          <span>Comandes bàsiques (que l'agent d'Antigravity pot fer per tu)</span>
+          <button class="copy-btn" data-target="snippet-git">Copiar</button>
+        </div>
+        <pre id="snippet-git"><code># 1. Iniciar el repositori
+git init -b main
+
+# 2. Afegir els fitxers creats
+git add .
+git commit -m "Primer recurs educatiu d'aula"
+
+# 3. Connectar amb el repositori de GitHub i publicar
+git remote add origin https://github.com/el-teu-usuari/el-teu-projecte.git
+git push -u origin main</code></pre>
+      </div>
+    </article>
+
+    <!-- ====================================================================
+         BLOC 4: GITHUB PAGES VS GOOGLE SITES (25 MIN)
+         ==================================================================== -->
+    <article id="bloc-4" class="block-card" data-step="4">
+      <header class="block-header">
+        <div class="block-title-box">
+          <div class="block-badge-num">4</div>
+          <div>
+            <h2>Publicació Web: Particularitats de GitHub Pages vs. Google Sites</h2>
+            <p class="text-dim">Per què el pas de Google Sites a GitHub Pages obre un món infinit de possibilitats pedagògiques</p>
+          </div>
+        </div>
+        <div class="block-timing-pill">
+          <span>⏱️ 25 minuts (01:05 - 01:30)</span>
+        </div>
+      </header>
+
+      <div class="slide-summary-box">
+        🌐 <strong>Idea força per projectar:</strong> Google Sites és com un tauler de suro on enganxem post-its i fitxers Drive. GitHub Pages és un <strong>autèntic laboratori web interactiu</strong> on la IA pot crear jocs, simuladors i eines que funcionen a qualsevol dispositiu.
+      </div>
+
+      <!-- Particularitats essencials de GitHub Pages -->
+      <h3 style="margin-top: 1rem; margin-bottom: 0.75rem;">Les 4 particularitats clau que tot docent ha de conèixer:</h3>
+      <div class="feature-grid">
+        <div class="feature-box">
+          <h3>📄 1. El fitxer `index.html`</h3>
+          <p>
+            És la porta d'entrada obligatòria. Si el fitxer es diu <code>index.html</code>, en entrar a <code>usuari.github.io/projecte</code> es carregarà directament sense haver d'escriure la ruta sencera.
+          </p>
+        </div>
+        <div class="feature-box">
+          <h3>🔗 2. Rutes relatives (sense trencar res)</h3>
+          <p>
+            Enllaça imatges i fulls d'estil amb rutes com <code>styles.css</code> o <code>imatges/foto.png</code> (sense barra inicial <code>/</code>) perquè funcionin correctament dins del subdomini del repositori.
+          </p>
+        </div>
+        <div class="feature-box">
+          <h3>⚡ 3. Activació en 3 clics</h3>
+          <p>
+            Al teu repositori a GitHub: <strong>Settings</strong> ➔ Secció lateral <strong>Pages</strong> ➔ A <em>Branch</em> selecciona <strong>main</strong> ➔ Clic a <strong>Save</strong>. En 60 segons la teva web està al món!
+          </p>
+        </div>
+        <div class="feature-box">
+          <h3>🔒 4. Seguretat i zero cost</h3>
+          <p>
+            Inclou certificat <strong>HTTPS</strong> segur automàtic, càrrega instantània a través de servidors CDN globals, sense límit de visites de l'alumnat i sense anuncis ni tarifes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Gran taula comparativa -->
+      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Taula Comparativa a Fons: GitHub Pages vs. Google Sites</h3>
+      <div class="table-responsive">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Criteri Pedagògic</th>
+              <th style="width: 37%;">🐙 GitHub Pages (amb IA / Vibe Coding)</th>
+              <th style="width: 38%;">📄 Google Sites (Edició manual clàssica)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Creació i actualització</strong></td>
+              <td>
+                <span class="winner-tag">⭐ Automatitzada</span><br>
+                L'agent d'IA escriu i refà pàgines senceres, afegeix botons o crea exercicis en qüestió de segons a partir d'un prompt.
+              </td>
+              <td>
+                <span class="loser-tag">⚠️ Manual i lenta</span><br>
+                Has d'anar clicant blocs, arrossegant caixes de text, reajustant mides i enllaçant documents un per un.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Interactivitat i Recursos</strong></td>
+              <td>
+                <span class="winner-tag">⭐ Infinitament ric</span><br>
+                Calculadores, canvas de dibuix, simuladors científics, exercicis amb cronòmetre, sintetitzadors d'àudio, jocs de lògica.
+              </td>
+              <td>
+                <span class="loser-tag">⚠️ Molt limitat</span><br>
+                Només textos, imatges, vídeos de YouTube i documents incrustats de Google Drive que s'obren en finestres incòmodes.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Control d'errors i Historial</strong></td>
+              <td>
+                <span class="winner-tag">⭐ Control de versions total</span><br>
+                Cada canvi té una data i missatge. Si una modificació espatlla un exercici, es torna a la versió anterior amb un sol clic.
+              </td>
+              <td>
+                <span class="loser-tag">⚠️ Risc de pèrdua</span><br>
+                L'historial de Google Sites és confús; si sobreescrius o esborres seccions complexes, costa molt recuperar-les.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Sobirania i Portabilitat</strong></td>
+              <td>
+                <span class="winner-tag">⭐ Codi estàndard i lliure</span><br>
+                HTML/CSS/JS funcionen a qualsevol ordinador, servidor o llapis de memòria USB, fins i tot sense connexió a Internet.
+              </td>
+              <td>
+                <span class="loser-tag">⚠️ Jardí tancat (Vendor Lock-in)</span><br>
+                Estàs atrapat a Google. No pots descarregar el codi font per portar-lo a una altra plataforma ni exportar-lo netament.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Col·laboració entre docents</strong></td>
+              <td>
+                <span class="winner-tag">⭐ Comunitat oberta (Fork)</span><br>
+                Un company de seminari pot duplicar el teu repositori i adaptar-lo per al seu grup en 10 segons.
+              </td>
+              <td>
+                <span class="loser-tag">⚠️ Rígid</span><br>
+                Cal compartir permisos de correu, amb el perill que dos docents toquin la mateixa caixa i es trepitgin els canvis.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <!-- ====================================================================
+         BLOC 5: BONES PRÀCTIQUES - VIBE CODING RESPONSABLE (20 MIN)
+         ==================================================================== -->
+    <article id="bloc-5" class="block-card" data-step="5">
+      <header class="block-header">
+        <div class="block-title-box">
+          <div class="block-badge-num">5</div>
+          <div>
+            <h2>Bones Pràctiques: Vibe Coding Responsable a l'Aula</h2>
+            <p class="text-dim">Deu recomanacions essencials per protegir l'alumnat, mantenir el rigor i compartir recursos</p>
+          </div>
+        </div>
+        <div class="block-timing-pill">
+          <span>⏱️ 20 minuts (01:30 - 01:50)</span>
+        </div>
+      </header>
+
+      <div class="slide-summary-box">
+        🛡️ <strong>Idea força per projectar:</strong> Amb la IA anem molt ràpid creant coses maques, però <strong>la responsabilitat pedagògica i ètica és sempre del docent</strong>. La guia de referència de Juan José de Haro ens dóna el compàs.
+      </div>
+
+      <p style="color: var(--text-muted); margin-bottom: 1rem;">
+        Basat en la guia oficial de referència: <a href="https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html" target="_blank" rel="noopener">vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html</a>. Aquests són els 4 eixos i 10 recomanacions aplicades directament a la nostra feina d'aula:
+      </p>
+
+      <div class="vibe-principles-grid">
+        <!-- 1 -->
+        <div class="vibe-card">
+          <div class="vibe-num">1</div>
+          <div class="vibe-body">
+            <h4>Revisar el contingut sense delegar-lo a la IA</h4>
+            <p>La IA pot inventar fets o donar respostes falses per vàlides. Fes el recorregut del recurs complet com si fossis un alumne, també posant respostes errònies per comprovar la correcció.</p>
+            <div class="vibe-edu-tip">📌 <strong>A l'aula:</strong> Mai posis un test generat sense haver comprovat que la solució és correcta.</div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="vibe-card">
+          <div class="vibe-num">2</div>
+          <div class="vibe-body">
+            <h4>No enviar dades personals de l'alumnat (RGPD)</h4>
+            <p>Evita eines que demanin correus, noms o edats dels menors. La millor opció a GitHub Pages és treballar 100% en local al navegador (Client-Side), sense servidors externs que recullin dades.</p>
+            <div class="vibe-edu-tip">📌 <strong>A l'aula:</strong> L'alumnat juga o fa activitats sense cap registre ni contrasenya.</div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="vibe-card">
+          <div class="vibe-num">3</div>
+          <div class="vibe-body">
+            <h4>Entendre què fa el material</h4>
+            <p>No acceptis codi com una caixa negra. Demana a Google Antigravity: <em>"Explica'm en llenguatge planer què fa aquest fitxer i com funciona per dins"</em>.</p>
+            <div class="vibe-edu-tip">📌 <strong>A l'aula:</strong> Codi net i comentat per poder-lo corregir si alguna cosa falla el curs vinent.</div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="vibe-card">
+          <div class="vibe-num">4</div>
+          <div class="vibe-body">
+            <h4>No dependre de serveis efímers</h4>
+            <p>Si una web carrega imatges d'enllaços externs desconeguts, l'endemà l'enllaç es trenca. Guarda imatges, icones SVG i estils dins del mateix repositori.</p>
+            <div class="vibe-edu-tip">📌 <strong>A l'aula:</strong> El recurs ha de funcionar encara que la plataforma on el vas crear tanqui demà.</div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="vibe-card">
+          <div class="vibe-num">5</div>
+          <div class="vibe-body">
+            <h4>Fer-lo accessible a qualsevol persona (DUA)</h4>
+            <p>L'efectisme visual de la IA sovint perjudica l'alumnat amb dificultats. Assegura bon contrast cromàtic, mida de lletra ajustable i que es pugui utilitzar només amb teclat.</p>
+            <div class="vibe-edu-tip">📌 <strong>A l'aula:</strong> Disseny Universal per a l'Aprenentatge per atendre la diversitat del grup.</div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="vibe-card">
+          <div class="vibe-num">6</div>
+          <div class="vibe-body">
+            <h4>Citar l'autoria del que es pren d'altres persones</h4>
+            <p>Textos, il·lustracions o codi de tercers tenen autoria. Afegeix una secció de crèdits al peu de pàgina amb l'origen de cada recurs.</p>
+            <div class="vibe-edu-tip">📌 <strong>A l'aula:</strong> Donem exemple als alumnes sobre respecte a la propietat intel·lectual.</div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="vibe-card">
+          <div class="vibe-num">7</div>
+          <div class="vibe-body">
+            <h4>Guardar el rastre de com es va fer</h4>
+            <p>Desa els prompts i la bitàcola de decisions en un document <code>DECISIONS.md</code> o al <code>README.md</code> del repositori. D'aquí a 6 mesos t'ajudarà a reprendre la feina.</p>
+            <div class="vibe-edu-tip">📌 <strong>A l'aula:</strong> Facilita la continuïtat docent i la transferència entre departaments.</div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="vibe-card">
+          <div class="vibe-num">8</div>
+          <div class="vibe-body">
+            <h4>Declarar l'ús d'IA i el que s'ha comprovat</h4>
+            <p>Sigues transparent: inclou un peu de pàgina que indiqui quina eina d'IA s'ha fet servir com a copilot i què ha validat el docent responsable.</p>
+            <div class="vibe-edu-tip">📌 <strong>A l'aula:</strong> Cultura de transparència i ètica digital docent.</div>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="vibe-card">
+          <div class="vibe-num">9</div>
+          <div class="vibe-body">
+            <h4>Publicar amb una llicència lliure a la vista</h4>
+            <p>Els materials sense llicència generen inseguretat jurídica. Afegeix una llicència <strong>Creative Commons (CC BY-SA 4.0)</strong> per als continguts i <strong>MIT</strong> per al codi.</p>
+            <div class="vibe-edu-tip">📌 <strong>A l'aula:</strong> Comparteix de debò perquè la xarxa docent creixi.</div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="vibe-card">
+          <div class="vibe-num">10</div>
+          <div class="vibe-body">
+            <h4>Oferir el codi perquè altres persones l'adaptin</h4>
+            <p>No publiquis només el resultat final; comparteix l'enllaç al repositori de GitHub perquè un altre docent pugui fer un <em>Fork</em> i traduir-lo o personalitzar-lo.</p>
+            <div class="vibe-edu-tip">📌 <strong>A l'aula:</strong> El repositori obert converteix el material en un recurs educatiu obert (REO).</div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ====================================================================
+         BLOC 6: CLOENDA I CHECKLIST INTERACTIVA (10 MIN)
+         ==================================================================== -->
+    <article id="bloc-6" class="block-card" data-step="6">
+      <header class="block-header">
+        <div class="block-title-box">
+          <div class="block-badge-num">6</div>
+          <div>
+            <h2>Tancament, Dubtes i Checklist per emportar</h2>
+            <p class="text-dim">La llista de control abans d'obrir el recurs amb el teu grup classe</p>
+          </div>
+        </div>
+        <div class="block-timing-pill">
+          <span>⏱️ 10 minuts (01:50 - 02:00)</span>
+        </div>
+      </header>
+
+      <div class="slide-summary-box">
+        ✅ <strong>Llista de comprovació abans de portar l'eina a classe:</strong> Marca cadascuna de les 10 recomanacions per verificar que la teva aplicació és ètica, accessible i segura.
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+        <span id="checklist-progress-text" style="font-weight: 700; color: var(--accent-secondary);">0 de 10 recomanacions complertes</span>
+        <button id="btn-reset-checklist" class="copy-btn" type="button">Reiniciar llista</button>
+      </div>
+
+      <div class="checklist-container">
+        <label class="check-item" for="chk-1">
+          <input type="checkbox" id="chk-1" class="vibe-checklist-input">
+          <span class="check-text"><strong>1. Revisió de contingut:</strong> He comprovat totes les preguntes i solucions amb ulls docents i sense errors pedagògics.</span>
+        </label>
+        <label class="check-item" for="chk-2">
+          <input type="checkbox" id="chk-2" class="vibe-checklist-input">
+          <span class="check-text"><strong>2. Privacitat (RGPD):</strong> L'aplicació no demana noms, cognoms, correus ni envia res a servidors aliens.</span>
+        </label>
+        <label class="check-item" for="chk-3">
+          <input type="checkbox" id="chk-3" class="vibe-checklist-input">
+          <span class="check-text"><strong>3. Codi entès:</strong> He demanat a la IA una explicació resumida del funcionament i el codi està ordenat.</span>
+        </label>
+        <label class="check-item" for="chk-4">
+          <input type="checkbox" id="chk-4" class="vibe-checklist-input">
+          <span class="check-text"><strong>4. Recursos propis:</strong> Les imatges i estils estan desats dins del projecte i no depenen d'enllaços fràgils.</span>
+        </label>
+        <label class="check-item" for="chk-5">
+          <input type="checkbox" id="chk-5" class="vibe-checklist-input">
+          <span class="check-text"><strong>5. Accessibilitat (DUA):</strong> Es llegeix clarament en pantalla petita/mòbil i es pot navegar sense ratolí.</span>
+        </label>
+        <label class="check-item" for="chk-6">
+          <input type="checkbox" id="chk-6" class="vibe-checklist-input">
+          <span class="check-text"><strong>6. Autoria i crèdits:</strong> S'indica l'origen d'imatges o sons utilitzats.</span>
+        </label>
+        <label class="check-item" for="chk-7">
+          <input type="checkbox" id="chk-7" class="vibe-checklist-input">
+          <span class="check-text"><strong>7. Rastre guardat:</strong> Tinc guardats els prompts principals i les decisions preses al README.</span>
+        </label>
+        <label class="check-item" for="chk-8">
+          <input type="checkbox" id="chk-8" class="vibe-checklist-input">
+          <span class="check-text"><strong>8. Declaració d'ús d'IA:</strong> S'informa al peu que l'eina s'ha creat amb assistència d'IA i supervisió docent.</span>
+        </label>
+        <label class="check-item" for="chk-9">
+          <input type="checkbox" id="chk-9" class="vibe-checklist-input">
+          <span class="check-text"><strong>9. Llicència oberta:</strong> S'ha indicat clarament la llicència (ex. CC BY-SA 4.0) per permetre la reutilització.</span>
+        </label>
+        <label class="check-item" for="chk-10">
+          <input type="checkbox" id="chk-10" class="vibe-checklist-input">
+          <span class="check-text"><strong>10. Codi obert:</strong> El repositori de GitHub és públic i qualsevol company/a pot descarregar o bifurcar el recurs.</span>
+        </label>
+      </div>
+
+      <!-- Enllaços de referència -->
+      <div style="margin-top: 2rem; padding: 1.25rem; background: var(--bg-subtle); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+        <h4 style="margin-bottom: 0.5rem;">📚 Enllaços d'interès per continuar aprenent:</h4>
+        <ul style="padding-left: 1.25rem; line-height: 1.7; font-size: 0.925rem;">
+          <li><a href="https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html" target="_blank" rel="noopener">Guia de Vibe Coding Responsable (Juan José de Haro)</a></li>
+          <li><a href="https://education.github.com/teachers" target="_blank" rel="noopener">GitHub Education for Teachers (Avantatges gratuïts per a docents)</a></li>
+          <li><a href="https://pages.github.com/" target="_blank" rel="noopener">Documentació oficial de GitHub Pages</a></li>
+          <li><a href="https://xtec.gencat.cat" target="_blank" rel="noopener">Portal XTEC — Servei Educatiu del Vallès Occidental II</a></li>
+        </ul>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- PEU DE PÀGINA -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>
+        <strong>Eines IA per a l'aula</strong> — Xerrada-Taller organitzada per al <strong>Centre de Recursos Pedagògics (CRP) — Servei Educatiu del Vallès Occidental II</strong>.
+      </p>
+      <div class="footer-links">
+        <a href="https://github.com/miquelangelfuentes/eines-ia-aula" target="_blank" rel="noopener">Repositori a GitHub</a>
+        <span>•</span>
+        <a href="https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html" target="_blank" rel="noopener">Vibe Coding Responsable</a>
+        <span>•</span>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">Llicència CC BY-SA 4.0</a>
+      </div>
+      <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 0.5rem;">
+        🤖 <em>Material elaborat amb suport de Google Antigravity i revisió humana pedagògica seguint les recomanacions de transparència ètica.</em>
+      </p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
