@@ -1,15 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2563eb" />
-      <stop offset="100%" stop-color="#0d9488" />
+    <linearGradient id="bgGradC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#075985" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="wingGradC" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#67e8f9" />
+      <stop offset="100%" stop-color="#38bdf8" />
     </linearGradient>
   </defs>
-  <rect width="100" height="100" rx="20" fill="url(#grad)" />
-  <circle cx="50" cy="40" r="18" fill="#ffffff" />
-  <circle cx="43" cy="38" r="3" fill="#2563eb" />
-  <circle cx="57" cy="38" r="3" fill="#2563eb" />
-  <path d="M43 47 Q50 53 57 47" stroke="#2563eb" stroke-width="2.5" fill="none" stroke-linecap="round" />
-  <rect x="25" y="65" width="50" height="18" rx="6" fill="#ffffff" />
-  <text x="50" y="78" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#2563eb" text-anchor="middle">CRP IA</text>
+  <!-- Squircle blau oceà fosc i elegant -->
+  <rect width="100" height="100" rx="28" fill="url(#bgGradC)" />
+  
+  <!-- Signe esquerre de codi i ala pedagògica < -->
+  <path d="M 38 32 L 23 50 L 38 68" fill="none" stroke="url(#wingGradC)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Signe dret de codi i ala pedagògica > -->
+  <path d="M 62 32 L 77 50 L 62 68" fill="none" stroke="url(#wingGradC)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Nucli central lluminós en suspensió -->
+  <circle cx="50" cy="50" r="6" fill="#ffffff" />
 </svg>
