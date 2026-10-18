@@ -265,7 +265,7 @@ function initDiagnosticQuiz() {
         `<strong><a href="bloc1-marc.html">Bloc 1: marc (de consultar a crear)</a></strong>: per comprendre la filosofia de treball i el paper de l'agent com a assistent de disseny.`,
         `<strong><a href="bloc2-antigravity.html">Bloc 2: Google Antigravity pas a pas</a></strong>: guia d'instal·lació al teu ordinador (inclòs el portàtil del PEDC) i ús de l'assistent interactiu d'indicacions.`,
         `<strong><a href="bloc3-github.html">Bloc 3: configuració de GitHub</a></strong>: com crear el teu primer repositori i activar GitHub Pages en tres clics sense comandes de terminal.`,
-        `<strong><a href="bloc4-pages-sites.html">Bloc 4: pages vs. sites</a></strong>: per veure per què les pàgines obertes són molt més àgils i interactives que Google Sites.`
+        `<strong><a href="bloc4-pages-sites.html">Bloc 4: Pages i Google Sites</a></strong>: per veure per què les pàgines obertes són molt més àgils i interactives que Google Sites.`
       ];
 
       reinforcementPoints = [
@@ -283,7 +283,7 @@ function initDiagnosticQuiz() {
       profileDesc = "Comptes amb una bona base digital. La sessió t'aportarà el rigor tècnic i metodològic que et falta per deixar enrere plataformes tancades, aplicar llicències obertes i dissenyar recursos accessibles.";
 
       recommendedModules = [
-        `<strong><a href="bloc4-pages-sites.html">Bloc 4: GitHub Pages vs. Google Sites</a></strong>: anàlisi detallada dels avantatges d'independència, velocitat i reutilització real.`,
+        `<strong><a href="bloc4-pages-sites.html">Bloc 4: GitHub Pages i Google Sites</a></strong>: anàlisi detallada dels avantatges d'independència, velocitat i reutilització real.`,
         `<strong><a href="bloc5-llicencies.html">Bloc 5: llicències (Creative Commons i codi)</a></strong>: com combinar la llicència MIT per al codi font amb CC BY-SA 4.0 per als continguts pedagògics.`,
         `<strong><a href="bloc6-recursos-visuals.html">Bloc 6: imatges i icones en comptes d'IA</a></strong>: la regla TASL per citar fotografies de bancs lliures i l'ús d'icones Lucide sense carregar la pàgina.`,
         `<strong><a href="bloc7-bones-practiques.html">Bloc 7: bones pràctiques i privacitat a l'aula</a></strong>: criteris de privacitat estricta (sense registre de l'alumnat) i pautes del DUA.`
