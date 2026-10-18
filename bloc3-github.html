@@ -114,14 +114,104 @@
         </div>
       </div>
 
-      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Com generar el teu token d'accés (PAT) pas a pas:</h3>
+      <!-- Guia detallada de tokens per a docents principiants -->
+      <div style="margin-top: 2rem; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.35rem 1.5rem;">
+        <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-main); display: flex; align-items: center; gap: 0.5rem;">
+          <i data-lucide="shield-check" class="lucide" style="width: 20px; height: 20px; color: var(--accent-secondary);"></i>
+          Guia de credencials per a docents que entren per primer cop
+        </h3>
+        <p style="font-size: 0.925rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.85rem;">
+          Si mai no has utilitzat GitHub, pensa en el <strong>Personal Access Token (PAT)</strong> com una credencial específica creada expressament perquè Google Antigravity o GitHub Desktop puguin desar feina al teu compte sense conèixer la teva contrasenya personal. Si algun dia canvies d'ordinador o vols retirar el permís, pots revocar aquest token amb un sol clic sense canviar la contrasenya del teu compte.
+        </p>
+        <p style="font-size: 0.9rem; margin-bottom: 0;">
+          <strong>Drecera directa:</strong> pots anar immediatament a la gestió de credencials a través d'aquest enllaç oficial: <a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener"><strong>github.com/settings/personal-access-tokens</strong></a>.
+        </p>
+      </div>
+
+      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Diferències entre Tokens (classic) i Fine-grained tokens</h3>
+      <p style="color: var(--text-muted); font-size: 0.925rem; line-height: 1.6; margin-bottom: 1rem;">
+        Quan accedeixes a la pàgina de creació de credencials, GitHub et donarà a triar entre dos formats diferents:
+      </p>
+
+      <div class="table-responsive">
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th style="width: 20%;">Criteri</th>
+              <th style="width: 26%;">Token (classic)</th>
+              <th style="width: 27%;">Fine-grained token (beta)</th>
+              <th style="width: 27%;">Què demanarà Google Antigravity o altres IA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Abast de repositoris</strong></td>
+              <td>
+                <span class="badge-feature badge-positive">Accés global al compte</span><br>
+                Té permisos sobre tots els repositoris de l'usuari.
+              </td>
+              <td>
+                <span class="badge-feature" style="background:var(--bg-subtle);border:1px solid var(--border-color);color:var(--text-main);">Repositoris seleccionats</span><br>
+                Permet triar exclusivament un o diversos repositoris concrets.
+              </td>
+              <td>
+                Google Antigravity i la majoria d'assistents prefereixen <strong>Token (classic)</strong> per poder crear nous repositoris educatius sense haver de configurar permisos previs cada vegada.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Complexitat de configuració</strong></td>
+              <td>
+                <span class="badge-feature badge-positive">Molt senzilla (recomanada)</span><br>
+                Només cal marcar la casella única <code>repo</code>.
+              </td>
+              <td>
+                <span class="badge-feature badge-negative">Configuració avançada</span><br>
+                Cal configurar una per una desenes d'opcions (Contents, Pages, Workflows...).
+              </td>
+              <td>
+                Si amb un fine-grained token es deixa una casella desmarcada (com <em>Pages</em>), la publicació fallarà amb un error de permisos difícil de diagnosticar per a qui s'inicia.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Caducitat (Expiration)</strong></td>
+              <td>
+                <span class="badge-feature badge-positive">Data lliure o sense caducitat</span><br>
+                Permet triar <em>No expiration</em> perquè no s'aturi el servei a mig curs.
+              </td>
+              <td>
+                <span class="badge-feature badge-negative">Màxim 1 any</span><br>
+                Caduca obligatòriament i cal renovar-lo manualment cada any.
+              </td>
+              <td>
+                Si el token caduca mentre s'està fent classe o durant el curs, l'eina d'IA no podrà publicar fins que no es generi i s'introdueixi un token nou.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Recomanació docent</strong></td>
+              <td>
+                <strong>Opció preferent per a docents:</strong><br>
+                Senzill, ràpid de generar i sense conflictes tècnics amb cap eina d'IA.
+              </td>
+              <td>
+                <strong>Opció per a comptes compartits:</strong><br>
+                Útil si al mateix compte es guarden altres projectes que es volen blindar completament.
+              </td>
+              <td>
+                Per a la formació i per al dia a dia a l'aula, <strong>fes servir Token (classic)</strong> amb l'opció <code>repo</code> activada.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Com generar el teu token clàssic pas a pas:</h3>
       <div class="ordered-steps">
         <div class="ordered-step-item">
           <div class="step-indicator">1</div>
           <div class="step-content">
-            <h3>Accedeix a la configuració del teu perfil</h3>
+            <h3>Accedeix directament a la configuració de tokens</h3>
             <p>
-              Inicia sessió a <a href="https://github.com" target="_blank" rel="noopener">github.com</a>, fes clic a la teva foto de perfil (a la cantonada superior dreta) i selecciona <strong>Settings</strong>.
+              Inicia sessió a <a href="https://github.com" target="_blank" rel="noopener">github.com</a> i entra directament a <a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener"><strong>github.com/settings/personal-access-tokens</strong></a> (o fes clic a la teva foto de perfil &gt; <em>Settings</em> &gt; <em>Developer settings</em> al final de la columna esquerra).
             </p>
           </div>
         </div>
@@ -129,9 +219,9 @@
         <div class="ordered-step-item">
           <div class="step-indicator">2</div>
           <div class="step-content">
-            <h3>Entra a Developer settings</h3>
+            <h3>Tria Tokens (classic)</h3>
             <p>
-              A la columna de l'esquerra, baixa fins al final i fes clic a l'últim apartat: <strong>Developer settings</strong>.
+              Al menú lateral de tokens, fes clic a <strong>Tokens (classic)</strong>. Prem el desplegable <em>Generate new token</em> i selecciona <strong>Generate new token (classic)</strong>.
             </p>
           </div>
         </div>
@@ -139,9 +229,9 @@
         <div class="ordered-step-item">
           <div class="step-indicator">3</div>
           <div class="step-content">
-            <h3>Genera un token clàssic</h3>
+            <h3>Posa-li nom i tria la durada</h3>
             <p>
-              Al menú lateral, fes clic a <em>Personal access tokens</em> i després a <strong>Tokens (classic)</strong>. Prem el botó <em>Generate new token</em> i tria l'opció <strong>Generate new token (classic)</strong>.
+              A la casella <strong>Note</strong> escriu un nom que identifiqui l'eina (per exemple, "Antigravity ordinador docent"). A <strong>Expiration</strong> tria la durada que prefereixis (per exemple, 90 dies o el curs escolar sencer).
             </p>
           </div>
         </div>
@@ -149,14 +239,11 @@
         <div class="ordered-step-item">
           <div class="step-indicator">4</div>
           <div class="step-content">
-            <h3>Marca el permís de repositoris i desa</h3>
+            <h3>Marca la casella repo i genera el token</h3>
             <p>
-              Posa-li un nom descriptiu a la casella de nota (per exemple, "Antigravity docent") i marca la casella <strong>repo</strong> (això dóna accés per pujar i modificar els teus materials educatius).
+              Marca la casella principal <strong>repo</strong> (això activa automàticament tots els permisos necessaris per crear i actualitzar repositoris educatius). Baixa al final de la pàgina i fes clic al botó verd <strong>Generate token</strong>.
             </p>
-            <p>
-              Baixa al final de la pàgina i fes clic al botó verd <strong>Generate token</strong>.
-            </p>
-            <span class="step-tip">Important: copia la cadena de caràcters que comença per <code>ghp_...</code> i guarda-la al teu gestor de notes o contrasenyes. GitHub no la tornarà a mostrar mai més. Aquest és el codi d'autenticació que faràs servir quan el programa et demani validar-te per primera vegada.</span>
+            <span class="step-tip">Important: copia la cadena de caràcters que comença per <code>ghp_...</code> i desa-la al teu bloc de notes o gestor de contrasenyes. GitHub no la tornarà a mostrar mai més per motius de seguretat. Aquesta és la credencial que introduiràs quan una eina externa et demani validar el teu compte.</span>
           </div>
         </div>
       </div>

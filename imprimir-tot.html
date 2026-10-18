@@ -126,8 +126,10 @@
 
         <ul style="padding-left: 1.25rem; font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); margin-bottom: 1.5rem;">
           <li><strong>Instal·lació al portàtil del PEDC:</strong> es pot instal·lar sense privilegis d'administració, atès que s'allotja al perfil d'usuari local.</li>
-          <li><strong>Models Gemini:</strong> s'utilitzen models ràpids (Flash) per a consultes i esquemes, i models de raonament avançat (Pro) per estructurar activitats interactives complexes.</li>
-          <li><strong>Les 4 pautes d'indicació:</strong> especificar nivell i àmbit concret, demanar fitxer autònom (<code>index.html</code>), exigir accessibilitat DUA i prioritzar retroacció pedagògica positiva en comptes de només "correcte/incorrecte".</li>
+          <li><strong>Plan Review Policy (Revisió del pla):</strong> opció <em>Always Review Plans</em> per validar l'esquema pedagògic abans que l'agent toqui o creï fitxers.</li>
+          <li><strong>Security Preset (Seguretat):</strong> mode segur amb autorització prèvia per a comandes i confinament estricte a la carpeta de treball (<em>Workspace-only</em>).</li>
+          <li><strong>Models Gemini:</strong> s'utilitza <em>Gemini 2.5 Pro</em> amb raonament (<em>Thinking</em>) per estructurar activitats sense errors de sintaxi, i <em>Flash</em> per a consultes curtes.</li>
+          <li><strong>Les 4 pautes d'indicació:</strong> especificar nivell i àmbit concret, demanar fitxer autònom (<code>index.html</code>), exigir accessibilitat DUA i prioritzar retroacció pedagògica positiva.</li>
         </ul>
 
         <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Comparativa: Google Antigravity, OpenAI Codex i Claude Code d'Anthropic</h3>
@@ -150,7 +152,7 @@
               </tr>
               <tr>
                 <td><strong>OpenAI Codex / Copilot</strong></td>
-                <td>Extensió d'autocompletat per a editors clàssics (VS Code).</td>
+                <td>Extensió d'autocompletat per a editors clàssics (Visual Studio Code).</td>
                 <td>Molt veloç suggerint línies de codi i funcions mentre s'escriu manualment.</td>
                 <td>Pensat per a perfils que ja programen; requereix subscripció o llicència educativa.</td>
               </tr>
@@ -175,10 +177,10 @@
       <div class="content-box">
         <span class="page-category-tag">Bloc 3</span>
         <h2>GitHub i GitHub Desktop</h2>
-        <p class="lead-desc">Com desar les versions del recurs i sincronitzar-les amb seguretat</p>
+        <p class="lead-desc">Com desar les versions del recurs, sincronitzar-les i gestionar credencials</p>
 
         <div class="pedagogical-highlight">
-          GitHub actua com un magatzem públic de repositoris que permet conservar l'historial de cada canvi (commits) i publicar la pàgina web gratuïtament amb el servei GitHub Pages.
+          GitHub actua com un magatzem públic de repositoris que permet conservar l'historial de cada canvi (commits) i publicar la pàgina web gratuïtament amb el servei GitHub Pages. Per connectar-lo amb eines externes, es fa servir un Personal Access Token (PAT): <a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener">github.com/settings/personal-access-tokens</a>.
         </div>
 
         <div class="cards-grid">
@@ -194,6 +196,46 @@
             <h3>GitHub Desktop al PEDC</h3>
             <p>Interfície visual senzilla per a Windows que s'instal·la al perfil d'usuari docent sense requerir permisos d'administrador.</p>
           </div>
+        </div>
+
+        <h3 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">Taula de credencials: Tokens (classic) davant de Fine-grained tokens</h3>
+        <div class="table-responsive">
+          <table class="clean-table">
+            <thead>
+              <tr>
+                <th style="width: 22%;">Criteri</th>
+                <th style="width: 26%;">Token (classic)</th>
+                <th style="width: 26%;">Fine-grained token (beta)</th>
+                <th style="width: 26%;">Què demanarà l'eina d'IA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Abast</strong></td>
+                <td>Tots els repositoris de l'usuari.</td>
+                <td>Només els repositoris seleccionats.</td>
+                <td>Antigravity prefereix <em>Token (classic)</em> per crear repositoris automàticament.</td>
+              </tr>
+              <tr>
+                <td><strong>Configuració</strong></td>
+                <td>Molt senzilla: només marcar <code>repo</code>.</td>
+                <td>Granular: configurar desenes de permisos manuals.</td>
+                <td>El format clàssic evita errors de permisos permisos ocults.</td>
+              </tr>
+              <tr>
+                <td><strong>Caducitat</strong></td>
+                <td>Sense caducitat o data lliure (tot el curs).</td>
+                <td>Caduca obligatòriament (màxim 1 any).</td>
+                <td>Si caduca a mig curs, l'eina no pot sincronitzar fins renovar-lo.</td>
+              </tr>
+              <tr>
+                <td><strong>Recomanació</strong></td>
+                <td><strong>Preferent per a docents</strong>.</td>
+                <td>Útil per a comptes compartits o molt sensibles.</td>
+                <td>Fórmula universalment compatible amb totes les eines Git.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
