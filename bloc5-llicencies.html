@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ca">
 <head>
   <meta charset="UTF-8">
@@ -154,6 +154,129 @@
           <li><a href="https://opensource.org/licenses" target="_blank" rel="noopener">Catàleg oficial de llicències de programari a l'Open Source Initiative</a></li>
           <li><a href="https://choosealicense.com/" target="_blank" rel="noopener">Choose an open source license (guia senzilla de GitHub)</a></li>
         </ul>
+      </div>
+    </div>
+
+    <!-- Caixa 2: Llicències recomanades per a docents -->
+    <div class="content-box">
+      <h2>Llicències recomanades per a docents</h2>
+      <p class="lead-desc">Com triar la llicència adequada segons cada component del recurs i evitar restriccions que bloquegin la comunitat educativa</p>
+
+      <div class="pedagogical-highlight">
+        En l'àmbit educatiu, l'objectiu prioritari de compartir un recurs no és només que altres persones el puguin consultar, sinó que altres docents el puguin <strong>adaptar a la diversitat de la seva aula</strong>, traduir-lo, actualitzar-lo i fer-lo evolucionar. Per això, la tria de la llicència determina si un material es convertirà en un veritable Recurs Educatiu Obert (REO) o si quedarà bloquejat per traves legals innecessàries.
+      </div>
+
+      <div class="table-responsive">
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th style="width: 22%;">Tipus de recurs</th>
+              <th style="width: 24%;">Llicència recomanada</th>
+              <th style="width: 30%;">Què permet als companys docents</th>
+              <th style="width: 24%;">Què cal evitar i per què</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong><i data-lucide="book-open" class="lucide" style="width:16px;height:16px;margin-right:4px;"></i> Contingut didàctic</strong><br><small style="color:var(--text-muted);">Textos, activitats, preguntes, explicacions i enunciats</small></td>
+              <td>
+                <span class="badge-feature badge-positive">Opció principal</span><br>
+                <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">CC BY-SA 4.0</a></strong><br>
+                <small style="color:var(--text-muted);">(Reconeixement-CompartirIgual)</small><br><br>
+                <span class="badge-feature" style="background:var(--bg-surface);border:1px solid var(--border-color);color:var(--text-main);">Alternativa</span><br>
+                <strong><a href="https://creativecommons.org/licenses/by/4.0/deed.ca" target="_blank" rel="noopener">CC BY 4.0</a></strong>
+              </td>
+              <td>
+                Permet descarregar, modificar, afegir preguntes, corregir errades i utilitzar el recurs amb l'alumnat. Amb <strong>CC BY-SA</strong>, qui en faci una versió millorada té l'obligació de compartir-la també en obert, enriquint el bé comú educatiu.
+              </td>
+              <td>
+                <span class="badge-feature badge-negative">Evitar clàusula ND</span><br>
+                <strong>Sense obra derivada (ND)</strong> impedeix traduir o adaptar el text al DUA.<br><br>
+                <span class="badge-feature badge-negative">Evitar clàusula NC</span><br>
+                <strong>No comercial (NC)</strong> genera confusió jurídica en activitats d'AFA, formacions o centres concertats.
+              </td>
+            </tr>
+            <tr>
+              <td><strong><i data-lucide="file-code-2" class="lucide" style="width:16px;height:16px;margin-right:4px;"></i> Codi informàtic</strong><br><small style="color:var(--text-muted);">Fitxers HTML, estils CSS i funcions JavaScript</small></td>
+              <td>
+                <span class="badge-feature badge-positive">Opció principal</span><br>
+                <strong><a href="https://opensource.org/license/mit" target="_blank" rel="noopener">Llicència MIT</a></strong><br><br>
+                <span class="badge-feature" style="background:var(--bg-surface);border:1px solid var(--border-color);color:var(--text-main);">Alternativa copyleft</span><br>
+                <strong><a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener">GNU GPL v3</a></strong>
+              </td>
+              <td>
+                La llicència <strong>MIT</strong> és molt breu, extremadament clara i compatible amb qualsevol entorn. Permet clonar, allotjar a GitHub Pages o descarregar i obrir els fitxers localment en els ordinadors del PEDC sense conflictes de propietat intel·lectual.
+              </td>
+              <td>
+                <span class="badge-feature badge-negative">Evitar Creative Commons al codi</span><br>
+                Les llicències CC no estan dissenyades per a programari i no contemplen qüestions com la compilació o l'execució directa al navegador.
+              </td>
+            </tr>
+            <tr>
+              <td><strong><i data-lucide="sparkles" class="lucide" style="width:16px;height:16px;margin-right:4px;"></i> Icones i elements visuals</strong><br><small style="color:var(--text-muted);">Iconografia funcional i botons</small></td>
+              <td>
+                <span class="badge-feature badge-positive">Llicències lliures</span><br>
+                <strong><a href="https://opensource.org/license/isc-license-txt" target="_blank" rel="noopener">Llicència ISC</a></strong> (Lucide)<br>
+                <strong><a href="https://opensource.org/license/mit" target="_blank" rel="noopener">Llicència MIT</a></strong> (Tabler, Bootstrap)
+              </td>
+              <td>
+                Poden incorporar-se sense restriccions dins de les pàgines web educatives, estilitzar-se amb CSS i modificar el color o la mida segons les necessitats de disseny.
+              </td>
+              <td>
+                <span class="badge-feature badge-negative">Evitar conjunts d'icones de pagament</span> o amb termes privatius que prohibeixin la redistribució en codi obert.
+              </td>
+            </tr>
+            <tr>
+              <td><strong><i data-lucide="image" class="lucide" style="width:16px;height:16px;margin-right:4px;"></i> Fotografies i il·lustracions</strong><br><small style="color:var(--text-muted);">Imatges de suport pedagògic</small></td>
+              <td>
+                <span class="badge-feature badge-positive">Bancs gratuïts i oberts</span><br>
+                <strong><a href="https://unsplash.com/license" target="_blank" rel="noopener">Llicència Unsplash</a></strong><br>
+                <strong><a href="https://www.pexels.com/license/" target="_blank" rel="noopener">Llicència Pexels</a></strong><br>
+                <strong><a href="https://commons.wikimedia.org/wiki/Commons:Licensing/ca" target="_blank" rel="noopener">Wikimedia Commons</a></strong> (CC)
+              </td>
+              <td>
+                Permeten il·lustrar conceptes amb imatges reals d'alta qualitat sense cost. Només cal citar l'autoria mitjançant la fórmula TASL (Títol, Autor, Font, Llicència) a peu d'imatge.
+              </td>
+              <td>
+                <span class="badge-feature badge-negative">Evitar cercar a Google Imatges</span> sense filtrar per drets d'ús o utilitzar fotografies protegides amb copyright ("tots els drets reservats").
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Per què desaconsellem les clàusules restrictives (NC i ND) a l'escola?</h3>
+      
+      <div class="cards-grid">
+        <div class="card-item">
+          <div class="card-item-icon" style="background: #fef2f2; color: #dc2626;">
+            <i data-lucide="ban"></i>
+          </div>
+          <h3>L'obstacle de la clàusula ND (Sense obra derivada)</h3>
+          <p>
+            Quan un material porta una llicència com <strong>CC BY-ND</strong>, ningú té permís legal per modificar-lo ni alterar-ne una sola coma. A l'escola, això suposa una barrera insalvable:
+          </p>
+          <ul style="padding-left: 1.25rem; font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; margin-top: 0.5rem;">
+            <li><strong>Impedeix l'accessibilitat DUA:</strong> un docent no pot simplificar enunciats, adaptar la mida del text ni modificar contrastos per a alumnat amb necessitats educatives.</li>
+            <li><strong>Bloqueja la traducció:</strong> traduir una activitat d'anglès o castellà a català (o a aranès) es considera legalment una obra derivada i queda prohibit.</li>
+            <li><strong>Inhabilita l'actualització:</strong> si una dada o un enllaç queda obsolet, cap altre company o companya pot rectificar-lo.</li>
+          </ul>
+        </div>
+
+        <div class="card-item">
+          <div class="card-item-icon" style="background: #fffbeb; color: #d97706;">
+            <i data-lucide="help-circle"></i>
+          </div>
+          <h3>La inseguretat jurídica de la clàusula NC (No comercial)</h3>
+          <p>
+            Tot i que a priori pot semblar intuïtiu voler evitar que algú s'enriqueixi amb el recurs, la clàusula <strong>CC BY-NC</strong> crea moltes incerteses en la vida real dels centres:
+          </p>
+          <ul style="padding-left: 1.25rem; font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; margin-top: 0.5rem;">
+            <li><strong>Fronteres difuses:</strong> pot fer servir aquest recurs una associació de famílies (AFA/AMPA) que cobra una quota simbòlica per pagar el material d'un taller de tarda? I una escola concertada?</li>
+            <li><strong>Incompatibilitat amb altres recursos oberts:</strong> els materials amb clàusula NC no es poden barrejar amb materials de Viquipèdia ni amb repositoris de Recursos Educatius Oberts que utilitzin CC BY-SA.</li>
+            <li><strong>Recomanació internacional:</strong> organitzacions com la UNESCO i Creative Commons recomanen utilitzar <strong>CC BY-SA</strong> en lloc de NC, perquè el mateix mecanisme de llicència oberta impedeix que ningú tanqui el recurs.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
