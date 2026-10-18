@@ -407,7 +407,7 @@ function initDiagnosticQuiz() {
       ];
 
       reinforcementPoints = [
-        `Reviseu el generador guiat d'indicacions per a Google Antigravity a <a href="bloc2-antigravity.html">bloc 2 (Antigravity)</a> per optimitzar l'estructura pedagògica de les vostres peticions.`,
+        `Reviseu el generador guiat d'indicacions per a Google Antigravity a <a href="bloc2-antigravity.html">bloc 2 (Antigravity)</a> per optimitzar l'estructura pedagògica de les vostres indicacions.`,
         `Assegureu la doble llicència (MIT per codi i CC BY-SA 4.0 per a continguts) explicada a <a href="bloc5-llicencies.html">bloc 5 (llicències)</a>.`
       ];
 

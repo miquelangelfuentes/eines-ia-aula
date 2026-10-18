@@ -1,6 +1,6 @@
 # Eines d'intel·ligència artificial per a l'aula
 > **Guia pràctica per a la creació i publicació de materials educatius oberts**  
-> **Servei Educatiu del Vallès Occidental II — Centre de Recursos Pedagògics (CRP)**
+> **Servei Educatiu del Vallès Occidental II — Centre de Recursos Pedagògics (CRP) — Octubre, 2026**
 
 Aquest repositori conté el lloc web de suport a la ponència docent, estructurat en una **pàgina d'inici i nou pàgines independents per a cadascun dels blocs temàtics**. Aquesta organització permet projectar còmodament durant la xerrada i compartir posteriorment el recurs amb el professorat perquè el pugui consultar de manera clara i sense sobrecàrrega visual.
 
@@ -19,7 +19,7 @@ Aquest repositori conté el lloc web de suport a la ponència docent, estructura
 | [`bloc4-pages-sites.html`](bloc4-pages-sites.html) | **4. Pages en comparació amb Sites** | Taula comparativa de creació amb IA, riquesa interactiva, historial d'errors i sobirania dels fitxers. |
 | [`bloc5-llicencies.html`](bloc5-llicencies.html) | **5. Llicències i codi obert** | Creative Commons per a textos (CC BY-SA) i llicències de programari (MIT) per a codi. La fórmula híbrida. |
 | [`bloc6-recursos-visuals.html`](bloc6-recursos-visuals.html) | **6. Recursos visuals i citació** | Evitar l'estigma d'imatges amb IA, ús d'icones (Lucide, Tabler), Unsplash i com citar a peu d'imatge. |
-| [`bloc7-bones-practiques.html`](bloc7-bones-practiques.html) | **7. Bones pràctiques d'aula** | Les 10 recomanacions de Vibe coding responsable de Juan José de Haro aplicades a l'aula. |
+| [`bloc7-bones-practiques.html`](bloc7-bones-practiques.html) | **7. Bones pràctiques d'aula** | Les deu recomanacions de vibe coding responsable de Juan José de Haro aplicades a l'aula. |
 | [`bloc8-verificacio.html`](bloc8-verificacio.html) | **8. Llista de verificació** | Checklist interactiva de 10 punts amb memòria local per revisar el recurs abans de compartir-lo. |
 | [`bloc9-per-continuar-explorant.html`](bloc9-per-continuar-explorant.html) | **9. Per continuar explorant** | Models d'IA local: privadesa absoluta, recursos en català de Softcatalà, xerrada de Jordi Mas i Rebost.ai. |
 
@@ -37,4 +37,4 @@ Aquest repositori conté el lloc web de suport a la ponència docent, estructura
 ## Llicències
 - **Contingut pedagògic:** [Creative Commons Reconeixement-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.ca).
 - **Codi font:** [Llicència MIT](https://opensource.org/license/mit).
-- Inspirat en les recomanacions de [Vibe coding responsable](https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html) de Juan José de Haro.
+- Inspirat en les recomanacions de [vibe coding responsable](https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html) de Juan José de Haro.

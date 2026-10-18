@@ -577,7 +577,7 @@ table.clean-table tr:hover td {
   line-height: 1.6;
 }
 
-/* Vibe coding recomanacions */
+/* vibe coding recomanacions */
 .vibe-recommendations-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1587,7 +1587,7 @@ figcaption.edu-caption a {
 }
 
 /* ==========================================================================
-   Titular d'impacte Vibe Coding
+   Titular d'impacte vibe coding
    ========================================================================== */
 .hero-impact-headline {
   display: flex;
