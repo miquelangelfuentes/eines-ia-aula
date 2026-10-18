@@ -419,6 +419,9 @@ function initDiagnosticQuiz() {
     if (weakAreas.includes(1) || weakAreas.includes(2)) {
       reinforcementPoints.push(`Instal·lació sense privilegis d'administració: consulteu com instal·lar Google Antigravity al vostre portàtil del PEDC al <a href="bloc2-antigravity.html">bloc 2</a>.`);
     }
+    if (weakAreas.includes(3)) {
+      reinforcementPoints.push(`Redacció d'indicacions pedagògiques: feu servir l'assistent interactiu i les quatre pautes docents al <a href="bloc2-antigravity.html">bloc 2</a>.`);
+    }
     if (weakAreas.includes(4) || weakAreas.includes(5) || weakAreas.includes(6)) {
       reinforcementPoints.push(`Desplegament web: reviseu com activar GitHub Pages i la regla del fitxer <code>index.html</code> al <a href="bloc3-github.html">bloc 3</a>.`);
     }
