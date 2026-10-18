@@ -14,9 +14,9 @@ Aquest repositori conté el lloc web de suport a la ponència docent, estructura
 | :--- | :--- | :--- |
 | [`index.html`](index.html) | **Pàgina d'inici** | Presentació del recurs i índex de targetes per accedir a cada bloc. |
 | [`bloc1-marc.html`](bloc1-marc.html) | **1. Marc introductori** | De fer consultes a un xat a construir eines interactives sense saber programar. |
-| [`bloc2-antigravity.html`](bloc2-antigravity.html) | **2. Google Antigravity** | Instal·lació (inclosos equips del PEDC), elecció de carpeta de treball (workspace), models Flash vs. Pro i assistent d'indicacions. |
+| [`bloc2-antigravity.html`](bloc2-antigravity.html) | **2. Google Antigravity** | Instal·lació (inclosos equips del PEDC), elecció de carpeta de treball (workspace), models Flash i Pro i assistent d'indicacions. |
 | [`bloc3-github.html`](bloc3-github.html) | **3. Configuració de GitHub** | Repositoris, com crear el token PAT, activació de Pages, alternativa visual amb GitHub Desktop i ordinadors del PEDC. |
-| [`bloc4-pages-sites.html`](bloc4-pages-sites.html) | **4. Pages enfront de Sites** | Taula comparativa de creació amb IA, riquesa interactiva, historial d'errors i sobirania dels fitxers. |
+| [`bloc4-pages-sites.html`](bloc4-pages-sites.html) | **4. Pages en comparació amb Sites** | Taula comparativa de creació amb IA, riquesa interactiva, historial d'errors i sobirania dels fitxers. |
 | [`bloc5-llicencies.html`](bloc5-llicencies.html) | **5. Llicències i codi obert** | Creative Commons per a textos (CC BY-SA) i llicències de programari (MIT) per a codi. La fórmula híbrida. |
 | [`bloc6-recursos-visuals.html`](bloc6-recursos-visuals.html) | **6. Recursos visuals i citació** | Evitar l'estigma d'imatges amb IA, ús d'icones (Lucide, Tabler), Unsplash i com citar a peu d'imatge. |
 | [`bloc7-bones-practiques.html`](bloc7-bones-practiques.html) | **7. Bones pràctiques d'aula** | Les 10 recomanacions de Vibe coding responsable de Juan José de Haro aplicades a l'aula. |

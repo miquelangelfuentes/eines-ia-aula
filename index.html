@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ca">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eines d'intel·ligència artificial per a l'aula | Inici</title>
   <meta name="description" content="Xerrada i guia pràctica per a docents sobre Google Antigravity, GitHub Pages, llicències i Vibe coding responsable.">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="next" href="bloc1-marc.html">
 </head>
@@ -71,343 +71,378 @@
 
     <!-- Qüestionari inicial de coneixements previs per a docents -->
     <section class="diagnostic-quiz-box" id="diagnostic-quiz-section">
-      <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
-        <div>
+      <div class="quiz-header-row">
+        <div class="quiz-header-content">
           <span class="page-category-tag" style="background: var(--accent-secondary-light); color: var(--accent-secondary); border: 1px solid var(--accent-secondary);">Punt de partida de la sessió</span>
-          <h2 style="margin-top: 0.5rem; margin-bottom: 0.35rem; font-size: 1.35rem;">Qüestionari de coneixements previs per a docents</h2>
-          <p class="lead-desc" style="margin-bottom: 0;">Respon breument a aquestes 10 preguntes per avaluar la teva familiaritat amb els continguts del taller i rebre una orientació personalitzada</p>
-        </div>
-        <div style="text-align: right;">
-          <span id="quiz-progress-badge" style="display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700; font-size: 0.875rem; background: var(--bg-subtle); padding: 0.4rem 0.8rem; border-radius: var(--radius-full); border: 1px solid var(--border-color); color: var(--accent-secondary);">
-            <i data-lucide="clipboard-check" style="width: 16px; height: 16px;"></i>
-            <span id="quiz-progress-text">0 de 10 preguntes respostes</span>
-          </span>
+          <h2>Qüestionari de coneixements previs per a docents</h2>
+          <p>Respon breument a aquestes 10 preguntes per avaluar la teva familiaritat amb els continguts del taller i rebre una orientació personalitzada amb els mòduls més rellevants, reforços i opcions d'ampliació.</p>
         </div>
       </div>
 
-      <div class="pedagogical-highlight" style="margin-top: 1rem; margin-bottom: 1.5rem; background: var(--bg-surface);">
-        Començarem la sessió completant aquesta autoavaluació. Si revises aquests materials de manera autònoma sense haver assistit a la xerrada, aquestes preguntes t'orientaran sobre quins mòduls et seran més rellevants, quins reforços necessites i quines opcions d'ampliació pots explorar.
+      <div class="quiz-progress-wrapper">
+        <div class="quiz-stepper-header">
+          <div class="quiz-stepper-pills" id="quiz-stepper-pills">
+            <button type="button" class="quiz-step-btn active" data-step="1" title="Pregunta 1">1</button>
+            <button type="button" class="quiz-step-btn" data-step="2" title="Pregunta 2">2</button>
+            <button type="button" class="quiz-step-btn" data-step="3" title="Pregunta 3">3</button>
+            <button type="button" class="quiz-step-btn" data-step="4" title="Pregunta 4">4</button>
+            <button type="button" class="quiz-step-btn" data-step="5" title="Pregunta 5">5</button>
+            <button type="button" class="quiz-step-btn" data-step="6" title="Pregunta 6">6</button>
+            <button type="button" class="quiz-step-btn" data-step="7" title="Pregunta 7">7</button>
+            <button type="button" class="quiz-step-btn" data-step="8" title="Pregunta 8">8</button>
+            <button type="button" class="quiz-step-btn" data-step="9" title="Pregunta 9">9</button>
+            <button type="button" class="quiz-step-btn" data-step="10" title="Pregunta 10">10</button>
+          </div>
+          <button type="button" id="btn-toggle-view" class="quiz-mode-toggle-btn">
+            <i data-lucide="layout-list"></i> <span>Desplegar totes les preguntes</span>
+          </button>
+        </div>
+
+        <div class="quiz-progress-track">
+          <div id="quiz-progress-fill" class="quiz-progress-fill" style="width: 0%;"></div>
+        </div>
+
+        <div class="quiz-progress-meta">
+          <span id="quiz-progress-text">0 de 10 preguntes respostes</span>
+          <span id="quiz-progress-percent">0% completat</span>
+        </div>
       </div>
 
       <form id="diagnostic-quiz-form" class="diagnostic-quiz-form">
         <!-- Pregunta 1 -->
-        <div class="quiz-question-card">
+        <div class="quiz-question-card active" data-q="1">
           <div class="quiz-question-header">
-            <span class="quiz-q-num">1</span>
-            <div class="quiz-q-title">Creació de recursos web i ús de la intel·ligència artificial</div>
+            <span class="quiz-q-num-pill">Pregunta 1 de 10</span>
+            <h3 class="quiz-q-title">Creació de recursos web i ús de la intel·ligència artificial</h3>
           </div>
-          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">Com descriuries la teva experiència actual creant materials digitals interactius amb eines d'IA (Google Antigravity, ChatGPT o Claude)?</p>
+          <p class="quiz-q-context">Com descriuries la teva experiència actual creant materials digitals interactius amb eines d'IA (Google Antigravity, ChatGPT o Claude)?</p>
           <div class="quiz-options-list">
-            <label class="quiz-option-label">
-              <input type="radio" name="q1" value="A" class="quiz-option-input">
-              <span class="quiz-opt-letter">A</span>
-              <span>Mai he utilitzat la IA per generar codi o pàgines web; només la conec com a xat de text per buscar idees o redactar documents.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q1" value="A" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">A</span>
+              <span class="quiz-opt-text">Mai he utilitzat la IA per generar codi o pàgines web; només la conec com a xat de text per buscar idees o redactar documents.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q1" value="B" class="quiz-option-input">
-              <span class="quiz-opt-letter">B</span>
-              <span>He vist alguns exemples o he demanat codi alguna vegada, però no sé com desar-lo en fitxers ni com fer-lo funcionar al meu ordinador.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q1" value="B" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">B</span>
+              <span class="quiz-opt-text">He vist alguns exemples o he demanat codi alguna vegada, però no sé com desar-lo en fitxers ni com fer-lo funcionar al meu ordinador.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q1" value="C" class="quiz-option-input">
-              <span class="quiz-opt-letter">C</span>
-              <span>He provat de crear algun petit recurs HTML o formulari senzill copiant el codi a mà, però em costa modificar-lo o detectar per què falla.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q1" value="C" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">C</span>
+              <span class="quiz-opt-text">He provat de crear algun petit recurs HTML o formulari senzill copiant el codi a mà, però em costa modificar-lo o detectar per què falla.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q1" value="D" class="quiz-option-input">
-              <span class="quiz-opt-letter">D</span>
-              <span>Utilitzo habitualment entorns de desenvolupament o assistents per generar recursos interactius d'una sola pàgina i els adapto amb autonomia.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q1" value="D" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">D</span>
+              <span class="quiz-opt-text">Utilitzo habitualment entorns de desenvolupament o assistents per generar recursos interactius d'una sola pàgina i els adapto amb autonomia.</span>
             </label>
           </div>
         </div>
 
         <!-- Pregunta 2 -->
-        <div class="quiz-question-card">
+        <div class="quiz-question-card" data-q="2">
           <div class="quiz-question-header">
-            <span class="quiz-q-num">2</span>
-            <div class="quiz-q-title">Google Antigravity i eines al dispositiu docent</div>
+            <span class="quiz-q-num-pill">Pregunta 2 de 10</span>
+            <h3 class="quiz-q-title">Google Antigravity i eines al dispositiu docent</h3>
           </div>
-          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">Què saps sobre Google Antigravity i la instal·lació d'eines al teu equip de treball (per exemple, el portàtil docent del PEDC)?</p>
+          <p class="quiz-q-context">Què saps sobre Google Antigravity i la instal·lació d'eines al teu equip de treball (per exemple, el portàtil docent del PEDC)?</p>
           <div class="quiz-options-list">
-            <label class="quiz-option-label">
-              <input type="radio" name="q2" value="A" class="quiz-option-input">
-              <span class="quiz-opt-letter">A</span>
-              <span>No he sentit a parlar mai d'Antigravity i no acostumo a instal·lar programari nou al meu ordinador.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q2" value="A" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">A</span>
+              <span class="quiz-opt-text">No he sentit a parlar mai d'Antigravity i no acostumo a instal·lar programari nou al meu ordinador.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q2" value="B" class="quiz-option-input">
-              <span class="quiz-opt-letter">B</span>
-              <span>Sé que és una eina de desenvolupament assistit de Google, però em fa por instal·lar-la per si calen permisos d'administració que no tinc.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q2" value="B" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">B</span>
+              <span class="quiz-opt-text">Sé que és una eina de desenvolupament assistit de Google, però em fa por instal·lar-la per si calen permisos d'administració que no tinc.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q2" value="C" class="quiz-option-input">
-              <span class="quiz-opt-letter">C</span>
-              <span>Sé que s'instal·la a la carpeta d'usuari local (sense necessitat de ser administrador), però no l'he configurat mai amb una carpeta de treball (workspace).</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q2" value="C" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">C</span>
+              <span class="quiz-opt-text">Sé que s'instal·la a la carpeta d'usuari local (sense necessitat de ser administrador), però no l'he configurat mai amb una carpeta de treball (workspace).</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q2" value="D" class="quiz-option-input">
-              <span class="quiz-opt-letter">D</span>
-              <span>He instal·lat o conec bé el funcionament d'Antigravity, la tria entre models Flash i Pro i com treballa directament sobre carpetes locals.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q2" value="D" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">D</span>
+              <span class="quiz-opt-text">He instal·lat o conec bé el funcionament d'Antigravity, la tria entre models Flash i Pro i com treballa directament sobre carpetes locals.</span>
             </label>
           </div>
         </div>
 
         <!-- Pregunta 3 -->
-        <div class="quiz-question-card">
+        <div class="quiz-question-card" data-q="3">
           <div class="quiz-question-header">
-            <span class="quiz-q-num">3</span>
-            <div class="quiz-q-title">Redacció d'indicacions pedagògiques</div>
+            <span class="quiz-q-num-pill">Pregunta 3 de 10</span>
+            <h3 class="quiz-q-title">Redacció d'indicacions pedagògiques</h3>
           </div>
-          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">Quan demanes a una IA que t'ajudi a crear una activitat interactiva per a l'aula, com planteges la indicació inicial?</p>
+          <p class="quiz-q-context">Quan demanes a una IA que t'ajudi a crear una activitat interactiva per a l'aula, com planteges la indicació inicial?</p>
           <div class="quiz-options-list">
-            <label class="quiz-option-label">
-              <input type="radio" name="q3" value="A" class="quiz-option-input">
-              <span class="quiz-opt-letter">A</span>
-              <span>Demano una frase molt general (per exemple: "fes-me un joc de preguntes de socials").</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q3" value="A" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">A</span>
+              <span class="quiz-opt-text">Demano una frase molt general (per exemple: "fes-me un joc de preguntes de socials").</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q3" value="B" class="quiz-option-input">
-              <span class="quiz-opt-letter">B</span>
-              <span>Indico el tema i el curs, però no sé com especificar requisits tècnics (com fitxer autònom index.html o retroacció pedagògica formativa).</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q3" value="B" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">B</span>
+              <span class="quiz-opt-text">Indico el tema i el curs, però no sé com especificar requisits tècnics (com fitxer autònom index.html o retroacció pedagògica formativa).</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q3" value="C" class="quiz-option-input">
-              <span class="quiz-opt-letter">C</span>
-              <span>Especifico el format tècnic i el nivell, però no sempre tinc en compte criteris d'accessibilitat universal (DUA) o protecció de dades.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q3" value="C" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">C</span>
+              <span class="quiz-opt-text">Especifico el format tècnic i el nivell, però no sempre tinc en compte criteris d'accessibilitat universal (DUA) o protecció de dades.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q3" value="D" class="quiz-option-input">
-              <span class="quiz-opt-letter">D</span>
-              <span>Redacto indicacions estructurades especificant àmbit, format autònom sense dependències externes fràgils, pautes DUA i explicacions formatives d'error.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q3" value="D" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">D</span>
+              <span class="quiz-opt-text">Redacto indicacions estructurades especificant àmbit, format autònom sense dependències externes fràgils, pautes DUA i explicacions formatives d'error.</span>
             </label>
           </div>
         </div>
 
         <!-- Pregunta 4 -->
-        <div class="quiz-question-card">
+        <div class="quiz-question-card" data-q="4">
           <div class="quiz-question-header">
-            <span class="quiz-q-num">4</span>
-            <div class="quiz-q-title">GitHub com a repositori educatiu</div>
+            <span class="quiz-q-num-pill">Pregunta 4 de 10</span>
+            <h3 class="quiz-q-title">GitHub com a repositori educatiu</h3>
           </div>
-          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">Quina és la teva relació amb GitHub i el concepte de repositori de codi?</p>
+          <p class="quiz-q-context">Quina és la teva relació amb GitHub i el concepte de repositori de codi?</p>
           <div class="quiz-options-list">
-            <label class="quiz-option-label">
-              <input type="radio" name="q4" value="A" class="quiz-option-input">
-              <span class="quiz-opt-letter">A</span>
-              <span>No tinc compte a GitHub ni sé exactament quina utilitat pot tenir per a la meva tasca com a docent.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q4" value="A" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">A</span>
+              <span class="quiz-opt-text">No tinc compte a GitHub ni sé exactament quina utilitat pot tenir per a la meva tasca com a docent.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q4" value="B" class="quiz-option-input">
-              <span class="quiz-opt-letter">B</span>
-              <span>Em sona que és una plataforma per a enginyers o desenvolupadors de programari, i em sembla una eina massa complexa per a l'aula.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q4" value="B" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">B</span>
+              <span class="quiz-opt-text">Em sona que és una plataforma per a enginyers o desenvolupadors de programari, i em sembla una eina massa complexa per a l'aula.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q4" value="C" class="quiz-option-input">
-              <span class="quiz-opt-letter">C</span>
-              <span>Tinc compte creat o l'he fet servir per consultar recursos d'altres, però no sé com crear un repositori propi ni per a què serveix un token d'accés (PAT).</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q4" value="C" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">C</span>
+              <span class="quiz-opt-text">Tinc compte creat o l'he fet servir per consultar recursos d'altres, però no sé com crear un repositori propi ni per a què serveix un token d'accés (PAT).</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q4" value="D" class="quiz-option-input">
-              <span class="quiz-opt-letter">D</span>
-              <span>Tinc repositoris propis, entenc què és una branca principal (main) i sé gestionar fitxers tant des del web com amb l'aplicació GitHub Desktop.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q4" value="D" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">D</span>
+              <span class="quiz-opt-text">Tinc repositoris propis, entenc què és una branca principal (main) i sé gestionar fitxers tant des del web com amb l'aplicació GitHub Desktop.</span>
             </label>
           </div>
         </div>
 
         <!-- Pregunta 5 -->
-        <div class="quiz-question-card">
+        <div class="quiz-question-card" data-q="5">
           <div class="quiz-question-header">
-            <span class="quiz-q-num">5</span>
-            <div class="quiz-q-title">Publicació web amb GitHub Pages en comparació amb Google Sites</div>
+            <span class="quiz-q-num-pill">Pregunta 5 de 10</span>
+            <h3 class="quiz-q-title">Publicació web amb GitHub Pages en comparació amb Google Sites</h3>
           </div>
-          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">Com valores la publicació de recursos web a GitHub Pages en comparació amb solucions com Google Sites?</p>
+          <p class="quiz-q-context">Com valores la publicació de recursos web a GitHub Pages en comparació amb solucions com Google Sites?</p>
           <div class="quiz-options-list">
-            <label class="quiz-option-label">
-              <input type="radio" name="q5" value="A" class="quiz-option-input">
-              <span class="quiz-opt-letter">A</span>
-              <span>Només he publicat o compartit materials mitjançant documents de Drive o aules virtuals (Classroom o Moodle).</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q5" value="A" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">A</span>
+              <span class="quiz-opt-text">Només he publicat o compartit materials mitjançant documents de Drive o aules virtuals (Classroom o Moodle).</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q5" value="B" class="quiz-option-input">
-              <span class="quiz-opt-letter">B</span>
-              <span>Utilitzo Google Sites perquè és el que conec, encara que reconec que costa fer-hi activitats realment interactives o personalitzades.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q5" value="B" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">B</span>
+              <span class="quiz-opt-text">Utilitzo Google Sites perquè és el que conec, encara que reconec que costa fer-hi activitats realment interactives o personalitzades.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q5" value="C" class="quiz-option-input">
-              <span class="quiz-opt-letter">C</span>
-              <span>Sé que GitHub Pages allotja llocs web públics gratuïts a partir d'un repositori, però mai he activat el servei a la pestanya Settings.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q5" value="C" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">C</span>
+              <span class="quiz-opt-text">Sé que GitHub Pages allotja llocs web públics gratuïts a partir d'un repositori, però mai he activat el servei a la pestanya Settings.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q5" value="D" class="quiz-option-input">
-              <span class="quiz-opt-letter">D</span>
-              <span>Prefereixo GitHub Pages perquè és ràpid, autònom, no té bloquejos d'edició manual i permet compartir activitats interactives pures en HTML i JavaScript.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q5" value="D" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">D</span>
+              <span class="quiz-opt-text">Prefereixo GitHub Pages perquè és ràpid, autònom, no té bloquejos d'edició manual i permet compartir activitats interactives pures en HTML i JavaScript.</span>
             </label>
           </div>
         </div>
 
         <!-- Pregunta 6 -->
-        <div class="quiz-question-card">
+        <div class="quiz-question-card" data-q="6">
           <div class="quiz-question-header">
-            <span class="quiz-q-num">6</span>
-            <div class="quiz-q-title">Estructura web: el fitxer index.html i les rutes relatives</div>
+            <span class="quiz-q-num-pill">Pregunta 6 de 10</span>
+            <h3 class="quiz-q-title">Estructura web: el fitxer index.html i les rutes relatives</h3>
           </div>
-          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">Quan organitzes els fitxers d'un recurs web, tens clars conceptes com el nom index.html i les rutes relatives?</p>
+          <p class="quiz-q-context">Quan organitzes els fitxers d'un recurs web, tens clars conceptes com el nom index.html i les rutes relatives?</p>
           <div class="quiz-options-list">
-            <label class="quiz-option-label">
-              <input type="radio" name="q6" value="A" class="quiz-option-input">
-              <span class="quiz-opt-letter">A</span>
-              <span>Desconec completament com s'han d'anomenar els fitxers o per què un enllaç a una imatge pot fallar.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q6" value="A" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">A</span>
+              <span class="quiz-opt-text">Desconec completament com s'han d'anomenar els fitxers o per què un enllaç a una imatge pot fallar.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q6" value="B" class="quiz-option-input">
-              <span class="quiz-opt-letter">B</span>
-              <span>Sé que hi ha un fitxer HTML, però sovint l'anomeno com l'activitat (per exemple verbs.html) i no entenc per què GitHub Pages no el troba d'entrada.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q6" value="B" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">B</span>
+              <span class="quiz-opt-text">Sé que hi ha un fitxer HTML, però sovint l'anomeno com l'activitat (per exemple verbs.html) i no entenc per què GitHub Pages no el troba d'entrada.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q6" value="C" class="quiz-option-input">
-              <span class="quiz-opt-letter">C</span>
-              <span>Sé que el fitxer principal s'ha de dir index.html, però de vegades m'embolico posant barres inicials (/estils.css) i els enllaços es trenquen.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q6" value="C" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">C</span>
+              <span class="quiz-opt-text">Sé que el fitxer principal s'ha de dir index.html, però de vegades m'embolico posant barres inicials (/estils.css) i els enllaços es trenquen.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q6" value="D" class="quiz-option-input">
-              <span class="quiz-opt-letter">D</span>
-              <span>Domino les rutes relatives (com imatges/esquema.png), l'estructura neta de carpetes i sé per què mai s'han de posar rutes absolutes locals.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q6" value="D" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">D</span>
+              <span class="quiz-opt-text">Domino les rutes relatives (com imatges/esquema.png), l'estructura neta de carpetes i sé per què mai s'han de posar rutes absolutes locals.</span>
             </label>
           </div>
         </div>
 
         <!-- Pregunta 7 -->
-        <div class="quiz-question-card">
+        <div class="quiz-question-card" data-q="7">
           <div class="quiz-question-header">
-            <span class="quiz-q-num">7</span>
-            <div class="quiz-q-title">Llicències de continguts (Creative Commons) i de codi (MIT)</div>
+            <span class="quiz-q-num-pill">Pregunta 7 de 10</span>
+            <h3 class="quiz-q-title">Llicències de continguts (Creative Commons) i de codi (MIT)</h3>
           </div>
-          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">Com gestiones els drets d'autoria i les llicències quan publiques un recurs educatiu a la xarxa?</p>
+          <p class="quiz-q-context">Com gestiones els drets d'autoria i les llicències quan publiques un recurs educatiu a la xarxa?</p>
           <div class="quiz-options-list">
-            <label class="quiz-option-label">
-              <input type="radio" name="q7" value="A" class="quiz-option-input">
-              <span class="quiz-opt-letter">A</span>
-              <span>No hi poso cap llicència ni hi he pensat mai; creia que per ser docent ja podia compartir qualsevol cosa lliurement.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q7" value="A" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">A</span>
+              <span class="quiz-opt-text">No hi poso cap llicència ni hi he pensat mai; creia que per ser docent ja podia compartir qualsevol cosa lliurement.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q7" value="B" class="quiz-option-input">
-              <span class="quiz-opt-letter">B</span>
-              <span>Poso un text genèric de "Creative Commons" o "tots els drets reservats", però no sé quina modalitat és la més adient per compartir amb altres docents.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q7" value="B" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">B</span>
+              <span class="quiz-opt-text">Poso un text genèric de "Creative Commons" o "tots els drets reservats", però no sé quina modalitat és la més adient per compartir amb altres docents.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q7" value="C" class="quiz-option-input">
-              <span class="quiz-opt-letter">C</span>
-              <span>Conec bé les llicències CC BY i CC BY-SA per al contingut educatiu, però desconec per què el codi informàtic necessita una llicència diferent (com la MIT).</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q7" value="C" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">C</span>
+              <span class="quiz-opt-text">Conec bé les llicències CC BY i CC BY-SA per al contingut educatiu, però desconec per què el codi informàtic necessita una llicència diferent (com la MIT).</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q7" value="D" class="quiz-option-input">
-              <span class="quiz-opt-letter">D</span>
-              <span>Aplico de forma diferenciada la llicència Creative Commons (CC BY-SA 4.0) per al material pedagògic i la llicència MIT per al codi font del projecte.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q7" value="D" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">D</span>
+              <span class="quiz-opt-text">Aplico de forma diferenciada la llicència Creative Commons (CC BY-SA 4.0) per al material pedagògic i la llicència MIT per al codi font del projecte.</span>
             </label>
           </div>
         </div>
 
         <!-- Pregunta 8 -->
-        <div class="quiz-question-card">
+        <div class="quiz-question-card" data-q="8">
           <div class="quiz-question-header">
-            <span class="quiz-q-num">8</span>
-            <div class="quiz-q-title">Bancs d'imatges lliures i la regla de citació TASL</div>
+            <span class="quiz-q-num-pill">Pregunta 8 de 10</span>
+            <h3 class="quiz-q-title">Bancs d'imatges lliures i la regla de citació TASL</h3>
           </div>
-          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">Quan necessites una fotografia o il·lustració per al teu material, d'on l'obtens i com en cites l'autoria?</p>
+          <p class="quiz-q-context">Quan necessites una fotografia o il·lustració per al teu material, d'on l'obtens i com en cites l'autoria?</p>
           <div class="quiz-options-list">
-            <label class="quiz-option-label">
-              <input type="radio" name="q8" value="A" class="quiz-option-input">
-              <span class="quiz-opt-letter">A</span>
-              <span>Busco a cercadors d'imatges i descarrego la que m'agrada sense comprovar qui l'ha feta ni la seva llicència.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q8" value="A" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">A</span>
+              <span class="quiz-opt-text">Busco a cercadors d'imatges i descarrego la que m'agrada sense comprovar qui l'ha feta ni la seva llicència.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q8" value="B" class="quiz-option-input">
-              <span class="quiz-opt-letter">B</span>
-              <span>Demano a la IA que em generi una imatge decorativa per a cada concepte, sense pensar en l'impacte visual o la sobrecàrrega que pugui generar.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q8" value="B" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">B</span>
+              <span class="quiz-opt-text">Demano a la IA que em generi una imatge decorativa per a cada concepte, sense pensar en l'impacte visual o la sobrecàrrega que pugui generar.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q8" value="C" class="quiz-option-input">
-              <span class="quiz-opt-letter">C</span>
-              <span>Faig servir bancs d'imatges com Unsplash o Wikimedia Commons, però només poso el nom de l'autor o una frase curta sense enllaços complets.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q8" value="C" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">C</span>
+              <span class="quiz-opt-text">Faig servir bancs d'imatges com Unsplash o Wikimedia Commons, però només poso el nom de l'autor o una frase curta sense enllaços complets.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q8" value="D" class="quiz-option-input">
-              <span class="quiz-opt-letter">D</span>
-              <span>Consulto fonts obertes i aplico amb rigor els quatre elements de la regla TASL (títol, autoria, font i llicència) a peu de foto.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q8" value="D" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">D</span>
+              <span class="quiz-opt-text">Consulto fonts obertes i aplico amb rigor els quatre elements de la regla TASL (títol, autoria, font i llicència) a peu de foto.</span>
             </label>
           </div>
         </div>
 
         <!-- Pregunta 9 -->
-        <div class="quiz-question-card">
+        <div class="quiz-question-card" data-q="9">
           <div class="quiz-question-header">
-            <span class="quiz-q-num">9</span>
-            <div class="quiz-q-title">Alternatives visuals a la IA: icones vectorials i accessibilitat</div>
+            <span class="quiz-q-num-pill">Pregunta 9 de 10</span>
+            <h3 class="quiz-q-title">Alternatives visuals a la IA: icones vectorials i accessibilitat</h3>
           </div>
-          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">Quines alternatives utilitzes per fer més comprensible i visual un recurs sense recórrer a imatges generades per IA?</p>
+          <p class="quiz-q-context">Quines alternatives utilitzes per fer més comprensible i visual un recurs sense recórrer a imatges generades per IA?</p>
           <div class="quiz-options-list">
-            <label class="quiz-option-label">
-              <input type="radio" name="q9" value="A" class="quiz-option-input">
-              <span class="quiz-opt-letter">A</span>
-              <span>No faig servir icones ni recursos visuals lleugers; només text continu o imatges pesades.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q9" value="A" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">A</span>
+              <span class="quiz-opt-text">No faig servir icones ni recursos visuals lleugers; només text continu o imatges pesades.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q9" value="B" class="quiz-option-input">
-              <span class="quiz-opt-letter">B</span>
-              <span>Utilitzo emojis per separar apartats, però no conec catàlegs d'icones vectorials lliures ni com integrar-los en codi web.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q9" value="B" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">B</span>
+              <span class="quiz-opt-text">Utilitzo emojis per separar apartats, però no conec catàlegs d'icones vectorials lliures ni com integrar-los en codi web.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q9" value="C" class="quiz-option-input">
-              <span class="quiz-opt-letter">C</span>
-              <span>Conec llibreries com Lucide o Tabler, però no sé quina llicència tenen (com la llicència ISC o MIT) ni com incrustar-les amb pocs kilobytes.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q9" value="C" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">C</span>
+              <span class="quiz-opt-text">Conec llibreries com Lucide o Tabler, però no sé quina llicència tenen (com la llicència ISC o MIT) ni com incrustar-les amb pocs kilobytes.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q9" value="D" class="quiz-option-input">
-              <span class="quiz-opt-letter">D</span>
-              <span>Combino emojis ben seleccionats i icones vectorials netes (Lucide, SVG) que carreguen a l'instant, milloren l'accessibilitat i no distreuen de l'aprenentatge.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q9" value="D" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">D</span>
+              <span class="quiz-opt-text">Combino emojis ben seleccionats i icones vectorials netes (Lucide, SVG) que carreguen a l'instant, milloren l'accessibilitat i no distreuen de l'aprenentatge.</span>
             </label>
           </div>
         </div>
 
         <!-- Pregunta 10 -->
-        <div class="quiz-question-card">
+        <div class="quiz-question-card" data-q="10">
           <div class="quiz-question-header">
-            <span class="quiz-q-num">10</span>
-            <div class="quiz-q-title">Privacitat de l'alumnat (RGPD) i models d'IA local</div>
+            <span class="quiz-q-num-pill">Pregunta 10 de 10</span>
+            <h3 class="quiz-q-title">Privacitat de l'alumnat (RGPD) i models d'IA local</h3>
           </div>
-          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 0.75rem;">Quina és la teva perspectiva sobre la protecció de dades a l'aula i l'ús de models d'intel·ligència artificial que s'executen en local?</p>
+          <p class="quiz-q-context">Quina és la teva perspectiva sobre la protecció de dades a l'aula i l'ús de models d'intel·ligència artificial que s'executen en local?</p>
           <div class="quiz-options-list">
-            <label class="quiz-option-label">
-              <input type="radio" name="q10" value="A" class="quiz-option-input">
-              <span class="quiz-opt-letter">A</span>
-              <span>No he tingut en compte el RGPD en crear activitats web digitals ni sé què és un model d'IA en local.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q10" value="A" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">A</span>
+              <span class="quiz-opt-text">No he tingut en compte el RGPD en crear activitats web digitals ni sé què és un model d'IA en local.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q10" value="B" class="quiz-option-input">
-              <span class="quiz-opt-letter">B</span>
-              <span>M'amoïna la privacitat dels alumnes, però desconec com crear recursos que funcionin al navegador sense necessitat de demanar registre ni comptes.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q10" value="B" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">B</span>
+              <span class="quiz-opt-text">M'amoïna la privacitat dels alumnes, però desconec com crear recursos que funcionin al navegador sense necessitat de demanar registre ni comptes.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q10" value="C" class="quiz-option-input">
-              <span class="quiz-opt-letter">C</span>
-              <span>Asseguro que les meves activitats no demanin cap dada personal a l'alumnat, i he sentit a parlar de programes com Ollama o LM Studio però no els he provat.</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q10" value="C" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">C</span>
+              <span class="quiz-opt-text">Asseguro que les meves activitats no demanin cap dada personal a l'alumnat, i he sentit a parlar de programes com Ollama o LM Studio però no els he provat.</span>
             </label>
-            <label class="quiz-option-label">
-              <input type="radio" name="q10" value="D" class="quiz-option-input">
-              <span class="quiz-opt-letter">D</span>
-              <span>Dissenyo recursos 100% respectuosos amb el RGPD que s'executen en local al dispositiu de l'alumne, i experimento amb models d'IA local en català (Projecte AINA, Rebost.ai).</span>
+            <label class="quiz-option-card">
+              <input type="radio" name="q10" value="D" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">D</span>
+              <span class="quiz-opt-text">Dissenyo recursos 100% respectuosos amb el RGPD que s'executen en local al dispositiu de l'alumne, i experimento amb models d'IA local en català (Projecte AINA, Rebost.ai).</span>
             </label>
+          </div>
+        </div>
+
+        <!-- Controls de navegació entre preguntes -->
+        <div class="quiz-nav-footer">
+          <button type="button" class="quiz-nav-btn" id="quiz-prev-btn">
+            <i data-lucide="arrow-left"></i> Anterior
+          </button>
+          <span id="quiz-nav-status" style="font-weight: 700; font-size: 0.875rem; color: var(--text-muted);">Pregunta 1 de 10</span>
+          <div style="display: flex; gap: 0.5rem;">
+            <button type="button" class="quiz-nav-btn primary" id="quiz-next-btn">
+              Següent <i data-lucide="arrow-right"></i>
+            </button>
+            <button type="button" class="quiz-nav-btn accent-cta" id="quiz-finish-btn" style="display: none;">
+              <i data-lucide="sparkles"></i> Veure el meu diagnòstic
+            </button>
           </div>
         </div>
       </form>
 
-      <div style="display: flex; justify-content: flex-end; margin-top: 1.25rem;">
-        <button id="btn-reset-quiz" type="button" class="copy-btn" style="background: var(--bg-surface); color: var(--text-muted); border: 1px solid var(--border-color);">
-          Reiniciar respostes
+      <div class="quiz-actions-row">
+        <button id="btn-reset-quiz" type="button" class="quiz-btn-link">
+          <i data-lucide="rotate-ccw"></i> Reiniciar respostes
         </button>
       </div>
 
-      <!-- Panell de recomanacions personalitzades (es mostra quan es responen preguntes) -->
+      <!-- Panell de recomanacions personalitzades (es mostra quan es demana o es respon) -->
       <div id="quiz-results-panel" class="quiz-results-panel" style="display: none;"></div>
     </section>
 
@@ -572,6 +607,6 @@
   </footer>
 
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="app.js?v=2"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>

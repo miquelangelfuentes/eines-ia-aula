@@ -183,30 +183,113 @@ function updateChecklistProgress() {
 
 /* 6. Qüestionari de coneixements previs per a docents */
 function initDiagnosticQuiz() {
+  const container = document.getElementById("diagnostic-quiz-section");
   const form = document.getElementById("diagnostic-quiz-form");
   const resultsPanel = document.getElementById("quiz-results-panel");
   const progressText = document.getElementById("quiz-progress-text");
+  const progressPercent = document.getElementById("quiz-progress-percent");
+  const progressFill = document.getElementById("quiz-progress-fill");
+  const stepperPills = document.getElementById("quiz-stepper-pills");
+  const btnPrev = document.getElementById("quiz-prev-btn");
+  const btnNext = document.getElementById("quiz-next-btn");
+  const btnFinish = document.getElementById("quiz-finish-btn");
+  const btnToggleView = document.getElementById("btn-toggle-view");
   const btnReset = document.getElementById("btn-reset-quiz");
+  const statusEl = document.getElementById("quiz-nav-status");
 
-  if (!form || !resultsPanel) return;
+  if (!container || !form || !resultsPanel) return;
 
   const storageKey = "eines-ia:diagnostic-quiz";
   const savedAnswers = JSON.parse(localStorage.getItem(storageKey) || "{}");
+  const questions = Array.from(form.querySelectorAll(".quiz-question-card"));
+  const totalQ = questions.length;
+  let currentStep = 1;
+  let isWizard = true;
 
-  // Restaurar respostes guardades prèviament
+  container.classList.add("is-wizard");
+
+  // Crear o inicialitzar les pastilles de navegació (1..10)
+  if (stepperPills && stepperPills.children.length === 0) {
+    for (let i = 1; i <= totalQ; i++) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `quiz-step-btn ${i === 1 ? "active" : ""}`;
+      btn.dataset.step = i;
+      btn.textContent = i;
+      btn.title = `Anar a la pregunta ${i}`;
+      btn.setAttribute("aria-label", `Anar a la pregunta ${i}`);
+      btn.addEventListener("click", () => {
+        goToStep(i);
+      });
+      stepperPills.appendChild(btn);
+    }
+  }
+
+  // Restaurar respostes desades prèviament
   Object.keys(savedAnswers).forEach((qName) => {
     const val = savedAnswers[qName];
     const radio = form.querySelector(`input[name="${qName}"][value="${val}"]`);
     if (radio) {
       radio.checked = true;
-      radio.closest(".quiz-option-label")?.classList.add("selected");
-      radio.closest(".quiz-question-card")?.classList.add("answered");
+      const card = radio.closest(".quiz-question-card");
+      card?.classList.add("answered");
+      const optCard = radio.closest(".quiz-option-card");
+      optCard?.classList.add("selected");
     }
   });
 
-  function calculateAndRender() {
-    const questions = form.querySelectorAll(".quiz-question-card");
-    const totalQ = questions.length;
+  function updateWizardView() {
+    questions.forEach((card, idx) => {
+      const qNum = idx + 1;
+      if (qNum === currentStep) {
+        card.classList.add("active");
+      } else {
+        card.classList.remove("active");
+      }
+    });
+
+    const stepBtns = stepperPills?.querySelectorAll(".quiz-step-btn") || [];
+    stepBtns.forEach((btn, idx) => {
+      const stepNum = idx + 1;
+      if (stepNum === currentStep) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
+
+    if (statusEl) {
+      statusEl.textContent = `Pregunta ${currentStep} de ${totalQ}`;
+    }
+
+    if (btnPrev) {
+      btnPrev.disabled = (currentStep === 1);
+    }
+
+    if (btnNext) {
+      btnNext.style.display = (currentStep === totalQ) ? "none" : "inline-flex";
+    }
+
+    if (btnFinish) {
+      btnFinish.style.display = (currentStep === totalQ || countAnswered() >= 3) ? "inline-flex" : "none";
+    }
+  }
+
+  function goToStep(step) {
+    if (step < 1) step = 1;
+    if (step > totalQ) step = totalQ;
+    currentStep = step;
+    updateWizardView();
+    if (isWizard) {
+      container.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  function countAnswered() {
+    return form.querySelectorAll('input[type="radio"]:checked').length;
+  }
+
+  function calculateAndRender(scrollToResult = false) {
     let answeredCount = 0;
     let scoreSum = 0;
     const currentAnswers = {};
@@ -216,9 +299,13 @@ function initDiagnosticQuiz() {
       const qNum = index + 1;
       const qName = `q${qNum}`;
       const checked = card.querySelector(`input[name="${qName}"]:checked`);
+      const stepBtn = stepperPills?.querySelector(`.quiz-step-btn[data-step="${qNum}"]`);
 
       if (checked) {
         answeredCount++;
+        card.classList.add("answered");
+        if (stepBtn) stepBtn.classList.add("answered");
+
         const val = checked.value;
         currentAnswers[qName] = val;
 
@@ -228,10 +315,17 @@ function initDiagnosticQuiz() {
         if (valScore <= 2) {
           weakAreas.push(qNum);
         }
+      } else {
+        card.classList.remove("answered");
+        if (stepBtn) stepBtn.classList.remove("answered");
       }
     });
 
     localStorage.setItem(storageKey, JSON.stringify(currentAnswers));
+
+    const percent = Math.round((answeredCount / totalQ) * 100);
+    if (progressFill) progressFill.style.width = `${percent}%`;
+    if (progressPercent) progressPercent.textContent = `${percent}%`;
 
     if (progressText) {
       if (answeredCount === totalQ) {
@@ -241,13 +335,16 @@ function initDiagnosticQuiz() {
       }
     }
 
+    if (btnFinish) {
+      btnFinish.style.display = (answeredCount >= 3 || currentStep === totalQ) ? "inline-flex" : "none";
+    }
+
     if (answeredCount === 0) {
       resultsPanel.style.display = "none";
       return;
     }
 
-    resultsPanel.style.display = "block";
-
+    // Calcular perfil i recomanacions
     const avgScore = scoreSum / answeredCount;
     let profileKey = "inicial";
     let profileTitle = "Perfil inicial: descoberta i primers passos pràctics";
@@ -318,7 +415,6 @@ function initDiagnosticQuiz() {
       ];
     }
 
-    // Reforços específics per preguntes amb respostes A o B
     if (weakAreas.includes(1) || weakAreas.includes(2)) {
       reinforcementPoints.push(`Instal·lació sense privilegis d'administració: consulta com instal·lar Google Antigravity al teu portàtil del PEDC al <a href="bloc2-antigravity.html">bloc 2</a>.`);
     }
@@ -346,14 +442,14 @@ function initDiagnosticQuiz() {
         </span>
       </div>
 
-      <p style="margin: 0.75rem 0 1.25rem 0; font-size: 0.95rem; line-height: 1.6; color: var(--text-main);">
+      <p style="margin: 0.85rem 0 1.25rem 0; font-size: 0.95rem; line-height: 1.6; color: var(--text-main);">
         ${profileDesc}
       </p>
 
       <div class="quiz-recommendations-grid">
         <div class="quiz-rec-card">
           <div>
-            <h4><i data-lucide="book-marked" style="width: 18px; height: 18px; color: var(--accent-secondary);"></i>Mòduls més rellevants per a tu</h4>
+            <h4><i data-lucide="book-marked" style="width: 18px; height: 18px; color: var(--accent-secondary);"></i>Mòduls més rellevants</h4>
             <ul>
               ${recommendedModules.map(m => `<li>${m}</li>`).join("")}
             </ul>
@@ -378,33 +474,96 @@ function initDiagnosticQuiz() {
           </div>
         </div>
       </div>
+
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+        <button type="button" id="btn-revisit-quiz" class="quiz-nav-btn">
+          <i data-lucide="edit-3"></i> Modificar respostes
+        </button>
+        <a href="${profileKey === 'inicial' ? 'bloc1-marc.html' : profileKey === 'intermedi' ? 'bloc4-pages-sites.html' : 'bloc6-recursos-visuals.html'}" class="quiz-nav-btn primary">
+          <span>Començar l'itinerari recomanat</span> ▶
+        </a>
+      </div>
     `;
 
+    resultsPanel.style.display = "block";
     initLucide();
+
+    document.getElementById("btn-revisit-quiz")?.addEventListener("click", () => {
+      container.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    if (scrollToResult) {
+      resultsPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
+  // Canvis en seleccionar opcions
   form.addEventListener("change", (e) => {
     if (e.target.matches('input[type="radio"]')) {
       const card = e.target.closest(".quiz-question-card");
       card?.classList.add("answered");
 
-      const labels = card.querySelectorAll(".quiz-option-label");
-      labels.forEach(l => l.classList.remove("selected"));
-      e.target.closest(".quiz-option-label")?.classList.add("selected");
+      const optCards = card.querySelectorAll(".quiz-option-card");
+      optCards.forEach(l => l.classList.remove("selected"));
+      e.target.closest(".quiz-option-card")?.classList.add("selected");
 
-      calculateAndRender();
+      calculateAndRender(false);
+
+      // Si estem en mode pas a pas i no és l'última, avançar suaument
+      if (isWizard && currentStep < totalQ) {
+        setTimeout(() => {
+          goToStep(currentStep + 1);
+        }, 320);
+      } else if (currentStep === totalQ) {
+        if (btnFinish) btnFinish.style.display = "inline-flex";
+      }
     }
   });
 
-  btnReset?.addEventListener("click", () => {
-    form.reset();
-    form.querySelectorAll(".quiz-option-label").forEach(l => l.classList.remove("selected"));
-    form.querySelectorAll(".quiz-question-card").forEach(c => c.classList.remove("answered"));
-    localStorage.removeItem(storageKey);
-    calculateAndRender();
+  // Botons de navegació pas a pas
+  btnPrev?.addEventListener("click", () => {
+    goToStep(currentStep - 1);
   });
 
-  if (Object.keys(savedAnswers).length > 0) {
-    calculateAndRender();
-  }
+  btnNext?.addEventListener("click", () => {
+    goToStep(currentStep + 1);
+  });
+
+  btnFinish?.addEventListener("click", () => {
+    calculateAndRender(true);
+  });
+
+  // Commutador de mode (pas a pas o totes les preguntes)
+  btnToggleView?.addEventListener("click", () => {
+    isWizard = !isWizard;
+    if (isWizard) {
+      container.classList.add("is-wizard");
+      btnToggleView.innerHTML = '<i data-lucide="layout-list"></i> <span>Desplegar totes les preguntes</span>';
+      goToStep(currentStep);
+    } else {
+      container.classList.remove("is-wizard");
+      btnToggleView.innerHTML = '<i data-lucide="layers"></i> <span>Mode pas a pas</span>';
+    }
+    initLucide();
+  });
+
+  // Botó de reinici
+  btnReset?.addEventListener("click", () => {
+    form.reset();
+    form.querySelectorAll(".quiz-option-card").forEach(l => l.classList.remove("selected"));
+    form.querySelectorAll(".quiz-question-card").forEach(c => {
+      c.classList.remove("answered");
+    });
+    stepperPills?.querySelectorAll(".quiz-step-btn").forEach(b => {
+      b.classList.remove("answered");
+    });
+    localStorage.removeItem(storageKey);
+    resultsPanel.style.display = "none";
+    goToStep(1);
+    calculateAndRender(false);
+  });
+
+  // Inicialització inicial
+  updateWizardView();
+  calculateAndRender(false);
 }
