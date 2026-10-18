@@ -70,11 +70,14 @@
         <div class="ordered-step-item">
           <div class="step-indicator">1</div>
           <div class="step-content">
-            <h3>Instal·lació del programa</h3>
+            <h3>Instal·lació de l'aplicació al dispositiu</h3>
             <p>
               Descarrega l'instal·lador oficial per al teu sistema operatiu (Windows o macOS). Obre l'aplicació i inicia sessió amb el teu compte habitual de Google.
             </p>
-            <span class="step-tip">Requisit: només cal tenir connexió a Internet per comunicar-se amb els models d'intel·ligència artificial.</span>
+            <div style="margin-top: 0.75rem; background: var(--bg-surface); border: 1px solid var(--border-color); border-left: 4px solid var(--accent-secondary); padding: 0.85rem 1rem; border-radius: var(--radius-sm); font-size: 0.875rem; line-height: 1.55;">
+              <strong>Instal·lació en portàtils docents del PEDC:</strong> Tant <strong>Google Antigravity</strong> com <strong>GitHub Desktop</strong> es poden instal·lar en el portàtil del <a href="https://projectes.xtec.cat/digital/equipaments-i-infraestructures/ordinadors/ordinadors-docents/" target="_blank" rel="noopener">Pla d'Educació Digital de Catalunya (PEDC)</a> sense necessitat de privilegis d'administració, atès que s'instal·len en el perfil d'usuari local. Això no obstant, cal tenir en compte que algunes configuracions en determinats dispositius poden ser més estrictes que d'altres en funció de les polítiques de gestió i seguretat del centre educatiu.
+            </div>
+            <span class="step-tip" style="margin-top: 0.65rem;">Requisit: només cal tenir connexió a internet per comunicar-se amb els models d'intel·ligència artificial.</span>
           </div>
         </div>
 
@@ -123,9 +126,9 @@
 
       <!-- Formulari interactiu -->
       <div class="interactive-tool-box">
-        <h3>Assistent per redactar la teva primera petició</h3>
+        <h3>Assistent per redactar la teva primera indicació</h3>
         <p style="color: var(--text-muted); font-size: 0.9rem;">
-          Selecciona les característiques del teu recurs per generar automàticament el text de la instrucció llest per enganxar a Google Antigravity:
+          Selecciona les característiques del teu recurs per generar automàticament el text de la indicació llest per enganxar a Google Antigravity:
         </p>
 
         <form id="prompt-generator-form" class="prompt-generator-form" onsubmit="event.preventDefault();">
@@ -182,7 +185,7 @@
         <div id="generated-prompt-text" class="generated-prompt-result"></div>
 
         <button id="btn-copy-prompt" class="btn-primary-action" type="button" style="margin-top: 0.85rem;">
-          Copiar prompt per a Google Antigravity
+          Copiar indicació per a Google Antigravity
         </button>
       </div>
     </div>

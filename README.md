@@ -14,8 +14,8 @@ Aquest repositori conté el lloc web de suport a la ponència docent, estructura
 | :--- | :--- | :--- |
 | [`index.html`](index.html) | **Pàgina d'inici** | Presentació del recurs i índex de targetes per accedir a cada bloc. |
 | [`bloc1-marc.html`](bloc1-marc.html) | **1. Marc introductori** | De fer consultes a un xat a construir eines interactives sense saber programar. |
-| [`bloc2-antigravity.html`](bloc2-antigravity.html) | **2. Google Antigravity** | Instal·lació, elecció de carpeta de treball (workspace), models Flash vs. Pro i assistent de prompts. |
-| [`bloc3-github.html`](bloc3-github.html) | **3. Configuració de GitHub** | Repositoris, com crear el token PAT pas a pas, activació de Pages en 3 clics i fitxer index.html. |
+| [`bloc2-antigravity.html`](bloc2-antigravity.html) | **2. Google Antigravity** | Instal·lació (inclosos equips del PEDC), elecció de carpeta de treball (workspace), models Flash vs. Pro i assistent d'indicacions. |
+| [`bloc3-github.html`](bloc3-github.html) | **3. Configuració de GitHub** | Repositoris, com crear el token PAT, activació de Pages, alternativa visual amb GitHub Desktop i ordinadors del PEDC. |
 | [`bloc4-pages-sites.html`](bloc4-pages-sites.html) | **4. Pages enfront de Sites** | Taula comparativa de creació amb IA, riquesa interactiva, historial d'errors i sobirania dels fitxers. |
 | [`bloc5-llicencies.html`](bloc5-llicencies.html) | **5. Llicències i codi obert** | Creative Commons per a textos (CC BY-SA) i llicències de programari (MIT) per a codi. La fórmula híbrida. |
 | [`bloc6-recursos-visuals.html`](bloc6-recursos-visuals.html) | **6. Recursos visuals i citació** | Evitar l'estigma d'imatges amb IA, ús d'icones (Lucide, Tabler), Unsplash i com citar a peu d'imatge. |
@@ -28,7 +28,7 @@ Aquest repositori conté el lloc web de suport a la ponència docent, estructura
 ## Característiques per a la xerrada
 - **Navegació amb fletxes de teclat:** durant la ponència es pot prémer `Fletxa Dreta` (▶) per anar al següent bloc o `Fletxa Esquerra` (◀) per tornar a l'anterior, com si fossin diapositives però en pàgines web reals.
 - **Disseny net i calmat:** cada bloc té la seva pròpia pàgina per evitar la sobrecàrrega d'informació a la pantalla.
-- **Assistent de prompts integrat:** al bloc 2, per generar instruccions pedagògiques adaptades al nivell i la matèria.
+- **Assistent d'indicacions integrat:** al bloc 2, per generar instruccions pedagògiques adaptades al nivell i la matèria.
 - **Llista de verificació interactiva:** al bloc 8, amb recordatori d'estat al navegador (`localStorage`).
 - **Mode clar i fosc:** accessible des de la icona de la barra superior.
 

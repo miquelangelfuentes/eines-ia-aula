@@ -607,7 +607,7 @@ table.clean-table tr:hover td {
   border-left: 3px solid var(--accent-secondary);
 }
 
-/* Formulari interactiu de prompt */
+/* Formulari interactiu d'indicació */
 .interactive-tool-box {
   background: var(--bg-surface-elevated);
   border: 1px solid var(--accent-primary);

@@ -51,7 +51,7 @@
       <span class="page-category-tag">Bloc 3</span>
       <h1>Configuració de GitHub per a docents</h1>
       <p class="page-hero-subtitle">
-        Com obrir el teu espai al núvol, crear la teva clau d'accés (token) i publicar el teu primer recurs web sense pagar servidors.
+        Com obrir el teu espai al núvol, generar el teu token d'accés personal i publicar el teu primer recurs web sense pagar servidors.
       </p>
     </div>
   </section>
@@ -84,7 +84,7 @@
         <div class="card-item">
           <h3>El token d'accés (PAT)</h3>
           <p>
-            GitHub no permet utilitzar la contrasenya habitual per pujar fitxers des de programes externs. Es fa servir una clau especial anomenada <em>Personal Access Token</em> que generes una sola vegada i que actua com a permís segur.
+            GitHub no permet utilitzar la contrasenya habitual per pujar fitxers des de programes externs. Es fa servir una credencial d'accés anomenada <em>Personal Access Token</em> que generes una sola vegada i que actua com a permís segur.
           </p>
         </div>
       </div>
@@ -131,7 +131,7 @@
             <p>
               Baixa al final de la pàgina i fes clic al botó verd <strong>Generate token</strong>.
             </p>
-            <span class="step-tip">Important: copia la cadena de caràcters que comença per <code>ghp_...</code> i guarda-la al teu gestor de notes o contrasenyes. GitHub no la tornarà a mostrar mai més. Aquesta és la clau que faràs servir quan el programa et demani autenticar-te per primera vegada.</span>
+            <span class="step-tip">Important: copia la cadena de caràcters que comença per <code>ghp_...</code> i guarda-la al teu gestor de notes o contrasenyes. GitHub no la tornarà a mostrar mai més. Aquest és el codi d'autenticació que faràs servir quan el programa et demani validar-te per primera vegada.</span>
           </div>
         </div>
       </div>
@@ -184,6 +184,74 @@
           <p>
             Quan enllacis imatges o fitxers desats a la teva carpeta, no posis una barra a l'inici. Fes servir rutes relatives com ara <code>styles.css</code> o <code>imatges/mapa.png</code>, en comptes de <code>/styles.css</code>. D'aquesta manera funcionarà correctament dins del subdomini de GitHub Pages.
           </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Secció: Alternativa visual amb GitHub Desktop i portàtils del PEDC -->
+    <div class="content-box">
+      <h2>Alternativa visual: GitHub Desktop i portàtils docents del PEDC</h2>
+      <p class="lead-desc">Com gestionar els repositoris sense comandes de consola i consideracions sobre els equips escolars</p>
+
+      <div class="pedagogical-highlight">
+        Per als docents que s'inicien i prefereixen una aplicació gràfica d'escriptori, <a href="https://desktop.github.com/" target="_blank" rel="noopener">GitHub Desktop</a> és una eina gratuïta molt recomanable. Permet afegir carpetes locals, veure els fitxers modificats i publicar canvis a GitHub Pages amb només prémer un botó.
+      </div>
+
+      <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-left: 4px solid var(--accent-secondary); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--text-main);">Instal·lació en els portàtils del PEDC</h3>
+        <p style="font-size: 0.925rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.75rem;">
+          Tant <strong>Google Antigravity</strong> com <strong>GitHub Desktop</strong> es poden instal·lar en el portàtil docent del <a href="https://projectes.xtec.cat/digital/equipaments-i-infraestructures/ordinadors/ordinadors-docents/" target="_blank" rel="noopener">Pla d'Educació Digital de Catalunya (PEDC)</a> sense necessitat de privilegis d'administració, ja que tots dos s'executen i s'instal·len dins del directori de l'usuari local. Això no obstant, cal tenir present que algunes configuracions en certs dispositius poden ser més estrictes que d'altres depenent del perfil de polítiques del centre o de la configuració de xarxa.
+        </p>
+      </div>
+
+      <h3 style="font-size: 1rem; margin-bottom: 0.75rem;">Pàgines d'ajuda oficials i documentació de referència:</h3>
+      <div class="cards-grid">
+        <div class="card-item" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="font-size: 0.95rem;">Ordinadors docents del PEDC</h3>
+            <p style="font-size: 0.85rem;">Guia oficial del Departament d'Educació sobre les característiques i suport dels ordinadors docents.</p>
+          </div>
+          <div style="margin-top: 0.75rem;">
+            <a href="https://projectes.xtec.cat/digital/equipaments-i-infraestructures/ordinadors/ordinadors-docents/" target="_blank" rel="noopener" style="font-size: 0.825rem; font-weight: 600; color: var(--accent-primary); text-decoration: none;">
+              Portal oficial PEDC (en català) ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="card-item" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="font-size: 0.95rem;">GitHub Desktop oficial</h3>
+            <p style="font-size: 0.85rem;">Descàrrega gratuïta i documentació d'inici per sincronitzar carpetes sense escriure codi.</p>
+          </div>
+          <div style="margin-top: 0.75rem;">
+            <a href="https://docs.github.com/es/desktop/overview/getting-started-with-github-desktop" target="_blank" rel="noopener" style="font-size: 0.825rem; font-weight: 600; color: var(--accent-primary); text-decoration: none;">
+              Ajuda de GitHub Desktop (en castellà) ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="card-item" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="font-size: 0.95rem;">Guia de GitHub Pages</h3>
+            <p style="font-size: 0.85rem;">Com configurar el lloc web, dominis personalitzats i resolució d'incidències habituals.</p>
+          </div>
+          <div style="margin-top: 0.75rem;">
+            <a href="https://docs.github.com/es/pages/getting-started-with-github-pages" target="_blank" rel="noopener" style="font-size: 0.825rem; font-weight: 600; color: var(--accent-primary); text-decoration: none;">
+              Ajuda de GitHub Pages (en castellà) ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="card-item" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <h3 style="font-size: 0.95rem;">Gestió de tokens personals (PAT)</h3>
+            <p style="font-size: 0.85rem;">Instruccions oficials per crear, renovar i protegir les teves credencials d'accés segur.</p>
+          </div>
+          <div style="margin-top: 0.75rem;">
+            <a href="https://docs.github.com/es/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens" target="_blank" rel="noopener" style="font-size: 0.825rem; font-weight: 600; color: var(--accent-primary); text-decoration: none;">
+              Ajuda de tokens a GitHub (en castellà) ↗
+            </a>
+          </div>
         </div>
       </div>
     </div>

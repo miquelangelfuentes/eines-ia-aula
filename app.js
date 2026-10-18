@@ -74,7 +74,7 @@ function initCopyButtons() {
   });
 }
 
-/* 4. Formulari generador de prompts per a Antigravity */
+/* 4. Formulari generador d'indicacions per a Antigravity */
 function initPromptGenerator() {
   const form = document.getElementById("prompt-generator-form");
   const resultBox = document.getElementById("generated-prompt-text");
@@ -114,9 +114,9 @@ Genera el codi complet i llest per desar a la carpeta local i publicar a GitHub 
 
   btnCopy?.addEventListener("click", () => {
     navigator.clipboard.writeText(resultBox.textContent).then(() => {
-      btnCopy.innerText = "✓ Prompt copiat!";
+      btnCopy.innerText = "✓ Indicació copiada!";
       setTimeout(() => {
-        btnCopy.innerText = "Copiar prompt per a Google Antigravity";
+        btnCopy.innerText = "Copiar indicació per a Google Antigravity";
       }, 2000);
     });
   });
