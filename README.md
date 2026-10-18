@@ -2,7 +2,7 @@
 > **Guia pràctica per a la creació i publicació de materials educatius oberts**  
 > **Servei Educatiu del Vallès Occidental II — Centre de Recursos Pedagògics (CRP) — Octubre, 2026**
 
-Aquest repositori conté el lloc web de suport a la ponència docent, estructurat en una **pàgina d'inici, nou pàgines independents per a cadascun dels blocs temàtics, una pàgina de crèdits i una vista completa per imprimir**. Aquesta organització permet projectar còmodament durant la sessió i compartir posteriorment el recurs amb el professorat perquè el pugui consultar de manera clara i sense sobrecàrrega visual.
+Aquest repositori conté el lloc web de suport al taller docent, estructurat en una **pàgina d'inici, nou pàgines independents per a cadascun dels blocs temàtics, una pàgina de crèdits i una vista completa per imprimir**. Aquesta organització permet projectar còmodament durant la sessió i compartir posteriorment el recurs amb el professorat perquè el pugui consultar de manera clara i sense sobrecàrrega visual.
 
 🌐 **Lloc web de la guia:** [https://miquelangelfuentes.github.io/eines-ia-aula/](https://miquelangelfuentes.github.io/eines-ia-aula/)
 
@@ -29,7 +29,7 @@ Aquest repositori conté el lloc web de suport a la ponència docent, estructura
 
 ## Característiques del recurs
 
-- **Navegació per teclat i botons seqüencials:** durant la ponència podeu prémer `Fletxa Dreta` (▶) per anar al següent bloc o `Fletxa Esquerra` (◀) per tornar a l'anterior, de manera similar a unes diapositives però en pàgines web reals.
+- **Navegació per teclat i botons seqüencials:** durant el taller podeu prémer `Fletxa Dreta` (▶) per anar al següent bloc o `Fletxa Esquerra` (◀) per tornar a l'anterior, de manera similar a unes diapositives però en pàgines web reals.
 - **Assistent d'indicacions integrat:** al bloc 2, per configurar instruccions pedagògiques adaptades a la matèria, el curs i l'objectiu d'aprenentatge.
 - **Pràctica d'automatització amb agent:** exemple real de descàrrega autònoma de fitxers PDF des d'un portal web directament a la carpeta de Documents del docent.
 - **Videotutorials de suport:** recursos audiovisuals incrustats per resoldre aspectes pràctics indispensables com les rutes relatives a la web.

@@ -49,7 +49,7 @@ function updateThemeIcon(theme) {
   initLucide();
 }
 
-/* 2. Navegació amb tecles de fletxa entre blocs (ideal per a la xerrada) */
+/* 2. Navegació amb tecles de fletxa entre blocs (ideal per al taller) */
 function initKeyboardNavigation() {
   const linkPrev = document.querySelector('link[rel="prev"]') || document.querySelector('.btn-pagination[data-nav="prev"]');
   const linkNext = document.querySelector('link[rel="next"]') || document.querySelector('.btn-pagination[data-nav="next"]');
@@ -398,7 +398,7 @@ function initDiagnosticQuiz() {
     } else {
       profileKey = "avancat";
       profileTitle = "Perfil avançat: disseny educatiu obert i exploració d'IA local";
-      profileDesc = "Teniu una trajectòria àmplia i domini dels entorns digitals. Aquesta ponència us permetrà perfeccionar el vostre flux de creació i explorar fronteres com la IA local.";
+      profileDesc = "Teniu una trajectòria àmplia i domini dels entorns digitals. Aquest taller us permetrà perfeccionar el vostre flux de creació i explorar fronteres com la IA local.";
 
       recommendedModules = [
         `<strong><a href="bloc6-recursos-visuals.html">Bloc 6: imatges i icones</a></strong> i <strong><a href="bloc7-bones-practiques.html">Bloc 7: bones pràctiques</a></strong>: rigor en la citació TASL i compliment de pautes DUA.`,
