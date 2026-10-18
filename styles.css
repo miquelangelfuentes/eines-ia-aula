@@ -1615,14 +1615,15 @@ figcaption.edu-caption a {
   background: var(--bg-subtle);
   border: 1.5px solid var(--accent-secondary);
   color: var(--text-main);
-  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
   font-weight: 700;
-  padding: 0.85rem 1.4rem;
+  padding: 0.85rem 1.35rem;
   border-radius: var(--radius-lg);
   margin: 0 auto 1.5rem;
   line-height: 1.4;
   box-shadow: var(--shadow-sm);
-  max-width: 760px;
+  width: fit-content;
+  max-width: 940px;
   text-align: center;
 }
 
