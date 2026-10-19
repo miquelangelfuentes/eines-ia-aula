@@ -10,10 +10,12 @@
 
   Promise.all([
     load("site-content-fixes.js?v=1"),
+    load("site-content-overrides.js?v=1"),
     load("site-core.js?v=1")
   ]).then(() => {
     const start = () => {
       applyContentCorrections();
+      applyLateContentCorrections();
       initSite();
     };
     if (document.readyState === "loading") {
