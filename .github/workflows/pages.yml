@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Build printable dossier
+        run: python scripts/build_print.py
       - name: Validate site
         run: python scripts/validate_site.py
       - name: Setup Pages
