@@ -1,7 +1,7 @@
 # Eines d'intel·ligència artificial per a l'aula
 
-> **Guia pràctica per a la creació i publicació de materials educatius oberts**  
-> **Servei Educatiu del Vallès Occidental II. Centre de Recursos Pedagògics (CRP), Octubre, 2026**
+> **Guia pràctica per a la creació i publicació de materials educatius oberts.**  
+> **Servei Educatiu del Vallès Occidental II. Centre de Recursos Pedagògics (CRP), Octubre, 2026.**
 
 Aquest repositori conté el lloc web de suport al taller docent. El material està organitzat en pàgines independents per blocs i incorpora també una vista continuada per imprimir. La proposta combina una seqüència pensada per seguir durant la sessió amb continguts que poden servir després com a guia de consulta.
 
