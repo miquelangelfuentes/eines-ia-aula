@@ -30,6 +30,7 @@ jobs:
           curl -L --fail --retry 3 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?fm=jpg&fit=crop&w=1200&h=630&q=82' -o assets/images/unsplash/bloc4-pages-sites.jpg
           curl -L --fail --retry 3 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?fm=jpg&fit=crop&w=1200&h=630&q=82' -o assets/images/unsplash/bloc5-llicencies.jpg
           curl -L --fail --retry 3 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?fm=jpg&fit=crop&w=1200&h=630&q=82' -o assets/images/unsplash/bloc6-recursos-visuals.jpg
+          curl -L --fail --retry 3 'https://images.unsplash.com/photo-1518457607834-6e8d80c183c5?fm=jpg&fit=crop&w=1200&h=630&q=82' -o assets/images/unsplash/exemple-tasl-etna.jpg
           curl -L --fail --retry 3 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?fm=jpg&fit=crop&w=1200&h=630&q=82' -o assets/images/unsplash/bloc7-bones-practiques.jpg
           curl -L --fail --retry 3 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?fm=jpg&fit=crop&w=1200&h=630&q=82' -o assets/images/unsplash/bloc8-verificacio.jpg
           curl -L --fail --retry 3 'https://images.unsplash.com/photo-1518770660439-4636190af475?fm=jpg&fit=crop&w=1200&h=630&q=82' -o assets/images/unsplash/bloc9-ia-local.jpg
@@ -53,6 +54,7 @@ jobs:
               '1507238691740-187a5b1d37b8': 'bloc4-pages-sites.jpg',
               '1497633762265-9d179a990aa6': 'bloc5-llicencies.jpg',
               '1581291518857-4e27b48ff24e': 'bloc6-recursos-visuals.jpg',
+              '1518457607834-6e8d80c183c5': 'exemple-tasl-etna.jpg',
               '1522202176988-66273c2fd55f': 'bloc7-bones-practiques.jpg',
               '1484480974693-6ca0a78fb36b': 'bloc8-verificacio.jpg',
               '1518770660439-4636190af475': 'bloc9-ia-local.jpg',
