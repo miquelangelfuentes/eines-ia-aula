@@ -5,7 +5,7 @@
 
 Aquest repositori conté el lloc web de suport al taller docent. El material està organitzat en pàgines independents per blocs i incorpora també un dossier continu per imprimir. La proposta combina una seqüència pensada per seguir durant la sessió amb continguts que poden servir després com a guia de consulta.
 
-El dossier imprimible no es manté com una còpia manual del contingut. `scripts/build_print.py` el genera a partir dels blocs actuals abans de cada desplegament, de manera que la versió publicada es manté alineada amb les pàgines originals.
+El dossier imprimible no es manté com una còpia manual del contingut. `scripts/build_print.py` el genera a partir dels blocs actuals abans de cada desplegament, de manera que la versió publicada es manté alineada amb les pàgines originals. El fitxer `imprimir-tot.html` queda exclòs del control de versions i només existeix com a artefacte generat durant la construcció del lloc.
 
 🌐 **Lloc web de la guia:** [https://miquelangelfuentes.github.io/eines-ia-aula/](https://miquelangelfuentes.github.io/eines-ia-aula/)
 
@@ -26,14 +26,14 @@ Les respostes es desen únicament al navegador mitjançant `localStorage` i es p
 | [`index.html`](index.html) | **Pàgina d'inici** | Presentació del recurs, qüestionari inicial i accés directe als blocs. |
 | [`bloc1-marc.html`](bloc1-marc.html) | **1. De consultar un xat a crear les nostres eines** | Canvi de perspectiva: de demanar respostes a construir recursos interactius al navegador mitjançant *vibe coding* o programació per intenció. |
 | [`bloc2-antigravity.html`](bloc2-antigravity.html) | **2. Google Antigravity** | Instal·lació, carpetes de treball, permisos a Windows, tria de models, previsualització, assistent d'indicacions i pràctica d'automatització amb documents PDF. |
-| [`bloc3-github.html`](bloc3-github.html) | **3. Configuració de GitHub** | Creació del repositori, autenticació amb *fine-grained token* quan cal, publicació amb GitHub Pages i resolució d'errors habituals. |
+| [`bloc3-github.html`](bloc3-github.html) | **3. Configuració de GitHub** | Creació del repositori, autenticació amb navegador quan és possible o amb *fine-grained personal access token* quan cal, publicació amb GitHub Pages i resolució d'errors habituals. |
 | [`bloc4-pages-sites.html`](bloc4-pages-sites.html) | **4. Pages en comparació amb Sites** | Comparació dels dos entorns segons el tipus de recurs, la col·laboració i el grau de control sobre els fitxers. |
 | [`bloc5-llicencies.html`](bloc5-llicencies.html) | **5. Llicències i codi obert** | Creative Commons per al contingut i llicències de programari aplicables al codi. |
 | [`bloc6-recursos-visuals.html`](bloc6-recursos-visuals.html) | **6. Recursos visuals i citació** | Selecció d'imatges, atribució, patró TASL i criteris per conservar recursos dins del projecte quan la llicència ho permet. |
 | [`bloc7-bones-practiques.html`](bloc7-bones-practiques.html) | **7. Bones pràctiques d'aula** | Supervisió docent, protecció de dades, accessibilitat web, DUA, dependències externes i transparència en l'ús d'IA. |
 | [`bloc8-verificacio.html`](bloc8-verificacio.html) | **8. Llista de verificació** | Checklist interactiva amb memòria local per revisar el recurs abans de compartir-lo. |
 | [`bloc9-per-continuar-explorant.html`](bloc9-per-continuar-explorant.html) | **9. Per continuar explorant** | Models executats al dispositiu, diferències respecte als serveis al núvol i criteris per valorar privadesa i control de dades. |
-| `imprimir-tot.html` | **Dossier complet per imprimir** | Fitxer generat automàticament a partir dels blocs 1-9 i la pàgina de crèdits abans de publicar el lloc. |
+| `imprimir-tot.html` | **Dossier complet per imprimir** | Artefacte generat automàticament a partir dels blocs 1-9 i la pàgina de crèdits abans de publicar el lloc. No es manté manualment al repositori. |
 | [`credits.html`](credits.html) | **Crèdits i autoria** | Marc institucional, autoria i referències del material. |
 
 ---
@@ -54,12 +54,20 @@ Aquesta separació permet continuar avançant encara que una configuració concr
 - **Navegació per teclat i botons seqüencials:** les fletxes dreta i esquerra permeten avançar o retrocedir entre blocs quan el focus no és dins d'un control interactiu.
 - **Assistent d'indicacions integrat:** el bloc 2 genera una primera indicació per crear recursos web amb criteris docents, accessibilitat i control de dependències.
 - **Pràctica d'automatització amb agent:** exercici guiat per localitzar i descarregar documents PDF des d'una pàgina pública cap a una carpeta de Documents, revisant els permisos abans d'autoritzar l'acció.
-- **Videotutorials de suport:** recursos complementaris per a processos que poden requerir una demostració visual.
+- **Recursos de suport:** guies oficials i videotutorials per a processos que poden requerir una demostració o una consulta posterior.
 - **Llista de verificació interactiva:** el bloc 8 desa el progrés localment al navegador.
 - **Dossier per imprimir:** el desplegament genera `imprimir-tot.html` a partir del contingut vigent dels blocs i dels crèdits.
 - **Mode clar i fosc:** disponible des de la capçalera del lloc.
 - **Accessibilitat web:** disseny adaptable, navegació amb teclat, focus visible i reducció de moviment segons les preferències del sistema, prenent WCAG com a referència tècnica.
 - **DUA:** criteris de disseny de l'aprenentatge orientats a detectar barreres i incorporar suports útils per a la participació.
+
+---
+
+## Autenticació amb GitHub
+
+Quan una eina admet l'autenticació de GitHub mitjançant el navegador, aquesta és l'opció preferent i no cal crear cap token manualment. Si una integració requereix un token, el material treballa amb **fine-grained personal access tokens**, limitats al repositori necessari i amb els permisos mínims requerits per la tasca.
+
+El taller no recomana crear *personal access tokens (classic)*. El bloc 3 enllaça directament la documentació oficial de GitHub per crear un *fine-grained personal access token*.
 
 ---
 
@@ -81,6 +89,8 @@ Els avisos associats a accions com copiar contingut utilitzen una regió `aria-l
 
 `imprimir-tot.html` és un artefacte generat. No s'ha d'editar manualment ni és la font del contingut. El generador extreu el contingut principal de cada bloc, elimina la navegació entre pàgines i resol els identificadors que es repetirien en combinar diverses pàgines en un sol document.
 
+El fitxer està inclòs a `.gitignore`, de manera que una generació local no crea canvis pendents al repositori.
+
 Per generar-lo en local:
 
 ```bash
@@ -101,12 +111,14 @@ Les fotografies utilitzades pel lloc es desen a `assets/images/unsplash/` i mant
 
 ## Verificació abans del desplegament
 
-El workflow de GitHub Pages genera primer el dossier i després executa la validació:
+El workflow de GitHub Pages segueix aquest ordre abans de publicar el lloc:
 
 ```bash
 python scripts/build_print.py
 python scripts/validate_site.py
 ```
+
+Primer genera el dossier amb el contingut actual i després valida el conjunt del lloc, inclòs el fitxer acabat de generar. Només si la validació és correcta continua el desplegament a GitHub Pages.
 
 Les mateixes ordres es poden executar manualment abans de fer un `push`.
 
