@@ -20,6 +20,15 @@ jobs:
         run: npm install --no-save --package-lock=false jsdom@27.0.1
       - name: Consolidate static content and harden site
         run: node scripts/consolidate-site.mjs
+      - name: Complete intrinsic SVG dimensions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for file in Path('.').glob('*.html'):
+              text = file.read_text(encoding='utf-8')
+              text = text.replace('src="cc-by-sa.svg"', 'src="cc-by-sa.svg" width="120" height="42"')
+              file.write_text(text, encoding='utf-8')
+          PY
       - name: Validate result before commit
         run: python scripts/validate_site.py
       - name: Commit consolidated site
