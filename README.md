@@ -36,7 +36,8 @@ Aquest repositori conté el lloc web de suport al taller docent, estructurat en 
 - **Llista de verificació interactiva:** checklist al bloc 8 amb memòria local al navegador per validar el rigor pedagògic i la privadesa del material.
 - **Dossier unitari per imprimir:** versió completa a `imprimir-tot.html` per a lectura continuada o distribució en PDF.
 - **Mode clar i fosc:** commutador ràpid disponible a la capçalera de totes les pàgines.
-- **Accessibilitat:** disseny adaptat a pantalles de qualsevol mida, amb un contrast òptim segons les pautes DUA.
+- **Accessibilitat web:** disseny adaptable, navegació amb teclat, focus visible i reducció de moviment segons les preferències del sistema, prenent WCAG com a referència tècnica.
+- **DUA:** criteris de disseny de l’aprenentatge orientats a detectar barreres i incorporar suports útils per a la participació.
 
 ---
 
@@ -47,3 +48,16 @@ Aquest repositori conté el lloc web de suport al taller docent, estructurat en 
 - **Guia de referència:** citació de les recomanacions de [*vibe coding* responsable](https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html) (De Haro, 2026).
 - **Criteri terminològic:** normalització de *vibe coding* com a **programació per intenció** (o *codificació per intenció*) segons el [TERMCAT](https://www.termcat.cat/ca/cercaterm/fitxa/NDg4MDA2NA%3D%3D).
 - **Citació de recursos:** pautes del patró [TASL d'Open Washington / Creative Commons](https://www.openwa.org/citar-recursos-oberts/).
+
+
+---
+
+## Robustesa i dependències
+
+Els recursos essencials per mostrar o fer funcionar el material es conserven dins del repositori quan la seva llicència permet la redistribució. Les dependències externes es mantenen quan tenen una funció deliberada, com ara documentació oficial o serveis de consulta, i la seva indisponibilitat no impedeix utilitzar el recurs principal.
+
+Les fotografies utilitzades pel lloc es desen a `assets/images/unsplash/` i mantenen els crèdits visibles. Lucide es distribueix localment a `assets/vendor/lucide/` amb la llicència corresponent. Consulteu `THIRD_PARTY_NOTICES.md` per a la traçabilitat dels recursos de tercers.
+
+## Verificació abans del desplegament
+
+El flux de GitHub Pages executa `python scripts/validate_site.py` abans de publicar. La comprovació detecta enllaços i recursos locals inexistents, identificadors duplicats, imatges sense text alternatiu o dimensions, scripts externs essencials i alguns problemes bàsics d’accessibilitat estructural. Aquesta comprovació automàtica complementa, però no substitueix, la revisió manual del recurs i les proves amb teclat.

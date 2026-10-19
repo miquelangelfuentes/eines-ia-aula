@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="ca">
-<head>
+<!DOCTYPE html><html lang="ca"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bloc 3: configuració de GitHub | Eines d'IA per a l'aula</title>
@@ -21,7 +19,7 @@
   <meta name="twitter:description" content="Repositoris, token d'accés (PAT) i publicació web a GitHub Pages per a docents.">
   <meta name="twitter:image" content="https://miquelangelfuentes.github.io/eines-ia-aula/assets/images/unsplash/bloc3-github.jpg">
 
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=9">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="alternate icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -29,7 +27,7 @@
   <link rel="next" href="bloc4-pages-sites.html">
 </head>
 <body>
-  <a href="#contingut-principal" class="skip-link">Salta directament al contingut</a>
+  <a href="#contingut-principal" class="skip-link">Salta directament al contingut</a><noscript>&lt;div class="noscript-notice"&gt;&lt;strong&gt;JavaScript està desactivat.&lt;/strong&gt; Podeu llegir el contingut del material, però algunes funcions interactives, com el qüestionari, el generador d’indicacions o la llista de verificació, no estaran disponibles.&lt;/div&gt;</noscript>
 
   <!-- Barra superior -->
   <header class="top-bar">
@@ -93,8 +91,16 @@
   </section>
 
   <!-- Contingut del bloc 3 -->
-  <main id="contingut-principal" class="main-content">
-    <div class="content-box">
+  <main id="contingut-principal" class="main-content"><nav class="usage-paths" aria-label="Orientació d’ús del bloc">
+    <a class="usage-path" href="#practica-taller">
+      <strong>Durant el taller</strong>
+      <span>Prioritzeu els passos guiats i les activitats pràctiques. Si una configuració us encalla, continueu amb el grup i torneu-hi després.</span>
+    </a>
+    <a class="usage-path" href="#guia-consulta">
+      <strong>Per consultar després</strong>
+      <span>Feu servir la pàgina com a guia per repetir el procés amb calma i recuperar els detalls que no cal memoritzar durant la sessió.</span>
+    </a></nav>
+    <div class="content-box" id="guia-consulta">
       <h2>GitHub explicat per a docents principiants</h2>
       <p class="lead-desc">Com entendre el servei sense termes informàtics innecessaris</p>
 
@@ -103,7 +109,7 @@
       </div>
 
       <figure class="inline-support-figure">
-        <img src="assets/images/unsplash/bloc3-github.jpg" alt="Pantalla d'ordinador amb codi i desenvolupament d'aplicacions web digitals" loading="lazy">
+        <img src="assets/images/unsplash/bloc3-github.jpg" alt="Pantalla d'ordinador amb codi i desenvolupament d'aplicacions web digitals" loading="lazy" width="72" height="72">
         <figcaption class="edu-caption">Creació i publicació de codi web des del dispositiu de treball — Fotografia de <a href="https://unsplash.com/@synkevych" target="_blank" rel="noopener">Roman Synkevych</a> a <a href="https://unsplash.com/photos/wxfRXTGpw0w" target="_blank" rel="noopener">Unsplash</a> (<a href="https://unsplash.com/license" target="_blank" rel="noopener">Llicència Unsplash</a>).</figcaption>
       </figure>
 
@@ -126,12 +132,10 @@
 
         <div class="card-item">
           <div class="card-item-icon"><i data-lucide="key-round"></i></div>
-          <h3>El token d'accés (PAT)</h3>
-          <p>
-            GitHub no permet utilitzar la contrasenya habitual per pujar fitxers des de programes externs. Es fa servir una credencial d'accés anomenada <em>Personal Access Token</em> que genereu una sola vegada i que actua com a permís segur.
-          </p>
+          <h3>El token d’accés fine-grained</h3>
+          <p>Quan una eina externa necessita autenticar-se a GitHub, podeu utilitzar un <em>Fine-grained Personal Access Token</em>. Aquesta credencial permet limitar l’accés a un repositori concret i donar només els permisos necessaris.</p>
         </div>
-      </div>
+      </div><div data-content-fix="public-repo-warning"><h3 style="font-size:1rem;margin-bottom:.55rem">Abans de publicar un repositori públic</h3><p style="font-size:.9rem;color:var(--text-muted)">Un repositori públic no mostra només la web final. Qualsevol persona pot consultar també els fitxers que hi heu pujat.</p><ul style="padding-left:1.2rem;font-size:.875rem;color:var(--text-muted);line-height:1.65"><li>No hi publiqueu dades personals de l’alumnat ni documents interns del centre.</li><li>No hi deseu contrasenyes, tokens d’accés ni altres credencials.</li><li>Comproveu que podeu redistribuir els textos, les imatges i la resta de materials inclosos.</li><li>Reviseu tota la carpeta del projecte abans del primer <em>push</em>.</li></ul></div>
 
       <!-- Guia detallada de tokens per a docents principiants -->
       <div style="margin-top: 2rem; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.35rem 1.5rem;">
@@ -139,145 +143,13 @@
           <i data-lucide="info" class="lucide" style="width: 20px; height: 20px; color: var(--accent-secondary);"></i>
           Guia de credencials per a docents que entren per primer cop
         </h3>
-        <p style="font-size: 0.925rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.85rem;">
-          Si encara no heu utilitzat GitHub, penseu en el <strong>Personal Access Token (PAT)</strong> com una credencial específica creada expressament perquè Google Antigravity o GitHub Desktop puguin desar feina al vostre compte sense conèixer la vostra contrasenya personal. Si algun dia canvieu d'ordinador o voleu retirar el permís, podeu revocar aquest token amb un sol clic sense canviar la contrasenya del vostre compte.
-        </p>
+        <p style="font-size: 0.925rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.85rem;">Un <strong>Fine-grained Personal Access Token</strong> és una credencial específica per a eines externes que necessiten autenticar-se a GitHub. Podeu limitar-la a un sol repositori i revocar-la sense canviar la contrasenya del compte. Si utilitzeu GitHub Desktop amb l’autenticació al navegador, no cal crear cap token.</p>
         <p style="font-size: 0.9rem; margin-bottom: 0;">
           <strong>Drecera directa:</strong> podeu anar immediatament a la gestió de credencials a través d'aquest enllaç oficial: <a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener"><strong>github.com/settings/personal-access-tokens</strong></a>.
         </p>
       </div>
 
-      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Diferències entre Tokens (classic) i Fine-grained tokens</h3>
-      <p style="color: var(--text-muted); font-size: 0.925rem; line-height: 1.6; margin-bottom: 1rem;">
-        Quan accediu a la pàgina de creació de credencials, GitHub us donarà a triar entre dos formats diferents:
-      </p>
-
-      <div class="table-responsive">
-        <table class="clean-table">
-          <thead>
-            <tr>
-              <th style="width: 20%;">Criteri</th>
-              <th style="width: 26%;">Token (classic)</th>
-              <th style="width: 27%;">Fine-grained token (beta)</th>
-              <th style="width: 27%;">Què demanarà Google Antigravity o altres IA</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Abast de repositoris</strong></td>
-              <td>
-                <span class="badge-feature badge-positive">Accés global al compte</span><br>
-                Té permisos sobre tots els repositoris de l'usuari.
-              </td>
-              <td>
-                <span class="badge-feature" style="background:var(--bg-subtle);border:1px solid var(--border-color);color:var(--text-main);">Repositoris seleccionats</span><br>
-                Permet triar exclusivament un o diversos repositoris concrets.
-              </td>
-              <td>
-                Google Antigravity i la majoria d'assistents prefereixen <strong>Token (classic)</strong> per poder crear nous repositoris educatius sense haver de configurar permisos previs cada vegada.
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Complexitat de configuració</strong></td>
-              <td>
-                <span class="badge-feature badge-positive">Molt senzilla (recomanada)</span><br>
-                Només cal marcar la casella única <code>repo</code>.
-              </td>
-              <td>
-                <span class="badge-feature badge-negative">Configuració avançada</span><br>
-                Cal configurar una per una desenes d'opcions (Contents, Pages, Workflows...).
-              </td>
-              <td>
-                Si amb un fine-grained token es deixa una casella desmarcada (com <em>Pages</em>), la publicació fallarà amb un error de permisos difícil de diagnosticar per a qui s'inicia.
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Caducitat (Expiration)</strong></td>
-              <td>
-                <span class="badge-feature badge-positive">Data lliure o sense caducitat</span><br>
-                Permet triar <em>No expiration</em> perquè no s'aturi el servei a mig curs.
-              </td>
-              <td>
-                <span class="badge-feature badge-negative">Màxim 1 any</span><br>
-                Caduca obligatòriament i cal renovar-lo manualment cada any.
-              </td>
-              <td>
-                Si el token caduca mentre s'està fent classe o durant el curs, l'eina d'IA no podrà publicar fins que no es generi i s'introdueixi un token nou.
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Recomanació docent</strong></td>
-              <td>
-                <strong>Opció preferent per a docents:</strong><br>
-                Configuració ràpida i sense conflictes tècnics amb les eines d'IA.
-              </td>
-              <td>
-                <strong>Opció per a comptes compartits:</strong><br>
-                Útil si al mateix compte es guarden altres projectes que es volen blindar completament.
-              </td>
-              <td>
-                Per a la formació i per al dia a dia a l'aula, <strong>feu servir Token (classic)</strong> amb l'opció <code>repo</code> activada.
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Com generar el vostre token clàssic pas a pas:</h3>
-      <div class="ordered-steps">
-        <div class="ordered-step-item">
-          <div class="step-indicator">1</div>
-          <div class="step-content">
-            <h3>Accediu directament a la configuració de tokens</h3>
-            <p>
-              Inicieu sessió a <a href="https://github.com" target="_blank" rel="noopener">github.com</a> i entreu directament a <a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener"><strong>github.com/settings/personal-access-tokens</strong></a> (o feu clic a la vostra foto de perfil &gt; <em>Settings</em> &gt; <em>Developer settings</em> al final de la columna esquerra).
-            </p>
-          </div>
-        </div>
-
-        <div class="ordered-step-item">
-          <div class="step-indicator">2</div>
-          <div class="step-content">
-            <h3>Trieu Tokens (classic)</h3>
-            <p>
-              Al menú lateral de tokens, feu clic a <strong>Tokens (classic)</strong>. Premeu el desplegable <em>Generate new token</em> i seleccioneu <strong>Generate new token (classic)</strong>.
-            </p>
-          </div>
-        </div>
-
-        <div class="ordered-step-item">
-          <div class="step-indicator">3</div>
-          <div class="step-content">
-            <h3>Poseu-li nom i trieu la durada</h3>
-            <p>
-              A la casella <strong>Note</strong> escriviu un nom que identifiqui l'eina (per exemple, "Antigravity ordinador docent"). A <strong>Expiration</strong> trieu la durada que preferiu (per exemple, 90 dies o el curs escolar sencer).
-            </p>
-          </div>
-        </div>
-
-        <div class="ordered-step-item">
-          <div class="step-indicator">4</div>
-          <div class="step-content">
-            <h3>Marqueu la casella repo i genereu el token</h3>
-            <p>
-              Marqueu la casella principal <strong>repo</strong> (això activa automàticament tots els permisos necessaris per crear i actualitzar repositoris educatius). Baixeu al final de la pàgina i feu clic al botó verd <strong>Generate token</strong>.
-            </p>
-            <span class="step-tip">Important: copieu la cadena de caràcters que comença per <code>ghp_...</code> i deseu-la al vostre bloc de notes o gestor de contrasenyes. GitHub no la tornarà a mostrar mai més per motius de seguretat. Aquesta és la credencial que introduireu quan una eina externa us demani validar el vostre compte.</span>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top: 1rem; margin-bottom: 2rem; padding: 0.85rem 1.15rem; background: var(--bg-subtle); border-radius: var(--radius-md); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
-        <span style="font-size: 0.875rem; color: var(--text-main); display: inline-flex; align-items: center; gap: 0.45rem;">
-          <i data-lucide="circle-dot" style="width: 17px; height: 17px; color: var(--accent-primary);"></i>
-          <span><strong>Voleu veure el procés en vídeo?</strong> Tutorial visual pas a pas per generar el token a GitHub.</span>
-        </span>
-        <a href="https://www.youtube.com/watch?v=J-CSiw5CFWE" target="_blank" rel="noopener" style="font-size: 0.825rem; font-weight: 600; color: var(--accent-primary); text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem;">
-          <span>Veure tutorial a YouTube</span> ↗
-        </a>
-      </div>
-
-      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Com activar GitHub Pages en 3 clics:</h3>
+      <div data-content-fix="fine-grained-only"><h3 style="margin-top:2rem;margin-bottom:.75rem">Fine-grained token - configuració recomanada</h3><p style="color:var(--text-muted);font-size:.925rem;line-height:1.6">GitHub recomana els <em>fine-grained personal access tokens</em> quan són compatibles amb la tasca. Per a aquest taller, creeu primer el repositori i limiteu el token a aquell repositori. Si feu servir GitHub Desktop i l’autenticació al navegador, no cal crear cap token.</p><div class="ordered-steps"><div class="ordered-step-item"><div class="step-indicator">1</div><div class="step-content"><h3>Creeu primer el repositori</h3><p>Això permet seleccionar exactament quin projecte podrà utilitzar el token.</p></div></div><div class="ordered-step-item"><div class="step-indicator">2</div><div class="step-content"><h3>Obriu Fine-grained tokens</h3><p>Aneu a <a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener"><strong>Settings &gt; Developer settings &gt; Personal access tokens &gt; Fine-grained tokens</strong></a> i premeu <em>Generate new token</em>.</p></div></div><div class="ordered-step-item"><div class="step-indicator">3</div><div class="step-content"><h3>Limiteu l’abast</h3><p>Poseu un nom descriptiu i definiu una data de caducitat. A <em>Repository access</em>, trieu <strong>Only select repositories</strong> i seleccioneu el repositori del recurs.</p></div></div><div class="ordered-step-item"><div class="step-indicator">4</div><div class="step-content"><h3>Doneu permís per actualitzar els fitxers</h3><p>A <em>Repository permissions</em>, configureu <strong>Contents - Read and write</strong>. No cal donar permís de Pages si activareu GitHub Pages manualment des de la configuració del repositori.</p></div></div><div class="ordered-step-item"><div class="step-indicator">5</div><div class="step-content"><h3>Deseu-lo com una contrasenya</h3><p>Copieu el token en un gestor de contrasenyes i introduïu-lo només quan l’eina us demani autenticar-vos a GitHub. No l’enganxeu en fitxers del projecte, al README ni en cap repositori.</p><span class="step-tip">Si un token queda exposat, revoqueu-lo i genereu-ne un de nou.</span></div></div></div></div><h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Com activar GitHub Pages en 3 clics:</h3>
 
       <div class="ordered-steps">
         <div class="ordered-step-item">
@@ -305,7 +177,7 @@
           <div class="step-content">
             <h3>Trieu la branca principal i premeu Save</h3>
             <p>
-              A l'apartat <em>Build and deployment > Branch</em>, seleccioneu la branca <strong>main</strong> (o <em>master</em>) i la carpeta arrel <code>/ (root)</code>. Premeu <strong>Save</strong>.
+              A l'apartat <em>Build and deployment &gt; Branch</em>, seleccioneu la branca <strong>main</strong> (o <em>master</em>) i la carpeta arrel <code>/ (root)</code>. Premeu <strong>Save</strong>.
             </p>
             <span class="step-tip">Resultat: en un o dos minuts, GitHub us mostrarà l'adreça web pública del vostre recurs: <code>https://el-vostre-usuari.github.io/nom-del-repositori/</code>. Aquest enllaç és permanent i disposa de connexió segura (HTTPS).</span>
           </div>
@@ -322,7 +194,7 @@
         </a>
       </div>
 
-      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Tipus de llocs web a GitHub Pages: pàgina d'usuari i pàgines de projectes</h3>
+      <div data-content-fix="pages-404"><h3 style="font-size:1.05rem;margin:0 0 .6rem">Veieu un 404?</h3><p style="font-size:.9rem;color:var(--text-muted)">Comproveu aquests punts abans de canviar la configuració a l’atzar.</p><ol style="padding-left:1.25rem;font-size:.875rem;color:var(--text-muted);line-height:1.7"><li>El fitxer <code>index.html</code> ha de ser a la carpeta que GitHub Pages publica, habitualment l’arrel del repositori.</li><li>A <em>Settings &gt; Pages</em>, confirmeu que la branca i la carpeta seleccionades coincideixen amb on són els fitxers.</li><li>Reviseu majúscules, minúscules i rutes relatives. <code>Imatge.png</code> i <code>imatge.png</code> no són el mateix fitxer.</li><li>Després d’activar Pages o fer un <em>push</em>, espereu que el desplegament acabi i torneu a carregar l’adreça publicada.</li></ol></div><h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Tipus de llocs web a GitHub Pages: pàgina d'usuari i pàgines de projectes</h3>
       <p style="color: var(--text-muted); font-size: 0.925rem; line-height: 1.6; margin-bottom: 1.25rem;">
         A GitHub Pages podeu publicar dos tipus d'adreces web segons l'objectiu pedagògic de cada espai:
       </p>
@@ -386,7 +258,7 @@
     </div>
 
     <!-- Secció: GitHub Desktop i portàtils del PEDC -->
-    <div class="content-box">
+    <div class="content-box" id="practica-taller">
       <h2>GitHub Desktop i portàtils docents del PEDC</h2>
       <p class="lead-desc">Com gestionar els repositoris sense comandes de consola i consideracions sobre els equips escolars</p>
 
@@ -461,7 +333,7 @@
           </h3>
           <ul style="padding-left: 1.2rem; font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; margin: 0;">
             <li>Per crear el vostre compte docent i generar el repositori inicial.</li>
-            <li>Per entrar a <em>Settings > Pages</em> i obtenir l'adreça web pública del recurs.</li>
+            <li>Per entrar a <em>Settings &gt; Pages</em> i obtenir l'adreça web pública del recurs.</li>
             <li>Per generar i gestionar el vostre token d'accés personal (PAT).</li>
           </ul>
         </div>
@@ -720,6 +592,7 @@
   </footer>
 
   <script src="assets/vendor/lucide/lucide.min.js"></script>
-  <script src="app.js?v=4"></script>
-</body>
-</html>
+  <script src="app.js?v=5"></script>
+
+
+</body></html>

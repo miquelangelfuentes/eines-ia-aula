@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="ca">
-<head>
+<!DOCTYPE html><html lang="ca"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bloc 2: Google Antigravity | Eines d'IA per a l'aula</title>
@@ -21,7 +19,7 @@
   <meta name="twitter:description" content="Instal·lació i configuració docent de Google Antigravity pas a pas.">
   <meta name="twitter:image" content="https://miquelangelfuentes.github.io/eines-ia-aula/assets/images/unsplash/bloc2-antigravity.jpg">
 
-  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="styles.css?v=9">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="alternate icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -29,7 +27,7 @@
   <link rel="next" href="bloc3-github.html">
 </head>
 <body>
-  <a href="#contingut-principal" class="skip-link">Salta directament al contingut</a>
+  <a href="#contingut-principal" class="skip-link">Salta directament al contingut</a><noscript>&lt;div class="noscript-notice"&gt;&lt;strong&gt;JavaScript està desactivat.&lt;/strong&gt; Podeu llegir el contingut del material, però algunes funcions interactives, com el qüestionari, el generador d’indicacions o la llista de verificació, no estaran disponibles.&lt;/div&gt;</noscript>
 
   <!-- Barra superior -->
   <header class="top-bar">
@@ -93,8 +91,16 @@
   </section>
 
   <!-- Contingut del bloc 2 -->
-  <main id="contingut-principal" class="main-content">
-    <div class="content-box">
+  <main id="contingut-principal" class="main-content"><nav class="usage-paths" aria-label="Orientació d’ús del bloc">
+    <a class="usage-path" href="#practica-taller">
+      <strong>Durant el taller</strong>
+      <span>Prioritzeu els passos guiats i les activitats pràctiques. Si una configuració us encalla, continueu amb el grup i torneu-hi després.</span>
+    </a>
+    <a class="usage-path" href="#guia-consulta">
+      <strong>Per consultar després</strong>
+      <span>Feu servir la pàgina com a guia per repetir el procés amb calma i recuperar els detalls que no cal memoritzar durant la sessió.</span>
+    </a></nav>
+    <div class="content-box" id="guia-consulta">
       <h2>Com funciona Google Antigravity?</h2>
       <p class="lead-desc">El vostre assistent de desenvolupament instal·lat directament al vostre ordinador</p>
 
@@ -103,7 +109,7 @@
       </div>
 
       <figure class="inline-support-figure">
-        <img src="assets/images/unsplash/bloc2-antigravity.jpg" alt="Espai de treball digital amb ordinador portàtil i entorn de desenvolupament web" loading="lazy">
+        <img src="assets/images/unsplash/bloc2-antigravity.jpg" alt="Espai de treball digital amb ordinador portàtil i entorn de desenvolupament web" loading="lazy" width="72" height="72">
         <figcaption class="edu-caption">Espai de desenvolupament i edició de recursos digitals en un equip de treball — Fotografia de <a href="https://unsplash.com/@clemhlrdt" target="_blank" rel="noopener">Clément Hélardot</a> a <a href="https://unsplash.com/photos/95YRwf6CNw8" target="_blank" rel="noopener">Unsplash</a> (<a href="https://unsplash.com/license" target="_blank" rel="noopener">Llicència Unsplash</a>).</figcaption>
       </figure>
 
@@ -129,7 +135,7 @@
             <p>
               Aquest és el pas més important per mantenir l'ordre: abans de començar una activitat, creeu una carpeta específica al vostre ordinador (per exemple <code>Documents/Materials-Aula/unitat1</code>) i obriu-la des del menú <em>Open Folder</em> d'Antigravity.
             </p>
-            <span class="step-tip">Per què és rellevant: l'agent només tocarà els fitxers d'aquesta carpeta. Tot es desarà de forma segura al vostre disc dur abans de decidir si ho pugeu a Internet.</span>
+            <span class="step-tip">Per què és rellevant: per defecte, l’agent treballa dins d’aquesta carpeta. Si una tasca necessita una ubicació externa, com ara una altra carpeta de Documents, Windows pot demanar una autorització específica abans de permetre-hi l’accés.</span>
           </div>
         </div>
 
@@ -145,21 +151,16 @@
               <li><strong>Models de raonament avançat (com Pro):</strong> pensen durant uns segons més abans de respondre. Són els recomanats per escriure l'estructura sencera d'una pàgina web interactiva, ja que connecten millor les funcions i cometen menys errors tècnics.</li>
             </ul>
           </div>
-        </div>
+        </div><div data-content-fix="xtec-models" class="pedagogical-highlight" style="margin-top: 1rem;"><strong>Comptes XTEC i models disponibles</strong><br>Els comptes XTEC poden accedir a Google Antigravity. El catàleg de models disponible pot ser més limitat que amb alguns comptes personals de Google, de manera que durant la sessió no cal que totes les persones vegin exactament les mateixes opcions al selector.</div>
 
         <div class="ordered-step-item">
           <div class="step-indicator"><i data-lucide="pencil-ruler" style="width: 16px; height: 16px;"></i></div>
           <div class="step-content">
-            <h3>Com demanar recursos a l'agent: les quatre pautes docents</h3>
+            <h3>Com demanar recursos a l’agent: criteris docents</h3>
             <p>
-              Per evitar resultats genèrics, incloeu sempre aquests quatre criteris en la vostra primera instrucció:
+              Per evitar resultats genèrics, concreteu aquests criteris en la vostra primera indicació:
             </p>
-            <p>
-              1. <strong>Nivell i àmbit:</strong> indiqueu el curs concret (per exemple, "3r d'ESO, geografia").<br>
-              2. <strong>Fitxer autònom:</strong> demaneu que generi un arxiu <code>index.html</code> amb els estils i la lògica integrats o en fitxers senzills a la carpeta de treball.<br>
-              3. <strong>Accessibilitat (DUA):</strong> sol·liciteu pautes del <a href="https://xtec.gencat.cat/ca/curriculum/diversitat-i-inclusio/projectes-educatius-inclusius/disseny-universal-per-a-laprenentatge/" target="_blank" rel="noopener">Disseny Universal per a l'Aprenentatge (DUA)</a> com contrast clar de colors i bona navegació tant amb teclat com des del mòbil.<br>
-              4. <strong>Pedagogia positiva:</strong> demaneu que el programa doni una explicació didàctica quan l'alumne s'equivoqui, per ajudar-lo a comprendre el concepte en comptes de limitar-se a dir "incorrecte".
-            </p>
+            <p>1. <strong>Nivell i objectiu:</strong> indiqueu el curs i què ha d’aprendre o practicar l’alumnat.<br>2. <strong>Fitxer autònom:</strong> demaneu un <code>index.html</code> amb els recursos necessaris dins de la carpeta del projecte.<br>3. <strong>Accessibilitat web:</strong> demaneu contrast suficient, navegació amb teclat i una estructura que funcioni també en pantalles petites, prenent les WCAG com a referència tècnica.<br>4. <strong>DUA:</strong> reviseu si el disseny ofereix suports adequats per comprendre la tasca i participar-hi sense crear barreres innecessàries.<br>5. <strong>Retroacció pedagògica:</strong> quan hi hagi errors, demaneu una explicació que ajudi a comprendre el contingut en lloc de mostrar només “incorrecte”.</p>
             <span class="step-tip">Consell pràctic per a docents: avanceu fent petits passos. Demaneu primer l'estructura bàsica amb tres preguntes d'exemple; quan vegeu que funciona, demaneu-li que n'afegeixi set més o que canviï els colors.</span>
           </div>
         </div>
@@ -189,21 +190,17 @@
           <div class="card-item-icon" style="background: #ecfdf5; color: #059669;">
             <i data-lucide="shield"></i>
           </div>
-          <h3>Security Preset (Nivell de seguretat i permisos)</h3>
-          <p>
-            <strong>Opció recomanada:</strong> <em>Prompt for commands / Safe Mode</em> i accés restringit al directori de treball (<em>Workspace-only</em>).
-          </p>
-          <p style="margin-top: 0.5rem; font-size: 0.885rem;">
-            <strong>Com us ajuda a l'aula:</strong> L'agent només pot llegir i escriure a la carpeta que hàgiu obert per a l'activitat. Cap instrucció no podrà accedir a documents personals, qualificacions ni fitxers d'altres carpetes del vostre disc dur. A més, si el programa necessita fer alguna comprovació del sistema, us demanarà autorització prèvia.
-          </p>
-          <span class="step-tip">Garanteix tranquil·litat i seguretat als portàtils del PEDC.</span>
+          <h3>Permisos a Windows - configuració recomanada</h3>
+          <p><strong>Opció recomanada:</strong> manteniu <em>Terminal command auto execution</em> en <strong>Request Review</strong>. Activeu l’accés de l’agent a fitxers fora del <em>workspace</em> només quan necessiteu treballar en una altra ubicació de l’ordinador.</p>
+          <p style="margin-top: 0.5rem; font-size: 0.885rem;"><strong>Com us ajuda a l’aula:</strong> l’agent us demana confirmació abans d’executar comandaments i podeu revisar els accessos que surten de la carpeta del projecte. Per a la pràctica de descàrrega de PDF, això permet escriure a <code>Documents</code> sense donar permís general perquè actuï sense supervisió.</p>
+          <span class="step-tip">Eviteu Always Proceed. Quan aparegui una sol·licitud d’accés, reviseu la ruta o l’acció abans d’aprovar-la.</span>
         </div>
 
         <div class="card-item">
           <div class="card-item-icon" style="background: #eff6ff; color: #2563eb;">
             <i data-lucide="brain"></i>
           </div>
-          <h3>Model Selection & Thinking (Model i raonament)</h3>
+          <h3>Model Selection &amp; Thinking (Model i raonament)</h3>
           <p>
             <strong>Opció recomanada:</strong> Models de la gamma <strong>Pro</strong> (amb raonament o <em>Thinking</em> si està disponible en el vostre pla) per al disseny inicial; models de la gamma <strong>Flash</strong> per a retocs ràpids.
           </p>
@@ -217,7 +214,7 @@
           <div class="card-item-icon" style="background: #fdf4ff; color: #a855f7;">
             <i data-lucide="eye"></i>
           </div>
-          <h3>Artifacts & Browser Preview (Previsualització en viu)</h3>
+          <h3>Artifacts &amp; Browser Preview (Previsualització en viu)</h3>
           <p>
             <strong>Com funciona:</strong> Panell lateral d'arxius i finestra de previsualització interactiva integrada.
           </p>
@@ -254,7 +251,7 @@
             <label for="prompt-nivell">Nivell educatiu:</label>
             <select id="prompt-nivell">
               <option value="Cicle superior de primària">Primària (cicle superior)</option>
-              <option value="1r i 2n d'ESO" selected>1r i 2n d'ESO</option>
+              <option value="1r i 2n d'ESO" selected="">1r i 2n d'ESO</option>
               <option value="3r i 4t d'ESO">3r i 4t d'ESO</option>
               <option value="Batxillerat">Batxillerat</option>
               <option value="Cicles formatius">Cicles formatius</option>
@@ -272,7 +269,7 @@
           </div>
 
           <div class="form-group">
-            <label for="prompt-dua">Criteri d'accessibilitat:</label>
+            <label for="prompt-dua">Criteri d’accessibilitat web:</label>
             <select id="prompt-dua">
               <option value="Contrast elevat de colors, text gran i navegació per teclat">Visual i navegació</option>
               <option value="Frases curtes, suport d'exemples i llenguatge clar">Suport cognitiu</option>
@@ -295,7 +292,7 @@
     </div>
 
     <!-- Caixa 2: Pràctica d'automatització amb Antigravity -->
-    <div class="content-box">
+    <div class="content-box" id="practica-taller">
       <h2>Pràctica guiada: descàrrega massiva de documents PDF d'un lloc web a Documents</h2>
       <p class="lead-desc">Com utilitzar la potència d'un agent d'Antigravity per estalviar hores de feina mecànica en la descàrrega de materials educatius</p>
 
@@ -328,9 +325,7 @@
           <div class="step-indicator">3</div>
           <div class="step-content">
             <h3>Reviseu el pla i comproveu la carpeta al vostre ordinador</h3>
-            <p>
-              Gràcies al mode <em>Plan Review</em> que hem configurat abans, Antigravity us indicarà primer quants documents ha detectat (per exemple: "He trobat 18 arxius PDF"). En prémer el botó d'aprovació, l'agent crearà la carpeta local i descarregarà tots els fitxers un darrere l'altre. Quan acabi, podreu obrir directament el gestor d'arxius de Windows o macOS per consultar els documents.
-            </p>
+            <p>Gràcies al mode <em>Plan Review</em>, Antigravity us indicarà primer què vol fer. Quan intenti accedir a una carpeta de Documents situada fora del <em>workspace</em> o consultar la web, pot aparèixer una sol·licitud de permís. Comproveu que la ruta de destinació sigui la carpeta que heu triat i que el domini coincideixi amb la pàgina d’origen abans d’aprovar-la. Quan acabi, podreu obrir l’Explorador de fitxers de Windows per consultar els documents.</p>
           </div>
         </div>
       </div>
@@ -625,6 +620,7 @@ Si us plau, segueix aquestes instruccions:
   </footer>
 
   <script src="assets/vendor/lucide/lucide.min.js"></script>
-  <script src="app.js?v=4"></script>
-</body>
-</html>
+  <script src="app.js?v=5"></script>
+
+
+</body></html>

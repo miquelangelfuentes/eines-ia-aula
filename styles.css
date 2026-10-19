@@ -1828,3 +1828,111 @@ figcaption.edu-caption a {
   }
 }
 
+
+
+/* ==========================================================================
+   ACCESSIBILITAT I RESILIÈNCIA 2026
+   ========================================================================== */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--border-focus);
+  outline-offset: 3px;
+}
+
+.quiz-option-card:focus-within {
+  outline: 3px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.noscript-notice {
+  max-width: var(--max-width);
+  margin: 1rem auto;
+  padding: 0.85rem 1rem;
+  background: var(--accent-warm-light);
+  border: 1px solid var(--accent-warm);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+.usage-paths {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.usage-path {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1rem 1.1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.usage-path:hover, .usage-path:focus-visible {
+  border-color: var(--accent-primary);
+}
+
+.usage-path span {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.dependency-decision {
+  margin-top: 0.85rem;
+  padding: 0.75rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+.dependency-decision > strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.dependency-decision div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: 0.75rem;
+  padding: 0.45rem 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.dependency-decision div + div {
+  border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+  .usage-paths, .dependency-decision div { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
