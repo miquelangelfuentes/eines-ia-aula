@@ -1,0 +1,32 @@
+name: Consolidate site
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/consolidate-site.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  consolidate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Prepare migration dependency
+        run: npm install --no-save --package-lock=false jsdom@27.0.1
+      - name: Consolidate static content and harden site
+        run: node scripts/consolidate-site.mjs
+      - name: Validate result before commit
+        run: python scripts/validate_site.py
+      - name: Commit consolidated site
+        run: |
+          rm -f .github/workflows/consolidate-site.yml scripts/consolidate-site.mjs
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Consolida contingut i reforça accessibilitat i validació"
+          git push
