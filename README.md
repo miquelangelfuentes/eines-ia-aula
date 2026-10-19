@@ -3,7 +3,9 @@
 > **Guia pràctica per a la creació i publicació de materials educatius oberts.**  
 > **Servei Educatiu del Vallès Occidental II. Centre de Recursos Pedagògics (CRP), Octubre, 2026.**
 
-Aquest repositori conté el lloc web de suport al taller docent. El material està organitzat en pàgines independents per blocs i incorpora també una vista continuada per imprimir. La proposta combina una seqüència pensada per seguir durant la sessió amb continguts que poden servir després com a guia de consulta.
+Aquest repositori conté el lloc web de suport al taller docent. El material està organitzat en pàgines independents per blocs i incorpora també un dossier continu per imprimir. La proposta combina una seqüència pensada per seguir durant la sessió amb continguts que poden servir després com a guia de consulta.
+
+El dossier imprimible no es manté com una còpia manual del contingut. `scripts/build_print.py` el genera a partir dels blocs actuals abans de cada desplegament, de manera que la versió publicada es manté alineada amb les pàgines originals.
 
 🌐 **Lloc web de la guia:** [https://miquelangelfuentes.github.io/eines-ia-aula/](https://miquelangelfuentes.github.io/eines-ia-aula/)
 
@@ -31,7 +33,7 @@ Les respostes es desen únicament al navegador mitjançant `localStorage` i es p
 | [`bloc7-bones-practiques.html`](bloc7-bones-practiques.html) | **7. Bones pràctiques d'aula** | Supervisió docent, protecció de dades, accessibilitat web, DUA, dependències externes i transparència en l'ús d'IA. |
 | [`bloc8-verificacio.html`](bloc8-verificacio.html) | **8. Llista de verificació** | Checklist interactiva amb memòria local per revisar el recurs abans de compartir-lo. |
 | [`bloc9-per-continuar-explorant.html`](bloc9-per-continuar-explorant.html) | **9. Per continuar explorant** | Models executats al dispositiu, diferències respecte als serveis al núvol i criteris per valorar privadesa i control de dades. |
-| [`imprimir-tot.html`](imprimir-tot.html) | **Dossier complet per imprimir** | Vista continuada dels continguts preparada per a impressió o exportació a PDF. |
+| `imprimir-tot.html` | **Dossier complet per imprimir** | Fitxer generat automàticament a partir dels blocs 1-9 i la pàgina de crèdits abans de publicar el lloc. |
 | [`credits.html`](credits.html) | **Crèdits i autoria** | Marc institucional, autoria i referències del material. |
 
 ---
@@ -54,7 +56,7 @@ Aquesta separació permet continuar avançant encara que una configuració concr
 - **Pràctica d'automatització amb agent:** exercici guiat per localitzar i descarregar documents PDF des d'una pàgina pública cap a una carpeta de Documents, revisant els permisos abans d'autoritzar l'acció.
 - **Videotutorials de suport:** recursos complementaris per a processos que poden requerir una demostració visual.
 - **Llista de verificació interactiva:** el bloc 8 desa el progrés localment al navegador.
-- **Dossier per imprimir:** `imprimir-tot.html` ofereix una versió continuada del material.
+- **Dossier per imprimir:** el desplegament genera `imprimir-tot.html` a partir del contingut vigent dels blocs i dels crèdits.
 - **Mode clar i fosc:** disponible des de la capçalera del lloc.
 - **Accessibilitat web:** disseny adaptable, navegació amb teclat, focus visible i reducció de moviment segons les preferències del sistema, prenent WCAG com a referència tècnica.
 - **DUA:** criteris de disseny de l'aprenentatge orientats a detectar barreres i incorporar suports útils per a la participació.
@@ -65,13 +67,25 @@ Aquesta separació permet continuar avançant encara que una configuració concr
 
 El contingut pedagògic forma part directament dels fitxers HTML. Això permet que les pàgines continuïn sent llegibles encara que JavaScript no estigui disponible i evita dependre de scripts que reescriguin el contingut després de carregar la pàgina.
 
-La funcionalitat interactiva es concentra principalment en:
+La funcionalitat compartida es concentra principalment en:
 
-- [`app.js`](app.js), que carrega la funcionalitat compartida.
+- [`app.js`](app.js), que carrega la funcionalitat del lloc.
 - [`site-core.js`](site-core.js), que gestiona el tema visual, la navegació, les còpies al porta-retalls, el generador d'indicacions, la checklist i el qüestionari inicial.
 - [`styles.css`](styles.css), que conté el sistema visual compartit, els estats de focus i les adaptacions per a moviment reduït.
+- [`scripts/build_print.py`](scripts/build_print.py), que construeix el dossier continu a partir dels HTML dels blocs abans del desplegament.
+- [`scripts/validate_site.py`](scripts/validate_site.py), que comprova l'estructura del lloc abans que GitHub Pages el publiqui.
 
 Els avisos associats a accions com copiar contingut utilitzen una regió `aria-live` perquè la retroacció no depengui només d'un canvi visual.
+
+### Dossier imprimible
+
+`imprimir-tot.html` és un artefacte generat. No s'ha d'editar manualment ni és la font del contingut. El generador extreu el contingut principal de cada bloc, elimina la navegació entre pàgines i resol els identificadors que es repetirien en combinar diverses pàgines en un sol document.
+
+Per generar-lo en local:
+
+```bash
+python scripts/build_print.py
+```
 
 ---
 
@@ -87,13 +101,14 @@ Les fotografies utilitzades pel lloc es desen a `assets/images/unsplash/` i mant
 
 ## Verificació abans del desplegament
 
-El workflow de GitHub Pages executa automàticament:
+El workflow de GitHub Pages genera primer el dossier i després executa la validació:
 
 ```bash
+python scripts/build_print.py
 python scripts/validate_site.py
 ```
 
-La mateixa ordre es pot executar manualment abans de fer un `push`.
+Les mateixes ordres es poden executar manualment abans de fer un `push`.
 
 La comprovació revisa, entre altres aspectes:
 
