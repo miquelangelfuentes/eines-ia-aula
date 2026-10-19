@@ -98,7 +98,13 @@ for file in HTML_FILES + [ROOT / 'app.js']:
     text = file.read_text(encoding='utf-8')
     if 'site-content-fixes.js' in text or 'site-content-overrides.js' in text:
         ERRORS.append(f'{file.name}: encara referencia una capa de correcció dinàmica')
-for required in ('THIRD_PARTY_NOTICES.md', 'assets/vendor/lucide/LICENSE', 'assets/vendor/lucide/lucide.min.js'):
+for required in (
+    'LICENSE-CODE',
+    'LICENSE-CONTENT.md',
+    'THIRD_PARTY_NOTICES.md',
+    'assets/vendor/lucide/LICENSE',
+    'assets/vendor/lucide/lucide.min.js',
+):
     if not (ROOT / required).exists(): ERRORS.append(f'Falta el recurs requerit: {required}')
 
 if ERRORS:
