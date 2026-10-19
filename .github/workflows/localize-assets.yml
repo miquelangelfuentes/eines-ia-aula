@@ -102,7 +102,7 @@ jobs:
         run: |
           set -euo pipefail
           if grep -R -nE 'src="https://images\.unsplash\.com|content="https://images\.unsplash\.com|src="https://unpkg\.com/lucide' -- *.html; then
-            echo 'Encara queden dependències externes que s\'havien de localitzar.' >&2
+            echo "Encara queden dependències externes que s'havien de localitzar." >&2
             exit 1
           fi
 
