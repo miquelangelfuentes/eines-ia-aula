@@ -1,0 +1,47 @@
+name: Fix fine-grained tutorial
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/fix-fine-grained-tutorial.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Replace obsolete classic-token tutorial
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('bloc3-github.html')
+          text = p.read_text(encoding='utf-8')
+          old = '''            <h3 style="font-size: 0.975rem;">Com generar un Personal Access Token a GitHub</h3>
+            <p style="font-size: 0.865rem;">
+              Videotutorial pas a pas que mostra com entrar a Developer Settings per generar un Token (classic) i desar la credencial d'accés.
+            </p>'''
+          new = '''            <h3 style="font-size: 0.975rem;">Com crear un fine-grained personal access token</h3>
+            <p style="font-size: 0.865rem;">
+              Guia oficial de GitHub per crear un <em>fine-grained personal access token</em>, limitar-lo al repositori necessari i assignar-hi només els permisos que requereix la tasca.
+            </p>'''
+          if old not in text:
+              raise SystemExit('No s’ha trobat el text antic del tutorial de tokens')
+          text = text.replace(old, new)
+          text = text.replace('href="https://www.youtube.com/watch?v=J-CSiw5CFWE"', 'href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token"')
+          text = text.replace('<span>Veure videotutorial de tokens a YouTube</span> ↗', '<span>Obrir la guia oficial de GitHub</span> ↗')
+          p.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit correction
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bloc3-github.html
+          git commit -m "Substitueix el tutorial de token classic per fine-grained"
+          git push
