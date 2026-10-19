@@ -1,3 +1,4 @@
+# Flux temporal per localitzar dependències essencials del lloc
 name: Localitza recursos externs
 
 on:
