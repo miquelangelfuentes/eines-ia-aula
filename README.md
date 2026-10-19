@@ -15,7 +15,7 @@ El dossier imprimible no es manté com una còpia manual del contingut. `scripts
 
 La pàgina inicial incorpora un **qüestionari diagnòstic de 6 preguntes** sobre creació de recursos web amb IA, Google Antigravity, GitHub, llicències i criteris de protecció de dades. El perfil només es genera quan s'han respost totes les preguntes i serveix per orientar quins blocs poden requerir més atenció durant la sessió.
 
-Les respostes es desen únicament al navegador mitjançant `localStorage` i es poden reiniciar des de la mateixa interfície.
+Les respostes es desen únicament al navegador mitjançant `localStorage` i es poden reiniciar des de la mateixa interfície. En el mode pas a pas, seleccionar una resposta no canvia automàticament de pregunta: la navegació es fa amb els controls **Anterior**, **Següent** i **Veure resultats**.
 
 ---
 
@@ -129,7 +129,7 @@ La comprovació revisa, entre altres aspectes:
 - imatges locals sense `alt` o sense dimensions intrínseques;
 - scripts essencials carregats des de serveis externs;
 - enllaços amb `target="_blank"` sense `rel="noopener"`;
-- presència dels fitxers locals i avisos de tercers requerits pel projecte.
+- presència dels fitxers de llicència, dels avisos de tercers i dels recursos locals requerits pel projecte.
 
 Si la validació falla, el desplegament de GitHub Pages s'atura. Aquesta comprovació automàtica complementa la revisió manual del contingut i les proves d'interacció amb teclat.
 
@@ -137,8 +137,8 @@ Si la validació falla, el desplegament de GitHub Pages s'atura. Aquesta comprov
 
 ## Llicències i referències
 
-- **Contingut pedagògic:** [Creative Commons Reconeixement-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/deed.ca).
-- **Codi font:** [Llicència MIT](https://opensource.org/license/mit).
+- **Contingut pedagògic:** [Creative Commons Reconeixement-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)](LICENSE-CONTENT.md). El fitxer delimita també què queda fora d'aquesta llicència.
+- **Codi font:** [Llicència MIT](LICENSE-CODE).
 - **Guia de referència:** recomanacions de [*vibe coding* responsable](https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html) de De Haro (2026).
 - **Criteri terminològic:** *vibe coding* es presenta també com a **programació per intenció**, d'acord amb la proposta terminològica del [TERMCAT](https://www.termcat.cat/ca/cercaterm/fitxa/NDg4MDA2NA%3D%3D).
 - **Citació de recursos:** patró [TASL d'Open Washington / Creative Commons](https://www.openwa.org/citar-recursos-oberts/).
