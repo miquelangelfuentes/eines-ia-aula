@@ -144,11 +144,9 @@
         </div>
 
         <div class="card-item">
-          <div class="card-item-icon"><i data-lucide="git-commit"></i></div>
-          <h3>Commit i push</h3>
-          <p>
-            Fer un <strong>commit</strong> és desar una còpia de seguretat dels canvis amb una petita descripció (com ara "afegides 10 preguntes noves"). Fer un <strong>push</strong> consisteix a pujar aquesta còpia des del vostre ordinador cap al repositori de GitHub.
-          </p>
+          <div class="card-item-icon"><i data-lucide="upload-cloud"></i></div>
+          <h3>Pujada i versions</h3>
+          <p>Quan envieu el projecte a GitHub, els fitxers queden desats al repositori i els canvis posteriors poden quedar registrats com a noves versions. Durant el taller, Antigravity s'encarregarà de fer aquesta pujada.</p>
         </div>
 
         <div class="card-item">
@@ -214,18 +212,16 @@
       <div style="margin-top:1rem;background:var(--bg-subtle);border:1px solid var(--border-color);border-radius:var(--radius-md);padding:1.35rem 1.5rem;">
         <h3 style="font-size:1rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.45rem;">
           <i data-lucide="git-branch" style="width:18px;height:18px;color:var(--accent-primary);"></i>
-          Indicació per connectar el projecte i preparar la primera pujada
+          Indicació per connectar el projecte i fer la primera pujada
         </h3>
-        <pre id="github-first-push-prompt" style="background:var(--bg-card);padding:1rem 1.15rem;border-radius:var(--radius-sm);border:1px solid var(--border-color);font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:.85rem;line-height:1.6;white-space:pre-wrap;word-break:break-word;color:var(--text-main);margin:0;">Connecta aquesta carpeta local al repositori de GitHub següent:
+        <pre id="github-first-push-prompt" style="background:var(--bg-card);padding:1rem 1.15rem;border-radius:var(--radius-sm);border:1px solid var(--border-color);font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:.85rem;line-height:1.6;white-space:pre-wrap;word-break:break-word;color:var(--text-main);margin:0;">Puja els fitxers d'aquesta carpeta al repositori de GitHub següent:
 [ENGANXEU AQUÍ L'ADREÇA HTTPS DEL REPOSITORI]
 
-Abans d'executar cap ordre, explica'm breument què faràs i deixa'm revisar les accions.
+Abans de fer la pujada, explica'm breument què faràs i deixa'm revisar les accions.
 
-Comprova quins fitxers hi ha dins del projecte i no incloguis cap credencial ni fitxer que no formi part del recurs. Si la carpeta encara no és un repositori Git, inicialitza-la i utilitza main com a branca principal. Configura el repositori de GitHub com a origin.
+Comprova quins fitxers formen part del projecte. No enviïs cap credencial ni cap fitxer que no formi part del recurs. Mostra'm quins fitxers pujaràs i atura't perquè els pugui revisar.
 
-Abans del primer commit, mostra'm quins fitxers s'hi inclouran i atura't perquè els pugui revisar. Quan ho aprovi, crea el commit amb el missatge "Primera versió del recurs" i fes push a origin/main.
-
-Quan GitHub necessiti autenticació, demana'm el token temporal que he creat per a aquest repositori. Utilitza'l només per completar aquesta pujada. No el desis, no l'escriguis en cap fitxer del projecte i no el reutilitzis per a cap altra finalitat.</pre>
+Quan ho aprovi, envia la primera versió del recurs al repositori. Si GitHub necessita autenticació, demana'm el token temporal que he creat només per a aquest repositori. Utilitza'l únicament per completar aquesta pujada. No el desis, no l'escriguis en cap fitxer del projecte i no el reutilitzis per a cap altra finalitat.</pre>
         <button class="copy-btn btn-primary-action" data-target="github-first-push-prompt" type="button" style="margin-top:.85rem;font-size:.85rem;padding:.55rem 1rem;">
           Copiar indicació per a Antigravity
         </button>
@@ -235,8 +231,8 @@ Quan GitHub necessiti autenticació, demana'm el token temporal que he creat per
         <div class="ordered-step-item">
           <div class="step-indicator">6</div>
           <div class="step-content">
-            <h3>Reviseu les accions abans d'aprovar-les</h3>
-            <p>Antigravity pot inicialitzar Git i configurar el repositori remot des de la terminal integrada. També pot preparar el primer commit. El panell de control de versions permet revisar els fitxers modificats abans d'enviar-los. No cal memoritzar les ordres: l'objectiu és reconèixer què farà l'agent abans d'autoritzar-ho.</p>
+            <h3>Reviseu què s'enviarà abans d'aprovar-ho</h3>
+            <p>Antigravity us ha de mostrar quins fitxers vol enviar al repositori abans de completar la pujada. Reviseu que només hi hagi els fitxers del recurs i que no s'hi incloguin credencials ni documents que no vulgueu publicar.</p>
             <span class="step-tip">Si Antigravity demana el token, enganxeu només el token temporal creat per a aquest repositori. En entrar al xat de l’agent, el tractarem com una credencial exposada i el revocarem després de comprovar la pujada.</span>
           </div>
         </div>
@@ -253,7 +249,7 @@ Quan GitHub necessiti autenticació, demana'm el token temporal que he creat per
 
       <div style="margin-top:1.5rem;padding:1rem 1.15rem;background:var(--bg-subtle);border:1px solid var(--border-color);border-radius:var(--radius-md);font-size:.9rem;color:var(--text-muted);line-height:1.6;">
         <strong style="color:var(--text-main);">Què està passant per sota?</strong><br>
-        Antigravity gestiona la connexió amb el repositori i utilitza la credencial temporal per completar la pujada. En els equips PEDC no fem dependre aquesta pràctica d’una instal·lació local de Git. El criteri que sí mantenim és revisar què s’enviarà al repositori abans d’autoritzar l’acció.
+        Antigravity utilitza l'accés temporal que li proporcioneu per enviar els fitxers al repositori. El taller no exigeix que conegueu ni instal·leu eines locals de control de versions: el que heu de revisar és quins fitxers s'enviaran i revocar la credencial quan l'acció hagi acabat.
       </div>
     </div>
 
