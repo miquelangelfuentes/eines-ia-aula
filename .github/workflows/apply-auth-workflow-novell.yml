@@ -1,0 +1,30 @@
+name: Apply novice GitHub authentication workflow
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: ${{ github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Apply content changes
+        run: python scripts/update_auth_workflow_novell.py
+      - name: Build printable dossier
+        run: python scripts/build_print.py
+      - name: Validate site
+        run: python scripts/validate_site.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bloc3-github.html README.md
+          git diff --cached --quiet && exit 0
+          git commit -m "Simplifica l'autenticació de GitHub per al taller"
+          git push
