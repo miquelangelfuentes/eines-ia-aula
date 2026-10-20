@@ -22,122 +22,40 @@ jobs:
           from pathlib import Path
 
           pages = {
-              'bloc2-antigravity.html': '''    <aside class="quick-access-box" aria-label="Accés ràpid a Google Antigravity">
-              <div class="quick-access-copy">
-                <i data-lucide="rocket" aria-hidden="true"></i>
-                <div>
-                  <strong>Accés ràpid</strong>
-                  <p>Obriu Google Antigravity per seguir la pràctica del bloc.</p>
-                </div>
-              </div>
-              <a class="btn-primary-action" href="https://antigravity.google/" target="_blank" rel="noopener">
-                <span>Ves a Google Antigravity</span>
-                <i data-lucide="external-link" aria-hidden="true"></i>
-              </a>
-            </aside>''',
-              'bloc3-github.html': '''    <aside class="quick-access-box" aria-label="Accés ràpid a GitHub">
-              <div class="quick-access-copy">
-                <i data-lucide="github" aria-hidden="true"></i>
-                <div>
-                  <strong>Accés ràpid</strong>
-                  <p>Obriu GitHub per seguir la configuració i la publicació del recurs.</p>
-                </div>
-              </div>
-              <a class="btn-primary-action" href="https://github.com/" target="_blank" rel="noopener">
-                <span>Ves a GitHub</span>
-                <i data-lucide="external-link" aria-hidden="true"></i>
-              </a>
-            </aside>'''
+              'bloc2-antigravity.html': (
+                  '    <aside class="pedagogical-highlight" aria-label="Accés ràpid a Google Antigravity" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin:0 0 1rem;">\n'
+                  '      <div style="display:flex;align-items:center;gap:.7rem;flex:1 1 18rem;">\n'
+                  '        <i data-lucide="rocket" aria-hidden="true" style="width:24px;height:24px;flex:0 0 auto;"></i>\n'
+                  '        <div><strong>Accés ràpid</strong><br><span style="font-size:.875rem;">Obriu Google Antigravity per seguir la pràctica del bloc.</span></div>\n'
+                  '      </div>\n'
+                  '      <a class="btn-primary-action" href="https://antigravity.google/" target="_blank" rel="noopener" style="text-decoration:none;">\n'
+                  '        <span>Ves a Google Antigravity</span><i data-lucide="external-link" aria-hidden="true"></i>\n'
+                  '      </a>\n'
+                  '    </aside>'
+              ),
+              'bloc3-github.html': (
+                  '    <aside class="pedagogical-highlight" aria-label="Accés ràpid a GitHub" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin:0 0 1rem;">\n'
+                  '      <div style="display:flex;align-items:center;gap:.7rem;flex:1 1 18rem;">\n'
+                  '        <i data-lucide="github" aria-hidden="true" style="width:24px;height:24px;flex:0 0 auto;"></i>\n'
+                  '        <div><strong>Accés ràpid</strong><br><span style="font-size:.875rem;">Obriu GitHub per seguir la configuració i la publicació del recurs.</span></div>\n'
+                  '      </div>\n'
+                  '      <a class="btn-primary-action" href="https://github.com/" target="_blank" rel="noopener" style="text-decoration:none;">\n'
+                  '        <span>Ves a GitHub</span><i data-lucide="external-link" aria-hidden="true"></i>\n'
+                  '      </a>\n'
+                  '    </aside>'
+              ),
           }
 
           needle = '<main id="contingut-principal" class="main-content"><nav class="usage-paths" aria-label="Orientació d’ús del bloc">'
           for filename, box in pages.items():
-              p = Path(filename)
-              text = p.read_text(encoding='utf-8')
-              if 'quick-access-box' in text:
+              path = Path(filename)
+              text = path.read_text(encoding='utf-8')
+              if 'aria-label="Accés ràpid a ' in text:
                   raise SystemExit(f'{filename}: la capsa ja existeix')
               if needle not in text:
                   raise SystemExit(f'{filename}: no s’ha trobat el punt d’inserció')
               replacement = '<main id="contingut-principal" class="main-content">\n' + box + '\n    <nav class="usage-paths" aria-label="Orientació d’ús del bloc">'
-              text = text.replace(needle, replacement, 1)
-              text = text.replace('styles.css?v=9', 'styles.css?v=10', 1)
-              p.write_text(text, encoding='utf-8')
-
-          css = Path('styles.css')
-          text = css.read_text(encoding='utf-8')
-          marker = '/* ACCESSOS RÀPIDS DEL TALLER */'
-          if marker in text:
-              raise SystemExit('styles.css: els estils ja existeixen')
-          text += r'''
-
-/* ACCESSOS RÀPIDS DEL TALLER */
-.quick-access-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin: 0 0 1rem;
-  padding: 1rem 1.1rem;
-  background: var(--accent-light);
-  border: 1px solid var(--border-color);
-  border-left: 4px solid var(--accent-primary);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-}
-
-.quick-access-copy {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex: 1 1 20rem;
-  min-width: 0;
-}
-
-.quick-access-copy > i {
-  width: 24px;
-  height: 24px;
-  color: var(--accent-primary);
-  flex: 0 0 auto;
-}
-
-.quick-access-copy strong {
-  display: block;
-  margin-bottom: 0.1rem;
-  font-size: 1rem;
-}
-
-.quick-access-copy p {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 0.875rem;
-  line-height: 1.45;
-}
-
-.quick-access-box .btn-primary-action {
-  flex: 0 0 auto;
-  text-decoration: none;
-}
-
-@media (max-width: 640px) {
-  .quick-access-box .btn-primary-action {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-@media print {
-  .quick-access-box {
-    display: none !important;
-  }
-}
-'''
-          css.write_text(text, encoding='utf-8')
-
-          builder = Path('scripts/build_print.py')
-          text = builder.read_text(encoding='utf-8')
-          text = text.replace('styles.css?v=9', 'styles.css?v=10', 1)
-          builder.write_text(text, encoding='utf-8')
+              path.write_text(text.replace(needle, replacement, 1), encoding='utf-8')
           PY
       - name: Validate source changes
         run: python scripts/validate_site.py
@@ -145,6 +63,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add bloc2-antigravity.html bloc3-github.html styles.css scripts/build_print.py
+          git add bloc2-antigravity.html bloc3-github.html
           git commit -m "Afegeix accessos ràpids a Antigravity i GitHub"
           git push
