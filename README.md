@@ -26,7 +26,7 @@ Les respostes es desen únicament al navegador mitjançant `localStorage` i es p
 | [`index.html`](index.html) | **Pàgina d'inici** | Presentació del recurs, qüestionari inicial i accés directe als blocs. |
 | [`bloc1-marc.html`](bloc1-marc.html) | **1. De consultar un xat a crear les nostres eines** | Canvi de perspectiva: de demanar respostes a construir recursos interactius al navegador mitjançant *vibe coding* o programació per intenció. |
 | [`bloc2-antigravity.html`](bloc2-antigravity.html) | **2. Google Antigravity** | Instal·lació i configuració, primera web funcional i preparació del projecte local que continuarà a GitHub. La descàrrega automatitzada de PDF queda com a ampliació. |
-| [`bloc3-github.html`](bloc3-github.html) | **3. Configuració de GitHub** | Creació d'un repositori buit, connexió del projecte local des d'Antigravity i primer <em>commit/push</em>. Inclou autenticació, GitHub Pages i GitHub Desktop com a alternativa opcional. |
+| [`bloc3-github.html`](bloc3-github.html) | **3. Configuració de GitHub** | Creació d'un repositori buit, autenticació amb GitHub CLI i navegador, connexió del projecte local des d'Antigravity i primer <em>push</em>. Inclou GitHub Pages i alternatives per resoldre incidències. |
 | [`bloc4-pages-sites.html`](bloc4-pages-sites.html) | **4. Pages en comparació amb Sites** | Comparació dels dos entorns segons el tipus de recurs, la col·laboració i el grau de control sobre els fitxers. |
 | [`bloc5-llicencies.html`](bloc5-llicencies.html) | **5. Llicències i codi obert** | Creative Commons per al contingut i llicències de programari aplicables al codi. |
 | [`bloc6-recursos-visuals.html`](bloc6-recursos-visuals.html) | **6. Recursos visuals i citació** | Selecció d'imatges, atribució, patró TASL i criteris per conservar recursos dins del projecte quan la llicència ho permet. |
@@ -45,7 +45,7 @@ Els blocs més densos incorporen accessos diferenciats per ajudar a gestionar el
 - **Durant el taller** prioritza els passos guiats i les activitats que convé fer amb el grup.
 - **Per consultar després** conserva configuracions i explicacions que no cal memoritzar durant la formació.
 
-El recorregut pràctic prioritari parteix d'una primera web funcional creada amb Antigravity. A GitHub es crea un repositori buit. Tot seguit, es torna a Antigravity per connectar-hi la mateixa carpeta i fer la primera pujada del codi.
+El recorregut pràctic prioritari parteix d'una primera web funcional creada amb Antigravity. A GitHub es crea un repositori buit. En tornar a Antigravity, el docent autentica Git amb GitHub CLI i el navegador abans de demanar a l'agent que connecti la mateixa carpeta i faci la primera pujada del codi.
 
 Aquesta separació permet continuar avançant encara que una configuració concreta requereixi més temps en un dispositiu determinat.
 
@@ -56,7 +56,7 @@ Aquesta separació permet continuar avançant encara que una configuració concr
 - **Navegació per teclat i botons seqüencials:** les fletxes dreta i esquerra permeten avançar o retrocedir entre blocs quan el focus no és dins d'un control interactiu.
 - **Assistent d'indicacions integrat:** el bloc 2 genera una primera indicació per crear recursos web amb criteris docents, accessibilitat i control de dependències.
 - **Primera pràctica funcional amb Antigravity:** el bloc 2 proposa crear un microrecurs, comprovar-ne el funcionament i aplicar-hi una millora abans de continuar amb el mateix projecte a GitHub.
-- **Continuïtat Antigravity-GitHub-Antigravity:** la carpeta creada durant la primera pràctica es connecta a un repositori buit de GitHub i el primer <em>push</em> es demana directament a l'agent.
+- **Continuïtat Antigravity-GitHub-Antigravity:** la carpeta creada durant la primera pràctica es connecta a un repositori buit de GitHub. Abans del primer <em>push</em>, Git s'autentica amb GitHub CLI i el navegador perquè l'agent no necessiti rebre cap secret al xat.
 - **Automatització amb agent com a ampliació:** la descàrrega de documents PDF des d'una pàgina pública mostra una tasca agentiva diferent de la generació de codi i manté la revisió de permisos abans d'autoritzar l'acció.
 - **Recursos de suport:** guies oficials i videotutorials per a processos que poden requerir una demostració o una consulta posterior.
 - **Llista de verificació interactiva:** el bloc 8 desa el progrés localment al navegador.
@@ -69,9 +69,9 @@ Aquesta separació permet continuar avançant encara que una configuració concr
 
 ## Autenticació amb GitHub
 
-En el primer <em>push</em> des d'Antigravity, es prioritza l'autenticació segura que ofereixi el navegador o el gestor de credencials del sistema. Si l'entorn requereix un token, el material treballa amb **fine-grained personal access tokens**, limitats al repositori necessari i amb els permisos mínims requerits per la tasca. El token no s'ha d'enganxar al xat d'Antigravity ni desar-se als fitxers del projecte.
+El recorregut principal del taller utilitza **GitHub CLI** des de la terminal integrada d'Antigravity. El docent executa `gh auth login`, completa l'inici de sessió al navegador i després executa `gh auth setup-git` perquè Git pugui reutilitzar aquesta autenticació. A partir d'aquí, Antigravity pot fer <em>push</em> sense que cap contrasenya o token aparegui al xat.
 
-El taller no recomana crear *personal access tokens (classic)*. El bloc 3 enllaça directament la documentació oficial de GitHub per crear un *fine-grained personal access token*.
+Si l'autenticació amb navegador no està disponible, el bloc 3 conserva alternatives per resoldre la incidència. Els **fine-grained personal access tokens** queden com a recurs de suport i no formen part del recorregut principal. No s'han d'enganxar al xat d'un agent. Si un token s'hi ha introduït accidentalment, s'ha de revocar i substituir.
 
 ---
 
