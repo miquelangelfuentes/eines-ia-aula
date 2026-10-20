@@ -1,4 +1,4 @@
-# Apply workshop workflow update
+# Apply workshop workflow update v2
 name: Apply Antigravity GitHub workflow
 
 on:
@@ -18,7 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Apply content changes
-        run: python scripts/update_workflow_antigravity_github.py
+        run: python scripts/update_workflow_antigravity_github_v2.py
       - name: Build printable dossier
         run: python scripts/build_print.py
       - name: Validate site
