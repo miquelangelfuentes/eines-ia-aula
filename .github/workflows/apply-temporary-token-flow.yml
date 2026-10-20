@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Apply content changes
-        run: python scripts/restore_temporary_token_flow.py
+        run: python scripts/restore_temporary_token_flow_v2.py
       - name: Build printable dossier
         run: python scripts/build_print.py
       - name: Validate site
