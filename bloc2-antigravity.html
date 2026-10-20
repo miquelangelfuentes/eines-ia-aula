@@ -301,10 +301,101 @@
       </div>
     </div>
 
-    <!-- Caixa 2: Pràctica d'automatització amb Antigravity -->
+    <!-- Pràctica guiada: primer cicle complet amb Antigravity -->
     <div class="content-box" id="practica-taller">
-      <h2>Pràctica guiada: descàrrega massiva de documents PDF d'un lloc web a Documents</h2>
-      <p class="lead-desc">Com utilitzar la potència d'un agent d'Antigravity per estalviar hores de feina mecànica en la descàrrega de materials educatius</p>
+      <h2>La vostra primera web funcional</h2>
+      <p class="lead-desc">Completeu un primer cicle de treball amb Antigravity abans de passar a GitHub</p>
+
+      <div class="pedagogical-highlight">
+        En aquesta primera pràctica no busquem crear el recurs definitiu. L'objectiu és obtenir una pàgina petita que funcioni, provar-la i fer-hi una primera millora. Quan acabeu, tindreu un projecte web local que podreu continuar utilitzant al bloc de GitHub.
+      </div>
+
+      <div class="ordered-steps">
+        <div class="ordered-step-item">
+          <div class="step-indicator">1</div>
+          <div class="step-content">
+            <h3>Creeu un microrecurs</h3>
+            <p>Copieu la indicació següent i adapteu només el contingut de la pregunta a la vostra matèria. Manteniu la primera versió deliberadament petita.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1rem; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.35rem 1.5rem;">
+        <h3 style="font-size: 1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.45rem;">
+          <i data-lucide="message-square-code" style="width: 18px; height: 18px; color: var(--accent-primary);"></i>
+          Indicació per començar
+        </h3>
+        <pre id="first-web-prompt" style="background: var(--bg-card); padding: 1rem 1.15rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.85rem; line-height: 1.6; white-space: pre-wrap; word-break: break-word; color: var(--text-main); margin: 0;">Crea una pàgina web educativa molt senzilla sobre un contingut de la meva matèria.
+
+Ha de mostrar una pregunta o repte i un botó que permeti veure la resposta. Fes-la clara i adequada per al meu alumnat.
+
+Crea tots els fitxers necessaris dins d'aquesta carpeta i utilitza index.html com a pàgina principal. No utilitzis serveis externs ni demanis dades personals.
+
+Quan acabis, explica'm breument què has creat i com puc comprovar que funciona.</pre>
+        <button class="copy-btn btn-primary-action" data-target="first-web-prompt" type="button" style="margin-top: 0.85rem; font-size: 0.85rem; padding: 0.55rem 1rem;">
+          Copiar indicació per a Antigravity
+        </button>
+      </div>
+
+      <div class="ordered-steps" style="margin-top: 1.5rem;">
+        <div class="ordered-step-item">
+          <div class="step-indicator">2</div>
+          <div class="step-content">
+            <h3>Comproveu que funciona</h3>
+            <p>Obriu la previsualització i feu la interacció com si fóssiu alumnat. Si podeu veure la pregunta i mostrar-ne la resposta, ja heu creat el vostre primer recurs web funcional.</p>
+          </div>
+        </div>
+
+        <div class="ordered-step-item">
+          <div class="step-indicator">3</div>
+          <div class="step-content">
+            <h3>Demaneu una sola millora</h3>
+            <p>Modifiqueu el recurs que ja teniu en lloc de tornar a començar. Podeu canviar el contingut de la pregunta, millorar el contrast o demanar un altre ajust concret. Torneu a provar la pàgina després del canvi.</p>
+          </div>
+        </div>
+
+        <div class="ordered-step-item">
+          <div class="step-indicator">4</div>
+          <div class="step-content">
+            <h3>Mireu què ha creat l'agent</h3>
+            <p>Obriu la carpeta de treball. No cal que sapigueu escriure aquests fitxers a mà, però convé començar a reconèixer què forma part del projecte.</p>
+            <pre style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.85rem 1rem; margin-top: 0.75rem; font-size: 0.85rem; line-height: 1.6; overflow-x: auto;">el-meu-recurs/
+├── index.html
+├── styles.css   (si l'agent separa els estils)
+├── app.js       (si hi ha lògica separada)
+└── assets/      (si hi ha recursos locals)</pre>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.2rem 1.35rem;">
+        <h3 style="font-size: 1rem; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.45rem;">
+          <i data-lucide="repeat-2" style="width: 18px; height: 18px; color: var(--accent-secondary);"></i>
+          Bons hàbits mentre treballeu amb l'agent
+        </h3>
+        <ul style="padding-left: 1.2rem; margin: 0; color: var(--text-muted); font-size: 0.9rem; line-height: 1.65;">
+          <li>Feu canvis petits i comproveu el resultat abans de continuar.</li>
+          <li>Si no enteneu una modificació, demaneu a l'agent que us expliqui què ha fet amb llenguatge senzill.</li>
+          <li>No torneu a generar tot el projecte quan només necessiteu corregir una part.</li>
+          <li>Manteniu dins de la carpeta de treball allò que forma part del recurs.</li>
+        </ul>
+      </div>
+
+      <aside class="pedagogical-highlight" aria-label="Projecte local preparat" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+        <div style="display:flex;align-items:center;gap:.7rem;flex:1 1 22rem;">
+          <i data-lucide="folder-check" aria-hidden="true" style="width:24px;height:24px;flex:0 0 auto;"></i>
+          <div><strong>Projecte local preparat</strong><br><span style="font-size:.875rem;">Ja teniu una web que funciona dins d'una carpeta. Manteniu-la localitzada perquè continuareu amb aquest mateix projecte al bloc següent.</span></div>
+        </div>
+        <a class="btn-primary-action" href="bloc3-github.html" style="text-decoration:none;">
+          <span>Continua amb GitHub</span><i data-lucide="arrow-right" aria-hidden="true"></i>
+        </a>
+      </aside>
+    </div>
+
+    <!-- Ampliació: automatització amb Antigravity -->
+    <div class="content-box" id="ampliacio-pdf">
+      <h2>Ampliació: descàrrega massiva de documents PDF d'un lloc web a Documents</h2>
+      <p class="lead-desc">Un exemple per explorar què pot fer un agent més enllà de crear una pàgina web</p>
 
       <div class="pedagogical-highlight">
         Sovint trobareu portals educatius o webs oficials on hi ha desenes de documents PDF (com dossiers d'activitats, rúbriques o proves curriculars). Descarregar-los un per un al navegador requereix una feinada mecànica i feixuga de clics. Com que <strong>Google Antigravity</strong> és un agent amb accés a eines de sistema i lectura web, podeu demanar-li que n'extregui tots els PDF i us els desi directament a la vostra carpeta de <strong>Documents</strong> de manera autònoma i ordenada.
