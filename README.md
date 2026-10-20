@@ -26,7 +26,7 @@ Les respostes es desen únicament al navegador mitjançant `localStorage` i es p
 | [`index.html`](index.html) | **Pàgina d'inici** | Presentació del recurs, qüestionari inicial i accés directe als blocs. |
 | [`bloc1-marc.html`](bloc1-marc.html) | **1. De consultar un xat a crear les nostres eines** | Canvi de perspectiva: de demanar respostes a construir recursos interactius al navegador mitjançant *vibe coding* o programació per intenció. |
 | [`bloc2-antigravity.html`](bloc2-antigravity.html) | **2. Google Antigravity** | Instal·lació i configuració, primera web funcional i preparació del projecte local que continuarà a GitHub. La descàrrega automatitzada de PDF queda com a ampliació. |
-| [`bloc3-github.html`](bloc3-github.html) | **3. Configuració de GitHub** | Creació d'un repositori buit, autenticació amb GitHub CLI i navegador, connexió del projecte local des d'Antigravity i primer <em>push</em>. Inclou GitHub Pages i alternatives per resoldre incidències. |
+| [`bloc3-github.html`](bloc3-github.html) | **3. Configuració de GitHub** | Creació d'un repositori buit, token temporal fine-grained, connexió del projecte des d'Antigravity i primera pujada. Inclou la revocació de la credencial i la publicació amb GitHub Pages. |
 | [`bloc4-pages-sites.html`](bloc4-pages-sites.html) | **4. Pages en comparació amb Sites** | Comparació dels dos entorns segons el tipus de recurs, la col·laboració i el grau de control sobre els fitxers. |
 | [`bloc5-llicencies.html`](bloc5-llicencies.html) | **5. Llicències i codi obert** | Creative Commons per al contingut i llicències de programari aplicables al codi. |
 | [`bloc6-recursos-visuals.html`](bloc6-recursos-visuals.html) | **6. Recursos visuals i citació** | Selecció d'imatges, atribució, patró TASL i criteris per conservar recursos dins del projecte quan la llicència ho permet. |
@@ -45,7 +45,7 @@ Els blocs més densos incorporen accessos diferenciats per ajudar a gestionar el
 - **Durant el taller** prioritza els passos guiats i les activitats que convé fer amb el grup.
 - **Per consultar després** conserva configuracions i explicacions que no cal memoritzar durant la formació.
 
-El recorregut pràctic prioritari parteix d'una primera web funcional creada amb Antigravity. A GitHub es crea un repositori buit. En tornar a Antigravity, el docent autentica Git amb GitHub CLI i el navegador abans de demanar a l'agent que connecti la mateixa carpeta i faci la primera pujada del codi.
+El recorregut pràctic prioritari parteix d'una primera web funcional creada amb Antigravity. A GitHub es crea un repositori buit i un token temporal limitat a aquell projecte. En tornar a Antigravity, l'agent utilitza aquesta credencial per completar la primera pujada. Quan els fitxers són al repositori, el token es revoca.
 
 Aquesta separació permet continuar avançant encara que una configuració concreta requereixi més temps en un dispositiu determinat.
 
@@ -56,7 +56,7 @@ Aquesta separació permet continuar avançant encara que una configuració concr
 - **Navegació per teclat i botons seqüencials:** les fletxes dreta i esquerra permeten avançar o retrocedir entre blocs quan el focus no és dins d'un control interactiu.
 - **Assistent d'indicacions integrat:** el bloc 2 genera una primera indicació per crear recursos web amb criteris docents, accessibilitat i control de dependències.
 - **Primera pràctica funcional amb Antigravity:** el bloc 2 proposa crear un microrecurs, comprovar-ne el funcionament i aplicar-hi una millora abans de continuar amb el mateix projecte a GitHub.
-- **Continuïtat Antigravity-GitHub-Antigravity:** la carpeta creada durant la primera pràctica es connecta a un repositori buit de GitHub. Abans del primer <em>push</em>, Git s'autentica amb GitHub CLI i el navegador perquè l'agent no necessiti rebre cap secret al xat.
+- **Continuïtat Antigravity-GitHub-Antigravity:** la carpeta creada durant la primera pràctica es connecta a un repositori buit. Als equips PEDC, la primera pujada utilitza un token temporal limitat al projecte, que es revoca després de comprovar el resultat.
 - **Automatització amb agent com a ampliació:** la descàrrega de documents PDF des d'una pàgina pública mostra una tasca agentiva diferent de la generació de codi i manté la revisió de permisos abans d'autoritzar l'acció.
 - **Recursos de suport:** guies oficials i videotutorials per a processos que poden requerir una demostració o una consulta posterior.
 - **Llista de verificació interactiva:** el bloc 8 desa el progrés localment al navegador.
@@ -69,9 +69,9 @@ Aquesta separació permet continuar avançant encara que una configuració concr
 
 ## Autenticació amb GitHub
 
-El recorregut principal del taller utilitza **GitHub CLI** des de la terminal integrada d'Antigravity. El docent executa `gh auth login`, completa l'inici de sessió al navegador i després executa `gh auth setup-git` perquè Git pugui reutilitzar aquesta autenticació. A partir d'aquí, Antigravity pot fer <em>push</em> sense que cap contrasenya o token aparegui al xat.
+Als dispositius PEDC, les eines locals necessàries per autenticar GitHub poden no estar disponibles i instal·lar-les pot requerir permisos d'administrador. Per això, el recorregut principal del taller utilitza un **fine-grained personal access token temporal**, restringit al repositori de la pràctica i amb `Contents - Read and write` com a permís necessari per a la pujada.
 
-Si l'autenticació amb navegador no està disponible, el bloc 3 conserva alternatives per resoldre la incidència. Els **fine-grained personal access tokens** queden com a recurs de suport i no formen part del recorregut principal. No s'han d'enganxar al xat d'un agent. Si un token s'hi ha introduït accidentalment, s'ha de revocar i substituir.
+Antigravity pot demanar aquesta credencial dins del xat per completar l'acció. Com que un token s'ha de tractar com una contrasenya, el taller assumeix que una credencial introduïda en una conversa amb l'agent no s'ha de conservar. Després de comprovar la pujada a GitHub, el docent revoca el token. Si cal tornar a autenticar una altra pujada, se'n crea un de nou amb el mateix criteri d'abast mínim.
 
 ---
 
