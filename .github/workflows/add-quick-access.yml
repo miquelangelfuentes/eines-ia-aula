@@ -57,6 +57,8 @@ jobs:
               replacement = '<main id="contingut-principal" class="main-content">\n' + box + '\n    <nav class="usage-paths" aria-label="Orientació d’ús del bloc">'
               path.write_text(text.replace(needle, replacement, 1), encoding='utf-8')
           PY
+      - name: Build printable dossier
+        run: python scripts/build_print.py
       - name: Validate source changes
         run: python scripts/validate_site.py
       - name: Commit changes
