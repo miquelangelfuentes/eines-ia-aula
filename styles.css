@@ -352,6 +352,12 @@ body {
   line-height: 1.6;
 }
 
+/* Avís abans de publicar un repositori públic */
+[data-content-fix="public-repo-warning"] {
+  margin-top: 1.5rem;
+  margin-bottom: 2.25rem;
+}
+
 /* Graella de targetes */
 .cards-grid,
 .clean-grid {
