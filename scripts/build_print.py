@@ -32,6 +32,7 @@ PAGE_PAGINATION_RE = re.compile(
     r'<nav\b[^>]*class=["\'][^"\']*\bpage-pagination\b[^"\']*["\'][^>]*>.*?</nav>',
     re.IGNORECASE | re.DOTALL,
 )
+LAZY_LOADING_RE = re.compile(r'\bloading=(["\'])lazy\1', re.IGNORECASE)
 TAG_RE = re.compile(r'<[^>]+>')
 
 
@@ -49,6 +50,11 @@ def extract_source(path: Path) -> tuple[str, str]:
     if h1_match:
         title = TAG_RE.sub("", h1_match.group(1)).strip()
     return title, content
+
+
+def prepare_print_content(content: str) -> str:
+    """Evita que les imatges del dossier quedin fora de la cua de càrrega en imprimir."""
+    return LAZY_LOADING_RE.sub(lambda match: f'loading={match.group(1)}eager{match.group(1)}', content)
 
 
 def namespace_duplicate_ids(content: str, key: str, duplicate_ids: set[str]) -> str:
@@ -116,6 +122,7 @@ def build() -> str:
     section_html: list[str] = []
     for section in sections:
         content = namespace_duplicate_ids(section["content"], section["key"], duplicate_ids)
+        content = prepare_print_content(content)
         section_html.append(
             f'''    <section class="print-block-section" id="dossier-{section["key"]}">
       <div class="print-source-heading">
@@ -225,8 +232,38 @@ def build() -> str:
   <script src="assets/vendor/lucide/lucide.min.js"></script>
   <script src="app.js?v=5"></script>
   <script>
+    const waitForPrintableImages = () => {{
+      const images = Array.from(document.images);
+      images.forEach((img) => {{ img.loading = 'eager'; }});
+
+      return Promise.all(images.map((img) => {{
+        if (img.complete) return Promise.resolve();
+        return new Promise((resolve) => {{
+          img.addEventListener('load', resolve, {{ once: true }});
+          img.addEventListener('error', resolve, {{ once: true }});
+        }});
+      }}));
+    }};
+
+    const printWhenReady = async () => {{
+      const imageWait = waitForPrintableImages();
+      const fontWait = document.fonts?.ready ?? Promise.resolve();
+      const timeout = new Promise((resolve) => window.setTimeout(resolve, 8000));
+
+      await Promise.race([
+        Promise.all([imageWait, fontWait]),
+        timeout,
+      ]);
+      await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+      window.print();
+    }};
+
     if (new URLSearchParams(window.location.search).get('print') === '1') {{
-      window.addEventListener('load', () => window.setTimeout(() => window.print(), 250), {{ once: true }});
+      if (document.readyState === 'complete') {{
+        printWhenReady();
+      }} else {{
+        window.addEventListener('load', printWhenReady, {{ once: true }});
+      }}
     }}
   </script>
 </body>
