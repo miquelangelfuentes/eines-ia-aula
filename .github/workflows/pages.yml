@@ -25,6 +25,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Build printable dossier
         run: python scripts/build_print.py
+      - name: Optimize printable dossier layout
+        run: python scripts/optimize_print_layout.py
       - name: Validate site
         run: python scripts/validate_site.py
       - name: Setup Pages
