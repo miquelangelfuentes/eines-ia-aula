@@ -131,31 +131,51 @@
         </div>
       </div>
 
-      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Què necessitem per començar?</h3>
+      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Per què hem triat Google Antigravity i GitHub?</h3>
       <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">
-        Per construir aquests recursos només ens calen dos elements bàsics i gratuïts:
+        No són les úniques eines possibles ni cal utilitzar sempre aquesta combinació. En aquest taller les fem servir perquè assumeixen funcions diferents del mateix procés: <strong>Antigravity crea i revisa el recurs al dispositiu</strong>, mentre que <strong>GitHub el conserva i el publica</strong>. Això permet entendre com una indicació es converteix en fitxers web i, després, en una pàgina que l'alumnat pot obrir amb un enllaç.
       </p>
 
-      <div class="ordered-steps">
-        <div class="ordered-step-item">
-          <div class="step-indicator"><i data-lucide="monitor" style="width: 16px; height: 16px;"></i></div>
-          <div class="step-content">
-            <h3>Un entorn de treball al dispositiu: <a href="bloc2-antigravity.html">Google Antigravity</a></h3>
-            <p>
-              L'aplicació que tindrem instal·lada a l'ordinador per demanar a l'assistent la creació i organització de les nostres activitats.
-            </p>
+      <div class="cards-grid">
+        <article class="card-item">
+          <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+            <div style="width:72px; height:72px; flex:0 0 72px; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid var(--border-color); border-radius:var(--radius-md);">
+              <img src="https://antigravity.google/assets/image/brand/antigravity-icon__full-color.png" width="56" height="56" alt="" loading="lazy" style="display:block; width:56px; height:56px; object-fit:contain;">
+            </div>
+            <div>
+              <div style="font-size:.8rem; color:var(--accent-secondary); font-weight:700; margin-bottom:.15rem;">Crear i revisar</div>
+              <h3 style="margin-bottom:0;"><a href="bloc2-antigravity.html">Google Antigravity</a></h3>
+            </div>
           </div>
-        </div>
+          <p>
+            S'ha triat perquè l'agent pot treballar directament sobre la carpeta del projecte, modificar-ne els fitxers i comprovar el resultat al navegador. La pràctica se centra així en les decisions docents sense haver de traslladar manualment el codi des d'un xat.
+          </p>
+          <p style="margin-top:.85rem;">
+            <strong>En aquest taller</strong> el projecte queda a la carpeta de Documents i continua sent accessible fora de l'assistent. El podeu obrir, revisar i reutilitzar encara que després treballeu amb una altra eina d'IA.
+          </p>
+        </article>
 
-        <div class="ordered-step-item">
-          <div class="step-indicator"><i data-lucide="cloud" style="width: 16px; height: 16px;"></i></div>
-          <div class="step-content">
-            <h3>Un espai públic al núvol: <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></h3>
-            <p>
-              El lloc on guardarem una còpia de seguretat dels nostres materials i des d'on s'activarà la publicació web gratuïta (<a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>) perquè l'alumnat pugui accedir-hi amb un sol enllaç.
-            </p>
+        <article class="card-item">
+          <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+            <div style="width:72px; height:72px; flex:0 0 72px; display:flex; align-items:center; justify-content:center; background:#fff; border:1px solid var(--border-color); border-radius:var(--radius-md); overflow:hidden;">
+              <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="56" height="56" alt="" loading="lazy" style="display:block; width:56px; height:56px; object-fit:contain;">
+            </div>
+            <div>
+              <div style="font-size:.8rem; color:var(--accent-secondary); font-weight:700; margin-bottom:.15rem;">Conservar i publicar</div>
+              <h3 style="margin-bottom:0;"><a href="bloc3-github.html">GitHub</a></h3>
+            </div>
           </div>
-        </div>
+          <p>
+            S'ha triat perquè els mateixos fitxers es poden desar en un repositori amb historial de versions i publicar amb <a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> sense convertir-los a un format propietari. L'alumnat accedeix al resultat amb un enllaç i no necessita un compte de GitHub.
+          </p>
+          <p style="margin-top:.85rem;">
+            <strong>En aquest taller</strong> continuem amb la mateixa carpeta creada a Antigravity. Als equips PEDC, el recorregut no depèn d'instal·lar Git: la primera pujada es pot fer amb un token <em>fine-grained</em> temporal i restringit al repositori de la pràctica.
+          </p>
+        </article>
+      </div>
+
+      <div class="pedagogical-highlight" style="margin-top:1.5rem; margin-bottom:0;">
+        <strong>La combinació és intencionada.</strong> Antigravity s'ocupa de la creació local i GitHub de la publicació. El recurs final continua format per fitxers web estàndard, de manera que el material no queda lligat a l'assistent d'IA amb què s'ha creat.
       </div>
 
       <div style="margin-top: 2rem; padding: 1.15rem; background: var(--bg-subtle); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
@@ -166,6 +186,10 @@
         <ul style="padding-left: 1.25rem; font-size: 0.875rem; color: var(--text-muted); line-height: 1.7;">
           <li><a href="https://www.termcat.cat/ca/cercaterm/fitxa/NDg4MDA2NA%3D%3D" target="_blank" rel="noopener">Fitxa del TERMCAT: programació per intenció (vibe coding)</a></li>
           <li><a href="https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html" target="_blank" rel="noopener">Guia de <em>vibe coding</em> responsable (Juan José de Haro, en català)</a></li>
+          <li><a href="https://www.antigravity.google/docs/ide/overview/" target="_blank" rel="noopener">Google Antigravity: funcionament de l'entorn agentiu</a></li>
+          <li><a href="https://antigravity.google/press" target="_blank" rel="noopener">Google Antigravity: recursos oficials de marca</a></li>
+          <li><a href="https://brand.github.com/foundations/logo" target="_blank" rel="noopener">GitHub Brand Toolkit: logotip i pautes d'ús</a></li>
+          <li><a href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages: publicació de llocs web des d'un repositori</a></li>
           <li><a href="https://projectes.xtec.cat/digital/equipaments-i-infraestructures/ordinadors/ordinadors-docents/" target="_blank" rel="noopener">Equipaments i ordinadors docents del PEDC (Generalitat de Catalunya)</a></li>
           <li><a href="https://xtec.gencat.cat/ca/curriculum/diversitat-i-inclusio/projectes-educatius-inclusius/disseny-universal-per-a-laprenentatge/" target="_blank" rel="noopener">Orientacions DUA per a una educació inclusiva (Departament d'Educació)</a></li>
         </ul>
