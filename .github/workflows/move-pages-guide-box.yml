@@ -19,33 +19,23 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-
           path = Path('bloc3-github.html')
           text = path.read_text(encoding='utf-8')
-
-          box = '''      <div style="margin-top: 1rem; margin-bottom: 2rem; padding: 0.85rem 1.15rem; background: var(--bg-subtle); border-radius: var(--radius-md); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
-        <span style="font-size: 0.875rem; color: var(--text-main); display: inline-flex; align-items: center; gap: 0.45rem;">
-          <i data-lucide="book-open-check" style="width: 20px; height: 20px; flex: 0 0 auto; color: var(--accent-primary);"></i>
-          <span><strong>Necessiteu veure els passos amb més detall?</strong> Guia oficial de GitHub per configurar l'origen de publicació del vostre lloc amb GitHub Pages.</span>
-        </span>
-        <a href="https://docs.github.com/es/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site" target="_blank" rel="noopener" style="font-size: 0.825rem; font-weight: 600; color: var(--accent-primary); text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem;">
-          <span>Obrir la guia oficial de GitHub</span> ↗
-        </a>
-      </div>'''
-
-          if box not in text:
-              raise SystemExit('GitHub Pages guide box not found')
-          text = text.replace(box + '\n\n', '', 1)
-
-          anchor = '''            <span class="step-tip">Resultat: en un o dos minuts, GitHub us mostrarà l'adreça web pública del vostre recurs: <code>https://el-vostre-usuari.github.io/nom-del-repositori/</code>. Aquest enllaç és permanent i disposa de connexió segura (HTTPS).</span>
-          </div>
-        </div>
-      </div>'''
-
-          if anchor not in text:
-              raise SystemExit('End of GitHub Pages step 3 not found')
-
-          text = text.replace(anchor, anchor + '\n\n' + box, 1)
+          href = 'https://docs.github.com/es/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site'
+          href_pos = text.index(href)
+          start_marker = '      <div style="margin-top: 1rem; margin-bottom: 2rem;'
+          start = text.rfind(start_marker, 0, href_pos)
+          if start < 0:
+              raise SystemExit('Guide box start not found')
+          end_marker = '\n      </div>'
+          end = text.index(end_marker, href_pos) + len(end_marker)
+          box = text[start:end]
+          text = text[:start] + text[end:]
+          anchor = 'Resultat: en un o dos minuts, GitHub us mostrarà l\'adreça web pública del vostre recurs:'
+          anchor_pos = text.index(anchor)
+          closing = '\n          </div>\n        </div>\n      </div>'
+          insert_at = text.index(closing, anchor_pos) + len(closing)
+          text = text[:insert_at] + '\n\n' + box + text[insert_at:]
           path.write_text(text, encoding='utf-8')
           PY
       - name: Commit changes
