@@ -1,5 +1,23 @@
 /* Carrega la funcionalitat compartida del lloc. */
 (() => {
+  /* Numeració automàtica per a la impressió i l'exportació a PDF.
+     Els navegadors Chromium moderns admeten caixes de marge dins de @page. */
+  const printPageNumberStyle = document.createElement('style');
+  printPageNumberStyle.id = 'print-page-numbering';
+  printPageNumberStyle.media = 'print';
+  printPageNumberStyle.textContent = `
+    @page {
+      @bottom-right {
+        content: counter(page);
+        color: #94a3b8;
+        font-family: Arial, sans-serif;
+        font-size: 9pt;
+        font-weight: 400;
+      }
+    }
+  `;
+  document.head.appendChild(printPageNumberStyle);
+
   const script = document.createElement('script');
   script.src = 'site-core.js?v=3';
   script.onload = () => {
