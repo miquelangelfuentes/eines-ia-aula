@@ -10,6 +10,24 @@ Aquest fitxer documenta els recursos de tercers que el lloc conserva localment p
 - **Text de llicència:** `assets/vendor/lucide/LICENSE`
 - **Projecte:** https://lucide.dev/
 
+## LobeHub Icons
+
+- **Llicència:** MIT
+- **Fitxers locals:** `assets/images/logos/antigravity.svg` i `assets/images/logos/codex.svg`
+- **Text de llicència:** `assets/vendor/lobehub-icons/LICENSE`
+- **Projecte:** https://github.com/lobehub/lobe-icons
+
+Els SVG identifiquen serveis de tercers dins d’una comparació informativa. La llicència MIT de la biblioteca cobreix els fitxers distribuïts, però no transfereix drets sobre les marques Google Antigravity o OpenAI Codex. El seu ús aquí no implica patrocini ni aval.
+
+## Bootstrap Icons
+
+- **Llicència:** MIT
+- **Fitxer local:** `assets/images/logos/claude.svg`
+- **Text de llicència:** `assets/vendor/bootstrap-icons/LICENSE`
+- **Projecte:** https://icons.getbootstrap.com/
+
+La icona `claude` de Bootstrap Icons s’utilitza únicament per identificar Claude Code dins de la comparació. Claude i les marques relacionades pertanyen als seus titulars. Aquest ús no implica patrocini ni aval.
+
 ## Fotografies d’Unsplash
 
 Les còpies locals següents es distribueixen d’acord amb la llicència d’Unsplash. L’atribució no és un requisit general de la llicència, però es manté com a bona pràctica educativa i per preservar la traçabilitat de cada recurs.
