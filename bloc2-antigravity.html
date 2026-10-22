@@ -481,10 +481,10 @@ Si us plau, segueix aquestes instruccions:
     <!-- Caixa 3: Comparació de Google Antigravity amb OpenAI Codex i Claude Code -->
     <div class="content-box">
       <h2>Comparació: Google Antigravity, OpenAI Codex i Claude Code d'Anthropic</h2>
-      <p class="lead-desc">Com es posiciona Antigravity respecte a altres eines líders de generació de codi amb intel·ligència artificial des de la perspectiva educativa</p>
+      <p class="lead-desc">Tres agents de desenvolupament potents, amb diferències sobretot en la interfície i en la manera de supervisar el treball</p>
 
       <div class="pedagogical-highlight">
-        El desenvolupament assistit per intel·ligència artificial ha evolucionat en diverses direccions. Mentre que algunes eines han estat creades per a enginyers de programari habituats a la consola o a editors tradicionals, <strong>Google Antigravity</strong> s'estructura com un entorn integrat orientat a la creació autònoma d'aplicacions completes mitjançant diàleg en llenguatge natural, cosa que el converteix en l'opció més accessible per a l'aula.
+        Avui les diferències no passen per separar una eina visual de dues eines de terminal. <strong>Antigravity, Codex i Claude Code</strong> poden actuar sobre projectes i ofereixen superfícies gràfiques. En aquesta formació triem Antigravity perquè el recorregut que proposem manté el docent en un flux visual: obriu una carpeta i formuleu la indicació; després reviseu l'acció de l'agent i comproveu el resultat.
       </div>
 
       <div class="table-responsive">
@@ -492,86 +492,94 @@ Si us plau, segueix aquestes instruccions:
           <thead>
             <tr>
               <th style="width: 22%;">Eina</th>
-              <th style="width: 26%;">Format i interfície</th>
-              <th style="width: 28%;">Punts forts pedagògics</th>
-              <th style="width: 24%;">Consideracions d'aula</th>
+              <th style="width: 27%;">Format i interfície</th>
+              <th style="width: 27%;">Què permet fer</th>
+              <th style="width: 24%;">Consideracions per a la formació</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>
-                <strong><a href="https://antigravity.google" target="_blank" rel="noopener">Google Antigravity</a></strong><br>
-                <small style="color:var(--text-muted);">(Google DeepMind)</small>
+                <strong><a href="https://antigravity.google/docs/overview" target="_blank" rel="noopener">Google Antigravity</a></strong><br>
+                <small style="color:var(--text-muted);">(Google)</small>
               </td>
               <td>
-                <span class="badge-feature badge-positive">Entorn gràfic integrat (IDE)</span><br>
-                Aplicació d'escriptori que integra els agents autònoms i la previsualització interactiva al mateix espai de treball.
+                <span class="badge-feature badge-positive">App, IDE, extensions i CLI</span><br>
+                Google ofereix una aplicació d'escriptori independent, l'Antigravity IDE i extensions per a editors, a més d'una interfície de terminal.
               </td>
               <td>
                 <ul style="padding-left:1.15rem;margin:0.25rem 0;font-size:0.875rem;line-height:1.55;color:var(--text-muted);">
-                  <li>Interacció en llenguatge natural sense necessitat de tocar la línia d'ordres.</li>
-                  <li>Capacitat multimodal dels models <a href="https://deepmind.google/technologies/gemini/" target="_blank" rel="noopener">Gemini</a> (llegeix imatges i diagrames didàctics).</li>
-                  <li>Genera projectes web complets (HTML, CSS i JS) llestos per funcionar.</li>
+                  <li>Treballa directament sobre carpetes i projectes locals.</li>
+                  <li>Mostra plans, canvis i artefactes visuals per revisar què farà l'agent.</li>
+                  <li>Pot utilitzar el navegador per comprovar interfícies i executar tasques web.</li>
+                  <li>Permet canviar de model; les opcions disponibles depenen del compte i del pla.</li>
                 </ul>
               </td>
               <td>
-                <span class="badge-feature badge-positive">Idoni per a docents</span><br>
-                S'instal·la al perfil local als portàtils del PEDC sense necessitat de permisos d'administrador. Accés directe amb el compte educatiu de Google.
+                <span class="badge-feature badge-positive">Eina triada al taller</span><br>
+                La tria respon al flux visual que seguim durant la formació. Els comptes XTEC poden mostrar un catàleg de models diferent del que apareix en altres comptes de Google.
               </td>
             </tr>
             <tr>
               <td>
-                <strong><a href="https://openai.com" target="_blank" rel="noopener">OpenAI Codex</a></strong><br>
-                <small style="color:var(--text-muted);">(OpenAI / GitHub Copilot)</small>
+                <strong><a href="https://openai.com/codex/" target="_blank" rel="noopener">OpenAI Codex</a></strong><br>
+                <small style="color:var(--text-muted);">(OpenAI)</small>
               </td>
               <td>
-                <span class="badge-feature" style="background:var(--bg-subtle);border:1px solid var(--border-color);color:var(--text-main);">Extensió per a editors de codi</span><br>
-                S'integra com a complement dins d'entorns de desenvolupament tradicionals (com Visual Studio Code o JetBrains) o via API.
+                <span class="badge-feature" style="background:var(--bg-subtle);border:1px solid var(--border-color);color:var(--text-main);">ChatGPT, IDE, CLI i núvol</span><br>
+                Codex es pot utilitzar des de l'aplicació de ChatGPT, des de l'extensió per a VS Code o des del terminal. També permet delegar tasques al núvol.
               </td>
               <td>
                 <ul style="padding-left:1.15rem;margin:0.25rem 0;font-size:0.875rem;line-height:1.55;color:var(--text-muted);">
-                  <li>Excel·lent autocompletat mentre s'escriu codi línia a línia.</li>
-                  <li>Gran rapidesa a l'hora de suggerir funcions petites i tancar etiquetes.</li>
-                  <li>Molt consolidat en la indústria del desenvolupament de programari.</li>
+                  <li>Modifica diversos fitxers d'un projecte a partir d'una petició en llenguatge natural.</li>
+                  <li>Pot executar eines del projecte i comprovar els canvis que produeix.</li>
+                  <li>Permet treballar amb diversos agents i revisar les diferències abans d'acceptar-les.</li>
+                  <li>Comparteix el mateix agent entre ChatGPT, l'editor i el terminal.</li>
                 </ul>
               </td>
               <td>
-                <span class="badge-feature badge-negative">Requereix coneixements previs</span><br>
-                Pensat per a qui ja programa. No és un entorn autònom per a principiants i normalment requereix subscripció (tot i que GitHub Education ofereix accés gratuït a professorat verificat).
+                <span class="badge-feature" style="background:var(--bg-subtle);border:1px solid var(--border-color);color:var(--text-main);">Alternativa visual</span><br>
+                Ja no és un simple autocompletador i no forma part de GitHub Copilot. La interfície gràfica redueix molt la barrera d'entrada, tot i que alguns fluxos fan més visibles conceptes de Git i de repositoris. L'accés depèn del pla de ChatGPT.
               </td>
             </tr>
             <tr>
               <td>
-                <strong><a href="https://claude.ai" target="_blank" rel="noopener">Claude Code</a></strong><br>
+                <strong><a href="https://claude.com/product/claude-code" target="_blank" rel="noopener">Claude Code</a></strong><br>
                 <small style="color:var(--text-muted);">(Anthropic)</small>
               </td>
               <td>
-                <span class="badge-feature badge-negative">Línia d'ordres pura (CLI / Terminal)</span><br>
-                Agent autònom que s'executa a la consola de text del sistema operatiu (PowerShell o terminal Bash).
+                <span class="badge-feature" style="background:var(--bg-subtle);border:1px solid var(--border-color);color:var(--text-main);">Escriptori, IDE, web i terminal</span><br>
+                Claude Code està disponible a l'aplicació d'escriptori, al terminal i al web. També s'integra amb VS Code i JetBrains.
               </td>
               <td>
                 <ul style="padding-left:1.15rem;margin:0.25rem 0;font-size:0.875rem;line-height:1.55;color:var(--text-muted);">
-                  <li>Extraordinari raonament lògic i resolució d'errors complexes gràcies als models Claude Sonnet.</li>
-                  <li>Modifica repositoris sencers i executa tasques del sistema automàticament.</li>
+                  <li>Treballa sobre bases de codi i pot modificar fitxers de manera agentiva.</li>
+                  <li>Executa ordres i comprova els resultats abans de donar una tasca per acabada.</li>
+                  <li>Des de l'escriptori permet revisar canvis locals i previsualitzar servidors en execució.</li>
+                  <li>Les sessions al núvol permeten delegar feina sense mantenir el terminal obert.</li>
                 </ul>
               </td>
               <td>
-                <span class="badge-feature badge-negative">Barrera tècnica elevada</span><br>
-                Manca d'interfície visual: cal dominar comandes de consola. Requereix configurar credencials d'API de pagament d'Anthropic i permisos avançats al sistema.
+                <span class="badge-feature" style="background:var(--bg-subtle);border:1px solid var(--border-color);color:var(--text-main);">Alternativa visual</span><br>
+                El terminal continua sent una opció potent, però ja no és l'única via d'entrada. Amb una subscripció compatible es pot iniciar sessió amb el compte de Claude, sense haver de configurar necessàriament una clau d'API.
               </td>
             </tr>
           </tbody>
         </table>
       </div>
 
+      <p style="margin-top: 0.8rem; color: var(--text-muted); font-size: 0.82rem; line-height: 1.55;">
+        Les funcions i les modalitats d'accés evolucionen ràpidament. Aquesta taula compara sobretot l'experiència de treball que és rellevant per al taller, no estableix una classificació de la qualitat dels models.
+      </p>
+
       <div class="cards-grid" style="margin-top: 1.5rem;">
         <div class="card-item">
           <div class="card-item-icon">
             <i data-lucide="zap"></i>
           </div>
-          <h3>Per què triem Google Antigravity per a la formació docent?</h3>
+          <h3>Per què triem Google Antigravity per a aquesta formació?</h3>
           <p>
-            Antigravity elimina la barrera del codi sense amagar la realitat dels fitxers. Permet que qualsevol docent pugui veure com es construeix l'aplicació interactiva i provar-la directament a la seva carpeta.
+            Antigravity no és l'única opció accessible. El triem perquè el flux del taller es pot seguir de manera visual, mantenint visibles la carpeta del projecte i les decisions de l'agent. Això permet centrar la sessió en el disseny del recurs i no en aprendre una interfície de desenvolupament concreta.
           </p>
         </div>
 
@@ -579,9 +587,9 @@ Si us plau, segueix aquestes instruccions:
           <div class="card-item-icon">
             <i data-lucide="graduation-cap"></i>
           </div>
-          <h3>Quin paper tenen Codex i Claude Code?</h3>
+          <h3>I si ja feu servir Codex o Claude Code?</h3>
           <p>
-            Són eines molt útils per a la docència d'informàtica o cicles de desenvolupament de programari. Per a la creació de recursos pedagògics generals a primària i secundària, l'entorn visual d'Antigravity resulta molt més directe i acollidor.
+            Podeu aplicar-hi gairebé el mateix procés de treball. Totes dues alternatives poden rebre una indicació en llenguatge natural i modificar un projecte existent. Canvien sobretot la interfície i els controls de supervisió; l'accés també depèn del compte.
           </p>
         </div>
       </div>
