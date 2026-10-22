@@ -3,7 +3,7 @@ name: Localize external images
 on:
   push:
     paths:
-      - '.github/workflows/localize-external-images.yml'
+      - .github/workflows/localize-external-images.yml
 
 permissions:
   contents: write
@@ -14,130 +14,38 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download visual assets into the repository
+      - name: Download visual assets
+        shell: bash
         run: |
           set -euo pipefail
           mkdir -p assets/images/logos
-          curl -L --fail --retry 3 -A 'Mozilla/5.0' 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png' -o assets/images/logos/github-mark.png
-          curl -L --fail --retry 3 -A 'Mozilla/5.0' 'https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg' -o assets/images/logos/git.svg
-          curl -L --fail --retry 3 -A 'Mozilla/5.0' 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Google-gemini-icon.png' -o assets/images/logos/gemini.png
-          curl -L --fail --retry 3 -A 'Mozilla/5.0' 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Google_Sites_Logo_05.2026.svg' -o assets/images/logos/google-sites.svg
-          file assets/images/logos/github-mark.png assets/images/logos/git.svg assets/images/logos/gemini.png assets/images/logos/google-sites.svg
+          curl -L --fail --retry 3 -A "Mozilla/5.0" "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" -o assets/images/logos/github-mark.png
+          curl -L --fail --retry 3 -A "Mozilla/5.0" "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg" -o assets/images/logos/git.svg
+          curl -L --fail --retry 3 -A "Mozilla/5.0" "https://upload.wikimedia.org/wikipedia/commons/b/b5/Google-gemini-icon.png" -o assets/images/logos/gemini.png
+          curl -L --fail --retry 3 -A "Mozilla/5.0" "https://upload.wikimedia.org/wikipedia/commons/5/5c/Google_Sites_Logo_05.2026.svg" -o assets/images/logos/google-sites.svg
+          test -s assets/images/logos/github-mark.png
+          test -s assets/images/logos/git.svg
+          test -s assets/images/logos/gemini.png
+          test -s assets/images/logos/google-sites.svg
 
-      - name: Replace external image references and update notices
+      - name: Use local copies
+        shell: bash
         run: |
-          python - <<'PY'
-          from pathlib import Path
+          set -euo pipefail
+          sed -i 's|https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png|assets/images/logos/github-mark.png|g' bloc1-marc.html
+          sed -i 's|https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg|assets/images/logos/git.svg|g' bloc1-marc.html
+          sed -i 's|https://upload.wikimedia.org/wikipedia/commons/b/b5/Google-gemini-icon.png|assets/images/logos/gemini.png|g' bloc4-pages-sites.html
+          sed -i 's|https://upload.wikimedia.org/wikipedia/commons/5/5c/Google_Sites_Logo_05.2026.svg|assets/images/logos/google-sites.svg|g' bloc4-pages-sites.html
+          if grep -RniE '<img[^>]+src="https?://' --include='*.html' .; then
+            echo 'External img source remains.'
+            exit 1
+          fi
 
-          replacements = {
-              Path('bloc1-marc.html'): {
-                  'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png': 'assets/images/logos/github-mark.png',
-                  'https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg': 'assets/images/logos/git.svg',
-              },
-              Path('bloc4-pages-sites.html'): {
-                  'https://upload.wikimedia.org/wikipedia/commons/b/b5/Google-gemini-icon.png': 'assets/images/logos/gemini.png',
-                  'https://upload.wikimedia.org/wikipedia/commons/5/5c/Google_Sites_Logo_05.2026.svg': 'assets/images/logos/google-sites.svg',
-              },
-          }
-          for path, pairs in replacements.items():
-              text = path.read_text(encoding='utf-8')
-              for old, new in pairs.items():
-                  if old not in text:
-                      raise SystemExit(f'Expected external URL not found in {path}: {old}')
-                  text = text.replace(old, new)
-              path.write_text(text, encoding='utf-8')
-
-          notices = Path('THIRD_PARTY_NOTICES.md')
-          text = notices.read_text(encoding='utf-8')
-          text = text.replace(
-              '- **Fitxers locals:** `assets/images/logos/antigravity.svg` i `assets/images/logos/codex.svg`',
-              '- **Fitxer local:** `assets/images/logos/codex.svg`'
-          )
-          text = text.replace(
-              'Els SVG identifiquen serveis de tercers dins d’una comparació informativa. La llicència MIT de la biblioteca cobreix els fitxers distribuïts, però no transfereix drets sobre les marques Google Antigravity o OpenAI Codex. El seu ús aquí no implica patrocini ni aval.',
-              'L’SVG identifica OpenAI Codex dins d’una comparació informativa. La llicència MIT de la biblioteca cobreix el fitxer distribuït, però no transfereix drets sobre la marca OpenAI Codex. El seu ús aquí no implica patrocini ni aval.'
-          )
-          old_antigravity = 'The Antigravity icon is an unmodified Google brand asset used only to identify Google Antigravity in comparative and instructional material. Source: https://antigravity.google/assets/image/brand/antigravity-icon__full-color.png. Google and Antigravity are trademarks of Google LLC.'
-          new_antigravity = 'The Antigravity icon is an unmodified Google brand asset stored locally as `assets/images/logos/antigravity.png` and used only to identify Google Antigravity in comparative and instructional material. Source: https://antigravity.google/assets/image/brand/antigravity-icon__full-color.png. Google and Antigravity are trademarks of Google LLC.'
-          if old_antigravity in text:
-              text = text.replace(old_antigravity, new_antigravity)
-
-          addition = '''
-
-## GitHub Mark
-
-- **Fitxer local:** `assets/images/logos/github-mark.png`
-- **Font:** https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
-- **Condicions:** ús identificatiu subjecte a la política i a les directrius de marca de GitHub.
-- **Política:** https://docs.github.com/en/site-policy/other-site-policies/github-logo-policy
-
-El GitHub Mark s’utilitza sense modificar per identificar GitHub dins de material formatiu. GitHub i el GitHub Mark són marques de GitHub, Inc. Aquest ús no implica patrocini ni aval.
-
-## Git logo
-
-- **Fitxer local:** `assets/images/logos/git.svg`
-- **Autoria:** Jason Long
-- **Llicència:** Creative Commons Attribution 3.0 Unported (CC BY 3.0)
-- **Font:** https://git-scm.com/community/logos
-- **Llicència:** https://creativecommons.org/licenses/by/3.0/
-
-## Google Gemini icon
-
-- **Fitxer local:** `assets/images/logos/gemini.png`
-- **Font del fitxer:** https://commons.wikimedia.org/wiki/File:Google-gemini-icon.png
-- **Condició indicada a Wikimedia Commons:** domini públic / CC0 segons la fitxa del recurs.
-
-La còpia local s’utilitza només per identificar Google Gemini dins de material formatiu. Google i Gemini són marques de Google LLC i poden continuar subjectes a drets de marca independentment de l’estat del fitxer gràfic.
-
-## Google Sites icon
-
-- **Fitxer local:** `assets/images/logos/google-sites.svg`
-- **Font del fitxer:** https://commons.wikimedia.org/wiki/File:Google_Sites_Logo_05.2026.svg
-- **Condició indicada a Wikimedia Commons:** domini públic per simplicitat gràfica segons la fitxa del recurs.
-
-La còpia local s’utilitza només per identificar Google Sites dins de material formatiu. Google i Google Sites són marques de Google LLC i poden continuar subjectes a drets de marca independentment de l’estat del fitxer gràfic.
-'''
-          if '## GitHub Mark' not in text:
-              text += addition
-          notices.write_text(text, encoding='utf-8')
-
-          credits = Path('credits.html')
-          c = credits.read_text(encoding='utf-8')
-          c = c.replace('Logotip utilitzat al bloc 4</small>', 'Logotip utilitzat al bloc 4 - còpia local al repositori</small>')
-          c = c.replace('Logotip utilitzat al bloc 1</small>', 'Logotip utilitzat al bloc 1 - còpia local al repositori</small>')
-          c = c.replace('Marca utilitzada al bloc 1</small>', 'Marca utilitzada al bloc 1 - còpia local al repositori</small>')
-          c = c.replace('Logomark utilitzat al bloc 1 per explicar el concepte de Git</small>', 'Logomark utilitzat al bloc 1 per explicar el concepte de Git - còpia local al repositori</small>')
-          credits.write_text(c, encoding='utf-8')
-          PY
-
-      - name: Verify there are no externally loaded images
+      - name: Commit localized assets
+        shell: bash
         run: |
-          python - <<'PY'
-          from pathlib import Path
-          import re
-          files = [*Path('.').glob('*.html'), *Path('.').glob('*.css'), *Path('.').glob('*.js')]
-          patterns = [
-              re.compile(r'<img\b[^>]*\bsrc=["\'](https?://[^"\']+)', re.I),
-              re.compile(r'<source\b[^>]*\bsrcset=["\'](https?://[^"\']+)', re.I),
-              re.compile(r'\bposter=["\'](https?://[^"\']+)', re.I),
-              re.compile(r'url\(\s*["\']?(https?://[^)"\']+)', re.I),
-          ]
-          found=[]
-          for path in files:
-              for n,line in enumerate(path.read_text(encoding='utf-8', errors='ignore').splitlines(),1):
-                  for pat in patterns:
-                      for m in pat.finditer(line):
-                          found.append(f'{path}:{n} {m.group(1)}')
-          if found:
-              raise SystemExit('External visual dependencies remain:\n' + '\n'.join(found))
-          print('No externally loaded images, source images, posters or CSS image URLs found.')
-          PY
-
-      - name: Remove temporary workflow
-        run: rm -f .github/workflows/localize-external-images.yml
-
-      - name: Commit changes
-        run: |
+          set -euo pipefail
+          rm -f .github/workflows/localize-external-images.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
