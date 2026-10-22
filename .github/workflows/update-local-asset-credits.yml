@@ -1,0 +1,43 @@
+name: Update local asset credit labels
+
+on:
+  push:
+    paths:
+      - .github/workflows/update-local-asset-credits.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Mark locally stored brand assets in credits
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('credits.html')
+          s = p.read_text(encoding='utf-8')
+          pairs = {
+            'Logotip utilitzat al bloc 4</small>': 'Logotip utilitzat al bloc 4 - còpia local al repositori</small>',
+            'Logotip utilitzat al bloc 1</small>': 'Logotip utilitzat al bloc 1 - còpia local al repositori</small>',
+            'Marca utilitzada al bloc 1</small>': 'Marca utilitzada al bloc 1 - còpia local al repositori</small>',
+            'Logomark utilitzat al bloc 1 per explicar el concepte de Git</small>': 'Logomark utilitzat al bloc 1 per explicar el concepte de Git - còpia local al repositori</small>',
+          }
+          for old, new in pairs.items():
+              s = s.replace(old, new)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/update-local-asset-credits.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "docs: note local copies of brand assets"
+          git push
