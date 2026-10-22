@@ -1,0 +1,40 @@
+name: Localize agent logos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/localize-agent-logos.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace external logo URLs with local assets
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('bloc2-antigravity.html')
+          s = p.read_text(encoding='utf-8')
+          replacements = {
+              'https://antigravity.google/assets/image/brand/antigravity-icon__full-color.png': 'assets/images/logos/antigravity.svg',
+              'https://cdn.simpleicons.org/openai/000000': 'assets/images/logos/codex.svg',
+              'https://cdn.simpleicons.org/claude/D97757': 'assets/images/logos/claude.svg',
+          }
+          for old, new in replacements.items():
+              if old not in s:
+                  raise SystemExit(f'Expected logo URL not found: {old}')
+              s = s.replace(old, new)
+          p.write_text(s, encoding='utf-8')
+          PY
+          rm .github/workflows/localize-agent-logos.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bloc2-antigravity.html .github/workflows/localize-agent-logos.yml
+          git commit -m "fix: serve agent logos locally"
+          git push
