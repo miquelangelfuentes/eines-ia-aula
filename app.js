@@ -1,7 +1,7 @@
 /* Carrega la funcionalitat compartida del lloc. */
 (() => {
   const script = document.createElement('script');
-  script.src = 'site-core.js?v=2';
+  script.src = 'site-core.js?v=3';
   script.onload = () => {
     const start = () => initSite();
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
