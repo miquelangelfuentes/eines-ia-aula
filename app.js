@@ -11,7 +11,7 @@
         accessTitle.style.display = 'flex';
         accessTitle.style.alignItems = 'center';
         accessTitle.style.gap = '0.5rem';
-        accessTitle.insertAdjacentHTML('afterbegin', '<i data-lucide="qr-code" aria-hidden="true" style="width:22px;height:22px;color:var(--accent-primary);flex:0 0 22px;"></i>');
+        accessTitle.insertAdjacentHTML('afterbegin', '<i data-lucide="smartphone" aria-hidden="true" style="width:22px;height:22px;color:var(--accent-primary);flex:0 0 22px;"></i>');
         window.lucide?.createIcons();
       }
     };
