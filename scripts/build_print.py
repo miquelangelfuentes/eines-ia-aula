@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "imprimir-tot.html"
 
 SOURCES = [
+    ("inici", "Inici", "index.html"),
     ("bloc1", "Bloc 1", "bloc1-marc.html"),
     ("bloc2", "Bloc 2", "bloc2-antigravity.html"),
     ("bloc3", "Bloc 3", "bloc3-github.html"),
@@ -123,14 +124,18 @@ def build() -> str:
     for section in sections:
         content = namespace_duplicate_ids(section["content"], section["key"], duplicate_ids)
         content = prepare_print_content(content)
-        section_html.append(
-            f'''    <section class="print-block-section" id="dossier-{section["key"]}">
-      <div class="print-source-heading">
+
+        source_heading = ""
+        if section["key"] != "inici":
+            source_heading = f'''      <div class="print-source-heading">
         <span class="page-category-tag">{escape(section["label"])}</span>
         <h2>{escape(section["title"])}</h2>
         <p>Contingut sincronitzat automàticament des de <a href="{escape(section["filename"])}">{escape(section["filename"])}</a>.</p>
-      </div>
-      {content}
+      </div>\n'''
+
+        section_html.append(
+            f'''    <section class="print-block-section" id="dossier-{section["key"]}">
+{source_heading}      {content}
     </section>'''
         )
 
