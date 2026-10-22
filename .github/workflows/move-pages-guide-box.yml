@@ -15,8 +15,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Move guide box after step 3
-        shell: python
+        shell: bash
         run: |
+          python - <<'PY'
           from pathlib import Path
 
           path = Path('bloc3-github.html')
@@ -46,7 +47,7 @@ jobs:
 
           text = text.replace(anchor, anchor + '\n\n' + box, 1)
           path.write_text(text, encoding='utf-8')
-
+          PY
       - name: Commit changes
         shell: bash
         run: |
