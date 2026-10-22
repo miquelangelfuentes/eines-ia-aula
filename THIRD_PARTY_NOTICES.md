@@ -45,3 +45,8 @@ Les còpies locals següents es distribueixen d’acord amb la llicència d’Un
 - **inici-taller.jpg** - Sessió formativa i trobada en línia per a la creació col·laborativa de recursos digitals — Fotografia de Chris Montgomery a Unsplash (Llicència Unsplash). - https://unsplash.com/photos/smgTvepind4
 
 Llicència d’Unsplash: https://unsplash.com/license
+
+
+## Google Antigravity brand asset
+
+The Antigravity icon is an unmodified Google brand asset used only to identify Google Antigravity in comparative and instructional material. Source: https://antigravity.google/assets/image/brand/antigravity-icon__full-color.png. Google and Antigravity are trademarks of Google LLC.
