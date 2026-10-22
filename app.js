@@ -43,7 +43,7 @@
   ];
 
   const fallbackHeadingIcons = [
-    'sparkles',
+    'file-text',
     'compass',
     'layers',
     'pencil-ruler',
@@ -86,12 +86,12 @@
 
   const preferredIconForSectionHeading = (text) => {
     const match = sectionHeadingIconRules.find(([pattern]) => pattern.test(text));
-    return match?.[1] ?? 'sparkles';
+    return match?.[1] ?? 'file-text';
   };
 
   const nextUnusedIcon = (preferred, usedIcons) => {
     if (preferred && !usedIcons.has(preferred)) return preferred;
-    return fallbackHeadingIcons.find((icon) => !usedIcons.has(icon)) ?? preferred ?? 'sparkles';
+    return fallbackHeadingIcons.find((icon) => !usedIcons.has(icon)) ?? preferred ?? 'file-text';
   };
 
   const styleSectionHeading = (heading) => {
