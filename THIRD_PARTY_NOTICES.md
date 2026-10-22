@@ -13,11 +13,11 @@ Aquest fitxer documenta els recursos de tercers que el lloc conserva localment p
 ## LobeHub Icons
 
 - **Llicència:** MIT
-- **Fitxers locals:** `assets/images/logos/antigravity.svg` i `assets/images/logos/codex.svg`
+- **Fitxer local:** `assets/images/logos/codex.svg`
 - **Text de llicència:** `assets/vendor/lobehub-icons/LICENSE`
 - **Projecte:** https://github.com/lobehub/lobe-icons
 
-Els SVG identifiquen serveis de tercers dins d’una comparació informativa. La llicència MIT de la biblioteca cobreix els fitxers distribuïts, però no transfereix drets sobre les marques Google Antigravity o OpenAI Codex. El seu ús aquí no implica patrocini ni aval.
+L’SVG identifica OpenAI Codex dins d’una comparació informativa. La llicència MIT de la biblioteca cobreix el fitxer distribuït, però no transfereix drets sobre la marca OpenAI Codex. El seu ús aquí no implica patrocini ni aval.
 
 ## Bootstrap Icons
 
@@ -46,7 +46,41 @@ Les còpies locals següents es distribueixen d’acord amb la llicència d’Un
 
 Llicència d’Unsplash: https://unsplash.com/license
 
-
 ## Google Antigravity brand asset
 
-The Antigravity icon is an unmodified Google brand asset used only to identify Google Antigravity in comparative and instructional material. Source: https://antigravity.google/assets/image/brand/antigravity-icon__full-color.png. Google and Antigravity are trademarks of Google LLC.
+- **Fitxer local:** `assets/images/logos/antigravity.png`
+- **Font:** https://antigravity.google/assets/image/brand/antigravity-icon__full-color.png
+
+La icona d’Antigravity és un actiu de marca de Google sense modificar, utilitzat únicament per identificar Google Antigravity en material comparatiu i formatiu. Google i Antigravity són marques de Google LLC.
+
+## GitHub Mark
+
+- **Fitxer local:** `assets/images/logos/github-mark.png`
+- **Font:** https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+- **Política:** https://docs.github.com/en/site-policy/other-site-policies/github-logo-policy
+
+El GitHub Mark s’utilitza sense modificar per identificar GitHub dins de material formatiu. GitHub i el GitHub Mark són marques de GitHub, Inc. Aquest ús no implica patrocini ni aval.
+
+## Git logo
+
+- **Fitxer local:** `assets/images/logos/git.svg`
+- **Autoria:** Jason Long
+- **Llicència:** Creative Commons Attribution 3.0 Unported (CC BY 3.0)
+- **Font:** https://git-scm.com/community/logos
+- **Llicència:** https://creativecommons.org/licenses/by/3.0/
+
+## Google Gemini icon
+
+- **Fitxer local:** `assets/images/logos/gemini.png`
+- **Font del fitxer:** https://commons.wikimedia.org/wiki/File:Google-gemini-icon.png
+- **Condició indicada a Wikimedia Commons:** domini públic / CC0 segons la fitxa del recurs.
+
+La còpia local s’utilitza només per identificar Google Gemini dins de material formatiu. Google i Gemini són marques de Google LLC i poden continuar subjectes a drets de marca independentment de l’estat del fitxer gràfic.
+
+## Google Sites icon
+
+- **Fitxer local:** `assets/images/logos/google-sites.svg`
+- **Font del fitxer:** https://commons.wikimedia.org/wiki/File:Google_Sites_Logo_05.2026.svg
+- **Condició indicada a Wikimedia Commons:** domini públic per simplicitat gràfica segons la fitxa del recurs.
+
+La còpia local s’utilitza només per identificar Google Sites dins de material formatiu. Google i Google Sites són marques de Google LLC i poden continuar subjectes a drets de marca independentment de l’estat del fitxer gràfic.
