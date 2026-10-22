@@ -145,9 +145,11 @@
   script.src = 'site-core.js?v=3';
   script.onload = () => {
     const start = () => {
-      initSite();
+      /* Afegim i dedupliquem les icones abans que initSite() executi Lucide.
+         D'aquesta manera els <i data-lucide> existents encara es poden detectar
+         i no es crea una segona icona al mateix títol. */
       addSectionHeadingIcons();
-      window.lucide?.createIcons();
+      initSite();
     };
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
     else start();
