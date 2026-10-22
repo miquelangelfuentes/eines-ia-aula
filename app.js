@@ -42,30 +42,101 @@
     [/continuar|explorar|tutorial|vídeo|recursos/i, 'book-open'],
   ];
 
-  const iconForSectionHeading = (text) => {
+  const fallbackHeadingIcons = [
+    'sparkles',
+    'compass',
+    'layers',
+    'pencil-ruler',
+    'folder-tree',
+    'braces',
+    'code-2',
+    'mouse-pointer-click',
+    'rocket',
+    'settings-2',
+    'file-code-2',
+    'folder-code',
+    'badge-check',
+    'cloud',
+    'link',
+    'key-round',
+    'upload',
+    'history',
+    'share-2',
+    'network',
+    'file-check-2',
+    'library',
+    'palette',
+    'shapes',
+    'eye',
+    'keyboard',
+    'contrast',
+    'circle-check-big',
+    'list-checks',
+    'scan-search',
+    'microscope',
+    'database',
+    'cpu',
+    'server',
+    'laptop',
+    'package-open',
+    'boxes',
+    'plug',
+    'circle-help',
+  ];
+
+  const preferredIconForSectionHeading = (text) => {
     const match = sectionHeadingIconRules.find(([pattern]) => pattern.test(text));
     return match?.[1] ?? 'sparkles';
   };
 
+  const nextUnusedIcon = (preferred, usedIcons) => {
+    if (preferred && !usedIcons.has(preferred)) return preferred;
+    return fallbackHeadingIcons.find((icon) => !usedIcons.has(icon)) ?? preferred ?? 'sparkles';
+  };
+
+  const styleSectionHeading = (heading) => {
+    heading.style.display = 'flex';
+    heading.style.alignItems = 'center';
+    heading.style.gap = '0.6rem';
+  };
+
   const addSectionHeadingIcons = () => {
+    const usedIcons = new Set();
+
     document.querySelectorAll('h2').forEach((heading) => {
       if (heading.closest('.print-source-heading')) return;
-      if (heading.querySelector('[data-lucide]')) return;
 
       const text = heading.textContent.trim();
       if (!text) return;
 
+      const existingIcon = heading.querySelector('[data-lucide]');
+      if (existingIcon) {
+        const currentIcon = existingIcon.getAttribute('data-lucide');
+        if (currentIcon && !usedIcons.has(currentIcon)) {
+          usedIcons.add(currentIcon);
+          styleSectionHeading(heading);
+          return;
+        }
+
+        const replacement = nextUnusedIcon(preferredIconForSectionHeading(text), usedIcons);
+        existingIcon.setAttribute('data-lucide', replacement);
+        usedIcons.add(replacement);
+        styleSectionHeading(heading);
+        return;
+      }
+
+      const iconName = nextUnusedIcon(preferredIconForSectionHeading(text), usedIcons);
+      usedIcons.add(iconName);
+
       const icon = document.createElement('i');
-      icon.setAttribute('data-lucide', iconForSectionHeading(text));
+      icon.setAttribute('data-lucide', iconName);
       icon.setAttribute('aria-hidden', 'true');
       icon.style.width = '24px';
       icon.style.height = '24px';
       icon.style.color = 'var(--accent-primary)';
       icon.style.flex = '0 0 24px';
 
-      heading.style.display = 'flex';
-      heading.style.alignItems = 'center';
-      heading.style.gap = '0.6rem';
+      styleSectionHeading(heading);
       heading.prepend(icon);
     });
   };
