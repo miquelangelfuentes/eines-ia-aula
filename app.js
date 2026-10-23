@@ -32,6 +32,7 @@
     [/google sites|\bsites\b/i, 'panel-left'],
     [/pages|publica|despleg|web pública/i, 'globe'],
     [/comparaci|alternatives|diferències/i, 'columns-2'],
+    [/citar|citaci[oó]|tasl/i, 'quote'],
     [/llic[eè]nc|creative commons|copyright|drets/i, 'scale'],
     [/imatg|icona|visual/i, 'image'],
     [/accessibilitat|\bdua\b/i, 'accessibility'],
@@ -516,6 +517,22 @@
         mainHeading.after(lead);
       }
     }
+
+    const promoteBloc6SectionHeading = (text) => {
+      const heading = [...document.querySelectorAll('h3')]
+        .find((item) => item.textContent.trim() === text);
+      if (!heading) return;
+
+      const h2 = document.createElement('h2');
+      h2.id = heading.id;
+      h2.className = heading.className;
+      h2.style.cssText = heading.style.cssText;
+      while (heading.firstChild) h2.appendChild(heading.firstChild);
+      heading.replaceWith(h2);
+    };
+
+    promoteBloc6SectionHeading("Bancs d'imatges reals creades per persones");
+    promoteBloc6SectionHeading("Com citar adequadament a peu d'imatge: la regla TASL");
 
     const note = practice.querySelector('.infographic-note');
     if (note) {
