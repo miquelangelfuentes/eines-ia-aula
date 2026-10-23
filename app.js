@@ -272,7 +272,7 @@ El component ha de tenir el fons exterior transparent. Les capses, el text i les
 
 Mostra'm primer el resultat en HTML i CSS i atura't aquí. Vull revisar el contingut, la jerarquia i la composició abans de convertir-lo en imatge.
 
-Quan et confirmi que la versió està validada i et demani l'exportació, no redissenyis ni reinterpretis la infografia. Renderitza fidelment l'HTML i el CSS aprovats, incloses les icones SVG de Lucide. Exporta només el component de la infografia a PNG amb transparència real, sense marges innecessaris, text tallat ni solapaments.`;
+Quan et confirmi que la versió està validada i et demani l'exportació, no redissenyis ni reinterpretis la infografia. Renderitza fidelment l'HTML i el CSS aprovats, incloses les icones SVG de Lucide. Exporta només el component de la infografia a PNG amb transparència real, sense marges innecessaris, text tallat ni encavalcaments.`;
       }
     }
 
