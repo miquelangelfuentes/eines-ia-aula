@@ -157,6 +157,9 @@
         node = next;
       }
 
+      const firstTrailingElement = trailingBox.firstElementChild;
+      if (firstTrailingElement) firstTrailingElement.style.marginTop = '0';
+
       sourceBox.after(practice);
       practice.after(trailingBox);
     }
