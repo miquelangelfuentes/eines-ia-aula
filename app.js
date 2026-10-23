@@ -348,8 +348,8 @@
       heading.prepend(icon);
     };
 
-    addBloc6SubheadingIcon("Alternatives visuals més netes: emoji i biblioteques d'icones", 'shapes');
-    addBloc6SubheadingIcon("Bancs d'imatges reals creades per persones", 'images');
+    addBloc6SubheadingIcon("Alternatives visuals més netes: emoji i biblioteques d'icones", 'palette');
+    addBloc6SubheadingIcon("Bancs d'imatges reals creades per persones", 'camera');
 
     const promptBoxes = practice.querySelectorAll('.infographic-prompt-box');
     const promptHeadings = [...practice.querySelectorAll('h4')]
