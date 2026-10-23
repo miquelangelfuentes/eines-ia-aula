@@ -9,8 +9,8 @@
       strong.replaceWith(...strong.childNodes);
     });
 
-    const rows = [...codeChoiceTable.querySelectorAll('tbody tr')];
-    const apacheRow = rows.find(row => row.textContent.includes('Apache 2.0'));
+    const apacheRow = [...codeChoiceTable.querySelectorAll('tbody tr')]
+      .find(row => row.textContent.includes('Apache 2.0'));
     if (apacheRow) {
       const cells = apacheRow.querySelectorAll('td');
       cells[0].textContent = 'Una llicència permissiva que també cobreixi explícitament possibles patents dels contribuïdors';
@@ -23,6 +23,14 @@
     ?.closest('.card-item')
     ?.remove();
 
+  const contentHeading = [...document.querySelectorAll('h3')]
+    .find(heading => heading.textContent.trim() === 'Per a continguts');
+  const contentBox = contentHeading?.closest('.content-box');
+  const contentTableWrap = contentHeading?.nextElementSibling?.nextElementSibling;
+  const contentTable = contentTableWrap?.classList.contains('table-responsive')
+    ? contentTableWrap.querySelector('table')
+    : null;
+
   const ccIcons = {
     'https://creativecommons.org/licenses/by/4.0/deed.ca': ['assets/images/licenses/cc-by.svg', 'Badge oficial CC BY 4.0'],
     'https://creativecommons.org/licenses/by-sa/4.0/deed.ca': ['assets/images/licenses/cc-by-sa.svg', 'Badge oficial CC BY-SA 4.0'],
@@ -30,33 +38,29 @@
     'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca': ['assets/images/licenses/cc-by-nc-sa.svg', 'Badge oficial CC BY-NC-SA 4.0']
   };
 
-  Object.entries(ccIcons).forEach(([href, [src, alt]]) => {
-    const link = [...document.querySelectorAll('a[href]')].find(anchor => anchor.href === href);
-    if (!link || link.parentElement.querySelector('.cc-license-local-icon')) return;
-    const img = document.createElement('img');
-    img.src = src;
-    img.alt = alt;
-    img.className = 'cc-license-local-icon';
-    img.loading = 'lazy';
-    img.style.display = 'block';
-    img.style.height = '42px';
-    img.style.width = '120px';
-    img.style.marginTop = '.5rem';
-    link.insertAdjacentElement('afterend', img);
-  });
+  if (contentTable) {
+    Object.entries(ccIcons).forEach(([href, [src, alt]]) => {
+      const link = [...contentTable.querySelectorAll('a[href]')].find(anchor => anchor.href === href);
+      if (!link || link.parentElement.querySelector('.cc-license-local-icon')) return;
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = alt;
+      img.className = 'cc-license-local-icon';
+      img.loading = 'lazy';
+      img.style.display = 'block';
+      img.style.height = '42px';
+      img.style.width = '120px';
+      img.style.marginTop = '.5rem';
+      link.insertAdjacentElement('afterend', img);
+    });
+  }
 
-  const contentHeading = [...document.querySelectorAll('h3')]
-    .find(heading => heading.textContent.trim() === 'Per a continguts');
-  if (contentHeading) {
-    const contentBox = contentHeading.closest('.content-box');
-    const contentTable = contentHeading.nextElementSibling?.nextElementSibling;
-    if (contentTable?.classList.contains('table-responsive') && !contentBox.querySelector('.cc-more-link')) {
-      const linkWrap = document.createElement('div');
-      linkWrap.className = 'cc-more-link';
-      linkWrap.style.marginTop = '1rem';
-      linkWrap.innerHTML = '<a href="https://creativecommons.org/cc-licenses/" target="_blank" rel="noopener" class="resource-pill"><i data-lucide="external-link"></i> Saber-ne més sobre les llicències Creative Commons</a>';
-      contentTable.insertAdjacentElement('afterend', linkWrap);
-    }
+  if (contentTableWrap && contentBox && !contentBox.querySelector('.cc-more-link')) {
+    const linkWrap = document.createElement('div');
+    linkWrap.className = 'cc-more-link';
+    linkWrap.style.marginTop = '1rem';
+    linkWrap.innerHTML = '<a href="https://creativecommons.org/cc-licenses/" target="_blank" rel="noopener" class="resource-pill"><i data-lucide="external-link"></i> Saber-ne més sobre les llicències Creative Commons</a>';
+    contentTableWrap.insertAdjacentElement('afterend', linkWrap);
   }
 
   function addHighlightIcon(label, icon) {
@@ -71,13 +75,12 @@
 
   addHighlightIcon('Compte amb ND.', 'triangle-alert');
   addHighlightIcon('Una idea per orientar-vos.', 'lightbulb');
-  addHighlightIcon('Si el vostre projecte és una web educativa senzilla', 'globe');
 
   const simpleWebStrong = [...document.querySelectorAll('.pedagogical-highlight strong')]
     .find(node => node.textContent.includes('Si el vostre projecte és una web educativa senzilla'));
   if (simpleWebStrong) {
     const highlight = simpleWebStrong.closest('.pedagogical-highlight');
-    highlight.innerHTML = '<strong style="display:inline-flex;align-items:center;gap:.4rem;"><i data-lucide="globe" aria-hidden="true" style="width:18px;height:18px;flex:0 0 auto;"></i>Si el vostre projecte és una web educativa senzilla</strong>, podeu triar <strong>GNU GPL v3</strong> si voleu que les versions derivades que es distribueixin continuïn obertes, o <strong>MIT</strong> si preferiu facilitar-ne la reutilització amb poques obligacions.';
+    highlight.innerHTML = '<strong style="display:inline-flex;align-items:center;gap:.4rem;"><i data-lucide="globe" aria-hidden="true" style="width:18px;height:18px;flex:0 0 auto;"></i>Si el vostre projecte és una web educativa senzilla</strong>, podeu triar <strong>GNU GPL v3</strong> si voleu que les versions modificades que es distribueixin continuïn obertes, o <strong>MIT</strong> si preferiu facilitar-ne la reutilització amb poques obligacions.';
   }
 
   const questionHost = document.getElementById('license-quiz-question');
@@ -94,29 +97,29 @@
   const questions = {
     openness: {
       title: 'Si una altra persona modifica el vostre codi i el comparteix, què voldríeu que passés?',
-      context: 'No penseu encara en noms de llicències. Trieu la situació que s\'acosta més al que voleu permetre.',
+      context: 'No penseu encara en noms de llicències. Trieu la situació que s’acosta més al que voleu permetre.',
       options: [
-        ['strong', 'Vull que la versió derivada coberta continuï oberta amb les mateixes condicions.'],
-        ['files', 'Només necessito que els fitxers meus que es modifiquin continuïn oberts.'],
-        ['permissive', 'Prefereixo permetre una reutilització molt àmplia, encara que la versió modificada utilitzi altres condicions.'],
+        ['strong', 'Vull que, si comparteix una versió modificada del programa, també hagi de compartir-ne el codi amb la mateixa llicència.'],
+        ['files', 'Només vull que els fitxers del meu codi que modifiqui continuïn oberts.'],
+        ['permissive', 'Prefereixo que pugui reutilitzar el codi amb poques obligacions, fins i tot dins d’un projecte que no sigui obert.'],
         ['unsure', 'No sé quin model em convé. Necessito una pregunta més concreta.']
       ]
     },
     priority: {
       title: 'Què us importa més quan una altra persona reutilitzi el vostre codi?',
-      context: 'Aquesta pregunta només apareix si encara no heu decidit quin grau d\'obertura voleu mantenir.',
+      context: 'Aquesta pregunta només apareix si encara no heu decidit quin tipus de condicions voleu mantenir.',
       options: [
-        ['keep-open', 'Que les millores compartides continuïn disponibles com a codi obert.'],
+        ['keep-open', 'Que les millores que es comparteixin continuïn disponibles com a codi obert.'],
         ['easy-reuse', 'Que sigui fàcil reutilitzar el codi amb poques obligacions.'],
         ['still-unsure', 'Encara no tinc una preferència.']
       ]
     },
     strongKind: {
       title: 'Quin tipus de projecte esteu compartint?',
-      context: 'La forma del projecte ajuda a diferenciar llicències que mantenen obert el codi de maneres diferents.',
+      context: 'Això ajuda a distingir què passa quan el codi es distribueix i quan funciona principalment en un servidor.',
       options: [
         ['distributed', 'Una aplicació, una web estàtica o un programa que altres persones poden copiar i executar.'],
-        ['network', 'Un servei web en què una part important del programa s\'executa al servidor.'],
+        ['network', 'Un servei web en què una part important del programa s’executa al servidor.'],
         ['library', 'Una biblioteca o component pensat perquè altres programes el puguin incorporar.']
       ]
     },
@@ -131,10 +134,10 @@
     },
     dependencies: {
       title: 'Heu incorporat codi que no heu escrit vosaltres?',
-      context: 'Pot ser una biblioteca o un fragment d\'un altre projecte. Aquest codi conserva la seva llicència original.',
+      context: 'Pot ser una biblioteca o un fragment d’un altre projecte. Aquest codi conserva la seva llicència original.',
       options: [
-        ['reviewed', 'Sí, i n\'he revisat la llicència.'],
-        ['needs-review', 'Sí, però encara no n\'he revisat les condicions.'],
+        ['reviewed', 'Sí, i n’he revisat la llicència.'],
+        ['needs-review', 'Sí, però encara no n’he revisat les condicions.'],
         ['none', 'No. Tot el codi del projecte és propi.'],
         ['unclear', 'No ho sé amb seguretat o hi ha codi del qual desconec la procedència.']
       ]
@@ -227,13 +230,13 @@
   }
 
   const resultData = {
-    gpl: ['git-fork', 'GNU GPL v3', 'Us encaixa si voleu que una obra derivada coberta que es distribueixi mantingui la GPL i ofereixi el codi font corresponent.', 'https://www.gnu.org/licenses/gpl-3.0.html'],
+    gpl: ['git-fork', 'GNU GPL v3', 'Us encaixa si voleu que qui distribueixi una versió modificada del programa hagi de mantenir la GPL i oferir el codi font corresponent.', 'https://www.gnu.org/licenses/gpl-3.0.html'],
     agpl: ['network', 'GNU AGPL v3', 'Us encaixa si el programa funciona com a servei en un servidor i voleu que una versió modificada ofereixi el codi font també a les persones que hi interactuen a través de la xarxa.', 'https://www.gnu.org/licenses/agpl-3.0.html'],
-    mpl: ['files', 'MPL 2.0', 'Us encaixa si voleu que els fitxers coberts que es modifiquin continuïn oberts, però permetre que es combinin amb altres fitxers sota condicions diferents.', 'https://www.mozilla.org/MPL/2.0/'],
-    lgpl: ['blocks', 'GNU LGPL v3', 'Us encaixa especialment quan publiqueu una biblioteca que voleu mantenir oberta però que també ha de poder ser utilitzada des d\'altres programes.', 'https://www.gnu.org/licenses/lgpl-3.0.html'],
+    mpl: ['files', 'MPL 2.0', 'Us encaixa si voleu que els fitxers del vostre codi que es modifiquin continuïn oberts, però permetre que el projecte inclogui altres fitxers sota condicions diferents.', 'https://www.mozilla.org/MPL/2.0/'],
+    lgpl: ['blocks', 'GNU LGPL v3', 'Us encaixa especialment quan publiqueu una biblioteca que voleu mantenir oberta però que també ha de poder ser utilitzada des d’altres programes.', 'https://www.gnu.org/licenses/lgpl-3.0.html'],
     apache: ['shield-check', 'Apache License 2.0', 'Us encaixa si voleu una llicència permissiva que també deixi escrit què passa amb les patents relacionades amb les aportacions de codi. Si un contribuïdor té patents necessàries per utilitzar la seva aportació, la llicència concedeix als usuaris els drets de patent corresponents.', 'https://www.apache.org/licenses/LICENSE-2.0'],
     mit: ['unlock', 'MIT License', 'Us encaixa si voleu facilitar molt la reutilització amb poques obligacions. No exigeix que les versions modificades distribuïdes continuïn obertes.', 'https://opensource.org/license/MIT'],
-    guided: ['compass', 'Dues opcions de partida segons la prioritat', 'Si voleu que les versions derivades distribuïdes continuïn obertes, GNU GPL v3 és una opció de partida adequada. Si preferiu facilitar la reutilització amb poques obligacions, MIT és una opció permissiva habitual.', '']
+    guided: ['compass', 'Dues opcions de partida segons la prioritat', 'Podeu valorar GNU GPL v3 si voleu que les versions modificades distribuïdes continuïn obertes, o MIT si preferiu facilitar la reutilització amb poques obligacions.', '']
   };
 
   function dependencyNote() {
@@ -245,8 +248,7 @@
   }
 
   function showResult() {
-    const currentKey = path[current];
-    if (currentKey !== 'dependencies' || !answers.dependencies) return;
+    if (path[current] !== 'dependencies' || !answers.dependencies) return;
     const data = resultData[recommendation || 'guided'];
     const note = dependencyNote();
     const link = data[3] ? `<a href="${data[3]}" target="_blank" rel="noopener" class="resource-pill" style="margin-top:.85rem;"><i data-lucide="external-link"></i> Obriu la font oficial</a>` : '';
