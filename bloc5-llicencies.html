@@ -2,21 +2,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bloc 5: llicències i codi obert | Eines d'IA per a l'aula</title>
-  <meta name="description" content="Com llicenciar materials educatius digitals: per què no aplicar Creative Commons al codi i com utilitzar la fórmula híbrida amb la llicència MIT.">
+  <meta name="description" content="Com llicenciar materials educatius digitals distingint contingut pedagògic i codi, amb CC BY-SA 4.0 i GNU GPL v3 com a opció del projecte.">
 
-  <!-- Metadades Open Graph / Xarxes socials (Link Preview) -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://miquelangelfuentes.github.io/eines-ia-aula/bloc5-llicencies.html">
   <meta property="og:title" content="Bloc 5: llicències i codi obert | Eines d'IA per a l'aula">
-  <meta property="og:description" content="Fórmula híbrida de llicències (Creative Commons + MIT) per a materials educatius i codi.">
+  <meta property="og:description" content="Com combinar Creative Commons i GNU GPL v3 en un recurs educatiu web.">
   <meta property="og:image" content="https://miquelangelfuentes.github.io/eines-ia-aula/assets/images/unsplash/bloc5-llicencies.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
-  <!-- Metadades Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bloc 5: llicències i codi obert | Eines d'IA per a l'aula">
-  <meta name="twitter:description" content="Fórmula híbrida de llicències (Creative Commons + MIT) per a materials educatius i codi.">
+  <meta name="twitter:description" content="Com combinar Creative Commons i GNU GPL v3 en un recurs educatiu web.">
   <meta name="twitter:image" content="https://miquelangelfuentes.github.io/eines-ia-aula/assets/images/unsplash/bloc5-llicencies.jpg">
 
   <link rel="stylesheet" href="styles.css?v=9">
@@ -27,15 +25,14 @@
   <link rel="next" href="bloc6-recursos-visuals.html">
 </head>
 <body>
-  <a href="#contingut-principal" class="skip-link">Salta directament al contingut</a><noscript>&lt;div class="noscript-notice"&gt;&lt;strong&gt;JavaScript està desactivat.&lt;/strong&gt; Podeu llegir el contingut del material, però algunes funcions interactives, com el qüestionari, el generador d’indicacions o la llista de verificació, no estaran disponibles.&lt;/div&gt;</noscript>
+  <a href="#contingut-principal" class="skip-link">Salta directament al contingut</a>
+  <noscript>&lt;div class="noscript-notice"&gt;&lt;strong&gt;JavaScript està desactivat.&lt;/strong&gt; Podeu llegir el contingut del material, però algunes funcions interactives no estaran disponibles.&lt;/div&gt;</noscript>
 
-  <!-- Barra superior -->
   <header class="top-bar">
     <div class="top-bar-container">
       <a href="index.html" class="brand-section">
         <div class="brand-title">Eines d'IA per a l'aula</div>
       </a>
-
       <div class="controls-group">
         <div class="print-menu-container">
           <button id="btn-print-menu" class="btn-icon" type="button" aria-label="Opcions d'impressió" title="Imprimir" aria-haspopup="true" aria-expanded="false">
@@ -62,7 +59,6 @@
     </div>
   </header>
 
-  <!-- Navegació de blocs -->
   <nav class="blocks-nav-bar" aria-label="Índex de blocs">
     <ul class="blocks-nav-list">
       <li><a href="index.html" class="block-nav-link">Inici</a></li>
@@ -79,25 +75,23 @@
     </ul>
   </nav>
 
-  <!-- Capçalera del bloc -->
   <section class="page-hero">
     <div class="page-hero-inner">
       <span class="page-category-tag">Bloc 5</span>
       <h1>Llicències: Creative Commons i llicències de codi obert</h1>
       <p class="page-hero-subtitle">
-        Com protegir i compartir adequadament tant els continguts pedagògics com el codi font.
+        Com indicar què poden reutilitzar altres persones i quines condicions han de mantenir.
       </p>
     </div>
   </section>
 
-  <!-- Contingut del bloc 5 -->
   <main id="contingut-principal" class="main-content">
     <div class="content-box">
       <h2>Per què cal distingir entre contingut i codi?</h2>
-      <p class="lead-desc">Com aplicar la llicència correcta a cada element de la vostra aplicació educativa</p>
+      <p class="lead-desc">Una mateixa pàgina web pot contenir obres diferents i no totes s'han de llicenciar de la mateixa manera.</p>
 
       <div class="pedagogical-highlight">
-        Quan creem una pàgina web amb Google Antigravity, el material té dues parts clarament diferenciades: d'una banda, els <strong>continguts pedagògics</strong> (les explicacions, les preguntes de l'activitat, els esquemes i els exemples); de l'altra, el <strong>codi informàtic</strong> (les etiquetes HTML, els estils CSS i les funcions en JavaScript que fan que la pàgina funcioni al navegador).
+        Publicar un recurs a Internet o allotjar-lo a GitHub no concedeix automàticament permís per copiar-lo o adaptar-lo. Convindrà indicar què llicencieu vosaltres i distingir-ho dels recursos de tercers, que mantenen les seves condicions pròpies.
       </div>
 
       <figure class="inline-support-figure">
@@ -109,226 +103,195 @@
 
       <div class="licenses-comparison">
         <div class="license-box cc">
-          <div class="card-item-icon" style="background: #ffedd5; color: #ea580c;">
-            <i data-lucide="pen-tool"></i>
+          <div class="card-item-icon" style="background:#ffedd5;color:#ea580c;">
+            <i data-lucide="book-open"></i>
           </div>
-          <h3>Per al contingut: <a href="https://creativecommons.org/" target="_blank" rel="noopener">Creative Commons</a></h3>
-          <span class="license-for">S'aplica a: textos, enunciats, explicacions, dibuixos i guies docents.</span>
+          <h3>Contingut pedagògic - Creative Commons</h3>
+          <span class="license-for">Textos, activitats i altres materials propis del recurs.</span>
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener" style="display:inline-block;margin:.7rem 0 .45rem;" aria-label="Creative Commons Reconeixement-CompartirIgual 4.0 Internacional">
+            <img src="cc-by-sa.svg" width="120" height="42" alt="Llicència Creative Commons Reconeixement-CompartirIgual 4.0 Internacional" style="height:32px;width:auto;vertical-align:middle;" loading="lazy">
+          </a>
           <p>
-            Les llicències Creative Commons estan pensades específicament per a obres literàries, artístiques i científiques:
+            Per al contingut d'aquest projecte s'utilitza <strong>CC BY-SA 4.0</strong>. Permet copiar i adaptar el material amb reconeixement de l'autoria. Quan es comparteix una adaptació, cal mantenir la mateixa llicència o una de compatible.
           </p>
-          <ul>
-            <li><strong><a href="https://creativecommons.org/licenses/by/4.0/deed.ca" target="_blank" rel="noopener">CC BY (Reconeixement)</a>:</strong> permet que qualsevol persona reutilitzi i adapti el material, sempre que reconegui l'autoria original.</li>
-            <li><strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">CC BY-SA (Reconeixement-CompartirIgual)</a>:</strong> molt recomanada per a materials educatius públics. Permet adaptar i millorar l'activitat, però exigeix que qualsevol obra derivada es publiqui també sota aquesta mateixa llicència lliure.</li>
-          </ul>
+          <p style="margin-bottom:0;">
+            Creative Commons desaconsella aplicar les seves llicències al programari, ja que no regulen específicament aspectes com el codi font o les patents de programari.
+          </p>
         </div>
 
         <div class="license-box software">
           <div class="card-item-icon">
-            <i data-lucide="binary"></i>
+            <i data-lucide="file-code-2"></i>
           </div>
-          <h3>Per al codi font: llicències de programari</h3>
-          <span class="license-for">S'aplica a: fitxers de codi (HTML, CSS i JavaScript).</span>
+          <h3>Codi font - una llicència de programari</h3>
+          <span class="license-for">HTML, CSS, JavaScript i altres fitxers de codi propis.</span>
           <p>
-            La mateixa organització Creative Commons desaconsella fer servir les seves llicències per a codi de programari (<a href="https://creativecommons.org/faq/#can-i-apply-a-creative-commons-license-to-software" target="_blank" rel="noopener">FAQ oficial de CC</a>), perquè no regulen aspectes tècnics com la compilació o la distribució:
+            En aquest projecte el codi es publica amb <strong>GNU GPL v3</strong>. Podeu executar-lo, estudiar-lo i modificar-lo. Si distribuïu una versió modificada o una obra derivada coberta per la GPL, la distribució ha de mantenir la GPL i facilitar el codi font corresponent.
           </p>
-          <ul>
-            <li><strong><a href="https://opensource.org/license/mit" target="_blank" rel="noopener">Llicència MIT</a>:</strong> la llicència més breu i habitual en projectes web. Permet que tothom pugui reutilitzar i adaptar el codi amb l'única condició de mantenir l'avís d'autoria.</li>
-            <li><strong><a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener">Llicència GNU GPL</a>:</strong> llicència que garanteix que qualsevol programa que utilitzi el codi continuarà sent sempre de codi obert.</li>
-          </ul>
+          <p style="margin-bottom:0;">
+            La <strong>MIT</strong> és una alternativa més permissiva: permet que el codi reutilitzat acabi també en programari tancat. La diferència principal és, per tant, si voleu exigir que les versions derivades distribuïdes continuïn obertes.
+          </p>
         </div>
       </div>
 
-      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Com aplicar la fórmula híbrida al vostre recurs d'aula:</h3>
-      <p style="color: var(--text-muted); font-size: 0.925rem; line-height: 1.6; margin-bottom: 1rem;">
-        La manera més senzilla i professional de resoldre-ho és afegir una petita declaració al peu de la vostra pàgina web o al fitxer <code>README.md</code> del repositori que combini ambdues llicències:
+      <div class="cards-grid cards-grid-2x2" style="margin-top:1.5rem;">
+        <div class="card-item">
+          <div class="card-item-icon"><i data-lucide="unlock"></i></div>
+          <h3>Quan encaixa MIT?</h3>
+          <p>
+            Quan prioritzeu que el codi es pugui reutilitzar amb molt poques condicions, fins i tot dins de projectes que després no publiquin les seves modificacions.
+          </p>
+        </div>
+        <div class="card-item">
+          <div class="card-item-icon"><i data-lucide="git-fork"></i></div>
+          <h3>Quan encaixa GNU GPL v3?</h3>
+          <p>
+            Quan voleu permetre la reutilització del codi però també preservar l'obertura de les versions derivades que es distribueixin. Aquest és el criteri adoptat en aquest projecte.
+          </p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:2rem;margin-bottom:.75rem;">Model de doble llicència per a un recurs web</h3>
+      <p style="color:var(--text-muted);font-size:.925rem;line-height:1.6;margin-bottom:1rem;">
+        La declaració pot aparèixer al <code>README.md</code> i a la pàgina de crèdits. Cal deixar fora d'aquesta declaració els recursos de tercers que tinguin llicència pròpia.
       </p>
 
       <div class="terminal-block">
         <div class="terminal-header">
-          <span>Model de declaració de doble llicència per al vostre recurs</span>
+          <span>Model de declaració</span>
           <button class="copy-btn" data-target="snippet-llicencies-bloc">Copiar text</button>
         </div>
-        <pre id="snippet-llicencies-bloc"><code>Aquest recurs educatiu obert es distribueix amb una doble llicència:
-- El contingut educatiu i les explicacions pedagògiques es publiquen sota llicència Creative Commons Reconeixement-CompartirIgual 4.0 Internacional (CC BY-SA 4.0).
-- El codi font de la pàgina web (HTML, CSS i JavaScript) es publica sota llicència lliure MIT.</code></pre>
-      </div>
-
-      <div class="cards-grid" style="margin-top: 1.5rem;">
-        <div class="card-item">
-          <div class="card-item-icon">
-            <i data-lucide="alert-circle"></i>
-          </div>
-          <h3>Per què és important posar llicència?</h3>
-          <p>
-            Si publiqueu un material a Internet sense indicar cap llicència, legalment s'aplica el principi de "tots els drets reservats". Això vol dir que cap altre docent podrà adaptar o descarregar el vostre material amb seguretat jurídica, encara que estigui penjat públicament a GitHub.
-          </p>
-        </div>
-
-        <div class="card-item">
-          <div class="card-item-icon">
-            <i data-lucide="handshake"></i>
-          </div>
-          <h3>Com ajuda a la comunitat educativa?</h3>
-          <p>
-            Quan indiqueu clarament una llicència com CC BY-SA i MIT, esteu donant permís formal als vostres companys i companyes de centre i de tot el territori per adaptar les preguntes o ajustar el nivell sense haver de demanar autoritzacions personals, i contribuir així als <a href="https://www.unesco.org/en/open-educational-resources" target="_blank" rel="noopener">Recursos Educatius Oberts (REO)</a>.
-          </p>
-        </div>
-      </div>
-
-      <div style="margin-top: 2rem; padding: 1.15rem; background: var(--bg-subtle); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-        <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
-          <i data-lucide="external-link" class="lucide" style="width: 16px; height: 16px; color: var(--accent-secondary);"></i>
-          Portals oficials de llicències obertes:
-        </h4>
-        <ul style="padding-left: 1.25rem; font-size: 0.875rem; color: var(--text-muted); line-height: 1.7;">
-          <li><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">Llicència Creative Commons CC BY-SA 4.0 (resum en català)</a></li>
-          <li><a href="https://opensource.org/licenses" target="_blank" rel="noopener">Catàleg oficial de llicències de programari a l'Open Source Initiative</a></li>
-          <li><a href="https://choosealicense.com/" target="_blank" rel="noopener">Choose an open source license (guia senzilla de GitHub)</a></li>
-        </ul>
+        <pre id="snippet-llicencies-bloc"><code>Aquest recurs educatiu obert es distribueix amb llicències diferenciades:
+- El contingut pedagògic propi es publica sota Creative Commons Reconeixement-CompartirIgual 4.0 Internacional (CC BY-SA 4.0).
+- El codi font propi es publica sota GNU General Public License v3.0 (GPL-3.0-only).
+Els recursos de tercers mantenen les seves llicències i condicions pròpies.</code></pre>
       </div>
     </div>
 
-    <!-- Caixa 2: Llicències recomanades per a docents -->
     <div class="content-box">
       <h2>Llicències recomanades per a docents</h2>
-      <p class="lead-desc">Com triar la llicència adequada segons cada component del recurs i evitar restriccions que bloquegin la comunitat educativa</p>
+      <p class="lead-desc">La millor opció depèn de què voleu permetre i de quines condicions voleu conservar quan altres persones reutilitzin el recurs.</p>
 
       <div class="pedagogical-highlight">
-        En l'àmbit educatiu, l'objectiu prioritari de compartir un recurs no és només que altres persones el puguin consultar, sinó que altres docents el puguin <strong>adaptar a la diversitat de la seva aula</strong> per actualitzar-lo i fer-lo evolucionar. Per això, la tria de la llicència determina si un material es convertirà en un veritable Recurs Educatiu Obert (REO) o si quedarà bloquejat per traves legals innecessàries.
+        No hi ha una única llicència adequada per a tot el que conté una web educativa. Abans de triar-ne una, identifiqueu quins elements són vostres i quins provenen de tercers. Després decidiu si voleu permetre adaptacions sense exigir continuïtat de la llicència o si voleu aplicar una condició de compartir igual.
       </div>
 
       <div class="table-responsive">
         <table class="clean-table">
           <thead>
             <tr>
-              <th style="width: 22%;">Tipus de recurs</th>
-              <th style="width: 24%;">Llicència recomanada</th>
-              <th style="width: 30%;">Què permet als companys docents</th>
-              <th style="width: 24%;">Què cal evitar i per què</th>
+              <th style="width:20%;">Component</th>
+              <th style="width:24%;">Opció útil</th>
+              <th style="width:32%;">Què implica</th>
+              <th style="width:24%;">Què heu de comprovar</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong><i data-lucide="book-open" class="lucide" style="width:16px;height:16px;margin-right:4px;"></i> Contingut didàctic</strong><br><small style="color:var(--text-muted);">Textos, activitats, preguntes, explicacions i enunciats</small></td>
+              <td><strong>Contingut didàctic</strong><br><small style="color:var(--text-muted);">Textos, activitats i explicacions pròpies</small></td>
               <td>
-                <span class="badge-feature badge-positive">Opció principal</span><br>
+                <span class="badge-feature badge-positive">Opció del projecte</span><br>
                 <strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">CC BY-SA 4.0</a></strong><br>
-                <small style="color:var(--text-muted);">(Reconeixement-CompartirIgual)</small><br>
-                <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener" style="display:inline-block; margin-top:0.35rem;">
-                  <img src="cc-by-sa.svg" width="120" height="42" alt="Llicència Creative Commons CC BY-SA 4.0" style="height: 28px; width: auto; vertical-align: middle;" loading="lazy">
-                </a><br><br>
-                <span class="badge-feature" style="background:var(--bg-surface);border:1px solid var(--border-color);color:var(--text-main);">Alternativa</span><br>
-                <strong><a href="https://creativecommons.org/licenses/by/4.0/deed.ca" target="_blank" rel="noopener">CC BY 4.0</a></strong>
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener" style="display:inline-block;margin-top:.4rem;">
+                  <img src="cc-by-sa.svg" width="120" height="42" alt="Llicència Creative Commons CC BY-SA 4.0" style="height:28px;width:auto;vertical-align:middle;" loading="lazy">
+                </a>
               </td>
               <td>
-                Permet descarregar, modificar, afegir preguntes, corregir errades i utilitzar el recurs amb l'alumnat. Amb <strong>CC BY-SA</strong>, qui en faci una versió millorada té l'obligació de compartir-la també en obert, cosa que enriqueix el bé comú educatiu.
+                Permet compartir i adaptar el material amb reconeixement de l'autoria. Les adaptacions que es comparteixin han de conservar la mateixa llicència o una de declarada compatible.
               </td>
               <td>
-                <span class="badge-feature badge-negative">Evitar clàusula ND</span><br>
-                <strong>Sense obra derivada (ND)</strong> impedeix traduir o adaptar el text al DUA.<br><br>
-                <span class="badge-feature badge-negative">Evitar clàusula NC</span><br>
-                <strong>No comercial (NC)</strong> genera confusió jurídica en activitats d'AFA o formacions docents.
+                Comproveu que teniu drets per llicenciar tot el contingut que incloeu. Una llicència pròpia no pot substituir la d'una fotografia o d'un material aliè.
               </td>
             </tr>
             <tr>
-              <td><strong><i data-lucide="file-code-2" class="lucide" style="width:16px;height:16px;margin-right:4px;"></i> Codi informàtic</strong><br><small style="color:var(--text-muted);">Fitxers HTML, estils CSS i funcions JavaScript</small></td>
+              <td><strong>Codi informàtic</strong><br><small style="color:var(--text-muted);">HTML, CSS i JavaScript propis</small></td>
               <td>
-                <span class="badge-feature badge-positive">Opció principal</span><br>
-                <strong><a href="https://opensource.org/license/mit" target="_blank" rel="noopener">Llicència MIT</a></strong><br><br>
-                <span class="badge-feature" style="background:var(--bg-surface);border:1px solid var(--border-color);color:var(--text-main);">Alternativa copyleft</span><br>
-                <strong><a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener">GNU GPL v3</a></strong>
+                <span class="badge-feature badge-positive">Opció del projecte</span><br>
+                <strong><a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener">GNU GPL v3</a></strong><br><br>
+                <span class="badge-feature" style="background:var(--bg-surface);border:1px solid var(--border-color);color:var(--text-main);">Alternativa permissiva</span><br>
+                <strong><a href="https://opensource.org/license/mit" target="_blank" rel="noopener">MIT</a></strong>
               </td>
               <td>
-                La llicència <strong>MIT</strong> és molt breu i compatible amb qualsevol entorn. Permet clonar, allotjar a GitHub Pages o descarregar i obrir els fitxers localment en els ordinadors del PEDC sense conflictes de propietat intel·lectual.
+                GPL v3 aplica copyleft a les versions derivades cobertes per la llicència quan es distribueixen. MIT permet reutilitzar el codi amb menys obligacions i no exigeix que les modificacions distribuïdes continuïn obertes.
               </td>
               <td>
-                <span class="badge-feature badge-negative">Evitar Creative Commons al codi</span><br>
-                Les llicències CC no estan dissenyades per a programari i no contemplen qüestions com la compilació o l'execució directa al navegador.
-              </td>
-            </tr>
-            <tr>
-              <td><strong><i data-lucide="palette" class="lucide" style="width:16px;height:16px;margin-right:4px;"></i> Icones i elements visuals</strong><br><small style="color:var(--text-muted);">Iconografia funcional i botons</small></td>
-              <td>
-                <span class="badge-feature badge-positive">Llicències lliures</span><br>
-                <strong><a href="https://opensource.org/license/isc-license-txt" target="_blank" rel="noopener">Llicència ISC</a></strong> (Lucide)<br>
-                <strong><a href="https://opensource.org/license/mit" target="_blank" rel="noopener">Llicència MIT</a></strong> (Tabler, Bootstrap)
-              </td>
-              <td>
-                Poden incorporar-se sense restriccions a les pàgines web educatives i estilitzar-se lliurement amb CSS.
-              </td>
-              <td>
-                <span class="badge-feature badge-negative">Evitar conjunts d'icones de pagament</span> o amb termes privatius que prohibeixin la redistribució en codi obert.
+                Reviseu les dependències i biblioteques incorporades. Els components de tercers conserven la seva llicència i els avisos que aquesta exigeixi.
               </td>
             </tr>
             <tr>
-              <td><strong><i data-lucide="camera" class="lucide" style="width:16px;height:16px;margin-right:4px;"></i> Fotografies i il·lustracions</strong><br><small style="color:var(--text-muted);">Imatges de suport pedagògic</small></td>
+              <td><strong>Icones i biblioteques</strong><br><small style="color:var(--text-muted);">Lucide, Tabler o altres dependències</small></td>
               <td>
-                <span class="badge-feature badge-positive">Bancs gratuïts i oberts</span><br>
-                <strong><a href="https://unsplash.com/license" target="_blank" rel="noopener">Llicència Unsplash</a></strong><br>
-                <strong><a href="https://www.pexels.com/license/" target="_blank" rel="noopener">Llicència Pexels</a></strong><br>
-                <strong><a href="https://commons.wikimedia.org/wiki/Commons:Licensing/ca" target="_blank" rel="noopener">Wikimedia Commons</a></strong> (CC)
+                <strong>Respecteu la llicència original</strong><br>
+                <small style="color:var(--text-muted);">Per exemple ISC o MIT</small>
               </td>
               <td>
-                Permeten il·lustrar conceptes amb imatges reals d'alta qualitat sense cost. Només cal citar l'autoria mitjançant la fórmula TASL (Títol, Autor, Font, Llicència) a peu d'imatge.
+                Podeu incorporar recursos amb llicències permissives quan les seves condicions ho permetin. La llicència del vostre projecte no converteix automàticament aquests fitxers en GPL o CC BY-SA.
               </td>
               <td>
-                <span class="badge-feature badge-negative">Evitar cercar a Google Imatges</span> sense filtrar per drets d'ús o utilitzar fotografies protegides amb copyright ("tots els drets reservats").
+                Conserveu els avisos exigits i documenteu l'origen dels recursos distribuïts amb el projecte.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Fotografies i il·lustracions</strong><br><small style="color:var(--text-muted);">Imatges de suport</small></td>
+              <td>
+                <strong>Creative Commons</strong> quan l'obra la utilitzi<br><br>
+                <strong>Llicència pròpia del banc</strong> quan sigui el cas
+              </td>
+              <td>
+                Wikimedia Commons permet localitzar obres amb llicències CC diverses. Unsplash i Pexels utilitzen llicències pròpies d'ús ampli, no llicències Creative Commons.
+              </td>
+              <td>
+                Citeu quan la llicència ho exigeixi. Si no és obligatori, podeu mantenir l'atribució com a pràctica de reconeixement i traçabilitat.
               </td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Per què desaconsellem les clàusules restrictives (NC i ND) a l'escola?</h3>
-      
-      <div class="cards-grid">
+      <div class="cards-grid cards-grid-2x2" style="margin-top:1.5rem;">
         <div class="card-item">
-          <div class="card-item-icon" style="background: #fef2f2; color: #dc2626;">
-            <i data-lucide="ban"></i>
-          </div>
-          <h3>L'obstacle de la clàusula ND (Sense obra derivada)</h3>
+          <div class="card-item-icon" style="background:#fef2f2;color:#dc2626;"><i data-lucide="ban"></i></div>
+          <h3>ND limita les adaptacions</h3>
           <p>
-            Quan un material porta una llicència com <strong>CC BY-ND</strong>, ningú té permís legal per modificar-lo ni alterar-ne una sola coma. A l'escola, això suposa una barrera insalvable:
+            Una llicència amb <strong>SenseObraDerivada (ND)</strong> no permet compartir versions adaptades. Això pot entrar en conflicte amb una finalitat educativa basada en traduir, simplificar o transformar materials per respondre a necessitats diferents.
           </p>
-          <ul style="padding-left: 1.25rem; font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; margin-top: 0.5rem;">
-            <li><strong>Impedeix l'accessibilitat DUA:</strong> un docent no pot simplificar enunciats, adaptar la mida del text ni modificar contrastos per a alumnat amb necessitats educatives.</li>
-            <li><strong>Bloqueja la traducció:</strong> traduir una activitat d'anglès o castellà a català (o a aranès) es considera legalment una obra derivada i queda prohibit.</li>
-            <li><strong>Inhabilita l'actualització:</strong> si una dada o un enllaç queda obsolet, cap altre company o companya pot rectificar-lo.</li>
-          </ul>
         </div>
+        <div class="card-item">
+          <div class="card-item-icon" style="background:#fffbeb;color:#d97706;"><i data-lucide="circle-dollar-sign"></i></div>
+          <h3>NC introdueix una restricció addicional</h3>
+          <p>
+            La clàusula <strong>NoComercial (NC)</strong> prohibeix usos considerats comercials i pot limitar la compatibilitat amb altres recursos. Utilitzeu-la només si aquesta restricció respon a una decisió deliberada del projecte.
+          </p>
+        </div>
+      </div>
 
-        <div class="card-item">
-          <div class="card-item-icon" style="background: #fffbeb; color: #d97706;">
-            <i data-lucide="help-circle"></i>
-          </div>
-          <h3>La inseguretat jurídica de la clàusula NC (No comercial)</h3>
-          <p>
-            Tot i que a priori pot semblar intuïtiu voler evitar que algú s'enriqueixi amb el recurs, la clàusula <strong>CC BY-NC</strong> crea moltes incerteses en la vida real dels centres:
-          </p>
-          <ul style="padding-left: 1.25rem; font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; margin-top: 0.5rem;">
-            <li><strong>Fronteres difuses:</strong> pot fer servir aquest recurs una associació de famílies (AFA/AMPA) que cobra una quota simbòlica per pagar el material d'un taller de tarda? I una escola concertada?</li>
-            <li><strong>Incompatibilitat amb altres recursos oberts:</strong> els materials amb clàusula NC no es poden barrejar amb materials de Viquipèdia ni amb repositoris de Recursos Educatius Oberts que utilitzin CC BY-SA.</li>
-            <li><strong>Recomanació internacional:</strong> organitzacions com la UNESCO i Creative Commons recomanen utilitzar <strong>CC BY-SA</strong> en lloc de NC, perquè el mateix mecanisme de llicència oberta impedeix que ningú tanqui el recurs.</li>
-          </ul>
-        </div>
+      <div style="margin-top:2rem;padding:1.15rem;background:var(--bg-subtle);border-radius:var(--radius-md);border:1px solid var(--border-color);">
+        <h4 style="font-size:.95rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem;">
+          <i data-lucide="external-link" class="lucide" style="width:16px;height:16px;color:var(--accent-secondary);"></i>
+          Fonts per comprovar les condicions
+        </h4>
+        <ul style="padding-left:1.25rem;font-size:.875rem;color:var(--text-muted);line-height:1.7;">
+          <li><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons CC BY-SA 4.0</a></li>
+          <li><a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener">GNU General Public License v3.0</a></li>
+          <li><a href="https://creativecommons.org/faq/#can-i-apply-a-creative-commons-license-to-software" target="_blank" rel="noopener">Creative Commons - ús de llicències CC en programari</a></li>
+          <li><a href="https://opensource.org/licenses" target="_blank" rel="noopener">Open Source Initiative - llicències de programari</a></li>
+        </ul>
       </div>
     </div>
 
-    <!-- Paginació inferior -->
     <div class="page-pagination">
       <a href="bloc4-pages-sites.html" class="btn-pagination" data-nav="prev">
-        ◀ <span>Anterior: Bloc 4 — GitHub Pages i Google Sites</span>
+        ◀ <span>Anterior: Bloc 4 - GitHub Pages i Google Sites</span>
       </a>
       <a href="bloc6-recursos-visuals.html" class="btn-pagination primary" data-nav="next">
-        <span>Següent: Bloc 6 — Imatges i icones</span> ▶
+        <span>Següent: Bloc 6 - Imatges i icones</span> ▶
       </a>
     </div>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      <p><strong>Eines d'intel·ligència artificial per a l'aula</strong> — Servei Educatiu del Vallès Occidental II. Octubre, 2026.</p>
+      <p><strong>Eines d'intel·ligència artificial per a l'aula</strong> - Servei Educatiu del Vallès Occidental II. Octubre de 2026.</p>
       <div class="footer-links">
         <a href="https://github.com/miquelangelfuentes/eines-ia-aula" target="_blank" rel="noopener">Repositori</a>
         <a href="https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html" target="_blank" rel="noopener">Guia de <em>vibe coding</em> responsable</a>
@@ -339,7 +302,5 @@
   </footer>
 
   <script src="assets/vendor/lucide/lucide.min.js"></script>
-  <script src="app.js?v=5"></script>
-
-
+  <script src="app.js?v=6"></script>
 </body></html>
