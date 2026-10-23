@@ -141,6 +141,192 @@
     });
   };
 
+  const addBlockOverviewNavigation = () => {
+    const pageName = window.location.pathname.split('/').pop() || '';
+    if (!/^bloc[1-9]-.*\.html$/i.test(pageName)) return;
+
+    const main = document.querySelector('main#contingut-principal');
+    if (!main || main.querySelector(':scope > .block-overview')) return;
+
+    const sectionHeadings = [...main.querySelectorAll(':scope > .content-box > h2')]
+      .filter((heading) => !heading.closest('.block-overview'));
+    if (!sectionHeadings.length) return;
+
+    if (!document.getElementById('block-overview-styles')) {
+      const style = document.createElement('style');
+      style.id = 'block-overview-styles';
+      style.textContent = `
+        .block-overview .block-overview-intro {
+          margin: -0.15rem 0 1rem;
+          color: var(--text-muted);
+        }
+        .block-overview-list {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 0.75rem;
+        }
+        .block-overview-link {
+          display: grid;
+          grid-template-columns: 38px minmax(0, 1fr) auto;
+          align-items: center;
+          gap: 0.75rem;
+          min-width: 0;
+          padding: 0.78rem 0.9rem;
+          border: 1px solid var(--border-color);
+          border-radius: var(--radius-md);
+          background: var(--bg-subtle);
+          color: var(--text-main);
+          text-decoration: none;
+          line-height: 1.35;
+          transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
+        }
+        .block-overview-link:hover {
+          border-color: var(--accent-primary);
+          background: var(--accent-light);
+          transform: translateY(-1px);
+        }
+        .block-overview-link:focus-visible {
+          outline: 3px solid var(--accent-primary);
+          outline-offset: 2px;
+        }
+        .block-overview-icon {
+          width: 38px;
+          height: 38px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: var(--radius-md);
+          background: var(--accent-light);
+          color: var(--accent-primary);
+        }
+        .block-overview-icon svg {
+          width: 19px;
+          height: 19px;
+        }
+        .block-overview-label {
+          min-width: 0;
+          font-weight: 650;
+        }
+        .block-overview-chevron {
+          display: inline-flex;
+          color: var(--text-muted);
+          transition: transform 0.16s ease, color 0.16s ease;
+        }
+        .block-overview-chevron svg {
+          width: 18px;
+          height: 18px;
+        }
+        .block-overview-link:hover .block-overview-chevron {
+          color: var(--accent-primary);
+          transform: translateX(2px);
+        }
+        @media (max-width: 720px) {
+          .block-overview-list {
+            grid-template-columns: 1fr;
+          }
+        }
+        @media print {
+          .block-overview-link {
+            break-inside: avoid;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    const usedIds = new Set(
+      [...document.querySelectorAll('[id]')]
+        .map((element) => element.id)
+        .filter(Boolean)
+    );
+
+    const slugify = (text) => text
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+
+    const sections = sectionHeadings.map((heading, index) => {
+      const text = heading.textContent.trim();
+      let id = heading.id?.trim();
+
+      if (!id) {
+        const baseId = `seccio-${slugify(text) || index + 1}`;
+        id = baseId;
+        let suffix = 2;
+        while (usedIds.has(id)) {
+          id = `${baseId}-${suffix}`;
+          suffix += 1;
+        }
+        heading.id = id;
+        usedIds.add(id);
+      }
+
+      heading.style.scrollMarginTop = '9rem';
+
+      const iconName = heading.querySelector('[data-lucide]')?.getAttribute('data-lucide')
+        || preferredIconForSectionHeading(text);
+
+      return { id, text, iconName };
+    });
+
+    const overview = document.createElement('nav');
+    overview.className = 'content-box block-overview';
+    overview.setAttribute('aria-labelledby', 'block-overview-title');
+
+    const title = document.createElement('h2');
+    title.id = 'block-overview-title';
+    title.style.display = 'flex';
+    title.style.alignItems = 'center';
+    title.style.gap = '0.6rem';
+
+    const titleIcon = document.createElement('i');
+    titleIcon.setAttribute('data-lucide', 'list');
+    titleIcon.setAttribute('aria-hidden', 'true');
+    titleIcon.style.width = '24px';
+    titleIcon.style.height = '24px';
+    titleIcon.style.color = 'var(--accent-primary)';
+    titleIcon.style.flex = '0 0 24px';
+
+    const titleText = document.createElement('span');
+    titleText.textContent = 'En aquest bloc...';
+    title.append(titleIcon, titleText);
+
+    const intro = document.createElement('p');
+    intro.className = 'block-overview-intro';
+    intro.textContent = 'Accediu directament a cada secció.';
+
+    const list = document.createElement('div');
+    list.className = 'block-overview-list';
+
+    sections.forEach(({ id, text, iconName }) => {
+      const link = document.createElement('a');
+      link.className = 'block-overview-link';
+      link.href = `#${id}`;
+
+      const iconWrap = document.createElement('span');
+      iconWrap.className = 'block-overview-icon';
+      iconWrap.setAttribute('aria-hidden', 'true');
+      iconWrap.innerHTML = `<i data-lucide="${iconName}"></i>`;
+
+      const label = document.createElement('span');
+      label.className = 'block-overview-label';
+      label.textContent = text;
+
+      const chevron = document.createElement('span');
+      chevron.className = 'block-overview-chevron';
+      chevron.setAttribute('aria-hidden', 'true');
+      chevron.innerHTML = '<i data-lucide="chevron-right"></i>';
+
+      link.append(iconWrap, label, chevron);
+      list.appendChild(link);
+    });
+
+    overview.append(title, intro, list);
+    main.prepend(overview);
+  };
+
   const enhanceHomeGuideHighlight = () => {
     const highlight = [...document.querySelectorAll('.pedagogical-highlight')]
       .find((box) => box.textContent.trim().startsWith('Aquesta guia està organitzada en pàgines independents'));
@@ -440,6 +626,7 @@ Quan et confirmi que la versió està validada i et demani l'exportació, no red
       enhanceHomeGuideHighlight();
       enhanceBloc6InfographicPractice();
       addSectionHeadingIcons();
+      addBlockOverviewNavigation();
       initSite();
     };
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true });
