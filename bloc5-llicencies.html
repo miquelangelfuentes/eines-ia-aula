@@ -177,11 +177,11 @@ Els recursos de tercers mantenen les seves llicències i condicions pròpies.</c
     </div>
 
     <div class="content-box" id="orientador-llicencies">
-      <h2>Quina llicència encaixa amb el vostre recurs?</h2>
-      <p class="lead-desc">Respongueu quatre preguntes i obtindreu una orientació diferenciada per al contingut pedagògic i per al codi propi.</p>
+      <h2>Quina llicència de codi encaixa amb el vostre projecte?</h2>
+      <p class="lead-desc">Respongueu quatre preguntes sobre com voleu que altres persones puguin reutilitzar el vostre codi.</p>
 
       <div class="pedagogical-highlight">
-        El resultat és una orientació pràctica, no assessorament jurídic. Si el recurs incorpora materials de tercers, aquests mantenen la seva llicència i no es poden relicenciar automàticament amb la del vostre projecte.
+        Aquest orientador compara <strong>GNU GPL v3, MPL 2.0, Apache 2.0, MIT i ISC</strong>. Se centra només en llicències de programari. El resultat és orientatiu i no substitueix la revisió de les dependències que incorporeu al projecte.
       </div>
 
       <div class="quiz-progress-wrapper">
@@ -201,29 +201,24 @@ Els recursos de tercers mantenen les seves llicències i condicions pròpies.</c
         <div class="quiz-question-card active" data-license-q="1">
           <div class="quiz-question-header">
             <span class="quiz-q-num-pill">Pregunta 1 de 4</span>
-            <h3 class="quiz-q-title">Què voleu llicenciar?</h3>
+            <h3 class="quiz-q-title">Què voleu exigir quan es distribueixi una versió modificada?</h3>
           </div>
-          <p class="quiz-q-context">Identifiqueu primer quina part del recurs és vostra.</p>
+          <p class="quiz-q-context">Aquesta és la decisió principal: determina si us convé copyleft fort, copyleft per fitxer o una llicència permissiva.</p>
           <div class="quiz-options-list">
             <label class="quiz-option-card">
-              <input type="radio" name="license-q1" value="content" class="quiz-radio-hidden">
+              <input type="radio" name="license-q1" value="strong-copyleft" class="quiz-radio-hidden">
               <span class="quiz-opt-badge">A</span>
-              <span class="quiz-opt-text">Només contingut pedagògic propi, com textos o activitats.</span>
+              <span class="quiz-opt-text">Vull que l'obra derivada coberta per la llicència continuï sota la mateixa llicència i que s'ofereixi el codi font corresponent.</span>
             </label>
             <label class="quiz-option-card">
-              <input type="radio" name="license-q1" value="code" class="quiz-radio-hidden">
+              <input type="radio" name="license-q1" value="file-copyleft" class="quiz-radio-hidden">
               <span class="quiz-opt-badge">B</span>
-              <span class="quiz-opt-text">Només codi propi del projecte.</span>
+              <span class="quiz-opt-text">Vull que els fitxers del meu codi que es modifiquin continuïn oberts, però permetre que es combinin amb altres fitxers sota altres termes.</span>
             </label>
             <label class="quiz-option-card">
-              <input type="radio" name="license-q1" value="both" class="quiz-radio-hidden">
+              <input type="radio" name="license-q1" value="permissive" class="quiz-radio-hidden">
               <span class="quiz-opt-badge">C</span>
-              <span class="quiz-opt-text">Contingut pedagògic propi i codi propi.</span>
-            </label>
-            <label class="quiz-option-card">
-              <input type="radio" name="license-q1" value="third-party" class="quiz-radio-hidden">
-              <span class="quiz-opt-badge">D</span>
-              <span class="quiz-opt-text">Sobretot recursos de tercers que no he creat jo.</span>
+              <span class="quiz-opt-text">No vull exigir que les versions derivades distribuïdes continuïn obertes.</span>
             </label>
           </div>
         </div>
@@ -231,29 +226,24 @@ Els recursos de tercers mantenen les seves llicències i condicions pròpies.</c
         <div class="quiz-question-card" data-license-q="2">
           <div class="quiz-question-header">
             <span class="quiz-q-num-pill">Pregunta 2 de 4</span>
-            <h3 class="quiz-q-title">Què voleu permetre amb el contingut pedagògic?</h3>
+            <h3 class="quiz-q-title">Si opteu per una llicència permissiva, us importa una concessió explícita de patents?</h3>
           </div>
-          <p class="quiz-q-context">Penseu en què podria fer una altra persona amb els materials que heu creat.</p>
+          <p class="quiz-q-context">Aquesta qüestió ajuda a distingir Apache 2.0 de MIT o ISC. Si heu triat copyleft, la resposta no canviarà la recomanació principal.</p>
           <div class="quiz-options-list">
             <label class="quiz-option-card">
-              <input type="radio" name="license-q2" value="share-alike" class="quiz-radio-hidden">
+              <input type="radio" name="license-q2" value="patents" class="quiz-radio-hidden">
               <span class="quiz-opt-badge">A</span>
-              <span class="quiz-opt-text">Vull permetre adaptacions i que les versions compartides mantinguin CompartirIgual.</span>
+              <span class="quiz-opt-text">Sí. Vull que la llicència inclogui una concessió explícita de patents dels contribuïdors.</span>
             </label>
             <label class="quiz-option-card">
-              <input type="radio" name="license-q2" value="attribution" class="quiz-radio-hidden">
+              <input type="radio" name="license-q2" value="not-priority" class="quiz-radio-hidden">
               <span class="quiz-opt-badge">B</span>
-              <span class="quiz-opt-text">Vull permetre adaptacions amb atribució, sense exigir CompartirIgual.</span>
+              <span class="quiz-opt-text">No és un criteri determinant per al meu projecte.</span>
             </label>
             <label class="quiz-option-card">
-              <input type="radio" name="license-q2" value="no-derivatives" class="quiz-radio-hidden">
+              <input type="radio" name="license-q2" value="unsure-patents" class="quiz-radio-hidden">
               <span class="quiz-opt-badge">C</span>
-              <span class="quiz-opt-text">No vull autoritzar que es comparteixin versions adaptades.</span>
-            </label>
-            <label class="quiz-option-card">
-              <input type="radio" name="license-q2" value="rights-unclear" class="quiz-radio-hidden">
-              <span class="quiz-opt-badge">D</span>
-              <span class="quiz-opt-text">No tinc prou clar si disposo dels drets sobre tot el contingut.</span>
+              <span class="quiz-opt-text">No sé si aquesta qüestió és rellevant en el meu cas.</span>
             </label>
           </div>
         </div>
@@ -261,29 +251,24 @@ Els recursos de tercers mantenen les seves llicències i condicions pròpies.</c
         <div class="quiz-question-card" data-license-q="3">
           <div class="quiz-question-header">
             <span class="quiz-q-num-pill">Pregunta 3 de 4</span>
-            <h3 class="quiz-q-title">Què voleu que passi amb les versions derivades del codi?</h3>
+            <h3 class="quiz-q-title">Dins de les permissives més simples, quin criteri valoreu més?</h3>
           </div>
-          <p class="quiz-q-context">Aquesta decisió separa una llicència amb copyleft d'una llicència permissiva.</p>
+          <p class="quiz-q-context">MIT i ISC permeten una reutilització molt àmplia. La diferència pràctica per a molts projectes és sobretot el text de la llicència i el grau de reconeixement que té.</p>
           <div class="quiz-options-list">
             <label class="quiz-option-card">
-              <input type="radio" name="license-q3" value="copyleft" class="quiz-radio-hidden">
+              <input type="radio" name="license-q3" value="mit" class="quiz-radio-hidden">
               <span class="quiz-opt-badge">A</span>
-              <span class="quiz-opt-text">Si es distribueix una versió derivada, vull que mantingui la GPL i ofereixi el codi font corresponent.</span>
+              <span class="quiz-opt-text">Prefereixo MIT: és molt coneguda i explicita els permisos concedits.</span>
             </label>
             <label class="quiz-option-card">
-              <input type="radio" name="license-q3" value="permissive" class="quiz-radio-hidden">
+              <input type="radio" name="license-q3" value="isc" class="quiz-radio-hidden">
               <span class="quiz-opt-badge">B</span>
-              <span class="quiz-opt-text">Prefereixo una llicència permissiva que no obligui a mantenir obertes les versions derivades.</span>
+              <span class="quiz-opt-text">Prefereixo ISC: ofereix una llicència permissiva amb un redactat especialment breu.</span>
             </label>
             <label class="quiz-option-card">
-              <input type="radio" name="license-q3" value="no-code" class="quiz-radio-hidden">
+              <input type="radio" name="license-q3" value="no-preference" class="quiz-radio-hidden">
               <span class="quiz-opt-badge">C</span>
-              <span class="quiz-opt-text">No publicaré codi propi.</span>
-            </label>
-            <label class="quiz-option-card">
-              <input type="radio" name="license-q3" value="code-undecided" class="quiz-radio-hidden">
-              <span class="quiz-opt-badge">D</span>
-              <span class="quiz-opt-text">No ho tinc decidit.</span>
+              <span class="quiz-opt-text">No tinc cap preferència clara entre MIT i ISC.</span>
             </label>
           </div>
         </div>
@@ -291,29 +276,29 @@ Els recursos de tercers mantenen les seves llicències i condicions pròpies.</c
         <div class="quiz-question-card" data-license-q="4">
           <div class="quiz-question-header">
             <span class="quiz-q-num-pill">Pregunta 4 de 4</span>
-            <h3 class="quiz-q-title">Si voleu una llicència permissiva, quin criteri preferiu?</h3>
+            <h3 class="quiz-q-title">Abans de publicar, quina situació descriu millor les dependències del projecte?</h3>
           </div>
-          <p class="quiz-q-context">MIT i ISC són llicències diferents, tot i que totes dues són permissives.</p>
+          <p class="quiz-q-context">La llicència que trieu per al vostre codi no substitueix les llicències del codi de tercers.</p>
           <div class="quiz-options-list">
             <label class="quiz-option-card">
-              <input type="radio" name="license-q4" value="mit" class="quiz-radio-hidden">
+              <input type="radio" name="license-q4" value="reviewed" class="quiz-radio-hidden">
               <span class="quiz-opt-badge">A</span>
-              <span class="quiz-opt-text">Prefereixo una llicència molt coneguda amb un text que explicita els permisos.</span>
+              <span class="quiz-opt-text">He identificat les dependències i he revisat les seves llicències.</span>
             </label>
             <label class="quiz-option-card">
-              <input type="radio" name="license-q4" value="isc" class="quiz-radio-hidden">
+              <input type="radio" name="license-q4" value="needs-review" class="quiz-radio-hidden">
               <span class="quiz-opt-badge">B</span>
-              <span class="quiz-opt-text">Prefereixo una llicència amb un redactat especialment breu.</span>
+              <span class="quiz-opt-text">Utilitzo biblioteques o fragments de tercers que encara no he revisat.</span>
             </label>
             <label class="quiz-option-card">
-              <input type="radio" name="license-q4" value="no-preference" class="quiz-radio-hidden">
+              <input type="radio" name="license-q4" value="no-dependencies" class="quiz-radio-hidden">
               <span class="quiz-opt-badge">C</span>
-              <span class="quiz-opt-text">No tinc una preferència concreta entre les dues opcions.</span>
+              <span class="quiz-opt-text">El projecte no incorpora codi de tercers.</span>
             </label>
             <label class="quiz-option-card">
-              <input type="radio" name="license-q4" value="not-applicable" class="quiz-radio-hidden">
+              <input type="radio" name="license-q4" value="unclear-origin" class="quiz-radio-hidden">
               <span class="quiz-opt-badge">D</span>
-              <span class="quiz-opt-text">Aquesta pregunta no s'aplica al meu recurs.</span>
+              <span class="quiz-opt-text">Hi ha codi copiat o generat del qual no tinc prou clara la procedència.</span>
             </label>
           </div>
         </div>
@@ -392,6 +377,32 @@ Els recursos de tercers mantenen les seves llicències i condicions pròpies.</c
               </td>
             </tr>
             <tr>
+              <td><strong>Copyleft per fitxer</strong><br><small style="color:var(--text-muted);">Quan voleu protegir els fitxers modificats</small></td>
+              <td>
+                <strong><a href="https://www.mozilla.org/MPL/2.0/" target="_blank" rel="noopener">Mozilla Public License 2.0</a></strong><br>
+                <small style="color:var(--text-muted);">Copyleft a nivell de fitxer</small>
+              </td>
+              <td>
+                Els fitxers coberts que es modifiquen continuen sota MPL quan es distribueixen, però poden formar part d'una obra més gran amb fitxers sota altres termes.
+              </td>
+              <td>
+                Delimiteu bé quins fitxers estan sota MPL i conserveu els avisos corresponents.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Permissiva amb patents explícites</strong><br><small style="color:var(--text-muted);">Quan aquest punt és rellevant</small></td>
+              <td>
+                <strong><a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache License 2.0</a></strong><br>
+                <small style="color:var(--text-muted);">Llicència de programari permissiva</small>
+              </td>
+              <td>
+                Permet una reutilització àmplia i incorpora una concessió explícita de patents dels contribuïdors en els termes de la llicència.
+              </td>
+              <td>
+                Conserveu els avisos exigits i reviseu si el projecte inclou un fitxer NOTICE que calgui mantenir.
+              </td>
+            </tr>
+            <tr>
               <td><strong>Alternativa per a codi propi</strong><br><small style="color:var(--text-muted);">Quan voleu una llicència permissiva</small></td>
               <td>
                 <strong><a href="https://opensource.org/license/mit" target="_blank" rel="noopener">MIT License</a></strong><br>
@@ -459,6 +470,8 @@ Els recursos de tercers mantenen les seves llicències i condicions pròpies.</c
         <ul style="padding-left:1.25rem;font-size:.875rem;color:var(--text-muted);line-height:1.7;">
           <li><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">Creative Commons CC BY-SA 4.0</a></li>
           <li><a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener">GNU General Public License v3.0</a></li>
+          <li><a href="https://www.mozilla.org/MPL/2.0/" target="_blank" rel="noopener">Mozilla Public License 2.0</a></li>
+          <li><a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache License 2.0</a></li>
           <li><a href="https://opensource.org/license/mit" target="_blank" rel="noopener">MIT License - Open Source Initiative</a></li>
           <li><a href="https://opensource.org/license/ISC" target="_blank" rel="noopener">ISC License - Open Source Initiative</a></li>
           <li><a href="https://creativecommons.org/faq/#can-i-apply-a-creative-commons-license-to-software" target="_blank" rel="noopener">Creative Commons - ús de llicències CC en programari</a></li>
@@ -585,96 +598,76 @@ Els recursos de tercers mantenen les seves llicències i condicions pròpies.</c
       resultBtn.addEventListener('click', () => {
         if (answeredCount() !== total) return;
 
-        const scope = answerFor(0);
-        const contentChoice = answerFor(1);
-        const codeChoice = answerFor(2);
-        const permissiveChoice = answerFor(3);
+        const reciprocity = answerFor(0);
+        const patentChoice = answerFor(1);
+        const simplePermissiveChoice = answerFor(2);
+        const dependencies = answerFor(3);
         const recommendations = [];
 
-        if (scope === 'third-party') {
+        if (reciprocity === 'strong-copyleft') {
           recommendations.push(resultCard(
-            'shield-alert',
-            'Recursos de tercers - manteniu la llicència original',
-            'No apliqueu una llicència pròpia de manera global als materials que no heu creat. Reviseu la llicència de cada recurs i conserveu els avisos que corresponguin.'
+            'git-fork',
+            'GNU GPL v3 - copyleft fort',
+            'Encaixa si voleu que les obres derivades cobertes per la GPL que es distribueixin continuïn sota GPL i que el codi font corresponent estigui disponible. <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener">Consulteu la GNU GPL v3 oficial</a>.'
+          ));
+        } else if (reciprocity === 'file-copyleft') {
+          recommendations.push(resultCard(
+            'files',
+            'MPL 2.0 - copyleft a nivell de fitxer',
+            'Encaixa si voleu que els fitxers coberts que es modifiquin continuïn sota MPL quan es distribueixen, però permetre que formin part d’una obra més gran amb altres fitxers sota termes diferents. <a href="https://www.mozilla.org/MPL/2.0/" target="_blank" rel="noopener">Consulteu la MPL 2.0 oficial</a>.'
+          ));
+        } else if (patentChoice === 'patents') {
+          recommendations.push(resultCard(
+            'shield-check',
+            'Apache 2.0 - permissiva amb concessió explícita de patents',
+            'Encaixa si voleu una llicència permissiva que incorpori una concessió explícita de patents dels contribuïdors. També estableix obligacions de conservació d’avisos en la redistribució. <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Consulteu Apache 2.0</a>.'
+          ));
+        } else if (simplePermissiveChoice === 'isc') {
+          recommendations.push(resultCard(
+            'file-check-2',
+            'ISC - permissiva i molt breu',
+            'Encaixa si voleu una llicència permissiva amb un text especialment curt. Autoritza una reutilització molt àmplia i exigeix conservar l’avís de copyright amb el text de permís. <a href="https://opensource.org/license/ISC" target="_blank" rel="noopener">Consulteu la ISC License</a>.'
+          ));
+        } else if (simplePermissiveChoice === 'mit') {
+          recommendations.push(resultCard(
+            'unlock',
+            'MIT - permissiva i molt reconeguda',
+            'Encaixa si voleu una llicència permissiva molt coneguda que enumera explícitament els permisos principals i exigeix conservar l’avís de copyright amb el text de la llicència. <a href="https://opensource.org/license/mit" target="_blank" rel="noopener">Consulteu la MIT License</a>.'
           ));
         } else {
-          if (scope === 'content' || scope === 'both') {
-            if (contentChoice === 'share-alike') {
-              recommendations.push(resultCard(
-                'share-2',
-                'Contingut - CC BY-SA 4.0',
-                'Permet compartir i adaptar el material amb atribució. Les adaptacions que es comparteixin han de mantenir CompartirIgual. És la llicència utilitzada per al contingut pedagògic d’aquest projecte.'
-              ));
-            } else if (contentChoice === 'attribution') {
-              recommendations.push(resultCard(
-                'user-check',
-                'Contingut - CC BY 4.0',
-                'Permet compartir i adaptar el material amb atribució, sense exigir que les adaptacions mantinguin CompartirIgual.'
-              ));
-            } else if (contentChoice === 'no-derivatives') {
-              recommendations.push(resultCard(
-                'file-lock-2',
-                'Contingut - CC BY-ND 4.0',
-                'Permet redistribuir l’obra amb atribució, però no compartir-ne versions adaptades. En materials educatius aquesta limitació pot dificultar traduccions o adaptacions, de manera que convé aplicar-la només si respon a una decisió deliberada.'
-              ));
-            } else {
-              recommendations.push(resultCard(
-                'circle-help',
-                'Contingut - reviseu primer els drets',
-                'Abans d’assignar una llicència, identifiqueu quines parts heu creat vosaltres i quines provenen de tercers. Només podeu llicenciar allò sobre el qual disposeu dels drets necessaris.'
-              ));
-            }
-          }
+          recommendations.push(resultCard(
+            'scale',
+            'MIT o ISC - falta un criteri que les diferenciï',
+            'Totes dues són permissives i permeten una reutilització molt àmplia. MIT explicita més permisos en el text i té un reconeixement molt ampli; ISC és més breu. Si aquesta diferència no us importa, reviseu els textos oficials abans de decidir.'
+          ));
+        }
 
-          if (scope === 'code' || scope === 'both') {
-            if (codeChoice === 'copyleft') {
-              recommendations.push(resultCard(
-                'git-fork',
-                'Codi - GNU GPL v3',
-                'Encaixa si voleu que les versions derivades cobertes per la GPL mantinguin aquesta llicència quan es distribueixen i que el codi font corresponent continuï disponible.'
-              ));
-            } else if (codeChoice === 'permissive') {
-              if (permissiveChoice === 'isc') {
-                recommendations.push(resultCard(
-                  'file-check-2',
-                  'Codi - ISC License',
-                  'Encaixa si voleu una llicència permissiva amb un redactat especialment breu. Cal conservar l’avís de copyright i el text de permís corresponent.'
-                ));
-              } else if (permissiveChoice === 'mit') {
-                recommendations.push(resultCard(
-                  'unlock',
-                  'Codi - MIT License',
-                  'Encaixa si voleu una llicència permissiva molt estesa que explicita els permisos concedits. Cal conservar l’avís de copyright i el text de la llicència.'
-                ));
-              } else {
-                recommendations.push(resultCard(
-                  'unlock',
-                  'Codi - MIT com a punt de partida',
-                  'Si no teniu una preferència concreta dins de les llicències permissives, MIT és una opció molt habitual. ISC també és permissiva, però utilitza un redactat més breu i continua sent una llicència diferent.'
-                ));
-              }
-            } else if (codeChoice === 'no-code') {
-              recommendations.push(resultCard(
-                'code-xml',
-                'Codi - no cal triar una llicència de programari pròpia',
-                'Si no publiqueu codi propi, no necessiteu assignar-li una llicència. Les biblioteques incorporades continuen sota les seves condicions originals.'
-              ));
-            } else {
-              recommendations.push(resultCard(
-                'scale',
-                'Codi - decidiu entre copyleft o una opció permissiva',
-                'Si voleu preservar l’obertura de les versions derivades distribuïdes, reviseu GNU GPL v3. Si preferiu permetre més flexibilitat de reutilització, valoreu una llicència permissiva i després decidiu entre MIT o ISC.'
-              ));
-            }
-          }
+        if (dependencies === 'needs-review') {
+          recommendations.push(resultCard(
+            'search-check',
+            'Abans de publicar - reviseu les dependències',
+            'No doneu per fet que la llicència triada per al vostre codi cobreix també les biblioteques o fragments externs. Identifiqueu la llicència de cada dependència i conserveu els avisos que exigeixi.'
+          ));
+        } else if (dependencies === 'unclear-origin') {
+          recommendations.push(resultCard(
+            'triangle-alert',
+            'Abans de llicenciar - aclariu la procedència del codi',
+            'Si no sabeu d’on prové un fragment o quines condicions tenia, no és prudent presentar-lo com a codi propi sota una llicència nova. Localitzeu-ne l’origen o substituïu-lo per codi amb condicions conegudes.'
+          ));
+        } else if (dependencies === 'reviewed') {
+          recommendations.push(resultCard(
+            'badge-check',
+            'Dependències revisades',
+            'Manteniu els avisos de les dependències dins del projecte i torneu a comprovar-los quan n’afegiu una de nova o n’actualitzeu la versió.'
+          ));
         }
 
         results.innerHTML = `
-          <span class="quiz-profile-badge intermedi"><i data-lucide="compass" aria-hidden="true"></i> Orientació de llicència</span>
+          <span class="quiz-profile-badge intermedi"><i data-lucide="compass" aria-hidden="true"></i> Orientació de llicència de codi</span>
           <h3 style="margin:0 0 .45rem;font-size:1.2rem;">Resultat orientatiu</h3>
-          <p style="margin:0;color:var(--text-muted);font-size:.925rem;line-height:1.6;">Si el vostre recurs combina contingut pedagògic i codi, és normal que apareguin dues recomanacions diferents.</p>
+          <p style="margin:0;color:var(--text-muted);font-size:.925rem;line-height:1.6;">La recomanació parteix del grau de reciprocitat que voleu exigir. En les llicències permissives, també té en compte les patents i la preferència entre MIT o ISC.</p>
           <div class="quiz-recommendations-grid">${recommendations.join('')}</div>
-          <p style="margin:0;color:var(--text-dim);font-size:.825rem;line-height:1.55;">Reviseu sempre els fitxers de tercers i les seves condicions abans de publicar el projecte.</p>
+          <p style="margin:0;color:var(--text-dim);font-size:.825rem;line-height:1.55;">La compatibilitat entre llicències pot dependre de com combineu el codi. Per a projectes amb dependències complexes, reviseu les llicències concretes abans de distribuir-lo.</p>
         `;
         results.hidden = false;
         if (window.lucide) window.lucide.createIcons();
