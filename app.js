@@ -34,6 +34,7 @@
     [/comparaci|alternatives|diferències/i, 'columns-2'],
     [/citar|citaci[oó]|tasl/i, 'quote'],
     [/llic[eè]nc|creative commons|copyright|drets/i, 'scale'],
+    [/bancs d'imatges|fotograf/i, 'camera'],
     [/imatg|icona|visual/i, 'image'],
     [/accessibilitat|\bdua\b/i, 'accessibility'],
     [/bones pràctiques|criteri|seguretat|privacitat|responsable/i, 'shield-check'],
@@ -99,6 +100,15 @@
     heading.style.display = 'flex';
     heading.style.alignItems = 'center';
     heading.style.gap = '0.6rem';
+  };
+
+  const normalizeBloc9SectionHeadings = () => {
+    const pageName = window.location.pathname.split('/').pop() || '';
+    if (pageName !== 'bloc9-per-continuar-explorant.html') return;
+
+    document.querySelectorAll('main#contingut-principal > .content-box > h2').forEach((heading) => {
+      heading.textContent = heading.textContent.replace(/^\s*\d+\.\s*/, '');
+    });
   };
 
   const addSectionHeadingIcons = () => {
@@ -640,6 +650,7 @@ Quan et confirmi que la versió està validada i et demani l'exportació, no red
       /* Afegim i dedupliquem les icones abans que initSite() executi Lucide.
          D'aquesta manera els <i data-lucide> existents encara es poden detectar
          i no es crea una segona icona al mateix títol. */
+      normalizeBloc9SectionHeadings();
       enhanceHomeGuideHighlight();
       enhanceBloc6InfographicPractice();
       addSectionHeadingIcons();
