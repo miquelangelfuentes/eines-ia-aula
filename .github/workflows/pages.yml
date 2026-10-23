@@ -23,6 +23,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Check JavaScript syntax
+        run: |
+          node --check app.js
+          node --check site-core.js
+          node --check bloc5-llicencies.js
       - name: Build printable dossier
         run: python scripts/build_print.py
       - name: Optimize printable dossier layout
