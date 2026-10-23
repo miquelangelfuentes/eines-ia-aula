@@ -2,12 +2,20 @@
   const form = document.getElementById('license-quiz-form');
   if (!form) return;
 
-  const codeChoiceTable = [...document.querySelectorAll('.clean-table')]
-    .find(table => table.querySelector('th')?.textContent.trim() === 'Si voleu...');
+  const tables = [...document.querySelectorAll('.clean-table')];
+  const codeChoiceTable = tables.find(table => table.querySelector('th')?.textContent.trim() === 'Si voleu...');
   if (codeChoiceTable) {
     codeChoiceTable.querySelectorAll('tbody td:first-child > strong').forEach(strong => {
       strong.replaceWith(...strong.childNodes);
     });
+
+    const rows = [...codeChoiceTable.querySelectorAll('tbody tr')];
+    const apacheRow = rows.find(row => row.textContent.includes('Apache 2.0'));
+    if (apacheRow) {
+      const cells = apacheRow.querySelectorAll('td');
+      cells[0].textContent = 'Una llicència permissiva que també cobreixi explícitament possibles patents dels contribuïdors';
+      cells[2].textContent = 'Permet una reutilització àmplia i deixa escrit que, si un contribuïdor té patents necessàries per utilitzar la seva aportació, concedeix als usuaris els drets de patent corresponents.';
+    }
   }
 
   [...document.querySelectorAll('.card-item h3')]
@@ -16,10 +24,10 @@
     ?.remove();
 
   const ccIcons = {
-    'https://creativecommons.org/licenses/by/4.0/deed.ca': ['assets/images/licenses/cc-by.svg', 'Icona CC BY 4.0'],
-    'https://creativecommons.org/licenses/by-sa/4.0/deed.ca': ['assets/images/licenses/cc-by-sa.svg', 'Icona CC BY-SA 4.0'],
-    'https://creativecommons.org/licenses/by-nc/4.0/deed.ca': ['assets/images/licenses/cc-by-nc.svg', 'Icona CC BY-NC 4.0'],
-    'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca': ['assets/images/licenses/cc-by-nc-sa.svg', 'Icona CC BY-NC-SA 4.0']
+    'https://creativecommons.org/licenses/by/4.0/deed.ca': ['assets/images/licenses/cc-by.svg', 'Badge oficial CC BY 4.0'],
+    'https://creativecommons.org/licenses/by-sa/4.0/deed.ca': ['assets/images/licenses/cc-by-sa.svg', 'Badge oficial CC BY-SA 4.0'],
+    'https://creativecommons.org/licenses/by-nc/4.0/deed.ca': ['assets/images/licenses/cc-by-nc.svg', 'Badge oficial CC BY-NC 4.0'],
+    'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca': ['assets/images/licenses/cc-by-nc-sa.svg', 'Badge oficial CC BY-NC-SA 4.0']
   };
 
   Object.entries(ccIcons).forEach(([href, [src, alt]]) => {
@@ -31,11 +39,46 @@
     img.className = 'cc-license-local-icon';
     img.loading = 'lazy';
     img.style.display = 'block';
-    img.style.height = '32px';
-    img.style.width = 'auto';
-    img.style.marginTop = '.45rem';
+    img.style.height = '42px';
+    img.style.width = '120px';
+    img.style.marginTop = '.5rem';
     link.insertAdjacentElement('afterend', img);
   });
+
+  const contentHeading = [...document.querySelectorAll('h3')]
+    .find(heading => heading.textContent.trim() === 'Per a continguts');
+  if (contentHeading) {
+    const contentBox = contentHeading.closest('.content-box');
+    const contentTable = contentHeading.nextElementSibling?.nextElementSibling;
+    if (contentTable?.classList.contains('table-responsive') && !contentBox.querySelector('.cc-more-link')) {
+      const linkWrap = document.createElement('div');
+      linkWrap.className = 'cc-more-link';
+      linkWrap.style.marginTop = '1rem';
+      linkWrap.innerHTML = '<a href="https://creativecommons.org/cc-licenses/" target="_blank" rel="noopener" class="resource-pill"><i data-lucide="external-link"></i> Saber-ne més sobre les llicències Creative Commons</a>';
+      contentTable.insertAdjacentElement('afterend', linkWrap);
+    }
+  }
+
+  function addHighlightIcon(label, icon) {
+    const strong = [...document.querySelectorAll('.pedagogical-highlight strong')]
+      .find(node => node.textContent.trim() === label);
+    if (!strong || strong.querySelector('[data-lucide]')) return;
+    strong.style.display = 'inline-flex';
+    strong.style.alignItems = 'center';
+    strong.style.gap = '.4rem';
+    strong.insertAdjacentHTML('afterbegin', `<i data-lucide="${icon}" aria-hidden="true" style="width:18px;height:18px;flex:0 0 auto;"></i>`);
+  }
+
+  addHighlightIcon('Compte amb ND.', 'triangle-alert');
+  addHighlightIcon('Una idea per orientar-vos.', 'lightbulb');
+  addHighlightIcon('Si el vostre projecte és una web educativa senzilla', 'globe');
+
+  const simpleWebStrong = [...document.querySelectorAll('.pedagogical-highlight strong')]
+    .find(node => node.textContent.includes('Si el vostre projecte és una web educativa senzilla'));
+  if (simpleWebStrong) {
+    const highlight = simpleWebStrong.closest('.pedagogical-highlight');
+    highlight.innerHTML = '<strong style="display:inline-flex;align-items:center;gap:.4rem;"><i data-lucide="globe" aria-hidden="true" style="width:18px;height:18px;flex:0 0 auto;"></i>Si el vostre projecte és una web educativa senzilla</strong>, podeu triar <strong>GNU GPL v3</strong> si voleu que les versions derivades que es distribueixin continuïn obertes, o <strong>MIT</strong> si preferiu facilitar-ne la reutilització amb poques obligacions.';
+  }
 
   const questionHost = document.getElementById('license-quiz-question');
   const stepper = document.getElementById('license-quiz-stepper');
@@ -78,12 +121,12 @@
       ]
     },
     patents: {
-      title: 'Us importa que la llicència inclogui una concessió explícita de patents dels contribuïdors?',
-      context: 'En molts projectes educatius aquest no serà el criteri principal. Si no sabeu què implica, podeu indicar-ho.',
+      title: 'Voleu que la llicència inclogui també una autorització explícita sobre patents?',
+      context: 'Si una persona aporta codi i té patents necessàries per utilitzar aquella aportació, Apache 2.0 concedeix als usuaris els drets de patent corresponents. En una web educativa senzilla, aquest criteri sovint no és determinant.',
       options: [
-        ['yes', 'Sí. Vull que aquesta concessió aparegui expressament a la llicència.'],
-        ['no', 'No és un criteri determinant per al meu projecte.'],
-        ['unsure', 'No sé si les patents són rellevants en el meu cas.']
+        ['yes', 'Sí. Prefereixo que aquesta protecció consti expressament a la llicència.'],
+        ['no', 'No. No és un criteri important per al meu projecte.'],
+        ['unsure', 'No sé si les patents poden ser rellevants en el meu cas.']
       ]
     },
     dependencies: {
@@ -188,7 +231,7 @@
     agpl: ['network', 'GNU AGPL v3', 'Us encaixa si el programa funciona com a servei en un servidor i voleu que una versió modificada ofereixi el codi font també a les persones que hi interactuen a través de la xarxa.', 'https://www.gnu.org/licenses/agpl-3.0.html'],
     mpl: ['files', 'MPL 2.0', 'Us encaixa si voleu que els fitxers coberts que es modifiquin continuïn oberts, però permetre que es combinin amb altres fitxers sota condicions diferents.', 'https://www.mozilla.org/MPL/2.0/'],
     lgpl: ['blocks', 'GNU LGPL v3', 'Us encaixa especialment quan publiqueu una biblioteca que voleu mantenir oberta però que també ha de poder ser utilitzada des d\'altres programes.', 'https://www.gnu.org/licenses/lgpl-3.0.html'],
-    apache: ['shield-check', 'Apache License 2.0', 'Us encaixa si voleu una llicència permissiva que incorpori una concessió explícita de patents dels contribuïdors.', 'https://www.apache.org/licenses/LICENSE-2.0'],
+    apache: ['shield-check', 'Apache License 2.0', 'Us encaixa si voleu una llicència permissiva que també deixi escrit què passa amb les patents relacionades amb les aportacions de codi. Si un contribuïdor té patents necessàries per utilitzar la seva aportació, la llicència concedeix als usuaris els drets de patent corresponents.', 'https://www.apache.org/licenses/LICENSE-2.0'],
     mit: ['unlock', 'MIT License', 'Us encaixa si voleu facilitar molt la reutilització amb poques obligacions. No exigeix que les versions modificades distribuïdes continuïn obertes.', 'https://opensource.org/license/MIT'],
     guided: ['compass', 'Dues opcions de partida segons la prioritat', 'Si voleu que les versions derivades distribuïdes continuïn obertes, GNU GPL v3 és una opció de partida adequada. Si preferiu facilitar la reutilització amb poques obligacions, MIT és una opció permissiva habitual.', '']
   };
@@ -247,4 +290,5 @@
 
   path.push('openness');
   renderQuestion();
+  if (window.lucide) window.lucide.createIcons();
 })();
