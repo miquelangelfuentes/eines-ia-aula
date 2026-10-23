@@ -31,7 +31,7 @@ Les respostes es desen únicament al navegador mitjançant `localStorage` i es p
 | [`bloc3-github.html`](bloc3-github.html) | **3. Configuració de GitHub** | Creació d'un repositori buit, token temporal *fine-grained*, connexió del projecte des d'Antigravity i primera pujada. Inclou la revocació de la credencial i la publicació amb GitHub Pages. |
 | [`bloc4-pages-sites.html`](bloc4-pages-sites.html) | **4. GitHub Pages en comparació amb Google Sites** | Presenta l'exportació directa d'aplicacions interactives de Gemini a Google Sites i després compara aquesta via amb GitHub Pages segons el grau de control sobre el recurs. Documenta també la limitació actual de l'exportació de Gemini: una nova exportació crea un Site privat nou i no actualitza l'artefacte del Site existent. |
 | [`bloc5-llicencies.html`](bloc5-llicencies.html) | **5. Llicències i codi obert** | Creative Commons per al contingut i llicències de programari aplicables al codi. |
-| [`bloc6-recursos-visuals.html`](bloc6-recursos-visuals.html) | **6. Recursos visuals i citació** | Selecció d'imatges, atribució, patró TASL i criteris per conservar recursos dins del projecte quan la llicència ho permet. |
+| [`bloc6-recursos-visuals.html`](bloc6-recursos-visuals.html) | **6. Recursos visuals i citació** | Selecció d'imatges, iconografia oberta i atribució amb TASL. Inclou una pràctica extra per construir infografies pedagògiques en HTML i CSS amb Lucide, revisar-les abans de convertir-les i exportar-les fidelment a PNG. |
 | [`bloc7-bones-practiques.html`](bloc7-bones-practiques.html) | **7. Bones pràctiques d'aula** | Supervisió docent, protecció de dades, accessibilitat web, DUA, dependències externes i transparència en l'ús d'IA. |
 | [`bloc8-verificacio.html`](bloc8-verificacio.html) | **8. Llista de verificació** | Checklist interactiva amb memòria local per revisar el recurs abans de compartir-lo. |
 | [`bloc9-per-continuar-explorant.html`](bloc9-per-continuar-explorant.html) | **9. Per continuar explorant: IA local** | Introducció als models executats al dispositiu, recursos de Softcatalà i Rebost.ai, i opcions per executar models al propi ordinador amb LM Studio o Ollama. |
@@ -65,6 +65,7 @@ Aquesta via té una limitació rellevant a l'octubre de 2026: si l'artefacte es 
 - **Continuïtat Antigravity-GitHub:** la carpeta creada durant la primera pràctica es connecta a un repositori buit. Als equips PEDC, la primera pujada utilitza un token temporal limitat al projecte, que es revoca després de comprovar el resultat.
 - **Publicació alternativa amb Gemini i Google Sites:** el bloc 4 explica com exportar directament una aplicació interactiva de Gemini a un Site privat nou i en compara les implicacions amb GitHub Pages.
 - **Automatització amb agent com a ampliació:** la descàrrega de documents PDF des d'una pàgina pública mostra una tasca agentiva diferent de la generació de codi i manté la revisió de permisos abans d'autoritzar l'acció.
+- **Infografies pedagògiques com a pràctica extra:** el bloc 6 mostra com construir i revisar una infografia editable en HTML i CSS amb icones Lucide. Quan està validada, es pot renderitzar fidelment a PNG amb fons transparent.
 - **Recursos de suport:** guies oficials i videotutorials per a processos que poden requerir una demostració o una consulta posterior.
 - **Llista de verificació interactiva:** el bloc 8 desa el progrés localment al navegador.
 - **IA local com a ampliació:** el bloc 9 diferencia model i interfície, recull recursos en català i presenta opcions per executar models al dispositiu quan es vol reduir la dependència del núvol.
@@ -110,7 +111,7 @@ Per passar de l'exploració a l'execució al propi ordinador, la secció **Com e
 
 ## Arquitectura del projecte
 
-El contingut pedagògic forma part directament dels fitxers HTML. Això permet que les pàgines continuïn sent llegibles encara que JavaScript no estigui disponible i evita dependre de scripts que reescriguin el contingut després de carregar la pàgina.
+El contingut pedagògic base forma part directament dels fitxers HTML, de manera que les pàgines continuen sent llegibles encara que JavaScript no estigui disponible. `app.js` i `site-core.js` hi afegeixen funcionalitat compartida i algunes millores de presentació o interacció després de la càrrega.
 
 La funcionalitat compartida es concentra principalment en:
 
