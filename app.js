@@ -186,6 +186,56 @@
         height: 20px;
         flex-basis: 20px;
       }
+      .infographic-workflow .pedagogy-infographic__grid {
+        display: grid !important;
+        grid-template-columns:
+          minmax(0, 1fr) 26px
+          minmax(0, 1fr) 26px
+          minmax(0, 1fr) 26px
+          minmax(0, 1fr) !important;
+        gap: 0.45rem !important;
+        align-items: stretch;
+      }
+      .infographic-workflow .pedagogy-infographic__card {
+        display: flex !important;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.65rem !important;
+        min-width: 0;
+        padding: 0.85rem !important;
+      }
+      .infographic-workflow .pedagogy-infographic__icon {
+        width: 38px;
+        height: 38px;
+        flex: 0 0 38px;
+      }
+      .infographic-workflow .pedagogy-infographic__icon svg {
+        width: 19px;
+        height: 19px;
+      }
+      .infographic-workflow .pedagogy-infographic__card h5 {
+        margin: 0 0 0.28rem;
+        font-size: 0.88rem;
+        line-height: 1.3;
+      }
+      .infographic-workflow .pedagogy-infographic__card p {
+        font-size: 0.76rem;
+        line-height: 1.45;
+      }
+      .infographic-workflow .pedagogy-infographic__arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-primary);
+      }
+      .infographic-workflow .pedagogy-infographic__arrow svg {
+        width: 20px;
+        height: 20px;
+      }
+      .infographic-workflow .pedagogy-infographic__card:nth-of-type(even) .pedagogy-infographic__icon {
+        color: var(--accent-secondary);
+        background: var(--accent-secondary-light);
+      }
       .pedagogical-highlight.pedagogical-highlight-with-icon {
         display: grid;
         grid-template-columns: auto 1fr;
@@ -205,6 +255,21 @@
       .pedagogical-highlight-icon svg {
         width: 20px;
         height: 20px;
+      }
+      @media (max-width: 760px) {
+        .infographic-workflow .pedagogy-infographic__grid {
+          grid-template-columns: 1fr !important;
+          gap: 0.5rem !important;
+        }
+        .infographic-workflow .pedagogy-infographic__card {
+          display: grid !important;
+          grid-template-columns: 38px 1fr;
+          align-items: start;
+        }
+        .infographic-workflow .pedagogy-infographic__arrow {
+          height: 22px;
+          transform: rotate(90deg);
+        }
       }
     `;
     document.head.appendChild(style);
@@ -250,6 +315,18 @@
       icon.setAttribute('data-lucide', 'code-2');
       icon.setAttribute('aria-hidden', 'true');
       sampleHeading.prepend(icon);
+    }
+
+    const infographicGrid = practice.querySelector('.pedagogy-infographic__grid');
+    if (infographicGrid && !infographicGrid.querySelector('.pedagogy-infographic__arrow')) {
+      const cards = [...infographicGrid.querySelectorAll('.pedagogy-infographic__card')];
+      cards.slice(0, -1).forEach((card) => {
+        const arrow = document.createElement('span');
+        arrow.className = 'pedagogy-infographic__arrow';
+        arrow.setAttribute('aria-hidden', 'true');
+        arrow.innerHTML = '<i data-lucide="arrow-right"></i>';
+        card.after(arrow);
+      });
     }
 
     const promptBoxes = practice.querySelectorAll('.infographic-prompt-box');
