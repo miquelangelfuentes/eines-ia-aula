@@ -129,7 +129,7 @@
             En aquest projecte el codi es publica amb <strong>GNU GPL v3</strong>. És una <strong>llicència de programari lliure i de codi obert amb copyleft</strong>. Podeu executar el codi i estudiar-lo, i també modificar-lo. Si distribuïu una versió modificada o una obra derivada coberta per la GPL, la distribució ha de mantenir la GPL i facilitar el codi font corresponent.
           </p>
           <p style="margin-bottom:0;">
-            La <strong>MIT</strong> és una <strong>llicència de programari permissiva</strong>. També permet reutilitzar i modificar el codi, però no exigeix que una versió derivada distribuïda continuï oberta.
+            Altres projectes poden optar per una llicència permissiva com MIT o ISC. Aquestes alternatives permeten una reutilització molt àmplia, però tenen textos legals diferents i s'han de tractar com a llicències separades.
           </p>
         </div>
       </div>
@@ -137,22 +137,26 @@
       <div class="cards-grid cards-grid-2x2" style="margin-top:1.5rem;">
         <div class="card-item">
           <div class="card-item-icon"><i data-lucide="unlock"></i></div>
-          <h3>MIT i ISC - llicències permissives</h3>
+          <h3>MIT - llicència permissiva</h3>
           <p>
-            <strong>MIT</strong> i <strong>ISC</strong> són llicències de programari de codi obert permissives. Autoritzen un ús molt ampli del codi i exigeixen conservar els avisos indicats per la llicència. No obliguen que les obres derivades distribuïdes mantinguin la mateixa llicència.
+            La <strong>MIT License</strong> permet una reutilització molt àmplia del codi, també dins de projectes amb una altra llicència. El seu text enumera de manera explícita els permisos que concedeix. Quan es redistribueix el programari, cal conservar l'avís de copyright i el text de la llicència.
           </p>
         </div>
         <div class="card-item">
-          <div class="card-item-icon"><i data-lucide="git-fork"></i></div>
-          <h3>GNU GPL v3 - llicència amb copyleft</h3>
+          <div class="card-item-icon"><i data-lucide="file-check-2"></i></div>
+          <h3>ISC - llicència permissiva</h3>
           <p>
-            <strong>GNU GPL v3</strong> és una llicència de programari lliure i de codi obert amb copyleft. Si distribuïu una versió modificada coberta per la GPL, heu de mantenir aquesta llicència i posar el codi font corresponent a disposició de les persones destinatàries. Fer modificacions per a ús privat no obliga a publicar-les.
+            La <strong>ISC License</strong> també és permissiva, però utilitza un redactat més breu. Autoritza un ús ampli del programari i exigeix conservar l'avís de copyright amb el text de permís corresponent. Lucide utilitza aquesta llicència.
           </p>
         </div>
       </div>
 
-      <div class="pedagogical-highlight" style="margin-top:1.25rem;">
-        <strong>GNU</strong> no és, per si sol, el nom d'un tipus de llicència. En aquest context, la llicència és <strong>GNU General Public License v3.0 (GNU GPL v3)</strong>. De la mateixa manera, MIT i ISC són noms de llicències concretes, no categories genèriques.
+      <div class="card-item" style="margin-top:1.25rem;">
+        <div class="card-item-icon"><i data-lucide="git-fork"></i></div>
+        <h3>GNU GPL v3 - llicència amb copyleft</h3>
+        <p>
+          <strong>GNU GPL v3</strong> és una llicència de programari lliure i de codi obert amb copyleft. Si distribuïu una versió modificada coberta per la GPL, heu de mantenir aquesta llicència i posar el codi font corresponent a disposició de les persones destinatàries. Fer modificacions per a ús privat no obliga a publicar-les.
+        </p>
       </div>
 
       <h3 style="margin-top:2rem;margin-bottom:.75rem;">Model de doble llicència per a un recurs web</h3>
@@ -209,35 +213,43 @@ Els recursos de tercers mantenen les seves llicències i condicions pròpies.</c
               </td>
             </tr>
             <tr>
-              <td><strong>Codi informàtic</strong><br><small style="color:var(--text-muted);">HTML i CSS, a més de JavaScript propi</small></td>
+              <td><strong>Codi propi del projecte</strong><br><small style="color:var(--text-muted);">HTML i CSS, a més de JavaScript propi</small></td>
               <td>
                 <span class="badge-feature badge-positive">Opció del projecte</span><br>
                 <strong><a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener">GNU GPL v3</a></strong><br>
-                <small style="color:var(--text-muted);">Llicència de programari amb copyleft</small><br><br>
-                <span class="badge-feature" style="background:var(--bg-surface);border:1px solid var(--border-color);color:var(--text-main);">Alternativa</span><br>
-                <strong><a href="https://opensource.org/license/mit" target="_blank" rel="noopener">MIT</a></strong><br>
-                <small style="color:var(--text-muted);">Llicència de programari permissiva</small>
+                <small style="color:var(--text-muted);">Llicència de programari amb copyleft</small>
               </td>
               <td>
-                GNU GPL v3 aplica copyleft a les versions derivades cobertes per la llicència quan es distribueixen. MIT permet reutilitzar el codi amb menys obligacions i no exigeix que les modificacions distribuïdes continuïn obertes.
+                Aplica copyleft a les versions derivades cobertes per la llicència quan es distribueixen. Aquestes versions han de mantenir la GPL i facilitar el codi font corresponent.
               </td>
               <td>
-                Reviseu les dependències incorporades i la seva compatibilitat. Els components de tercers conserven la seva llicència i els avisos que aquesta exigeixi.
+                Reviseu les dependències incorporades i la seva compatibilitat. Els components de tercers conserven la seva llicència.
               </td>
             </tr>
             <tr>
-              <td><strong>Icones i biblioteques</strong><br><small style="color:var(--text-muted);">Dependències de tercers</small></td>
+              <td><strong>Alternativa per a codi propi</strong><br><small style="color:var(--text-muted);">Quan voleu una llicència permissiva</small></td>
               <td>
-                <strong>ISC</strong> - llicència de programari permissiva<br>
-                <small style="color:var(--text-muted);">Exemple: Lucide</small><br><br>
-                <strong>MIT</strong> - llicència de programari permissiva<br>
-                <small style="color:var(--text-muted);">Exemple: Tabler Icons</small>
+                <strong><a href="https://opensource.org/license/mit" target="_blank" rel="noopener">MIT License</a></strong><br>
+                <small style="color:var(--text-muted);">Llicència de programari permissiva</small>
               </td>
               <td>
-                Aquestes llicències permeten una reutilització àmplia amb poques condicions. La llicència del vostre projecte no converteix automàticament aquests fitxers en GPL ni en CC BY-SA.
+                Permet reutilitzar el codi amb poques condicions i no exigeix que les modificacions distribuïdes continuïn obertes. El text de la llicència explicita els permisos que concedeix.
               </td>
               <td>
-                Conserveu els avisos exigits i documenteu l'origen dels recursos distribuïts amb el projecte.
+                Conserveu l'avís de copyright i el text de la llicència quan redistribuïu el codi.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Dependències amb ISC</strong><br><small style="color:var(--text-muted);">Per exemple, Lucide</small></td>
+              <td>
+                <strong><a href="https://opensource.org/license/ISC" target="_blank" rel="noopener">ISC License</a></strong><br>
+                <small style="color:var(--text-muted);">Llicència de programari permissiva</small>
+              </td>
+              <td>
+                Té un redactat molt breu i permet un ús ampli del programari. No obliga a relicenciar el vostre projecte sota ISC.
+              </td>
+              <td>
+                Conserveu l'avís de copyright i el text de permís que exigeix la llicència.
               </td>
             </tr>
             <tr>
