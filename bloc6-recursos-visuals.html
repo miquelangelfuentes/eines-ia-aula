@@ -169,6 +169,341 @@
         </div>
       </div>
 
+      <section class="infographic-workflow" aria-labelledby="infografies-html-title">
+        <style>
+          .infographic-workflow {
+            margin-top: 2.25rem;
+          }
+          .infographic-workflow > p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+          }
+          .infographic-demo-wrap {
+            margin: 1.5rem 0;
+            padding: 0;
+            background: transparent;
+          }
+          .pedagogy-infographic {
+            display: grid;
+            gap: 0.85rem;
+            background: transparent;
+          }
+          .pedagogy-infographic__header,
+          .pedagogy-infographic__card,
+          .pedagogy-infographic__footer {
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+          }
+          .pedagogy-infographic__header {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            padding: 1.1rem 1.2rem;
+            border-radius: var(--radius-lg);
+          }
+          .pedagogy-infographic__header-icon {
+            width: 44px;
+            height: 44px;
+            flex: 0 0 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-primary);
+            background: var(--accent-light);
+            border-radius: var(--radius-md);
+          }
+          .pedagogy-infographic__header-icon svg {
+            width: 23px;
+            height: 23px;
+          }
+          .pedagogy-infographic__header h4 {
+            margin: 0;
+            color: var(--text-main);
+            font-size: 1.12rem;
+          }
+          .pedagogy-infographic__header p {
+            margin: 0.15rem 0 0;
+            color: var(--text-muted);
+            font-size: 0.86rem;
+          }
+          .pedagogy-infographic__grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.85rem;
+          }
+          .pedagogy-infographic__card {
+            min-width: 0;
+            padding: 1rem;
+            border-radius: var(--radius-lg);
+            display: grid;
+            grid-template-columns: 42px 1fr;
+            gap: 0.85rem;
+            align-items: start;
+          }
+          .pedagogy-infographic__icon {
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-primary);
+            background: var(--accent-light);
+            border-radius: var(--radius-md);
+          }
+          .pedagogy-infographic__card:nth-child(even) .pedagogy-infographic__icon {
+            color: var(--accent-secondary);
+            background: var(--accent-secondary-light);
+          }
+          .pedagogy-infographic__icon svg {
+            width: 21px;
+            height: 21px;
+          }
+          .pedagogy-infographic__card h5 {
+            margin: 0 0 0.3rem;
+            color: var(--text-main);
+            font-size: 0.95rem;
+          }
+          .pedagogy-infographic__card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            line-height: 1.5;
+          }
+          .pedagogy-infographic__footer {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.85rem 1rem;
+            border-radius: var(--radius-lg);
+            color: var(--text-main);
+            font-size: 0.84rem;
+            font-weight: 600;
+          }
+          .pedagogy-infographic__footer svg {
+            width: 19px;
+            height: 19px;
+            flex: 0 0 19px;
+            color: var(--accent-warm);
+          }
+          .infographic-note {
+            margin: 1.25rem 0;
+            padding: 0.9rem 1rem;
+            border-left: 3px solid var(--accent-primary);
+            background: var(--bg-subtle);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+          }
+          .infographic-prompt-box {
+            margin-top: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            background: var(--bg-surface);
+            overflow: hidden;
+          }
+          .infographic-prompt-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.8rem 0.95rem;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--bg-subtle);
+          }
+          .infographic-prompt-head strong {
+            color: var(--text-main);
+            font-size: 0.9rem;
+          }
+          .infographic-copy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: var(--bg-surface);
+            color: var(--text-main);
+            padding: 0.45rem 0.65rem;
+            font: inherit;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+          }
+          .infographic-copy-btn:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+          }
+          .infographic-copy-btn svg {
+            width: 15px;
+            height: 15px;
+          }
+          .infographic-prompt-box pre {
+            margin: 0;
+            padding: 1rem;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            color: var(--text-main);
+            background: var(--bg-surface);
+            font: 0.84rem/1.55 ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+          }
+          @media (max-width: 700px) {
+            .pedagogy-infographic__grid {
+              grid-template-columns: 1fr;
+            }
+            .infographic-prompt-head {
+              align-items: flex-start;
+              flex-direction: column;
+            }
+          }
+          @media print {
+            .infographic-copy-btn {
+              display: none;
+            }
+          }
+        </style>
+
+        <h3 id="infografies-html-title" style="margin-bottom: 0.75rem;">Infografies pedagògiques amb HTML i icones</h3>
+        <p>
+          Per representar un contingut pedagògic de manera visual no cal generar una il·lustració nova. Podeu demanar a la IA que construeixi una <strong>infografia en HTML i CSS</strong> amb una biblioteca d'icones oberta. En aquesta pàgina convé mantenir <strong>Lucide</strong>, perquè és la biblioteca que ja fa servir la resta del lloc web.
+        </p>
+
+        <div class="infographic-note">
+          Treballeu primer amb l'HTML com a font editable. Reviseu el contingut i la composició en pantalla. Quan el resultat sigui correcte, demaneu una <strong>renderització fidel a PNG</strong>, no una reinterpretació de la infografia amb un generador d'imatges.
+        </div>
+
+        <div class="ordered-steps" style="margin-top: 1.25rem;">
+          <div class="ordered-step-item">
+            <div class="step-indicator">1</div>
+            <div class="step-content">
+              <h3>Prepareu el contingut abans del disseny</h3>
+              <p>Definiu què ha d'aprendre o recordar l'alumnat. Reduïu el text fins que cada bloc comuniqui una sola idea.</p>
+            </div>
+          </div>
+
+          <div class="ordered-step-item">
+            <div class="step-indicator">2</div>
+            <div class="step-content">
+              <h3>Construïu la infografia en HTML</h3>
+              <p>Demaneu blocs semàntics i icones Lucide coherents amb el significat. Manteniu un sistema visual únic en tota la composició.</p>
+            </div>
+          </div>
+
+          <div class="ordered-step-item">
+            <div class="step-indicator">3</div>
+            <div class="step-content">
+              <h3>Reviseu-la en pantalla</h3>
+              <p>Comproveu la correcció del contingut i la jerarquia visual. Reviseu també el contrast en mode clar i fosc abans de convertir res a imatge.</p>
+            </div>
+          </div>
+
+          <div class="ordered-step-item">
+            <div class="step-indicator">4</div>
+            <div class="step-content">
+              <h3>Exporteu el component a PNG</h3>
+              <p>Quan l'HTML estigui validat, demaneu a la IA que renderitzi exactament el component i que conservi la transparència exterior.</p>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="margin-top: 1.75rem; margin-bottom: 0.5rem;">Mostra inserida directament amb HTML i Lucide</h4>
+        <p>
+          Aquesta infografia no és una imatge. Els textos, les capses i les icones formen part del mateix HTML de la pàgina. El fons exterior és transparent i els colors utilitzen les variables del lloc, de manera que la mostra s'adapta al tema clar i al tema fosc.
+        </p>
+
+        <figure class="infographic-demo-wrap">
+          <div class="pedagogy-infographic" role="group" aria-label="Infografia sobre com verificar una resposta d'intel·ligència artificial">
+            <div class="pedagogy-infographic__header">
+              <span class="pedagogy-infographic__header-icon" aria-hidden="true"><i data-lucide="shield-check"></i></span>
+              <div>
+                <h4>Com verificar una resposta d'IA</h4>
+                <p>Abans d'incorporar-la a un material o una activitat</p>
+              </div>
+            </div>
+
+            <div class="pedagogy-infographic__grid">
+              <article class="pedagogy-infographic__card">
+                <span class="pedagogy-infographic__icon" aria-hidden="true"><i data-lucide="search"></i></span>
+                <div>
+                  <h5>Comproveu les afirmacions</h5>
+                  <p>Identifiqueu què es pot verificar i contrasteu-ho amb fonts adequades.</p>
+                </div>
+              </article>
+
+              <article class="pedagogy-infographic__card">
+                <span class="pedagogy-infographic__icon" aria-hidden="true"><i data-lucide="link"></i></span>
+                <div>
+                  <h5>Reviseu les fonts</h5>
+                  <p>Obriu els enllaços i comproveu si realment sostenen allò que afirma la resposta.</p>
+                </div>
+              </article>
+
+              <article class="pedagogy-infographic__card">
+                <span class="pedagogy-infographic__icon" aria-hidden="true"><i data-lucide="scale"></i></span>
+                <div>
+                  <h5>Detecteu biaixos i omissions</h5>
+                  <p>Pregunteu-vos quines perspectives hi falten i si el llenguatge introdueix biaixos.</p>
+                </div>
+              </article>
+
+              <article class="pedagogy-infographic__card">
+                <span class="pedagogy-infographic__icon" aria-hidden="true"><i data-lucide="badge-check"></i></span>
+                <div>
+                  <h5>Decidiu què conserveu</h5>
+                  <p>Editeu la resposta abans d'utilitzar-la. La decisió final continua sent humana.</p>
+                </div>
+              </article>
+            </div>
+
+            <div class="pedagogy-infographic__footer">
+              <i data-lucide="lightbulb" aria-hidden="true"></i>
+              <span>La IA pot ajudar a redactar. Validar el contingut continua sent una tasca humana.</span>
+            </div>
+          </div>
+          <figcaption class="edu-caption" style="margin-top: 0.6rem; background: transparent; padding-left: 0; padding-right: 0;">
+            Exemple construït amb HTML, CSS i icones Lucide. No s'ha generat cap il·lustració amb IA.
+          </figcaption>
+        </figure>
+
+        <h4 style="margin-top: 1.75rem; margin-bottom: 0.5rem;">Model d'indicació per crear l'HTML</h4>
+        <div class="infographic-prompt-box">
+          <div class="infographic-prompt-head">
+            <strong>Indicació 1 - construcció de la infografia</strong>
+            <button class="infographic-copy-btn" type="button" data-copy-target="#infographic-prompt-html">
+              <i data-lucide="copy" aria-hidden="true"></i><span>Copia</span>
+            </button>
+          </div>
+          <pre id="infographic-prompt-html">Crea una infografia pedagògica en HTML i CSS sobre [CONTINGUT].
+
+Utilitza la biblioteca d'icones Lucide i tria cada icona pel seu significat, no com a decoració. Organitza la informació en blocs breus amb una jerarquia visual clara.
+
+No inventis informació. Conserva amb exactitud els conceptes que t'he proporcionat i assenyala qualsevol afirmació que necessiti verificació abans de donar el contingut per tancat.
+
+Fes que el component tingui el fons exterior transparent. Les capses internes han de mantenir prou contrast perquè la infografia es pugui inserir sobre una pàgina clara o fosca.
+
+Retorna el codi HTML complet i el CSS necessari. No generis cap imatge encara.</pre>
+        </div>
+
+        <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Model d'indicació després de revisar el contingut</h4>
+        <div class="infographic-prompt-box">
+          <div class="infographic-prompt-head">
+            <strong>Indicació 2 - exportació a PNG</strong>
+            <button class="infographic-copy-btn" type="button" data-copy-target="#infographic-prompt-png">
+              <i data-lucide="copy" aria-hidden="true"></i><span>Copia</span>
+            </button>
+          </div>
+          <pre id="infographic-prompt-png">Converteix aquest component HTML revisat en un fitxer PNG.
+
+No generis ni reinterpretis la infografia. Renderitza fidelment el codi HTML i CSS que t'adjunto, incloses les icones SVG de Lucide.
+
+Exporta només el component de la infografia i conserva el fons exterior transparent. Mantén literalment el text i respecta la composició que ja he validat.
+
+Abans d'exportar, comprova que no hi hagi text tallat o solapaments. Revisa també que totes les icones estiguin ben alineades i que el contrast sigui suficient.
+
+Retorna el PNG final amb transparència real.</pre>
+        </div>
+      </section>
+
       <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Bancs d'imatges reals creades per persones</h3>
       <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
         Quan l'activitat necessita fotografies reals, convé acudir a repositoris de qualitat que respecten la feina dels fotògrafs i ofereixen llicències clares:
@@ -314,6 +649,25 @@
 
   <script src="assets/vendor/lucide/lucide.min.js"></script>
   <script src="app.js?v=5"></script>
+  <script>
+    document.querySelectorAll('[data-copy-target]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const target = document.querySelector(button.dataset.copyTarget);
+        if (!target) return;
+        const label = button.querySelector('span');
+        const original = label ? label.textContent : '';
+        try {
+          await navigator.clipboard.writeText(target.innerText.trim());
+          if (label) label.textContent = 'Copiat';
+          window.setTimeout(() => {
+            if (label) label.textContent = original;
+          }, 1600);
+        } catch (error) {
+          if (label) label.textContent = 'Seleccioneu el text';
+        }
+      });
+    });
+  </script>
 
 
 </body></html>
