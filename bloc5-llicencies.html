@@ -176,6 +176,171 @@ Els recursos de tercers mantenen les seves llicències i condicions pròpies.</c
       </div>
     </div>
 
+    <div class="content-box" id="orientador-llicencies">
+      <h2>Quina llicència encaixa amb el vostre recurs?</h2>
+      <p class="lead-desc">Respongueu quatre preguntes i obtindreu una orientació diferenciada per al contingut pedagògic i per al codi propi.</p>
+
+      <div class="pedagogical-highlight">
+        El resultat és una orientació pràctica, no assessorament jurídic. Si el recurs incorpora materials de tercers, aquests mantenen la seva llicència i no es poden relicenciar automàticament amb la del vostre projecte.
+      </div>
+
+      <div class="quiz-progress-wrapper">
+        <div class="quiz-stepper-header">
+          <div class="quiz-stepper-pills" id="license-quiz-stepper" aria-label="Progrés del qüestionari"></div>
+        </div>
+        <div class="quiz-progress-track" aria-hidden="true">
+          <div id="license-quiz-progress-fill" class="quiz-progress-fill" style="width:0%;"></div>
+        </div>
+        <div class="quiz-progress-meta">
+          <span id="license-quiz-progress-text">0 de 4 preguntes respostes</span>
+          <span id="license-quiz-progress-percent">0% completat</span>
+        </div>
+      </div>
+
+      <form id="license-quiz-form" class="diagnostic-quiz-form is-wizard">
+        <div class="quiz-question-card active" data-license-q="1">
+          <div class="quiz-question-header">
+            <span class="quiz-q-num-pill">Pregunta 1 de 4</span>
+            <h3 class="quiz-q-title">Què voleu llicenciar?</h3>
+          </div>
+          <p class="quiz-q-context">Identifiqueu primer quina part del recurs és vostra.</p>
+          <div class="quiz-options-list">
+            <label class="quiz-option-card">
+              <input type="radio" name="license-q1" value="content" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">A</span>
+              <span class="quiz-opt-text">Només contingut pedagògic propi, com textos o activitats.</span>
+            </label>
+            <label class="quiz-option-card">
+              <input type="radio" name="license-q1" value="code" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">B</span>
+              <span class="quiz-opt-text">Només codi propi del projecte.</span>
+            </label>
+            <label class="quiz-option-card">
+              <input type="radio" name="license-q1" value="both" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">C</span>
+              <span class="quiz-opt-text">Contingut pedagògic propi i codi propi.</span>
+            </label>
+            <label class="quiz-option-card">
+              <input type="radio" name="license-q1" value="third-party" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">D</span>
+              <span class="quiz-opt-text">Sobretot recursos de tercers que no he creat jo.</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="quiz-question-card" data-license-q="2">
+          <div class="quiz-question-header">
+            <span class="quiz-q-num-pill">Pregunta 2 de 4</span>
+            <h3 class="quiz-q-title">Què voleu permetre amb el contingut pedagògic?</h3>
+          </div>
+          <p class="quiz-q-context">Penseu en què podria fer una altra persona amb els materials que heu creat.</p>
+          <div class="quiz-options-list">
+            <label class="quiz-option-card">
+              <input type="radio" name="license-q2" value="share-alike" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">A</span>
+              <span class="quiz-opt-text">Vull permetre adaptacions i que les versions compartides mantinguin CompartirIgual.</span>
+            </label>
+            <label class="quiz-option-card">
+              <input type="radio" name="license-q2" value="attribution" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">B</span>
+              <span class="quiz-opt-text">Vull permetre adaptacions amb atribució, sense exigir CompartirIgual.</span>
+            </label>
+            <label class="quiz-option-card">
+              <input type="radio" name="license-q2" value="no-derivatives" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">C</span>
+              <span class="quiz-opt-text">No vull autoritzar que es comparteixin versions adaptades.</span>
+            </label>
+            <label class="quiz-option-card">
+              <input type="radio" name="license-q2" value="rights-unclear" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">D</span>
+              <span class="quiz-opt-text">No tinc prou clar si disposo dels drets sobre tot el contingut.</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="quiz-question-card" data-license-q="3">
+          <div class="quiz-question-header">
+            <span class="quiz-q-num-pill">Pregunta 3 de 4</span>
+            <h3 class="quiz-q-title">Què voleu que passi amb les versions derivades del codi?</h3>
+          </div>
+          <p class="quiz-q-context">Aquesta decisió separa una llicència amb copyleft d'una llicència permissiva.</p>
+          <div class="quiz-options-list">
+            <label class="quiz-option-card">
+              <input type="radio" name="license-q3" value="copyleft" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">A</span>
+              <span class="quiz-opt-text">Si es distribueix una versió derivada, vull que mantingui la GPL i ofereixi el codi font corresponent.</span>
+            </label>
+            <label class="quiz-option-card">
+              <input type="radio" name="license-q3" value="permissive" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">B</span>
+              <span class="quiz-opt-text">Prefereixo una llicència permissiva que no obligui a mantenir obertes les versions derivades.</span>
+            </label>
+            <label class="quiz-option-card">
+              <input type="radio" name="license-q3" value="no-code" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">C</span>
+              <span class="quiz-opt-text">No publicaré codi propi.</span>
+            </label>
+            <label class="quiz-option-card">
+              <input type="radio" name="license-q3" value="code-undecided" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">D</span>
+              <span class="quiz-opt-text">No ho tinc decidit.</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="quiz-question-card" data-license-q="4">
+          <div class="quiz-question-header">
+            <span class="quiz-q-num-pill">Pregunta 4 de 4</span>
+            <h3 class="quiz-q-title">Si voleu una llicència permissiva, quin criteri preferiu?</h3>
+          </div>
+          <p class="quiz-q-context">MIT i ISC són llicències diferents, tot i que totes dues són permissives.</p>
+          <div class="quiz-options-list">
+            <label class="quiz-option-card">
+              <input type="radio" name="license-q4" value="mit" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">A</span>
+              <span class="quiz-opt-text">Prefereixo una llicència molt coneguda amb un text que explicita els permisos.</span>
+            </label>
+            <label class="quiz-option-card">
+              <input type="radio" name="license-q4" value="isc" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">B</span>
+              <span class="quiz-opt-text">Prefereixo una llicència amb un redactat especialment breu.</span>
+            </label>
+            <label class="quiz-option-card">
+              <input type="radio" name="license-q4" value="no-preference" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">C</span>
+              <span class="quiz-opt-text">No tinc una preferència concreta entre les dues opcions.</span>
+            </label>
+            <label class="quiz-option-card">
+              <input type="radio" name="license-q4" value="not-applicable" class="quiz-radio-hidden">
+              <span class="quiz-opt-badge">D</span>
+              <span class="quiz-opt-text">Aquesta pregunta no s'aplica al meu recurs.</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="quiz-nav-footer">
+          <button type="button" class="quiz-nav-btn" id="license-quiz-prev" disabled>
+            <i data-lucide="arrow-left" aria-hidden="true"></i><span>Anterior</span>
+          </button>
+          <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+            <button type="button" class="quiz-nav-btn primary" id="license-quiz-next" disabled>
+              <span>Següent</span><i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="quiz-nav-btn accent-cta" id="license-quiz-result" hidden disabled>
+              <i data-lucide="badge-check" aria-hidden="true"></i><span>Veure orientació</span>
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div id="license-quiz-results" class="quiz-results-panel" hidden aria-live="polite"></div>
+      <div class="quiz-actions-row">
+        <button type="button" class="quiz-btn-link" id="license-quiz-reset">
+          <i data-lucide="rotate-ccw" aria-hidden="true"></i><span>Reinicia el qüestionari</span>
+        </button>
+      </div>
+    </div>
+
     <div class="content-box">
       <h2>Llicències recomanades per a docents</h2>
       <p class="lead-desc">La millor opció depèn de què voleu permetre i de quines condicions voleu conservar quan altres persones reutilitzin el recurs.</p>
@@ -326,4 +491,206 @@ Els recursos de tercers mantenen les seves llicències i condicions pròpies.</c
 
   <script src="assets/vendor/lucide/lucide.min.js"></script>
   <script src="app.js?v=6"></script>
+  <script>
+    (() => {
+      const form = document.getElementById('license-quiz-form');
+      if (!form) return;
+
+      const cards = [...form.querySelectorAll('[data-license-q]')];
+      const total = cards.length;
+      const stepper = document.getElementById('license-quiz-stepper');
+      const progressFill = document.getElementById('license-quiz-progress-fill');
+      const progressText = document.getElementById('license-quiz-progress-text');
+      const progressPercent = document.getElementById('license-quiz-progress-percent');
+      const prevBtn = document.getElementById('license-quiz-prev');
+      const nextBtn = document.getElementById('license-quiz-next');
+      const resultBtn = document.getElementById('license-quiz-result');
+      const resetBtn = document.getElementById('license-quiz-reset');
+      const results = document.getElementById('license-quiz-results');
+      let current = 0;
+
+      cards.forEach((card, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'quiz-step-btn';
+        button.textContent = String(index + 1);
+        button.setAttribute('aria-label', `Anar a la pregunta ${index + 1}`);
+        button.addEventListener('click', () => {
+          current = index;
+          render();
+        });
+        stepper.appendChild(button);
+      });
+
+      function answerFor(index) {
+        const input = form.querySelector(`input[name="license-q${index + 1}"]:checked`);
+        return input ? input.value : null;
+      }
+
+      function answeredCount() {
+        return cards.filter((_, index) => answerFor(index)).length;
+      }
+
+      function render() {
+        cards.forEach((card, index) => {
+          const active = index === current;
+          card.classList.toggle('active', active);
+          card.classList.toggle('answered', Boolean(answerFor(index)));
+        });
+
+        const steps = [...stepper.querySelectorAll('.quiz-step-btn')];
+        steps.forEach((step, index) => {
+          step.classList.toggle('active', index === current);
+          step.classList.toggle('answered', Boolean(answerFor(index)));
+        });
+
+        const answered = answeredCount();
+        const percent = Math.round((answered / total) * 100);
+        progressFill.style.width = `${percent}%`;
+        progressText.textContent = `${answered} de ${total} preguntes respostes`;
+        progressPercent.textContent = `${percent}% completat`;
+
+        prevBtn.disabled = current === 0;
+        nextBtn.hidden = current === total - 1;
+        nextBtn.disabled = !answerFor(current);
+        resultBtn.hidden = current !== total - 1;
+        resultBtn.disabled = answered !== total;
+      }
+
+      form.querySelectorAll('input[type="radio"]').forEach((input) => {
+        input.addEventListener('change', () => {
+          const group = input.closest('.quiz-options-list');
+          group.querySelectorAll('.quiz-option-card').forEach((label) => label.classList.remove('selected'));
+          input.closest('.quiz-option-card').classList.add('selected');
+          results.hidden = true;
+          render();
+        });
+      });
+
+      prevBtn.addEventListener('click', () => {
+        if (current > 0) current -= 1;
+        render();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (!answerFor(current)) return;
+        if (current < total - 1) current += 1;
+        render();
+      });
+
+      function resultCard(icon, title, text) {
+        return `<article class="quiz-rec-card"><h4><i data-lucide="${icon}" aria-hidden="true"></i>${title}</h4><p style="margin:0;color:var(--text-muted);font-size:.9rem;line-height:1.6;">${text}</p></article>`;
+      }
+
+      resultBtn.addEventListener('click', () => {
+        if (answeredCount() !== total) return;
+
+        const scope = answerFor(0);
+        const contentChoice = answerFor(1);
+        const codeChoice = answerFor(2);
+        const permissiveChoice = answerFor(3);
+        const recommendations = [];
+
+        if (scope === 'third-party') {
+          recommendations.push(resultCard(
+            'shield-alert',
+            'Recursos de tercers - manteniu la llicència original',
+            'No apliqueu una llicència pròpia de manera global als materials que no heu creat. Reviseu la llicència de cada recurs i conserveu els avisos que corresponguin.'
+          ));
+        } else {
+          if (scope === 'content' || scope === 'both') {
+            if (contentChoice === 'share-alike') {
+              recommendations.push(resultCard(
+                'share-2',
+                'Contingut - CC BY-SA 4.0',
+                'Permet compartir i adaptar el material amb atribució. Les adaptacions que es comparteixin han de mantenir CompartirIgual. És la llicència utilitzada per al contingut pedagògic d’aquest projecte.'
+              ));
+            } else if (contentChoice === 'attribution') {
+              recommendations.push(resultCard(
+                'user-check',
+                'Contingut - CC BY 4.0',
+                'Permet compartir i adaptar el material amb atribució, sense exigir que les adaptacions mantinguin CompartirIgual.'
+              ));
+            } else if (contentChoice === 'no-derivatives') {
+              recommendations.push(resultCard(
+                'file-lock-2',
+                'Contingut - CC BY-ND 4.0',
+                'Permet redistribuir l’obra amb atribució, però no compartir-ne versions adaptades. En materials educatius aquesta limitació pot dificultar traduccions o adaptacions, de manera que convé aplicar-la només si respon a una decisió deliberada.'
+              ));
+            } else {
+              recommendations.push(resultCard(
+                'circle-help',
+                'Contingut - reviseu primer els drets',
+                'Abans d’assignar una llicència, identifiqueu quines parts heu creat vosaltres i quines provenen de tercers. Només podeu llicenciar allò sobre el qual disposeu dels drets necessaris.'
+              ));
+            }
+          }
+
+          if (scope === 'code' || scope === 'both') {
+            if (codeChoice === 'copyleft') {
+              recommendations.push(resultCard(
+                'git-fork',
+                'Codi - GNU GPL v3',
+                'Encaixa si voleu que les versions derivades cobertes per la GPL mantinguin aquesta llicència quan es distribueixen i que el codi font corresponent continuï disponible.'
+              ));
+            } else if (codeChoice === 'permissive') {
+              if (permissiveChoice === 'isc') {
+                recommendations.push(resultCard(
+                  'file-check-2',
+                  'Codi - ISC License',
+                  'Encaixa si voleu una llicència permissiva amb un redactat especialment breu. Cal conservar l’avís de copyright i el text de permís corresponent.'
+                ));
+              } else if (permissiveChoice === 'mit') {
+                recommendations.push(resultCard(
+                  'unlock',
+                  'Codi - MIT License',
+                  'Encaixa si voleu una llicència permissiva molt estesa que explicita els permisos concedits. Cal conservar l’avís de copyright i el text de la llicència.'
+                ));
+              } else {
+                recommendations.push(resultCard(
+                  'unlock',
+                  'Codi - MIT com a punt de partida',
+                  'Si no teniu una preferència concreta dins de les llicències permissives, MIT és una opció molt habitual. ISC també és permissiva, però utilitza un redactat més breu i continua sent una llicència diferent.'
+                ));
+              }
+            } else if (codeChoice === 'no-code') {
+              recommendations.push(resultCard(
+                'code-xml',
+                'Codi - no cal triar una llicència de programari pròpia',
+                'Si no publiqueu codi propi, no necessiteu assignar-li una llicència. Les biblioteques incorporades continuen sota les seves condicions originals.'
+              ));
+            } else {
+              recommendations.push(resultCard(
+                'scale',
+                'Codi - decidiu entre copyleft o una opció permissiva',
+                'Si voleu preservar l’obertura de les versions derivades distribuïdes, reviseu GNU GPL v3. Si preferiu permetre més flexibilitat de reutilització, valoreu una llicència permissiva i després decidiu entre MIT o ISC.'
+              ));
+            }
+          }
+        }
+
+        results.innerHTML = `
+          <span class="quiz-profile-badge intermedi"><i data-lucide="compass" aria-hidden="true"></i> Orientació de llicència</span>
+          <h3 style="margin:0 0 .45rem;font-size:1.2rem;">Resultat orientatiu</h3>
+          <p style="margin:0;color:var(--text-muted);font-size:.925rem;line-height:1.6;">Si el vostre recurs combina contingut pedagògic i codi, és normal que apareguin dues recomanacions diferents.</p>
+          <div class="quiz-recommendations-grid">${recommendations.join('')}</div>
+          <p style="margin:0;color:var(--text-dim);font-size:.825rem;line-height:1.55;">Reviseu sempre els fitxers de tercers i les seves condicions abans de publicar el projecte.</p>
+        `;
+        results.hidden = false;
+        if (window.lucide) window.lucide.createIcons();
+        results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+
+      resetBtn.addEventListener('click', () => {
+        form.reset();
+        form.querySelectorAll('.quiz-option-card').forEach((label) => label.classList.remove('selected'));
+        results.hidden = true;
+        results.innerHTML = '';
+        current = 0;
+        render();
+      });
+
+      render();
+    })();
+  </script>
 </body></html>
