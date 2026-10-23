@@ -141,6 +141,37 @@
     });
   };
 
+  const enhanceHomeGuideHighlight = () => {
+    const highlight = [...document.querySelectorAll('.pedagogical-highlight')]
+      .find((box) => box.textContent.trim().startsWith('Aquesta guia està organitzada en pàgines independents'));
+    if (!highlight || highlight.querySelector('[data-home-guide-icon]')) return;
+
+    highlight.style.display = 'grid';
+    highlight.style.gridTemplateColumns = 'auto 1fr';
+    highlight.style.alignItems = 'start';
+    highlight.style.gap = '0.8rem';
+
+    const iconWrap = document.createElement('span');
+    iconWrap.setAttribute('data-home-guide-icon', '');
+    iconWrap.setAttribute('aria-hidden', 'true');
+    iconWrap.style.width = '36px';
+    iconWrap.style.height = '36px';
+    iconWrap.style.display = 'inline-flex';
+    iconWrap.style.alignItems = 'center';
+    iconWrap.style.justifyContent = 'center';
+    iconWrap.style.borderRadius = 'var(--radius-md)';
+    iconWrap.style.background = 'var(--accent-light)';
+    iconWrap.style.color = 'var(--accent-primary)';
+    iconWrap.innerHTML = '<i data-lucide="map"></i>';
+
+    const textWrap = document.createElement('span');
+    while (highlight.firstChild) {
+      textWrap.appendChild(highlight.firstChild);
+    }
+
+    highlight.append(iconWrap, textWrap);
+  };
+
   const enhanceBloc6InfographicPractice = () => {
     const practice = document.querySelector('.infographic-workflow');
     if (!practice) return;
@@ -406,6 +437,7 @@ Quan et confirmi que la versió està validada i et demani l'exportació, no red
       /* Afegim i dedupliquem les icones abans que initSite() executi Lucide.
          D'aquesta manera els <i data-lucide> existents encara es poden detectar
          i no es crea una segona icona al mateix títol. */
+      enhanceHomeGuideHighlight();
       enhanceBloc6InfographicPractice();
       addSectionHeadingIcons();
       initSite();
