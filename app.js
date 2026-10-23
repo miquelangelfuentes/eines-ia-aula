@@ -1,6 +1,6 @@
 /* Carrega la funcionalitat compartida del lloc. */
 (() => {
-  /* Numeració automàtica per a la impressió i l'exportació a PDF.
+  /* Numeració automààtica per a la impressió i l'exportació a PDF.
      Els navegadors Chromium moderns admeten caixes de marge dins de @page. */
   const printPageNumberStyle = document.createElement('style');
   printPageNumberStyle.id = 'print-page-numbering';
@@ -328,6 +328,28 @@
         card.after(arrow);
       });
     }
+
+    const addBloc6SubheadingIcon = (text, iconName) => {
+      const heading = [...document.querySelectorAll('h3')]
+        .find((item) => item.textContent.trim() === text);
+      if (!heading || heading.querySelector('[data-lucide]')) return;
+
+      heading.style.display = 'flex';
+      heading.style.alignItems = 'center';
+      heading.style.gap = '0.55rem';
+
+      const icon = document.createElement('i');
+      icon.setAttribute('data-lucide', iconName);
+      icon.setAttribute('aria-hidden', 'true');
+      icon.style.width = '20px';
+      icon.style.height = '20px';
+      icon.style.flex = '0 0 20px';
+      icon.style.color = 'var(--accent-primary)';
+      heading.prepend(icon);
+    };
+
+    addBloc6SubheadingIcon("Alternatives visuals més netes: emoji i biblioteques d'icones", 'shapes');
+    addBloc6SubheadingIcon("Bancs d'imatges reals creades per persones", 'images');
 
     const promptBoxes = practice.querySelectorAll('.infographic-prompt-box');
     const promptHeadings = [...practice.querySelectorAll('h4')]
