@@ -236,6 +236,7 @@
     if (note) {
       note.classList.remove('infographic-note');
       note.classList.add('pedagogical-highlight');
+      note.style.marginTop = '1.25rem';
     }
 
     const sampleHeading = [...practice.querySelectorAll('h4')]
