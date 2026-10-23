@@ -153,14 +153,20 @@
   };
 
   const addBlockOverviewNavigation = () => {
-    const pageName = window.location.pathname.split('/').pop() || '';
-    if (!/^bloc[1-9]-.*\.html$/i.test(pageName)) return;
+    const pageName = window.location.pathname.split('/').pop() || 'index.html';
+    const isBlockPage = /^bloc[1-9]-.*\.html$/i.test(pageName);
+    const isHomePage = pageName === 'index.html';
+    const isCreditsPage = pageName === 'credits.html';
+    if (!isBlockPage && !isHomePage && !isCreditsPage) return;
 
     const main = document.querySelector('main#contingut-principal');
     if (!main || main.querySelector(':scope > .block-overview')) return;
 
-    const sectionHeadings = [...main.querySelectorAll(':scope > .content-box > h2')]
-      .filter((heading) => !heading.closest('.block-overview'));
+    const sectionHeadings = isHomePage
+      ? [...main.querySelectorAll('h2')].filter((heading) =>
+          !heading.closest('.workshop-access-card') && !heading.closest('.block-overview'))
+      : [...main.querySelectorAll(':scope > .content-box > h2')]
+          .filter((heading) => !heading.closest('.block-overview'));
     if (!sectionHeadings.length) return;
 
     if (!document.getElementById('block-overview-styles')) {
@@ -335,7 +341,14 @@
     });
 
     overview.append(title, intro, list);
-    main.prepend(overview);
+
+    if (isHomePage) {
+      const workshopAccess = main.querySelector('.workshop-access-card');
+      if (workshopAccess) workshopAccess.after(overview);
+      else main.prepend(overview);
+    } else {
+      main.prepend(overview);
+    }
   };
 
   const enhanceHomeGuideHighlight = () => {
