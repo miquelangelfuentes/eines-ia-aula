@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="94" height="32" viewBox="0 0 94 32" role="img" aria-labelledby="title">
+  <title>Creative Commons BY-SA</title>
+  <rect x="0.5" y="0.5" width="93" height="31" rx="6" fill="#fff" stroke="#111"/>
+  <circle cx="16" cy="16" r="11" fill="#111"/>
+  <circle cx="47" cy="16" r="11" fill="#111"/>
+  <circle cx="78" cy="16" r="11" fill="#111"/>
+  <text x="16" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="700" fill="#fff">CC</text>
+  <text x="47" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="700" fill="#fff">BY</text>
+  <text x="78" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="700" fill="#fff">SA</text>
+</svg>
