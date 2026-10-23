@@ -141,6 +141,150 @@
     });
   };
 
+  const enhanceBloc6InfographicPractice = () => {
+    const practice = document.querySelector('.infographic-workflow');
+    if (!practice) return;
+
+    const style = document.createElement('style');
+    style.id = 'bloc6-extra-practice-styles';
+    style.textContent = `
+      .infographic-workflow {
+        margin: 2.5rem 0 0 !important;
+        padding: 1.35rem;
+        border: 2px solid var(--accent-primary);
+        border-radius: var(--radius-lg);
+        background: var(--bg-surface);
+        box-shadow: var(--shadow-md);
+      }
+      .extra-practice-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        margin-bottom: 1rem;
+        padding: 0.38rem 0.7rem;
+        border-radius: var(--radius-full);
+        background: var(--accent-light);
+        color: var(--accent-primary);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+      .extra-practice-label svg {
+        width: 16px;
+        height: 16px;
+      }
+      .infographic-workflow .practice-heading-with-icon {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+      }
+      .infographic-workflow .practice-heading-with-icon > svg {
+        width: 22px;
+        height: 22px;
+        flex: 0 0 22px;
+        color: var(--accent-primary);
+      }
+      .pedagogical-highlight.pedagogical-highlight-with-icon {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: start;
+        gap: 0.8rem;
+      }
+      .pedagogical-highlight-icon {
+        width: 36px;
+        height: 36px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-md);
+        background: var(--accent-light);
+        color: var(--accent-primary);
+      }
+      .pedagogical-highlight-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+      @media (max-width: 600px) {
+        .infographic-workflow {
+          padding: 1rem;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    const label = document.createElement('div');
+    label.className = 'extra-practice-label';
+    label.innerHTML = '<i data-lucide="circle-plus" aria-hidden="true"></i><span>Pràctica extra</span>';
+    practice.prepend(label);
+
+    const mainHeading = practice.querySelector('#infografies-html-title');
+    if (mainHeading && !mainHeading.querySelector('[data-lucide]')) {
+      mainHeading.classList.add('practice-heading-with-icon');
+      const icon = document.createElement('i');
+      icon.setAttribute('data-lucide', 'layout-template');
+      icon.setAttribute('aria-hidden', 'true');
+      mainHeading.prepend(icon);
+    }
+
+    const sampleHeading = [...practice.querySelectorAll('h4')]
+      .find((heading) => heading.textContent.includes('Mostra inserida directament amb HTML i Lucide'));
+    if (sampleHeading && !sampleHeading.querySelector('[data-lucide]')) {
+      sampleHeading.classList.add('practice-heading-with-icon');
+      const icon = document.createElement('i');
+      icon.setAttribute('data-lucide', 'code-2');
+      icon.setAttribute('aria-hidden', 'true');
+      sampleHeading.prepend(icon);
+    }
+
+    const promptBoxes = practice.querySelectorAll('.infographic-prompt-box');
+    const promptHeadings = [...practice.querySelectorAll('h4')]
+      .filter((heading) => heading.textContent.includes("Model d'indicació"));
+
+    if (promptHeadings[0]) {
+      promptHeadings[0].textContent = "Model d'indicació per copiar i enganxar";
+    }
+
+    if (promptBoxes[0]) {
+      const title = promptBoxes[0].querySelector('.infographic-prompt-head strong');
+      const pre = promptBoxes[0].querySelector('pre');
+      if (title) title.textContent = 'Indicació - de l’HTML revisable al PNG';
+      if (pre) {
+        pre.id = 'infographic-prompt-html';
+        pre.textContent = `Crea una infografia pedagògica sobre [CONTINGUT] a partir exclusivament de la informació que t'adjunto.
+
+Construeix-la primer en HTML i CSS editable. Utilitza icones Lucide coherents amb el significat de cada bloc i evita elements purament decoratius. Organitza el contingut amb una jerarquia visual clara, textos breus i una composició que continuï sent llegible en pantalles petites.
+
+No inventis dades ni completis buits pel teu compte. Si detectes una afirmació dubtosa, una simplificació excessiva o un contingut que caldria verificar, assenyala-ho abans de donar la infografia per tancada.
+
+El component ha de tenir el fons exterior transparent. Les capses, el text i les icones han de conservar prou contrast perquè funcioni tant sobre un fons clar com sobre un fons fosc.
+
+Mostra'm primer el resultat en HTML i CSS i atura't aquí. Vull revisar el contingut, la jerarquia i la composició abans de convertir-lo en imatge.
+
+Quan et confirmi que la versió està validada i et demani l'exportació, no redissenyis ni reinterpretis la infografia. Renderitza fidelment l'HTML i el CSS aprovats, incloses les icones SVG de Lucide. Exporta només el component de la infografia a PNG amb transparència real, sense marges innecessaris, text tallat ni solapaments.`;
+      }
+    }
+
+    if (promptHeadings[1]) promptHeadings[1].remove();
+    if (promptBoxes[1]) promptBoxes[1].remove();
+
+    const attributionHighlight = [...document.querySelectorAll('.pedagogical-highlight')]
+      .find((box) => box.textContent.includes('aprenen per imitació el valor del treball dels altres'));
+    if (attributionHighlight && !attributionHighlight.querySelector('.pedagogical-highlight-icon')) {
+      attributionHighlight.classList.add('pedagogical-highlight-with-icon');
+      const iconWrap = document.createElement('span');
+      iconWrap.className = 'pedagogical-highlight-icon';
+      iconWrap.setAttribute('aria-hidden', 'true');
+      iconWrap.innerHTML = '<i data-lucide="graduation-cap"></i>';
+
+      const textWrap = document.createElement('span');
+      while (attributionHighlight.firstChild) {
+        textWrap.appendChild(attributionHighlight.firstChild);
+      }
+      attributionHighlight.append(iconWrap, textWrap);
+    }
+  };
+
   const script = document.createElement('script');
   script.src = 'site-core.js?v=3';
   script.onload = () => {
@@ -148,6 +292,7 @@
       /* Afegim i dedupliquem les icones abans que initSite() executi Lucide.
          D'aquesta manera els <i data-lucide> existents encara es poden detectar
          i no es crea una segona icona al mateix títol. */
+      enhanceBloc6InfographicPractice();
       addSectionHeadingIcons();
       initSite();
     };
