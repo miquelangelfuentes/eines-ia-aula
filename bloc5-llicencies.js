@@ -2,87 +2,6 @@
   const form = document.getElementById('license-quiz-form');
   if (!form) return;
 
-  const tables = [...document.querySelectorAll('.clean-table')];
-  const codeChoiceTable = tables.find(table => table.querySelector('th')?.textContent.trim() === 'Si voleu...');
-  if (codeChoiceTable) {
-    codeChoiceTable.querySelectorAll('tbody td:first-child > strong').forEach(strong => {
-      strong.replaceWith(...strong.childNodes);
-    });
-
-    const apacheRow = [...codeChoiceTable.querySelectorAll('tbody tr')]
-      .find(row => row.textContent.includes('Apache 2.0'));
-    if (apacheRow) {
-      const cells = apacheRow.querySelectorAll('td');
-      cells[0].textContent = 'Una llicència permissiva que també cobreixi explícitament possibles patents dels contribuïdors';
-      cells[2].textContent = 'Permet una reutilització àmplia i deixa escrit que, si un contribuïdor té patents necessàries per utilitzar la seva aportació, concedeix als usuaris els drets de patent corresponents.';
-    }
-  }
-
-  [...document.querySelectorAll('.card-item h3')]
-    .find(heading => heading.textContent.trim() === "Casos que no cal comparar d'entrada")
-    ?.closest('.card-item')
-    ?.remove();
-
-  const contentHeading = [...document.querySelectorAll('h3')]
-    .find(heading => heading.textContent.trim() === 'Per a continguts');
-  const contentBox = contentHeading?.closest('.content-box');
-  const contentTableWrap = contentHeading?.nextElementSibling?.nextElementSibling;
-  const contentTable = contentTableWrap?.classList.contains('table-responsive')
-    ? contentTableWrap.querySelector('table')
-    : null;
-
-  const ccIcons = {
-    'https://creativecommons.org/licenses/by/4.0/deed.ca': ['assets/images/licenses/cc-by.svg', 'Badge oficial CC BY 4.0'],
-    'https://creativecommons.org/licenses/by-sa/4.0/deed.ca': ['assets/images/licenses/cc-by-sa.svg', 'Badge oficial CC BY-SA 4.0'],
-    'https://creativecommons.org/licenses/by-nc/4.0/deed.ca': ['assets/images/licenses/cc-by-nc.svg', 'Badge oficial CC BY-NC 4.0'],
-    'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca': ['assets/images/licenses/cc-by-nc-sa.svg', 'Badge oficial CC BY-NC-SA 4.0']
-  };
-
-  if (contentTable) {
-    Object.entries(ccIcons).forEach(([href, [src, alt]]) => {
-      const link = [...contentTable.querySelectorAll('a[href]')].find(anchor => anchor.href === href);
-      if (!link || link.parentElement.querySelector('.cc-license-local-icon')) return;
-      const img = document.createElement('img');
-      img.src = src;
-      img.alt = alt;
-      img.className = 'cc-license-local-icon';
-      img.loading = 'lazy';
-      img.style.display = 'block';
-      img.style.height = '42px';
-      img.style.width = '120px';
-      img.style.marginTop = '.5rem';
-      link.insertAdjacentElement('afterend', img);
-    });
-  }
-
-  if (contentTableWrap && contentBox && !contentBox.querySelector('.cc-more-link')) {
-    const linkWrap = document.createElement('div');
-    linkWrap.className = 'cc-more-link';
-    linkWrap.style.marginTop = '1rem';
-    linkWrap.innerHTML = '<a href="https://creativecommons.org/cc-licenses/" target="_blank" rel="noopener" class="resource-pill"><i data-lucide="external-link"></i> Saber-ne més sobre les llicències Creative Commons</a>';
-    contentTableWrap.insertAdjacentElement('afterend', linkWrap);
-  }
-
-  function addHighlightIcon(label, icon) {
-    const strong = [...document.querySelectorAll('.pedagogical-highlight strong')]
-      .find(node => node.textContent.trim() === label);
-    if (!strong || strong.querySelector('[data-lucide]')) return;
-    strong.style.display = 'inline-flex';
-    strong.style.alignItems = 'center';
-    strong.style.gap = '.4rem';
-    strong.insertAdjacentHTML('afterbegin', `<i data-lucide="${icon}" aria-hidden="true" style="width:18px;height:18px;flex:0 0 auto;"></i>`);
-  }
-
-  addHighlightIcon('Compte amb ND.', 'triangle-alert');
-  addHighlightIcon('Una idea per orientar-vos.', 'lightbulb');
-
-  const simpleWebStrong = [...document.querySelectorAll('.pedagogical-highlight strong')]
-    .find(node => node.textContent.includes('Si el vostre projecte és una web educativa senzilla'));
-  if (simpleWebStrong) {
-    const highlight = simpleWebStrong.closest('.pedagogical-highlight');
-    highlight.innerHTML = '<strong style="display:inline-flex;align-items:center;gap:.4rem;"><i data-lucide="globe" aria-hidden="true" style="width:18px;height:18px;flex:0 0 auto;"></i>Si el vostre projecte és una web educativa senzilla</strong>, podeu triar <strong>GNU GPL v3</strong> si voleu que les versions modificades que es distribueixin continuïn obertes, o <strong>MIT</strong> si preferiu facilitar-ne la reutilització amb poques obligacions.';
-  }
-
   const questionHost = document.getElementById('license-quiz-question');
   const stepper = document.getElementById('license-quiz-stepper');
   const progressFill = document.getElementById('license-quiz-progress-fill');
@@ -118,7 +37,7 @@
       title: 'Quin tipus de projecte esteu compartint?',
       context: 'Això ajuda a distingir què passa quan el codi es distribueix i quan funciona principalment en un servidor.',
       options: [
-        ['distributed', 'Una aplicació, una web estàtica o un programa que altres persones poden copiar i executar.'],
+        ['distributed', 'Una aplicació o una web estàtica que altres persones poden copiar i executar.'],
         ['network', 'Un servei web en què una part important del programa s’executa al servidor.'],
         ['library', 'Una biblioteca o component pensat perquè altres programes el puguin incorporar.']
       ]
@@ -260,8 +179,11 @@
         <h4 style="margin-bottom:.55rem;"><i data-lucide="${data[0]}" aria-hidden="true"></i>${data[1]}</h4>
         <p style="margin:0;color:var(--text-muted);font-size:.9rem;line-height:1.6;">${data[2]}</p>${link}
       </article>
-      <div class="pedagogical-highlight" style="margin-top:1rem;margin-bottom:.75rem;"><strong style="display:inline-flex;align-items:center;gap:.4rem;"><i data-lucide="${note[0]}" style="width:17px;height:17px;"></i> Codi de tercers</strong><br>${note[1]}</div>
-      <p style="margin:0;color:var(--text-dim);font-size:.825rem;line-height:1.55;">Si combineu codi amb llicències diferents, comproveu-ne la compatibilitat abans de distribuir el projecte.</p>`;
+      <div style="margin-top:1rem;padding:1rem 1.1rem;background:var(--bg-subtle);border:1px solid var(--border-color);border-radius:var(--radius-md);display:flex;gap:.9rem;align-items:flex-start;">
+        <i data-lucide="${note[0]}" aria-hidden="true" style="width:20px;height:20px;color:var(--accent-secondary);margin-top:.1rem;flex:0 0 auto;"></i>
+        <div><strong style="display:block;margin-bottom:.35rem;">Codi de tercers</strong><span style="color:var(--text-muted);font-size:.9rem;line-height:1.6;">${note[1]}</span></div>
+      </div>
+      <p style="margin:.75rem 0 0;color:var(--text-dim);font-size:.825rem;line-height:1.55;">Si combineu codi amb llicències diferents, comproveu-ne la compatibilitat abans de distribuir el projecte.</p>`;
     results.hidden = false;
     progressFill.style.width = '100%';
     progressPercent.textContent = 'Completat';
