@@ -27,14 +27,14 @@ Les respostes es desen únicament al navegador mitjançant `localStorage` i es p
 | :--- | :--- | :--- |
 | [`index.html`](index.html) | **Pàgina d'inici** | Presentació del recurs, qüestionari inicial i accés directe als blocs. |
 | [`bloc1-marc.html`](bloc1-marc.html) | **1. De consultar un xat a crear les nostres eines** | Canvi de perspectiva: de demanar respostes a construir recursos interactius al navegador mitjançant *vibe coding* o programació per intenció. Explica també per què el taller combina Google Antigravity i GitHub. |
-| [`bloc2-antigravity.html`](bloc2-antigravity.html) | **2. Google Antigravity** | Instal·lació i configuració, primera web funcional i preparació del projecte local que continuarà a GitHub. La descàrrega automatitzada de PDF queda com a ampliació. |
+| [`bloc2-antigravity.html`](bloc2-antigravity.html) | **2. Google Antigravity** | Instal·lació i configuració, primera web funcional i preparació del projecte local que continuarà a GitHub. La descàrrega automatitzada de documents queda com a ampliació. |
 | [`bloc3-github.html`](bloc3-github.html) | **3. Configuració de GitHub** | Creació d'un repositori buit, token temporal *fine-grained*, connexió del projecte des d'Antigravity i primera pujada. Inclou la revocació de la credencial i la publicació amb GitHub Pages. |
 | [`bloc4-pages-sites.html`](bloc4-pages-sites.html) | **4. GitHub Pages en comparació amb Google Sites** | Presenta l'exportació directa d'aplicacions interactives de Gemini a Google Sites i després compara aquesta via amb GitHub Pages segons el grau de control sobre el recurs. Documenta també la limitació actual de l'exportació de Gemini: una nova exportació crea un Site privat nou i no actualitza l'artefacte del Site existent. |
-| [`bloc5-llicencies.html`](bloc5-llicencies.html) | **5. Llicències i codi obert** | Creative Commons per al contingut i llicències de programari aplicables al codi. |
+| [`bloc5-llicencies.html`](bloc5-llicencies.html) | **5. Llicències i codi obert** | Creative Commons per al contingut i GNU GPL v3 per al codi propi, amb MIT com a alternativa permissiva per comparar criteris. |
 | [`bloc6-recursos-visuals.html`](bloc6-recursos-visuals.html) | **6. Recursos visuals i citació** | Selecció d'imatges, iconografia oberta i atribució amb TASL. Inclou una pràctica extra per construir infografies pedagògiques en HTML i CSS amb Lucide, revisar-les abans de convertir-les i exportar-les fidelment a PNG. |
 | [`bloc7-bones-practiques.html`](bloc7-bones-practiques.html) | **7. Bones pràctiques d'aula** | Supervisió docent, protecció de dades, accessibilitat web, DUA, dependències externes i transparència en l'ús d'IA. |
 | [`bloc8-verificacio.html`](bloc8-verificacio.html) | **8. Llista de verificació** | Checklist interactiva amb memòria local per revisar el recurs abans de compartir-lo. |
-| [`bloc9-per-continuar-explorant.html`](bloc9-per-continuar-explorant.html) | **9. Per continuar explorant: IA local** | Introducció als models executats al dispositiu, recursos de Softcatalà i Rebost.ai, i opcions per executar models al propi ordinador amb LM Studio o Ollama. |
+| [`bloc9-per-continuar-explorant.html`](bloc9-per-continuar-explorant.html) | **9. Per continuar explorant: IA local** | Introducció als models executats al dispositiu, recursos de Softcatalà i Projecte Aina, i opcions d'execució local com Rebost, LM Studio o Ollama. |
 | `imprimir-tot.html` | **Dossier complet per imprimir** | Artefacte generat automàticament a partir dels blocs 1-9 i la pàgina de crèdits abans de publicar el lloc. No es manté manualment al repositori. |
 | [`credits.html`](credits.html) | **Crèdits i llicències** | Marc institucional, autoria, referències pedagògiques, recursos de tercers i condicions d'ús dels logotips de producte que apareixen al material. |
 
@@ -64,7 +64,7 @@ Aquesta via té una limitació rellevant a l'octubre de 2026: si l'artefacte es 
 - **Primera pràctica funcional amb Antigravity:** el bloc 2 proposa crear un microrecurs, comprovar-ne el funcionament i aplicar-hi una millora abans de continuar amb el mateix projecte a GitHub.
 - **Continuïtat Antigravity-GitHub:** la carpeta creada durant la primera pràctica es connecta a un repositori buit. Als equips PEDC, la primera pujada utilitza un token temporal limitat al projecte, que es revoca després de comprovar el resultat.
 - **Publicació alternativa amb Gemini i Google Sites:** el bloc 4 explica com exportar directament una aplicació interactiva de Gemini a un Site privat nou i en compara les implicacions amb GitHub Pages.
-- **Automatització amb agent com a ampliació:** la descàrrega de documents PDF des d'una pàgina pública mostra una tasca agentiva diferent de la generació de codi i manté la revisió de permisos abans d'autoritzar l'acció.
+- **Automatització amb agent com a ampliació:** la descàrrega de documents des d'una pàgina pública mostra una tasca agentiva diferent de la generació de codi i manté la revisió de permisos abans d'autoritzar l'acció.
 - **Infografies pedagògiques com a pràctica extra:** el bloc 6 mostra com construir i revisar una infografia editable en HTML i CSS amb icones Lucide. Quan està validada, es pot renderitzar fidelment a PNG amb fons transparent.
 - **Recursos de suport:** guies oficials i videotutorials per a processos que poden requerir una demostració o una consulta posterior.
 - **Llista de verificació interactiva:** el bloc 8 desa el progrés localment al navegador.
@@ -103,9 +103,9 @@ La comparació del bloc 4 posa aquesta diferència al costat del model de GitHub
 
 El bloc 9 amplia el recorregut cap a models que poden executar-se al mateix dispositiu. L'objectiu no és presentar l'execució local com una garantia automàtica de privadesa, sinó mostrar què canvia quan el processament deixa de dependre necessàriament d'un servei remot.
 
-El bloc incorpora recursos de **Softcatalà** per entendre la IA local i consultar avaluacions de models en català. També enllaça **Rebost.ai** com a directori comunitari de recursos d'intel·ligència artificial en català.
+El bloc incorpora recursos de **Softcatalà** per entendre la IA local i consultar avaluacions de models en català. També presenta el **Projecte Aina** com a font de recursos lingüístics i models en català.
 
-Per passar de l'exploració a l'execució al propi ordinador, la secció **Com executar models locals al vostre ordinador** presenta LM Studio com a interfície visual d'escriptori i Ollama com a gestor que es pot combinar amb altres interfícies gràfiques.
+La secció **Com executar models locals al vostre ordinador** incorpora **Rebost** com una opció guiada per treballar amb fitxers locals. També presenta LM Studio com a interfície visual i Ollama com a motor local amb aplicació i API, distingint en cada cas les funcions locals dels serveis opcionals al núvol.
 
 ---
 
@@ -180,7 +180,7 @@ Si la validació falla, el desplegament de GitHub Pages s'atura. Aquesta comprov
 ## Llicències, marques i referències
 
 - **Contingut pedagògic:** [Creative Commons Reconeixement-CompartirIgual 4.0 Internacional (CC BY-SA 4.0)](LICENSE-CONTENT.md). El fitxer delimita també què queda fora d'aquesta llicència.
-- **Codi font:** [Llicència MIT](LICENSE-CODE).
+- **Codi font propi:** [GNU General Public License v3.0](LICENSE-CODE), aplicada com a `GPL-3.0-only`.
 - **Iconografia de la interfície:** [Lucide Icons](https://lucide.dev/license), sota llicència ISC.
 - **Marques i logotips de producte:** Google Gemini, Google Antigravity, Google Sites i GitHub s'utilitzen únicament per identificar les eines esmentades. Els drets de marca continuen corresponent als seus titulars. La procedència concreta de cada actiu està documentada a [`credits.html`](credits.html).
 - **Guia de referència:** recomanacions de [*vibe coding* responsable](https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html) de De Haro (2026).
