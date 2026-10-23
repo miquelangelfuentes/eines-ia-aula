@@ -145,45 +145,43 @@
     const practice = document.querySelector('.infographic-workflow');
     if (!practice) return;
 
+    const sourceBox = practice.closest('.content-box');
+    if (sourceBox && practice.parentElement === sourceBox) {
+      const trailingBox = document.createElement('div');
+      trailingBox.className = 'content-box';
+
+      let node = practice.nextSibling;
+      while (node) {
+        const next = node.nextSibling;
+        trailingBox.appendChild(node);
+        node = next;
+      }
+
+      sourceBox.after(practice);
+      practice.after(trailingBox);
+    }
+
+    practice.classList.add('content-box');
+    practice.style.marginTop = '0';
+
     const style = document.createElement('style');
     style.id = 'bloc6-extra-practice-styles';
     style.textContent = `
-      .infographic-workflow {
-        margin: 2.5rem 0 0 !important;
-        padding: 1.35rem;
-        border: 2px solid var(--accent-primary);
-        border-radius: var(--radius-lg);
-        background: var(--bg-surface);
-        box-shadow: var(--shadow-md);
-      }
-      .extra-practice-label {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.45rem;
-        margin-bottom: 1rem;
-        padding: 0.38rem 0.7rem;
-        border-radius: var(--radius-full);
-        background: var(--accent-light);
-        color: var(--accent-primary);
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-      }
-      .extra-practice-label svg {
-        width: 16px;
-        height: 16px;
-      }
       .infographic-workflow .practice-heading-with-icon {
         display: flex;
         align-items: center;
-        gap: 0.55rem;
+        gap: 0.6rem;
       }
       .infographic-workflow .practice-heading-with-icon > svg {
-        width: 22px;
-        height: 22px;
-        flex: 0 0 22px;
+        width: 24px;
+        height: 24px;
+        flex: 0 0 24px;
         color: var(--accent-primary);
+      }
+      .infographic-workflow h4.practice-heading-with-icon > svg {
+        width: 20px;
+        height: 20px;
+        flex-basis: 20px;
       }
       .pedagogical-highlight.pedagogical-highlight-with-icon {
         display: grid;
@@ -205,26 +203,39 @@
         width: 20px;
         height: 20px;
       }
-      @media (max-width: 600px) {
-        .infographic-workflow {
-          padding: 1rem;
-        }
-      }
     `;
     document.head.appendChild(style);
 
-    const label = document.createElement('div');
-    label.className = 'extra-practice-label';
-    label.innerHTML = '<i data-lucide="circle-plus" aria-hidden="true"></i><span>Pràctica extra</span>';
-    practice.prepend(label);
+    practice.querySelector('.extra-practice-label')?.remove();
 
-    const mainHeading = practice.querySelector('#infografies-html-title');
-    if (mainHeading && !mainHeading.querySelector('[data-lucide]')) {
+    let mainHeading = practice.querySelector('#infografies-html-title');
+    if (mainHeading) {
+      if (mainHeading.tagName !== 'H2') {
+        const h2 = document.createElement('h2');
+        h2.id = mainHeading.id;
+        h2.className = mainHeading.className;
+        mainHeading.replaceWith(h2);
+        mainHeading = h2;
+      }
+      mainHeading.textContent = 'Pràctica extra: infografies pedagògiques amb HTML i icones';
       mainHeading.classList.add('practice-heading-with-icon');
       const icon = document.createElement('i');
       icon.setAttribute('data-lucide', 'layout-template');
       icon.setAttribute('aria-hidden', 'true');
       mainHeading.prepend(icon);
+
+      if (!practice.querySelector(':scope > .lead-desc')) {
+        const lead = document.createElement('p');
+        lead.className = 'lead-desc';
+        lead.textContent = 'Una pràctica opcional per convertir contingut pedagògic revisat en una infografia visual reutilitzable';
+        mainHeading.after(lead);
+      }
+    }
+
+    const note = practice.querySelector('.infographic-note');
+    if (note) {
+      note.classList.remove('infographic-note');
+      note.classList.add('pedagogical-highlight');
     }
 
     const sampleHeading = [...practice.querySelectorAll('h4')]
