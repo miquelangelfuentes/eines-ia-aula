@@ -1,526 +1,289 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bloc 5: llicències i codi obert | Eines d'IA per a l'aula</title>
-  <meta name="description" content="Com distingir la llicència del contingut de la del codi i com orientar la tria d'una llicència de programari.">
-
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://miquelangelfuentes.github.io/eines-ia-aula/bloc5-llicencies.html">
-  <meta property="og:title" content="Bloc 5: llicències i codi obert | Eines d'IA per a l'aula">
-  <meta property="og:description" content="Llicències per a continguts educatius i llicències de codi explicades per separat.">
-  <meta property="og:image" content="https://miquelangelfuentes.github.io/eines-ia-aula/assets/images/unsplash/bloc5-llicencies.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Bloc 5: llicències i codi obert | Eines d'IA per a l'aula">
-  <meta name="twitter:description" content="Llicències per a continguts educatius i llicències de codi explicades per separat.">
-  <meta name="twitter:image" content="https://miquelangelfuentes.github.io/eines-ia-aula/assets/images/unsplash/bloc5-llicencies.jpg">
-
-  <link rel="stylesheet" href="styles.css?v=9">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="alternate icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="prev" href="bloc4-pages-sites.html">
-  <link rel="next" href="bloc6-recursos-visuals.html">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bloc 5: llicències i codi obert | Eines d'IA per a l'aula</title>
+<meta name="description" content="Com distingir la llicència del contingut de la del codi i com orientar la tria d'una llicència de programari.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://miquelangelfuentes.github.io/eines-ia-aula/bloc5-llicencies.html">
+<meta property="og:title" content="Bloc 5: llicències i codi obert | Eines d'IA per a l'aula">
+<meta property="og:description" content="Llicències per a continguts educatius i llicències de codi explicades per separat.">
+<meta property="og:image" content="https://miquelangelfuentes.github.io/eines-ia-aula/assets/images/unsplash/bloc5-llicencies.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bloc 5: llicències i codi obert | Eines d'IA per a l'aula">
+<meta name="twitter:description" content="Llicències per a continguts educatius i llicències de codi explicades per separat.">
+<meta name="twitter:image" content="https://miquelangelfuentes.github.io/eines-ia-aula/assets/images/unsplash/bloc5-llicencies.jpg">
+<link rel="stylesheet" href="styles.css?v=9">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="prev" href="bloc4-pages-sites.html">
+<link rel="next" href="bloc6-recursos-visuals.html">
 </head>
 <body>
-  <a href="#contingut-principal" class="skip-link">Salta directament al contingut</a>
-  <noscript>&lt;div class="noscript-notice"&gt;&lt;strong&gt;JavaScript està desactivat.&lt;/strong&gt; Podeu llegir el contingut del material, però algunes funcions interactives no estaran disponibles.&lt;/div&gt;</noscript>
-
-  <header class="top-bar">
-    <div class="top-bar-container">
-      <a href="index.html" class="brand-section">
-        <div class="brand-title">Eines d'IA per a l'aula</div>
-      </a>
-      <div class="controls-group">
-        <div class="print-menu-container">
-          <button id="btn-print-menu" class="btn-icon" type="button" aria-label="Opcions d'impressió" title="Imprimir" aria-haspopup="true" aria-expanded="false">
-            <i data-lucide="printer"></i>
-          </button>
-          <div id="print-dropdown" class="print-dropdown" role="menu">
-            <button type="button" class="print-dropdown-item" id="btn-print-page" role="menuitem">
-              <i data-lucide="file-text" style="width:16px;height:16px;"></i>
-              <span>Imprimir aquesta pàgina</span>
-            </button>
-            <a href="imprimir-tot.html?print=1" class="print-dropdown-item" id="btn-print-all" role="menuitem">
-              <i data-lucide="book-open" style="width:16px;height:16px;"></i>
-              <span>Imprimir tota la presentació</span>
-            </a>
-          </div>
-        </div>
-        <a href="index.html" class="btn-icon" title="Tornar a l'inici" aria-label="Tornar a l'inici">
-          <i data-lucide="home"></i>
-        </a>
-        <button id="btn-toggle-theme" class="btn-icon" type="button" aria-label="Canviar tema" title="Canviar tema">
-          <span id="theme-icon"><i data-lucide="moon"></i></span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <nav class="blocks-nav-bar" aria-label="Índex de blocs">
-    <ul class="blocks-nav-list">
-      <li><a href="index.html" class="block-nav-link">Inici</a></li>
-      <li><a href="bloc1-marc.html" class="block-nav-link"><span class="nav-num-pill">1</span> Marc</a></li>
-      <li><a href="bloc2-antigravity.html" class="block-nav-link"><span class="nav-num-pill">2</span> Antigravity</a></li>
-      <li><a href="bloc3-github.html" class="block-nav-link"><span class="nav-num-pill">3</span> GitHub</a></li>
-      <li><a href="bloc4-pages-sites.html" class="block-nav-link"><span class="nav-num-pill">4</span> Pages i Sites</a></li>
-      <li><a href="bloc5-llicencies.html" class="block-nav-link active"><span class="nav-num-pill">5</span> Llicències</a></li>
-      <li><a href="bloc6-recursos-visuals.html" class="block-nav-link"><span class="nav-num-pill">6</span> Imatges i icones</a></li>
-      <li><a href="bloc7-bones-practiques.html" class="block-nav-link"><span class="nav-num-pill">7</span> Bones pràctiques</a></li>
-      <li><a href="bloc8-verificacio.html" class="block-nav-link"><span class="nav-num-pill">8</span> Verificació</a></li>
-      <li><a href="bloc9-per-continuar-explorant.html" class="block-nav-link"><span class="nav-num-pill">9</span> IA local</a></li>
-      <li><a href="credits.html" class="block-nav-link">Crèdits</a></li>
-    </ul>
-  </nav>
-
-  <section class="page-hero">
-    <div class="page-hero-inner">
-      <span class="page-category-tag">Bloc 5</span>
-      <h1>Llicències: Creative Commons i llicències de codi obert</h1>
-      <p class="page-hero-subtitle">Com indicar què poden reutilitzar altres persones i quines condicions han de mantenir.</p>
-    </div>
-  </section>
-
-  <main id="contingut-principal" class="main-content">
-    <div class="content-box">
-      <h2>Per què cal distingir entre contingut i codi?</h2>
-      <p class="lead-desc">Una web educativa pot funcionar alhora com a material didàctic i com a programa. Per això convé separar què esteu llicenciant abans d'escollir la llicència.</p>
-
-      <div class="pedagogical-highlight">
-        La pregunta inicial no és quina llicència voleu, sinó <strong>quina part del projecte és vostra i voleu compartir</strong>. El contingut pedagògic i el codi tenen necessitats diferents. Els recursos de tercers conserven les seves condicions originals.
-      </div>
-
-      <figure class="inline-support-figure">
-        <img src="assets/images/unsplash/bloc5-llicencies.jpg" width="1200" height="630" alt="Llibres oberts en una biblioteca, símbol de coneixement compartit i recursos educatius oberts" loading="lazy">
-        <figcaption class="edu-caption">
-          Foto: <a href="https://unsplash.com/@kimberlyfarmer" target="_blank" rel="noopener">Kimberly Farmer</a> a <a href="https://unsplash.com/photos/lUaaKCUANVI" target="_blank" rel="noopener">Unsplash</a> (<a href="https://unsplash.com/license" target="_blank" rel="noopener">Llicència Unsplash</a>)
-        </figcaption>
-      </figure>
-
-      <div class="licenses-comparison">
-        <div class="license-box cc">
-          <div class="card-item-icon" style="background:#ffedd5;color:#ea580c;"><i data-lucide="book-open"></i></div>
-          <h3>Contingut pedagògic</h3>
-          <span class="license-for">El material que una persona llegeix, consulta o utilitza per aprendre.</span>
-          <p><strong>Hi pot entrar</strong> el text explicatiu i les activitats pròpies. També hi poden entrar altres materials originals que hàgiu creat.</p>
-          <p><strong>La llicència decideix</strong> si altres persones poden copiar el material o adaptar-lo i què han de mantenir quan el tornen a compartir.</p>
-          <p style="margin-bottom:0;"><strong>En aquest projecte</strong> el contingut pedagògic propi es publica sota <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p>
-        </div>
-
-        <div class="license-box software">
-          <div class="card-item-icon"><i data-lucide="file-code-2"></i></div>
-          <h3>Codi font</h3>
-          <span class="license-for">El programari que construeix el recurs o en controla el comportament.</span>
-          <p><strong>Hi pot entrar</strong> el codi que estructura la pàgina i els scripts que fan possible la interacció.</p>
-          <p><strong>La llicència decideix</strong> com es pot reutilitzar aquest programa i quines obligacions apareixen quan se'n comparteixen versions modificades.</p>
-          <p style="margin-bottom:0;"><strong>En aquest projecte</strong> el codi propi es publica sota <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener">GNU GPL v3</a>.</p>
-        </div>
-      </div>
-
-      <div class="cards-grid cards-grid-2x2" style="margin-top:1.5rem;">
-        <div class="card-item">
-          <div class="card-item-icon"><i data-lucide="split"></i></div>
-          <h3>Per què no una sola llicència?</h3>
-          <p>Creative Commons recomana no aplicar les seves llicències al programari. Les llicències de codi estan pensades específicament per regular la reutilització del programari.</p>
-          <a href="https://creativecommons.org/faq/#can-i-apply-a-creative-commons-license-to-software" target="_blank" rel="noopener" class="resource-pill" style="margin-top:.75rem;"><i data-lucide="external-link"></i> Recomanació de Creative Commons</a>
-        </div>
-        <div class="card-item">
-          <div class="card-item-icon"><i data-lucide="package-check"></i></div>
-          <h3>I el que no heu creat vosaltres?</h3>
-          <p>Una biblioteca de codi o una fotografia no canvien de llicència pel fet d'incorporar-les al projecte. Cal conservar-ne la llicència original i els avisos exigits.</p>
-        </div>
-      </div>
-
-      <h3 style="margin-top:2rem;margin-bottom:.75rem;">Com queda en aquest projecte?</h3>
-      <p style="color:var(--text-muted);font-size:.925rem;line-height:1.6;margin-bottom:1rem;">La separació queda documentada al repositori perquè una persona que reutilitzi el projecte pugui identificar què pot fer amb cada part.</p>
-
-      <div class="table-responsive" style="margin-top:0;">
-        <table class="clean-table">
-          <thead><tr><th>Part del projecte</th><th>Llicència</th><th>On es documenta</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Contingut pedagògic propi</strong></td><td>CC BY-SA 4.0</td><td><code>LICENSE-CONTENT.md</code></td></tr>
-            <tr><td><strong>Codi font propi</strong></td><td>GNU GPL v3</td><td><code>LICENSE-CODE</code></td></tr>
-            <tr><td><strong>Lucide</strong></td><td>ISC</td><td><code>THIRD_PARTY_NOTICES.md</code></td></tr>
-            <tr><td><strong>Fotografies d'Unsplash</strong></td><td>Llicència Unsplash</td><td><code>THIRD_PARTY_NOTICES.md</code></td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3 style="margin-top:2rem;margin-bottom:.75rem;">Model de declaració per a un recurs web</h3>
-      <p style="color:var(--text-muted);font-size:.925rem;line-height:1.6;margin-bottom:1rem;">La declaració pot aparèixer al <code>README.md</code> i a la pàgina de crèdits. Els recursos de tercers queden fora d'aquesta declaració general.</p>
-      <div class="terminal-block">
-        <div class="terminal-header"><span>Model de declaració</span><button class="copy-btn" data-target="snippet-llicencies-bloc">Copiar text</button></div>
-        <pre id="snippet-llicencies-bloc"><code>Aquest recurs educatiu obert es distribueix amb llicències diferenciades:
+<a href="#contingut-principal" class="skip-link">Salta directament al contingut</a>
+<noscript>&lt;div class="noscript-notice"&gt;&lt;strong&gt;JavaScript està desactivat.&lt;/strong&gt; Podeu llegir el contingut del material, però algunes funcions interactives no estaran disponibles.&lt;/div&gt;</noscript>
+<header class="top-bar">
+<div class="top-bar-container">
+<a href="index.html" class="brand-section">
+<div class="brand-title">Eines d'IA per a l'aula</div>
+</a>
+<div class="controls-group">
+<div class="print-menu-container">
+<button id="btn-print-menu" class="btn-icon" type="button" aria-label="Opcions d'impressió" title="Imprimir" aria-haspopup="true" aria-expanded="false">
+<i data-lucide="printer"></i>
+</button>
+<div id="print-dropdown" class="print-dropdown" role="menu">
+<button type="button" class="print-dropdown-item" id="btn-print-page" role="menuitem">
+<i data-lucide="file-text" style="width:16px;height:16px;"></i>
+<span>Imprimir aquesta pàgina</span>
+</button>
+<a href="imprimir-tot.html?print=1" class="print-dropdown-item" id="btn-print-all" role="menuitem">
+<i data-lucide="book-open" style="width:16px;height:16px;"></i>
+<span>Imprimir tota la presentació</span>
+</a>
+</div>
+</div>
+<a href="index.html" class="btn-icon" title="Tornar a l'inici" aria-label="Tornar a l'inici">
+<i data-lucide="home"></i>
+</a>
+<button id="btn-toggle-theme" class="btn-icon" type="button" aria-label="Canviar tema" title="Canviar tema">
+<span id="theme-icon"><i data-lucide="moon"></i></span>
+</button>
+</div>
+</div>
+</header>
+<nav class="blocks-nav-bar" aria-label="Índex de blocs">
+<ul class="blocks-nav-list">
+<li><a href="index.html" class="block-nav-link">Inici</a></li>
+<li><a href="bloc1-marc.html" class="block-nav-link"><span class="nav-num-pill">1</span> Marc</a></li>
+<li><a href="bloc2-antigravity.html" class="block-nav-link"><span class="nav-num-pill">2</span> Antigravity</a></li>
+<li><a href="bloc3-github.html" class="block-nav-link"><span class="nav-num-pill">3</span> GitHub</a></li>
+<li><a href="bloc4-pages-sites.html" class="block-nav-link"><span class="nav-num-pill">4</span> Pages i Sites</a></li>
+<li><a href="bloc5-llicencies.html" class="block-nav-link active"><span class="nav-num-pill">5</span> Llicències</a></li>
+<li><a href="bloc6-recursos-visuals.html" class="block-nav-link"><span class="nav-num-pill">6</span> Imatges i icones</a></li>
+<li><a href="bloc7-bones-practiques.html" class="block-nav-link"><span class="nav-num-pill">7</span> Bones pràctiques</a></li>
+<li><a href="bloc8-verificacio.html" class="block-nav-link"><span class="nav-num-pill">8</span> Verificació</a></li>
+<li><a href="bloc9-per-continuar-explorant.html" class="block-nav-link"><span class="nav-num-pill">9</span> IA local</a></li>
+<li><a href="credits.html" class="block-nav-link">Crèdits</a></li>
+</ul>
+</nav>
+<section class="page-hero">
+<div class="page-hero-inner">
+<span class="page-category-tag">Bloc 5</span>
+<h1>Llicències: Creative Commons i llicències de codi obert</h1>
+<p class="page-hero-subtitle">Com indicar què poden reutilitzar altres persones i quines condicions han de mantenir.</p>
+</div>
+</section>
+<main id="contingut-principal" class="main-content">
+<div class="content-box">
+<h2>Per què cal distingir entre contingut i codi?</h2>
+<p class="lead-desc">Una web educativa pot funcionar alhora com a material didàctic i com a programa. Per això convé separar què esteu llicenciant abans d'escollir la llicència.</p>
+<div class="pedagogical-highlight">
+La pregunta inicial no és quina llicència voleu, sinó <strong>quina part del projecte és vostra i voleu compartir</strong>. El contingut pedagògic i el codi tenen necessitats diferents. Els recursos de tercers conserven les seves condicions originals.
+</div>
+<figure class="inline-support-figure">
+<img src="assets/images/unsplash/bloc5-llicencies.jpg" width="1200" height="630" alt="Llibres oberts en una biblioteca, símbol de coneixement compartit i recursos educatius oberts" loading="lazy">
+<figcaption class="edu-caption">
+Foto: <a href="https://unsplash.com/@kimberlyfarmer" target="_blank" rel="noopener">Kimberly Farmer</a> a <a href="https://unsplash.com/photos/lUaaKCUANVI" target="_blank" rel="noopener">Unsplash</a> (<a href="https://unsplash.com/license" target="_blank" rel="noopener">Llicència Unsplash</a>)
+</figcaption>
+</figure>
+<div class="licenses-comparison">
+<div class="license-box cc">
+<div class="card-item-icon" style="background:#ffedd5;color:#ea580c;"><i data-lucide="book-open"></i></div>
+<h3>Contingut pedagògic</h3>
+<span class="license-for">El material que una persona llegeix, consulta o utilitza per aprendre.</span>
+<p><strong>Hi pot entrar</strong> el text explicatiu i les activitats pròpies. També hi poden entrar altres materials originals que hàgiu creat.</p>
+<p><strong>La llicència decideix</strong> si altres persones poden copiar el material o adaptar-lo i què han de mantenir quan el tornen a compartir.</p>
+<p style="margin-bottom:0;"><strong>En aquest projecte</strong> el contingut pedagògic propi es publica sota <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</p>
+</div>
+<div class="license-box software">
+<div class="card-item-icon"><i data-lucide="file-code-2"></i></div>
+<h3>Codi font</h3>
+<span class="license-for">El programari que construeix el recurs o en controla el comportament.</span>
+<p><strong>Hi pot entrar</strong> el codi que estructura la pàgina i els scripts que fan possible la interacció.</p>
+<p><strong>La llicència decideix</strong> com es pot reutilitzar aquest programa i quines obligacions apareixen quan se'n comparteixen versions modificades.</p>
+<p style="margin-bottom:0;"><strong>En aquest projecte</strong> el codi propi es publica sota <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener">GNU GPL v3</a>.</p>
+</div>
+</div>
+<div class="cards-grid cards-grid-2x2" style="margin-top:1.5rem;">
+<div class="card-item">
+<div class="card-item-icon"><i data-lucide="split"></i></div>
+<h3>Per què no una sola llicència?</h3>
+<p>Creative Commons recomana no aplicar les seves llicències al programari. Les llicències de codi estan pensades específicament per regular la reutilització del programari.</p>
+<a href="https://creativecommons.org/faq/#can-i-apply-a-creative-commons-license-to-software" target="_blank" rel="noopener" class="resource-pill" style="margin-top:.75rem;"><i data-lucide="external-link"></i> Recomanació de Creative Commons</a>
+</div>
+<div class="card-item">
+<div class="card-item-icon"><i data-lucide="package-check"></i></div>
+<h3>I el que no heu creat vosaltres?</h3>
+<p>Una biblioteca de codi o una fotografia no canvien de llicència pel fet d'incorporar-les al projecte. Cal conservar-ne la llicència original i els avisos exigits.</p>
+</div>
+</div>
+<h3 style="margin-top:2rem;margin-bottom:.75rem;">Com queda en aquest projecte?</h3>
+<p style="color:var(--text-muted);font-size:.925rem;line-height:1.6;margin-bottom:1rem;">La separació queda documentada al repositori perquè una persona que reutilitzi el projecte pugui identificar què pot fer amb cada part.</p>
+<div class="table-responsive" style="margin-top:0;">
+<table class="clean-table">
+<thead><tr><th>Part del projecte</th><th>Llicència</th><th>On es documenta</th></tr></thead>
+<tbody>
+<tr><td><strong>Contingut pedagògic propi</strong></td><td>CC BY-SA 4.0</td><td><code>LICENSE-CONTENT.md</code></td></tr>
+<tr><td><strong>Codi font propi</strong></td><td>GNU GPL v3</td><td><code>LICENSE-CODE</code></td></tr>
+<tr><td><strong>Lucide</strong></td><td>ISC</td><td><code>THIRD_PARTY_NOTICES.md</code></td></tr>
+<tr><td><strong>Fotografies d'Unsplash</strong></td><td>Llicència Unsplash</td><td><code>THIRD_PARTY_NOTICES.md</code></td></tr>
+</tbody>
+</table>
+</div>
+<h3 style="margin-top:2rem;margin-bottom:.75rem;">Model de declaració per a un recurs web</h3>
+<p style="color:var(--text-muted);font-size:.925rem;line-height:1.6;margin-bottom:1rem;">La declaració pot aparèixer al <code>README.md</code> i a la pàgina de crèdits. Els recursos de tercers queden fora d'aquesta declaració general.</p>
+<div class="terminal-block">
+<div class="terminal-header"><span>Model de declaració</span><button class="copy-btn" data-target="snippet-llicencies-bloc">Copiar text</button></div>
+<pre id="snippet-llicencies-bloc"><code>Aquest recurs educatiu obert es distribueix amb llicències diferenciades:
 - El contingut pedagògic propi es publica sota Creative Commons Reconeixement-CompartirIgual 4.0 Internacional (CC BY-SA 4.0).
 - El codi font propi es publica sota GNU General Public License v3.0 (GPL-3.0-only).
 Els recursos de tercers mantenen les seves llicències i condicions pròpies.</code></pre>
-      </div>
-    </div>
-
-    <div class="content-box" id="orientador-llicencies">
-      <h2>Quina llicència de codi encaixa amb el vostre projecte?</h2>
-      <p class="lead-desc">No cal conèixer les llicències abans de començar. L'orientador us preguntarà què voleu permetre i només us mostrarà les preguntes que afecten la vostra decisió.</p>
-
-      <div class="pedagogical-highlight">
-        El qüestionari se centra en <strong>llicències de programari</strong>. Els noms tècnics apareixen al resultat, després d'haver pres les decisions amb exemples comprensibles.
-      </div>
-
-      <div class="quiz-progress-wrapper">
-        <div class="quiz-stepper-header">
-          <div class="quiz-stepper-pills" id="license-quiz-stepper" aria-label="Progrés del qüestionari"></div>
-        </div>
-        <div class="quiz-progress-track" aria-hidden="true"><div id="license-quiz-progress-fill" class="quiz-progress-fill" style="width:0%;"></div></div>
-        <div class="quiz-progress-meta"><span id="license-quiz-progress-text">Pas 1</span><span id="license-quiz-progress-percent">Orientació en curs</span></div>
-      </div>
-
-      <form id="license-quiz-form" class="diagnostic-quiz-form is-wizard">
-        <div id="license-quiz-question"></div>
-        <div class="quiz-nav-footer">
-          <button type="button" class="quiz-nav-btn" id="license-quiz-prev" disabled><i data-lucide="arrow-left" aria-hidden="true"></i><span>Anterior</span></button>
-          <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
-            <button type="button" class="quiz-nav-btn primary" id="license-quiz-next" disabled><span>Següent</span><i data-lucide="arrow-right" aria-hidden="true"></i></button>
-            <button type="button" class="quiz-nav-btn accent-cta" id="license-quiz-result" hidden disabled><i data-lucide="badge-check" aria-hidden="true"></i><span>Veure orientació</span></button>
-          </div>
-        </div>
-      </form>
-
-      <div id="license-quiz-results" class="quiz-results-panel" hidden aria-live="polite"></div>
-      <div class="quiz-actions-row"><button type="button" class="quiz-btn-link" id="license-quiz-reset"><i data-lucide="rotate-ccw" aria-hidden="true"></i><span>Reinicia el qüestionari</span></button></div>
-    </div>
-
-    <div class="content-box">
-      <h2>Llicències recomanades per a docents</h2>
-      <p class="lead-desc">Primer identifiqueu si esteu compartint contingut educatiu o codi. A partir d'aquí, compareu només llicències pensades per al mateix tipus d'obra.</p>
-
-      <h3 style="margin-top:1.5rem;margin-bottom:.75rem;">Per a continguts</h3>
-      <p style="color:var(--text-muted);font-size:.925rem;line-height:1.6;margin-bottom:1rem;">Creative Commons ofereix llicències pensades per a textos, activitats i altres materials educatius. La diferència principal és què voleu permetre quan altres persones reutilitzen el material.</p>
-
-      <div class="table-responsive">
-        <table class="clean-table">
-          <thead><tr><th style="width:22%;">Llicència</th><th style="width:31%;">Què permet</th><th>Quan pot encaixar</th></tr></thead>
-          <tbody>
-            <tr>
-              <td><strong><a href="https://creativecommons.org/licenses/by/4.0/deed.ca" target="_blank" rel="noopener">CC BY 4.0</a></strong></td>
-              <td>Permet compartir i adaptar el material, també per a usos comercials, amb atribució.</td>
-              <td>Quan voleu facilitar una reutilització molt àmplia i l'atribució és la condició principal.</td>
-            </tr>
-            <tr>
-              <td><span class="badge-feature badge-positive">Opció del projecte</span><br><strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">CC BY-SA 4.0</a></strong></td>
-              <td>Permet compartir i adaptar el material amb atribució. Les adaptacions compartides han d'utilitzar la mateixa llicència o una de compatible.</td>
-              <td>Quan voleu que les adaptacions continuïn obertes sota una condició de CompartirIgual.</td>
-            </tr>
-            <tr>
-              <td><strong><a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC 4.0</a></strong></td>
-              <td>Permet compartir i adaptar el material amb atribució, però no per a usos comercials.</td>
-              <td>Quan la restricció d'ús comercial respon a una decisió deliberada del projecte.</td>
-            </tr>
-            <tr>
-              <td><strong><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></strong></td>
-              <td>Afegeix la restricció NoComercial i exigeix CompartirIgual en les adaptacions que es publiquin.</td>
-              <td>Quan voleu limitar l'ús comercial i mantenir la reciprocitat en les adaptacions.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="pedagogical-highlight" style="margin-top:1.25rem;">
-        <strong>Compte amb ND.</strong> Les llicències amb SenseObraDerivada no permeten compartir versions adaptades. Això pot limitar usos educatius habituals com traduir un material o transformar-lo per adaptar-lo a un altre context.
-      </div>
-
-      <h3 style="margin-top:2rem;margin-bottom:.75rem;">Per al codi</h3>
-      <p style="color:var(--text-muted);font-size:.925rem;line-height:1.6;margin-bottom:1rem;">Aquí convé comparar models que prenen decisions diferents sobre les versions modificades, l'ús en xarxa o les patents. No cal tractar com a opcions principals totes les llicències permissives que existeixen.</p>
-
-      <div class="table-responsive">
-        <table class="clean-table">
-          <thead><tr><th style="width:24%;">Llicència</th><th style="width:26%;">Model</th><th>Quan aporta un contrast útil</th></tr></thead>
-          <tbody>
-            <tr><td><span class="badge-feature badge-positive">Opció del projecte</span><br><strong><a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener">GNU GPL v3</a></strong><br><small>GPL-3.0-only</small></td><td>Copyleft fort</td><td>Quan voleu que les obres derivades cobertes que es distribueixin mantinguin la GPL i ofereixin el codi font corresponent.</td></tr>
-            <tr><td><strong><a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener">GNU AGPL v3</a></strong><br><small>AGPL-3.0-only</small></td><td>Copyleft fort amb ús en xarxa</td><td>Quan el programa funciona en un servidor i voleu que una versió modificada ofereixi el codi font també a les persones que hi interactuen remotament.</td></tr>
-            <tr><td><strong><a href="https://www.mozilla.org/MPL/2.0/" target="_blank" rel="noopener">MPL 2.0</a></strong><br><small>MPL-2.0</small></td><td>Copyleft a nivell de fitxer</td><td>Quan voleu mantenir oberts els fitxers coberts que es modifiquin, però permetre que convisquin amb altres fitxers sota condicions diferents.</td></tr>
-            <tr><td><strong><a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache 2.0</a></strong><br><small>Apache-2.0</small></td><td>Permissiva amb concessió explícita de patents</td><td>Quan voleu una reutilització molt àmplia i considereu rellevant que la llicència reguli expressament la concessió de patents dels contribuïdors.</td></tr>
-            <tr><td><strong><a href="https://opensource.org/license/MIT" target="_blank" rel="noopener">MIT</a></strong><br><small>MIT</small></td><td>Permissiva</td><td>Quan voleu facilitar molt la reutilització del codi amb poques obligacions i sense exigir que les versions modificades continuïn obertes.</td></tr>
-            <tr><td><strong><a href="https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12" target="_blank" rel="noopener">EUPL 1.2</a></strong><br><small>EUPL-1.2</small></td><td>Recíproca amb marc europeu</td><td>Quan el context institucional europeu és rellevant i voleu valorar una llicència creada en aquest marc.</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="cards-grid cards-grid-2x2" style="margin-top:1.5rem;">
-        <div class="card-item">
-          <div class="card-item-icon"><i data-lucide="blocks"></i></div>
-          <h3>Cas específic - GNU LGPL v3</h3>
-          <p>Pot tenir sentit si publiqueu una biblioteca de programari que voleu mantenir oberta però que també ha de poder ser utilitzada des d'altres programes. Per a una web educativa habitual no acostuma a ser la primera opció que cal comparar.</p>
-          <a href="https://www.gnu.org/licenses/lgpl-3.0.html" target="_blank" rel="noopener" class="resource-pill" style="margin-top:.75rem;"><i data-lucide="external-link"></i> GNU LGPL v3</a>
-        </div>
-        <div class="card-item">
-          <div class="card-item-icon"><i data-lucide="package-check"></i></div>
-          <h3>ISC com a llicència de tercers</h3>
-          <p>Lucide utilitza la llicència ISC. En aquest taller no cal presentar-la com una alternativa principal a MIT, perquè totes dues són permissives i s'encavalquen molt per a projectes senzills. El que sí cal és respectar l'ISC quan incorporem Lucide i conservar els avisos corresponents.</p>
-          <a href="https://opensource.org/license/ISC" target="_blank" rel="noopener" class="resource-pill" style="margin-top:.75rem;"><i data-lucide="external-link"></i> ISC License</a>
-        </div>
-      </div>
-
-      <div class="pedagogical-highlight" style="margin-top:1.5rem;">
-        <strong>Per a aquest projecte</strong>, GNU GPL v3 continua sent una opció coherent. És una web estàtica publicada amb GitHub Pages, de manera que la protecció específica d'AGPL v3 per a programari modificat que funciona només al servidor aporta poc valor addicional en aquest cas.
-      </div>
-
-      <div style="margin-top:2rem;padding:1.15rem;background:var(--bg-subtle);border-radius:var(--radius-md);border:1px solid var(--border-color);">
-        <h3 style="font-size:.95rem;margin-bottom:.65rem;display:flex;align-items:center;gap:.4rem;"><i data-lucide="external-link" class="lucide" style="width:16px;height:16px;color:var(--accent-secondary);"></i> Fonts oficials per comprovar les condicions</h3>
-        <ul style="padding-left:1.25rem;font-size:.875rem;color:var(--text-muted);line-height:1.7;">
-          <li><a href="https://creativecommons.org/share-your-work/cclicenses/" target="_blank" rel="noopener">Creative Commons - tipus de llicència</a></li>
-          <li><a href="https://www.gnu.org/licenses/licenses.html" target="_blank" rel="noopener">GNU - GPL, AGPL i LGPL</a></li>
-          <li><a href="https://www.mozilla.org/MPL/2.0/FAQ/" target="_blank" rel="noopener">Mozilla - MPL 2.0</a></li>
-          <li><a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache License 2.0</a></li>
-          <li><a href="https://opensource.org/licenses" target="_blank" rel="noopener">Open Source Initiative - llicències de programari</a></li>
-          <li><a href="https://interoperable-europe.ec.europa.eu/collection/eupl/solution/licensing-assistant" target="_blank" rel="noopener">Interoperable Europe - Licensing Assistant</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="page-pagination">
-      <a href="bloc4-pages-sites.html" class="btn-pagination" data-nav="prev">◀ <span>Anterior: Bloc 4 - GitHub Pages i Google Sites</span></a>
-      <a href="bloc6-recursos-visuals.html" class="btn-pagination primary" data-nav="next"><span>Següent: Bloc 6 - Imatges i icones</span> ▶</a>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-      <p><strong>Eines d'intel·ligència artificial per a l'aula</strong> - Servei Educatiu del Vallès Occidental II. Octubre de 2026.</p>
-      <div class="footer-links">
-        <a href="https://github.com/miquelangelfuentes/eines-ia-aula" target="_blank" rel="noopener">Repositori</a>
-        <a href="https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html" target="_blank" rel="noopener">Guia de <em>vibe coding</em> responsable</a>
-        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-SA 4.0</a>
-        <a href="credits.html">Crèdits i llicències</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="assets/vendor/lucide/lucide.min.js"></script>
-  <script src="app.js?v=6"></script>
-  <script>
-    (() => {
-      const form = document.getElementById('license-quiz-form');
-      if (!form) return;
-
-      const questionHost = document.getElementById('license-quiz-question');
-      const stepper = document.getElementById('license-quiz-stepper');
-      const progressFill = document.getElementById('license-quiz-progress-fill');
-      const progressText = document.getElementById('license-quiz-progress-text');
-      const progressPercent = document.getElementById('license-quiz-progress-percent');
-      const prevBtn = document.getElementById('license-quiz-prev');
-      const nextBtn = document.getElementById('license-quiz-next');
-      const resultBtn = document.getElementById('license-quiz-result');
-      const resetBtn = document.getElementById('license-quiz-reset');
-      const results = document.getElementById('license-quiz-results');
-
-      const questions = {
-        openness: {
-          title: 'Si una altra persona modifica el vostre codi i el comparteix, què voldríeu que passés?',
-          context: 'No penseu encara en noms de llicències. Trieu la situació que s\'acosta més al que voleu permetre.',
-          options: [
-            ['strong', 'Vull que la versió derivada coberta continuï oberta amb les mateixes condicions.'],
-            ['files', 'Només necessito que els fitxers meus que es modifiquin continuïn oberts.'],
-            ['permissive', 'Prefereixo permetre una reutilització molt àmplia, encara que la versió modificada utilitzi altres condicions.'],
-            ['unsure', 'No sé quin model em convé. Necessito una pregunta més concreta.']
-          ]
-        },
-        priority: {
-          title: 'Què us importa més quan una altra persona reutilitzi el vostre codi?',
-          context: 'Aquesta pregunta només apareix si encara no heu decidit quin grau d\'obertura voleu mantenir.',
-          options: [
-            ['keep-open', 'Que les millores compartides continuïn disponibles com a codi obert.'],
-            ['easy-reuse', 'Que sigui fàcil reutilitzar el codi amb poques obligacions.'],
-            ['eu-public', 'Treballo en un context públic europeu i vull considerar una llicència pensada per aquest marc.'],
-            ['still-unsure', 'Encara no tinc una preferència.']
-          ]
-        },
-        strongKind: {
-          title: 'Quin tipus de projecte esteu compartint?',
-          context: 'La forma del projecte ajuda a diferenciar llicències que mantenen obert el codi de maneres diferents.',
-          options: [
-            ['distributed', 'Una aplicació, una web estàtica o un programa que altres persones poden copiar i executar.'],
-            ['network', 'Un servei web en què una part important del programa s\'executa al servidor.'],
-            ['library', 'Una biblioteca o component pensat perquè altres programes el puguin incorporar.'],
-            ['eu-public', 'Programari vinculat a una administració o projecte públic europeu.']
-          ]
-        },
-        patents: {
-          title: 'Us importa que la llicència inclogui una concessió explícita de patents dels contribuïdors?',
-          context: 'En molts projectes educatius aquest no serà el criteri principal. Si no sabeu què implica, podeu indicar-ho.',
-          options: [
-            ['yes', 'Sí. Vull que aquesta concessió aparegui expressament a la llicència.'],
-            ['no', 'No és un criteri determinant per al meu projecte.'],
-            ['unsure', 'No sé si les patents són rellevants en el meu cas.']
-          ]
-        },
-        dependencies: {
-          title: 'Heu incorporat codi que no heu escrit vosaltres?',
-          context: 'Pot ser una biblioteca o un fragment d\'un altre projecte. Aquest codi conserva la seva llicència original.',
-          options: [
-            ['reviewed', 'Sí, i n\'he revisat la llicència.'],
-            ['needs-review', 'Sí, però encara no n\'he revisat les condicions.'],
-            ['none', 'No. Tot el codi del projecte és propi.'],
-            ['unclear', 'No ho sé amb seguretat o hi ha codi del qual desconec la procedència.']
-          ]
-        }
-      };
-
-      const path = [];
-      const answers = {};
-      let current = 0;
-      let recommendation = null;
-
-      function optionLabels(options) {
-        return options.map((opt, index) => {
-          const letter = String.fromCharCode(65 + index);
-          return `<label class="quiz-option-card${answers[path[current]] === opt[0] ? ' selected' : ''}">
-            <input type="radio" name="license-current" value="${opt[0]}" class="quiz-radio-hidden"${answers[path[current]] === opt[0] ? ' checked' : ''}>
-            <span class="quiz-opt-badge">${letter}</span><span class="quiz-opt-text">${opt[1]}</span>
-          </label>`;
-        }).join('');
-      }
-
-      function renderQuestion() {
-        const key = path[current];
-        const q = questions[key];
-        questionHost.innerHTML = `<div class="quiz-question-card active">
-          <div class="quiz-question-header"><span class="quiz-q-num-pill">Pas ${current + 1}</span><h3 class="quiz-q-title">${q.title}</h3></div>
-          <p class="quiz-q-context">${q.context}</p><div class="quiz-options-list">${optionLabels(q.options)}</div>
-        </div>`;
-
-        questionHost.querySelectorAll('input[type="radio"]').forEach(input => {
-          input.addEventListener('change', () => {
-            answers[key] = input.value;
-            questionHost.querySelectorAll('.quiz-option-card').forEach(label => label.classList.remove('selected'));
-            input.closest('.quiz-option-card').classList.add('selected');
-            results.hidden = true;
-            nextBtn.disabled = false;
-            resultBtn.disabled = false;
-          });
-        });
-
-        stepper.innerHTML = path.map((_, index) => `<span class="quiz-step-btn${index === current ? ' active' : ''}${index < current ? ' answered' : ''}" aria-hidden="true">${index + 1}</span>`).join('');
-        const estimated = Math.max(path.length + (key === 'dependencies' ? 0 : 1), 2);
-        const percent = key === 'dependencies' ? 100 : Math.min(90, Math.round(((current + 1) / estimated) * 100));
-        progressFill.style.width = `${percent}%`;
-        progressText.textContent = `Pas ${current + 1}`;
-        progressPercent.textContent = key === 'dependencies' ? 'Última pregunta' : 'Orientació en curs';
-        prevBtn.disabled = current === 0;
-        nextBtn.hidden = key === 'dependencies';
-        resultBtn.hidden = key !== 'dependencies';
-        nextBtn.disabled = !answers[key];
-        resultBtn.disabled = !answers[key];
-        if (window.lucide) window.lucide.createIcons();
-      }
-
-      function chooseStrongRecommendation(value) {
-        if (value === 'network') return 'agpl';
-        if (value === 'library') return 'lgpl';
-        if (value === 'eu-public') return 'eupl';
-        return 'gpl';
-      }
-
-      function advance() {
-        const key = path[current];
-        const value = answers[key];
-        if (!value) return;
-
-        let next = null;
-        if (key === 'openness') {
-          if (value === 'strong') next = 'strongKind';
-          else if (value === 'files') { recommendation = 'mpl'; next = 'dependencies'; }
-          else if (value === 'permissive') next = 'patents';
-          else next = 'priority';
-        } else if (key === 'priority') {
-          if (value === 'keep-open') next = 'strongKind';
-          else if (value === 'easy-reuse') next = 'patents';
-          else if (value === 'eu-public') { recommendation = 'eupl'; next = 'dependencies'; }
-          else { recommendation = 'guided'; next = 'dependencies'; }
-        } else if (key === 'strongKind') {
-          recommendation = chooseStrongRecommendation(value);
-          next = 'dependencies';
-        } else if (key === 'patents') {
-          recommendation = value === 'yes' ? 'apache' : 'mit';
-          next = 'dependencies';
-        }
-
-        if (next) {
-          path.splice(current + 1);
-          path.push(next);
-          current += 1;
-          renderQuestion();
-        }
-      }
-
-      const resultData = {
-        gpl: ['git-fork', 'GNU GPL v3', 'Us encaixa si voleu que una obra derivada coberta que es distribueixi mantingui la GPL i ofereixi el codi font corresponent. Per a una web estàtica com aquest projecte és una opció coherent.', 'https://www.gnu.org/licenses/gpl-3.0.html'],
-        agpl: ['network', 'GNU AGPL v3', 'Us encaixa si el programa funciona com a servei en un servidor i voleu que una versió modificada ofereixi el codi font també a les persones que hi interactuen a través de la xarxa.', 'https://www.gnu.org/licenses/agpl-3.0.html'],
-        mpl: ['files', 'MPL 2.0', 'Us encaixa si voleu que els fitxers coberts que es modifiquin continuïn oberts, però permetre que es combinin amb altres fitxers sota condicions diferents.', 'https://www.mozilla.org/MPL/2.0/'],
-        lgpl: ['blocks', 'GNU LGPL v3', 'Us encaixa especialment quan publiqueu una biblioteca que voleu mantenir oberta però que també ha de poder ser utilitzada des d\'altres programes.', 'https://www.gnu.org/licenses/lgpl-3.0.html'],
-        apache: ['shield-check', 'Apache License 2.0', 'Us encaixa si voleu una llicència permissiva que incorpori una concessió explícita de patents dels contribuïdors.', 'https://www.apache.org/licenses/LICENSE-2.0'],
-        mit: ['unlock', 'MIT License', 'Us encaixa si voleu facilitar molt la reutilització amb poques obligacions. No exigeix que les versions modificades distribuïdes continuïn obertes.', 'https://opensource.org/license/MIT'],
-        eupl: ['landmark', 'EUPL 1.2', 'Pot encaixar especialment en projectes vinculats al sector públic europeu. És una llicència recíproca creada en el marc de la Unió Europea.', 'https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12'],
-        guided: ['compass', 'Dues opcions de partida segons la prioritat', 'Si voleu que les versions derivades distribuïdes continuïn obertes, GNU GPL v3 és una opció de partida adequada. Si preferiu facilitar la reutilització amb poques obligacions, MIT és una opció permissiva habitual.', '']
-      };
-
-      function dependencyNote() {
-        const value = answers.dependencies;
-        if (value === 'needs-review') return ['triangle-alert', 'Abans de publicar, reviseu la llicència de cada biblioteca o fragment extern i conserveu els avisos que exigeixi.'];
-        if (value === 'unclear') return ['triangle-alert', 'Abans de llicenciar el projecte, aclariu la procedència del codi que no podeu identificar. No el presenteu com a codi propi sota una llicència nova.'];
-        if (value === 'reviewed') return ['badge-check', 'Heu indicat que el codi de tercers està identificat. Manteniu-ne els avisos i torneu a revisar-los quan actualitzeu les dependències.'];
-        return ['badge-check', 'Heu indicat que no incorporeu codi de tercers. La recomanació es refereix al vostre codi propi.'];
-      }
-
-      function showResult() {
-        const currentKey = path[current];
-        if (currentKey !== 'dependencies' || !answers.dependencies) return;
-        const data = resultData[recommendation || 'guided'];
-        const note = dependencyNote();
-        const link = data[3] ? `<a href="${data[3]}" target="_blank" rel="noopener" class="resource-pill" style="margin-top:.85rem;"><i data-lucide="external-link"></i> Obriu la font oficial</a>` : '';
-        results.innerHTML = `
-          <span class="quiz-profile-badge intermedi"><i data-lucide="compass" aria-hidden="true"></i> Orientació de llicència de codi</span>
-          <h3 style="margin:0 0 .45rem;font-size:1.2rem;">Resultat orientatiu</h3>
-          <p style="margin:0;color:var(--text-muted);font-size:.925rem;line-height:1.6;">La recomanació parteix de les decisions que heu pres, no del coneixement previ dels noms de les llicències.</p>
-          <article class="quiz-rec-card" style="margin-top:1.25rem;justify-content:flex-start;">
-            <h4 style="margin-bottom:.55rem;"><i data-lucide="${data[0]}" aria-hidden="true"></i>${data[1]}</h4>
-            <p style="margin:0;color:var(--text-muted);font-size:.9rem;line-height:1.6;">${data[2]}</p>${link}
-          </article>
-          <div class="pedagogical-highlight" style="margin-top:1rem;margin-bottom:.75rem;"><strong style="display:inline-flex;align-items:center;gap:.4rem;"><i data-lucide="${note[0]}" style="width:17px;height:17px;"></i> Codi de tercers</strong><br>${note[1]}</div>
-          <p style="margin:0;color:var(--text-dim);font-size:.825rem;line-height:1.55;">Si combineu codi amb llicències diferents, comproveu-ne la compatibilitat abans de distribuir el projecte.</p>`;
-        results.hidden = false;
-        progressFill.style.width = '100%';
-        progressPercent.textContent = 'Completat';
-        if (window.lucide) window.lucide.createIcons();
-        results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-
-      nextBtn.addEventListener('click', advance);
-      resultBtn.addEventListener('click', showResult);
-      prevBtn.addEventListener('click', () => {
-        if (current === 0) return;
-        current -= 1;
-        path.splice(current + 1);
-        recommendation = null;
-        results.hidden = true;
-        renderQuestion();
-      });
-      resetBtn.addEventListener('click', () => {
-        Object.keys(answers).forEach(key => delete answers[key]);
-        path.length = 0;
-        path.push('openness');
-        current = 0;
-        recommendation = null;
-        results.hidden = true;
-        results.innerHTML = '';
-        renderQuestion();
-      });
-
-      path.push('openness');
-      renderQuestion();
-    })();
-  </script>
+</div>
+</div>
+<div class="content-box" id="orientador-llicencies">
+<h2>Quina llicència de codi encaixa amb el vostre projecte?</h2>
+<p class="lead-desc">No cal conèixer les llicències abans de començar. L'orientador us preguntarà què voleu permetre i només us mostrarà les preguntes que afecten la vostra decisió.</p>
+<div class="pedagogical-highlight">
+El qüestionari se centra en <strong>llicències de programari</strong>. Els noms tècnics apareixen al resultat, després d'haver pres les decisions amb exemples comprensibles.
+</div>
+<div class="quiz-progress-wrapper">
+<div class="quiz-stepper-header">
+<div class="quiz-stepper-pills" id="license-quiz-stepper" aria-label="Progrés del qüestionari"></div>
+</div>
+<div class="quiz-progress-track" aria-hidden="true"><div id="license-quiz-progress-fill" class="quiz-progress-fill" style="width:0%;"></div></div>
+<div class="quiz-progress-meta"><span id="license-quiz-progress-text">Pas 1</span><span id="license-quiz-progress-percent">Orientació en curs</span></div>
+</div>
+<form id="license-quiz-form" class="diagnostic-quiz-form is-wizard">
+<div id="license-quiz-question"></div>
+<div class="quiz-nav-footer">
+<button type="button" class="quiz-nav-btn" id="license-quiz-prev" disabled><i data-lucide="arrow-left" aria-hidden="true"></i><span>Anterior</span></button>
+<div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+<button type="button" class="quiz-nav-btn primary" id="license-quiz-next" disabled><span>Següent</span><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+<button type="button" class="quiz-nav-btn accent-cta" id="license-quiz-result" hidden disabled><i data-lucide="badge-check" aria-hidden="true"></i><span>Veure orientació</span></button>
+</div>
+</div>
+</form>
+<div id="license-quiz-results" class="quiz-results-panel" hidden aria-live="polite"></div>
+<div class="quiz-actions-row"><button type="button" class="quiz-btn-link" id="license-quiz-reset"><i data-lucide="rotate-ccw" aria-hidden="true"></i><span>Reinicia el qüestionari</span></button></div>
+</div>
+<div class="content-box">
+<h2>Llicències recomanades per a docents</h2>
+<p class="lead-desc">Primer identifiqueu si esteu compartint contingut educatiu o codi. A partir d'aquí, compareu només llicències pensades per al mateix tipus d'obra.</p>
+<h3 style="margin-top:1.5rem;margin-bottom:.75rem;">Per a continguts</h3>
+<p style="color:var(--text-muted);font-size:.925rem;line-height:1.6;margin-bottom:1rem;">Creative Commons ofereix llicències pensades per a textos, activitats i altres materials educatius. La diferència principal és què voleu permetre quan altres persones reutilitzen el material.</p>
+<div class="table-responsive">
+<table class="clean-table">
+<thead><tr><th style="width:22%;">Llicència</th><th style="width:31%;">Què permet</th><th>Quan pot encaixar</th></tr></thead>
+<tbody>
+<tr>
+<td><strong><a href="https://creativecommons.org/licenses/by/4.0/deed.ca" target="_blank" rel="noopener">CC BY 4.0</a></strong></td>
+<td>Permet compartir i adaptar el material, també per a usos comercials, amb atribució.</td>
+<td>Quan voleu facilitar una reutilització molt àmplia i l'atribució és la condició principal.</td>
+</tr>
+<tr>
+<td><span class="badge-feature badge-positive">Opció del projecte</span><br><strong><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">CC BY-SA 4.0</a></strong></td>
+<td>Permet compartir i adaptar el material amb atribució. Les adaptacions compartides han d'utilitzar la mateixa llicència o una de compatible.</td>
+<td>Quan voleu que les adaptacions continuïn obertes sota una condició de CompartirIgual.</td>
+</tr>
+<tr>
+<td><strong><a href="https://creativecommons.org/licenses/by-nc/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC 4.0</a></strong></td>
+<td>Permet compartir i adaptar el material amb atribució, però no per a usos comercials.</td>
+<td>Quan la restricció d'ús comercial respon a una decisió deliberada del projecte.</td>
+</tr>
+<tr>
+<td><strong><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></strong></td>
+<td>Afegeix la restricció NoComercial i exigeix CompartirIgual en les adaptacions que es publiquin.</td>
+<td>Quan voleu limitar l'ús comercial i mantenir la reciprocitat en les adaptacions.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pedagogical-highlight" style="margin-top:1.25rem;">
+<strong>Compte amb ND.</strong> Les llicències amb SenseObraDerivada no permeten compartir versions adaptades. Això pot limitar usos educatius habituals com traduir un material o transformar-lo per adaptar-lo a un altre context.
+</div>
+<h3 style="margin-top:2rem;margin-bottom:.75rem;">Per al codi</h3>
+<p style="color:var(--text-muted);font-size:.925rem;line-height:1.6;margin-bottom:1rem;">No cal començar pel nom de la llicència. Penseu primer què voldríeu que pogués fer una altra persona amb el vostre codi i què voldríeu que hagués de mantenir si el modifica.</p>
+<div class="pedagogical-highlight" style="margin-bottom:1.25rem;">
+<strong>Una idea per orientar-vos.</strong> Les llicències amb <em>copyleft</em> demanen que determinades versions modificades continuïn obertes quan es comparteixen. Les llicències <em>permissives</em> deixen reutilitzar el codi amb menys obligacions i no exigeixen mantenir oberta la versió modificada.
+</div>
+<div class="table-responsive">
+<table class="clean-table">
+<thead><tr><th style="width:28%;">Si voleu...</th><th style="width:22%;">Llicència que podeu valorar</th><th>Què significa en la pràctica</th></tr></thead>
+<tbody>
+<tr>
+<td><strong>Que les versions derivades que es distribueixin continuïn obertes</strong></td>
+<td><span class="badge-feature badge-positive">Opció del projecte</span><br><strong><a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener">GNU GPL v3</a></strong></td>
+<td>Si algú distribueix una obra derivada coberta per la GPL, ha de mantenir la GPL i posar a disposició el codi font corresponent.</td>
+</tr>
+<tr>
+<td><strong>Aplicar aquesta mateixa idea també a un servei web modificat que funciona al servidor</strong></td>
+<td><strong><a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener">GNU AGPL v3</a></strong></td>
+<td>Afegeix a la lògica de la GPL una obligació específica quan les persones utilitzen per xarxa una versió modificada del programa.</td>
+</tr>
+<tr>
+<td><strong>Que només els fitxers del vostre codi que es modifiquin hagin de continuar oberts</strong></td>
+<td><strong><a href="https://www.mozilla.org/MPL/2.0/" target="_blank" rel="noopener">MPL 2.0</a></strong></td>
+<td>Els fitxers coberts que es modifiquen mantenen la MPL quan es distribueixen, però poden conviure amb altres fitxers sota condicions diferents.</td>
+</tr>
+<tr>
+<td><strong>Facilitar al màxim que altres persones reutilitzin el codi</strong></td>
+<td><strong><a href="https://opensource.org/license/MIT" target="_blank" rel="noopener">MIT</a></strong></td>
+<td>Permet una reutilització molt àmplia amb poques condicions. No obliga que una versió modificada distribuïda continuï sent de codi obert.</td>
+</tr>
+<tr>
+<td><strong>Una llicència permissiva que reguli explícitament les patents aportades pels contribuïdors</strong></td>
+<td><strong><a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache 2.0</a></strong></td>
+<td>Permet una reutilització àmplia com una llicència permissiva, però incorpora una concessió explícita de determinats drets de patent dels contribuïdors.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pedagogical-highlight" style="margin-top:1.25rem;">
+<strong>Si el vostre projecte és una web educativa senzilla</strong>, les decisions que més sovint marcaran la diferència són aquestes: voleu exigir que les versions derivades compartides continuïn obertes, o preferiu facilitar-ne la reutilització amb poques obligacions? El qüestionari anterior parteix precisament d'aquesta decisió.
+</div>
+<div class="card-item" style="margin-top:1.5rem;">
+<div class="card-item-icon"><i data-lucide="blocks"></i></div>
+<h3>Casos que no cal comparar d'entrada</h3>
+<p><strong>GNU LGPL v3</strong> pot tenir sentit quan publiqueu una biblioteca de programari pensada perquè altres programes la incorporin. <strong>ISC</strong> apareix en aquest projecte perquè és la llicència de Lucide: no cal triar-la per al vostre codi per poder utilitzar Lucide, però sí conservar els avisos que exigeix la seva llicència.</p>
+<div style="display:flex;gap:.65rem;flex-wrap:wrap;margin-top:.75rem;">
+<a href="https://www.gnu.org/licenses/lgpl-3.0.html" target="_blank" rel="noopener" class="resource-pill"><i data-lucide="external-link"></i> GNU LGPL v3</a>
+<a href="https://opensource.org/license/ISC" target="_blank" rel="noopener" class="resource-pill"><i data-lucide="external-link"></i> ISC License</a>
+</div>
+</div>
+<div style="margin-top:2rem;padding:1.15rem;background:var(--bg-subtle);border-radius:var(--radius-md);border:1px solid var(--border-color);">
+<h3 style="font-size:.95rem;margin-bottom:.65rem;display:flex;align-items:center;gap:.4rem;"><i data-lucide="external-link" class="lucide" style="width:16px;height:16px;color:var(--accent-secondary);"></i> Fonts oficials per comprovar les condicions</h3>
+<ul style="padding-left:1.25rem;font-size:.875rem;color:var(--text-muted);line-height:1.7;">
+<li><a href="https://creativecommons.org/share-your-work/cclicenses/" target="_blank" rel="noopener">Creative Commons - tipus de llicència</a></li>
+<li><a href="https://www.gnu.org/licenses/licenses.html" target="_blank" rel="noopener">GNU - GPL, AGPL i LGPL</a></li>
+<li><a href="https://www.mozilla.org/MPL/2.0/FAQ/" target="_blank" rel="noopener">Mozilla - MPL 2.0</a></li>
+<li><a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache License 2.0</a></li>
+<li><a href="https://opensource.org/licenses" target="_blank" rel="noopener">Open Source Initiative - llicències de programari</a></li>
+</ul>
+</div>
+</div>
+<div class="page-pagination">
+<a href="bloc4-pages-sites.html" class="btn-pagination" data-nav="prev">◀ <span>Anterior: Bloc 4 - GitHub Pages i Google Sites</span></a>
+<a href="bloc6-recursos-visuals.html" class="btn-pagination primary" data-nav="next"><span>Següent: Bloc 6 - Imatges i icones</span> ▶</a>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<p><strong>Eines d'intel·ligència artificial per a l'aula</strong> - Servei Educatiu del Vallès Occidental II. Octubre de 2026.</p>
+<div class="footer-links">
+<a href="https://github.com/miquelangelfuentes/eines-ia-aula" target="_blank" rel="noopener">Repositori</a>
+<a href="https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html" target="_blank" rel="noopener">Guia de <em>vibe coding</em> responsable</a>
+<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-SA 4.0</a>
+<a href="credits.html">Crèdits i llicències</a>
+</div>
+</div>
+</footer>
+<script src="assets/vendor/lucide/lucide.min.js"></script>
+<script src="app.js?v=6"></script>
+<script src="bloc5-llicencies.js?v=1"></script>
 </body>
 </html>
