@@ -102,6 +102,17 @@
     heading.style.gap = '0.6rem';
   };
 
+  const normalizeBloc2SectionHeadings = () => {
+    const pageName = window.location.pathname.split('/').pop() || '';
+    if (pageName !== 'bloc2-antigravity.html') return;
+
+    document.querySelectorAll('main#contingut-principal h2').forEach((heading) => {
+      if (heading.textContent.trim() === "Ampliació: descàrrega massiva de documents PDF d'un lloc web a Documents") {
+        heading.textContent = "Ampliació: descàrrega massiva de documents d'un lloc web";
+      }
+    });
+  };
+
   const normalizeBloc9SectionHeadings = () => {
     const pageName = window.location.pathname.split('/').pop() || '';
     if (pageName !== 'bloc9-per-continuar-explorant.html') return;
@@ -663,6 +674,7 @@ Quan et confirmi que la versió està validada i et demani l'exportació, no red
       /* Afegim i dedupliquem les icones abans que initSite() executi Lucide.
          D'aquesta manera els <i data-lucide> existents encara es poden detectar
          i no es crea una segona icona al mateix títol. */
+      normalizeBloc2SectionHeadings();
       normalizeBloc9SectionHeadings();
       enhanceHomeGuideHighlight();
       enhanceBloc6InfographicPractice();
