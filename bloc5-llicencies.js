@@ -13,6 +13,22 @@
   const resetBtn = document.getElementById('license-quiz-reset');
   const results = document.getElementById('license-quiz-results');
 
+  const officialSourcesHeading = [...document.querySelectorAll('.content-box h3')]
+    .find(heading => heading.textContent.includes('Fonts oficials per comprovar les condicions'));
+  if (officialSourcesHeading) {
+    officialSourcesHeading.innerHTML = '<i data-lucide="external-link" class="lucide" style="width:16px;height:16px;color:var(--accent-secondary);"></i> Fonts oficials de les llicències';
+    const sourceList = officialSourcesHeading.parentElement.querySelector('ul');
+    if (sourceList) {
+      sourceList.innerHTML = `
+        <li><a href="https://creativecommons.org/cc-licenses/" target="_blank" rel="noopener">Creative Commons - llicències Creative Commons</a></li>
+        <li><a href="https://www.gnu.org/licenses/licenses.html" target="_blank" rel="noopener">GNU - llicències de programari</a></li>
+        <li><a href="https://www.mozilla.org/MPL/2.0/" target="_blank" rel="noopener">Mozilla - Mozilla Public License 2.0</a></li>
+        <li><a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache Software Foundation - Apache License 2.0</a></li>
+        <li><a href="https://opensource.org/license/MIT" target="_blank" rel="noopener">Open Source Initiative - MIT License</a></li>
+        <li><a href="https://opensource.org/license/ISC" target="_blank" rel="noopener">Open Source Initiative - ISC License</a></li>`;
+    }
+  }
+
   const questions = {
     openness: {
       title: 'Si una altra persona modifica el vostre codi i el comparteix, què voldríeu que passés?',
