@@ -166,39 +166,39 @@
     }
     .conference-document-flow {
       display: grid;
-      grid-template-columns: max-content auto max-content auto max-content;
-      gap: .35rem;
+      grid-template-columns: minmax(0, .8fr) auto minmax(0, 1fr) auto minmax(0, .9fr);
+      gap: .28rem;
       align-items: center;
-      justify-content: center;
       margin-top: .3rem;
-      overflow-x: auto;
-      padding-bottom: .1rem;
+      width: 100%;
+      min-width: 0;
     }
     .conference-document-step {
-      display: inline-flex;
-      align-items: center;
-      gap: .35rem;
-      padding: .4rem .5rem;
+      min-width: 0;
+      display: grid;
+      justify-items: center;
+      align-content: center;
+      gap: .22rem;
+      padding: .4rem .28rem;
       border: 1px solid var(--border-color);
       border-radius: var(--radius-sm);
       background: var(--bg-subtle);
       color: var(--text-muted);
-      font-size: .74rem;
-      line-height: 1.2;
-      white-space: nowrap;
+      font-size: .69rem;
+      line-height: 1.12;
+      text-align: center;
     }
     .conference-document-step .lucide {
       width: 14px;
       height: 14px;
-      flex: 0 0 14px;
       color: var(--accent-secondary);
     }
     .conference-document-arrow {
       display: grid;
       place-items: center;
-      min-width: 14px;
+      width: 12px;
       color: var(--accent-secondary);
-      font-size: .8rem;
+      font-size: .78rem;
       line-height: 1;
     }
     @media (max-width: 760px) {
@@ -215,8 +215,8 @@
       .conference-visual-branches {
         grid-template-columns: 1fr;
       }
-      .conference-document-flow {
-        justify-content: start;
+      .conference-document-step {
+        font-size: .72rem;
       }
     }
     @media print {
@@ -237,477 +237,36 @@
   <a href="#contingut-principal" class="skip-link">Salta directament al contingut</a><noscript>&lt;div class="noscript-notice"&gt;&lt;strong&gt;JavaScript està desactivat.&lt;/strong&gt; Podeu llegir el contingut del material, però algunes funcions interactives, com el qüestionari, el generador d’indicacions o la llista de verificació, no estaran disponibles.&lt;/div&gt;</noscript>
 
   <!-- Barra superior -->
-  <header class="top-bar">
-    <div class="top-bar-container">
-      <a href="index.html" class="brand-section">
-        <div class="brand-title">Eines d'IA per a l'aula</div>
-      </a>
+  <header class="top-bar"><div class="top-bar-container"><a href="index.html" class="brand-section"><div class="brand-title">Eines d'IA per a l'aula</div></a><div class="controls-group"><div class="print-menu-container"><button id="btn-print-menu" class="btn-icon" type="button" aria-label="Opcions d'impressió" title="Imprimir" aria-haspopup="true" aria-expanded="false"><i data-lucide="printer"></i></button><div id="print-dropdown" class="print-dropdown" role="menu"><button type="button" class="print-dropdown-item" id="btn-print-page" role="menuitem"><i data-lucide="file-text" style="width:16px;height:16px;"></i><span>Imprimir aquesta pàgina</span></button><a href="imprimir-tot.html?print=1" class="print-dropdown-item" id="btn-print-all" role="menuitem"><i data-lucide="book-open" style="width:16px;height:16px;"></i><span>Imprimir tota la presentació</span></a></div></div><a href="index.html" class="btn-icon" title="Tornar a l'inici" aria-label="Tornar a l'inici"><i data-lucide="home"></i></a><button id="btn-toggle-theme" class="btn-icon" type="button" aria-label="Canviar tema" title="Canviar tema"><span id="theme-icon"><i data-lucide="moon"></i></span></button></div></div></header>
 
-      <div class="controls-group">
-        <div class="print-menu-container">
-          <button id="btn-print-menu" class="btn-icon" type="button" aria-label="Opcions d'impressió" title="Imprimir" aria-haspopup="true" aria-expanded="false">
-            <i data-lucide="printer"></i>
-          </button>
-          <div id="print-dropdown" class="print-dropdown" role="menu">
-            <button type="button" class="print-dropdown-item" id="btn-print-page" role="menuitem">
-              <i data-lucide="file-text" style="width:16px;height:16px;"></i>
-              <span>Imprimir aquesta pàgina</span>
-            </button>
-            <a href="imprimir-tot.html?print=1" class="print-dropdown-item" id="btn-print-all" role="menuitem">
-              <i data-lucide="book-open" style="width:16px;height:16px;"></i>
-              <span>Imprimir tota la presentació</span>
-            </a>
-          </div>
-        </div>
-        <a href="index.html" class="btn-icon" title="Tornar a l'inici" aria-label="Tornar a l'inici">
-          <i data-lucide="home"></i>
-        </a>
-        <button id="btn-toggle-theme" class="btn-icon" type="button" aria-label="Canviar tema" title="Canviar tema">
-          <span id="theme-icon"><i data-lucide="moon"></i></span>
-        </button>
-      </div>
-    </div>
-  </header>
+  <nav class="blocks-nav-bar" aria-label="Índex de blocs"><ul class="blocks-nav-list"><li><a href="index.html" class="block-nav-link">Inici</a></li><li><a href="bloc1-marc.html" class="block-nav-link"><span class="nav-num-pill">1</span> Marc</a></li><li><a href="bloc2-antigravity.html" class="block-nav-link"><span class="nav-num-pill">2</span> Antigravity</a></li><li><a href="bloc3-github.html" class="block-nav-link"><span class="nav-num-pill">3</span> GitHub</a></li><li><a href="bloc4-pages-sites.html" class="block-nav-link"><span class="nav-num-pill">4</span> Pages i Sites</a></li><li><a href="bloc5-llicencies.html" class="block-nav-link"><span class="nav-num-pill">5</span> Llicències</a></li><li><a href="bloc6-recursos-visuals.html" class="block-nav-link"><span class="nav-num-pill">6</span> Imatges i icones</a></li><li><a href="bloc7-bones-practiques.html" class="block-nav-link"><span class="nav-num-pill">7</span> Bones pràctiques</a></li><li><a href="bloc8-verificacio.html" class="block-nav-link"><span class="nav-num-pill">8</span> Verificació</a></li><li><a href="bloc9-per-continuar-explorant.html" class="block-nav-link active"><span class="nav-num-pill">9</span> IA local</a></li><li><a href="credits.html" class="block-nav-link">Crèdits</a></li></ul></nav>
 
-  <!-- Navegació de blocs -->
-  <nav class="blocks-nav-bar" aria-label="Índex de blocs">
-    <ul class="blocks-nav-list">
-      <li><a href="index.html" class="block-nav-link">Inici</a></li>
-      <li><a href="bloc1-marc.html" class="block-nav-link"><span class="nav-num-pill">1</span> Marc</a></li>
-      <li><a href="bloc2-antigravity.html" class="block-nav-link"><span class="nav-num-pill">2</span> Antigravity</a></li>
-      <li><a href="bloc3-github.html" class="block-nav-link"><span class="nav-num-pill">3</span> GitHub</a></li>
-      <li><a href="bloc4-pages-sites.html" class="block-nav-link"><span class="nav-num-pill">4</span> Pages i Sites</a></li>
-      <li><a href="bloc5-llicencies.html" class="block-nav-link"><span class="nav-num-pill">5</span> Llicències</a></li>
-      <li><a href="bloc6-recursos-visuals.html" class="block-nav-link"><span class="nav-num-pill">6</span> Imatges i icones</a></li>
-      <li><a href="bloc7-bones-practiques.html" class="block-nav-link"><span class="nav-num-pill">7</span> Bones pràctiques</a></li>
-      <li><a href="bloc8-verificacio.html" class="block-nav-link"><span class="nav-num-pill">8</span> Verificació</a></li>
-      <li><a href="bloc9-per-continuar-explorant.html" class="block-nav-link active"><span class="nav-num-pill">9</span> IA local</a></li>
-      <li><a href="credits.html" class="block-nav-link">Crèdits</a></li>
-    </ul>
-  </nav>
+  <section class="page-hero"><div class="page-hero-inner"><span class="page-category-tag">Secció d'ampliació — Treball avançat</span><h1>Per continuar explorant: models d'intel·ligència artificial local</h1><p class="page-hero-subtitle">Més control sobre les dades i recursos en català amb Softcatalà i eines d'execució local.</p></div></section>
 
-  <!-- Capçalera del bloc -->
-  <section class="page-hero">
-    <div class="page-hero-inner">
-      <span class="page-category-tag">Secció d'ampliació — Treball avançat</span>
-      <h1>Per continuar explorant: models d'intel·ligència artificial local</h1>
-      <p class="page-hero-subtitle">
-        Més control sobre les dades i recursos en català amb Softcatalà i eines d'execució local.
-      </p>
-    </div>
-  </section>
-
-  <!-- Contingut principal -->
   <main id="contingut-principal" class="main-content">
+    <div class="content-box"><h2>Què és la intel·ligència artificial local i per què és rellevant a l'escola?</h2><p class="lead-desc">Com reduir la dependència de serveis al núvol i mantenir una part més gran del processament al dispositiu del centre.</p><div class="pedagogical-highlight" style="display:flex;align-items:flex-start;gap:.75rem;"><i data-lucide="cloud" aria-hidden="true" style="width:20px;height:20px;color:var(--accent-primary);flex:0 0 20px;margin-top:.15rem;"></i><div>Quan fem servir serveis d’intel·ligència artificial al núvol, les consultes es processen en servidors remots. Amb una configuració realment <strong>local</strong>, el model pot executar-se al mateix dispositiu i reduir les transferències de dades a tercers. Cal comprovar, però, si la interfície utilitzada incorpora telemetria, serveis connectats o altres funcions de xarxa.</div></div><figure class="inline-support-figure"><img src="assets/images/unsplash/bloc9-ia-local.jpg" width="1200" height="630" alt="Processador i circuits electrònics d'un ordinador, símbol de computació local autònoma" loading="lazy"><figcaption class="edu-caption">Foto: <a href="https://unsplash.com/@alexandre_debieve" target="_blank" rel="noopener">Alexandre Debiève</a> a <a href="https://unsplash.com/photos/FO7JIlwjOtU" target="_blank" rel="noopener">Unsplash</a> (<a href="https://unsplash.com/license" target="_blank" rel="noopener">Llicència Unsplash</a>)</figcaption></figure><div class="cards-grid"><div class="card-item"><div class="card-item-icon"><i data-lucide="lock"></i></div><h3>Més control sobre les dades</h3><p>Si el model i la interfície funcionen íntegrament en local, el centre pot reduir l’exposició de dades a proveïdors externs. Això no implica automàticament el compliment de l’RGPD: cal continuar revisant la finalitat del tractament i les mesures de protecció aplicables.</p></div><div class="card-item"><div class="card-item-icon"><i data-lucide="wifi-off"></i></div><h3>Autonomia i funcionament fora de línia</h3><p>No cal connexió a internet per utilitzar-lo. Encara que caigui la xarxa del centre o l'ample de banda sigui limitat, l'eina continua funcionant amb la mateixa estabilitat.</p></div><div class="card-item"><div class="card-item-icon"><i data-lucide="server"></i></div><h3>Sobirania digital i continuïtat pedagògica</h3><p>Els models oberts no estan subjectes a canvis sobtats de condicions, límits de missatges per hora ni quotes de subscripció que puguin deixar una activitat educativa inoperativa a mig curs.</p></div></div></div>
 
-    <!-- Caixa 1: Què és i per què a l'escola? -->
-    <div class="content-box">
-      <h2>Què és la intel·ligència artificial local i per què és rellevant a l'escola?</h2>
-      <p class="lead-desc">Com reduir la dependència de serveis al núvol i mantenir una part més gran del processament al dispositiu del centre.</p>
-
-      <div class="pedagogical-highlight" style="display:flex;align-items:flex-start;gap:.75rem;">
-        <i data-lucide="cloud" aria-hidden="true" style="width:20px;height:20px;color:var(--accent-primary);flex:0 0 20px;margin-top:.15rem;"></i>
-        <div>Quan fem servir serveis d’intel·ligència artificial al núvol, les consultes es processen en servidors remots. Amb una configuració realment <strong>local</strong>, el model pot executar-se al mateix dispositiu i reduir les transferències de dades a tercers. Cal comprovar, però, si la interfície utilitzada incorpora telemetria, serveis connectats o altres funcions de xarxa.</div>
-      </div>
-
-      <figure class="inline-support-figure">
-        <img src="assets/images/unsplash/bloc9-ia-local.jpg" width="1200" height="630" alt="Processador i circuits electrònics d'un ordinador, símbol de computació local autònoma" loading="lazy">
-        <figcaption class="edu-caption">
-          Foto: <a href="https://unsplash.com/@alexandre_debieve" target="_blank" rel="noopener">Alexandre Debiève</a> a <a href="https://unsplash.com/photos/FO7JIlwjOtU" target="_blank" rel="noopener">Unsplash</a> (<a href="https://unsplash.com/license" target="_blank" rel="noopener">Llicència Unsplash</a>)
-        </figcaption>
-      </figure>
-
-      <div class="cards-grid">
-        <div class="card-item">
-          <div class="card-item-icon">
-            <i data-lucide="lock"></i>
-          </div>
-          <h3>Més control sobre les dades</h3>
-          <p>Si el model i la interfície funcionen íntegrament en local, el centre pot reduir l’exposició de dades a proveïdors externs. Això no implica automàticament el compliment de l’RGPD: cal continuar revisant la finalitat del tractament i les mesures de protecció aplicables.</p>
-        </div>
-
-        <div class="card-item">
-          <div class="card-item-icon">
-            <i data-lucide="wifi-off"></i>
-          </div>
-          <h3>Autonomia i funcionament fora de línia</h3>
-          <p>
-            No cal connexió a internet per utilitzar-lo. Encara que caigui la xarxa del centre o l'ample de banda sigui limitat, l'eina continua funcionant amb la mateixa estabilitat.
-          </p>
-        </div>
-
-        <div class="card-item">
-          <div class="card-item-icon">
-            <i data-lucide="server"></i>
-          </div>
-          <h3>Sobirania digital i continuïtat pedagògica</h3>
-          <p>
-            Els models oberts no estan subjectes a canvis sobtats de condicions, límits de missatges per hora ni quotes de subscripció que puguin deixar una activitat educativa inoperativa a mig curs.
-          </p>
-        </div>
-      </div>
+    <div class="content-box"><h2>Ponència recomanada: <em>Models d'intel·ligència artificial en local</em>, de Jordi Mas</h2><p class="lead-desc">Una introducció als models locals i als criteris per valorar-ne l'ús en català.</p><div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem;"><div style="display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; justify-content: space-between;"><div style="flex: 1; min-width: 280px;"><span style="display: inline-flex; align-items: center; gap: 0.35rem; background: #dc2626; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: var(--radius-sm); margin-bottom: 0.5rem;"><i data-lucide="clapperboard" class="lucide" style="width:14px;height:14px;"></i>Vídeo a YouTube</span><h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-main);">Sessió divulgativa de Jordi Mas (Softcatalà)</h3><p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.55;">Jordi Mas presenta la IA local com una opció per recuperar control sobre el processament i decidir quins models s'executen al dispositiu. La sessió també explica com adaptar la tria del model a la tasca i al maquinari disponible, amb exemples de l'avaluació que Softcatalà fa del rendiment en català.</p></div><div><a href="https://www.youtube.com/watch?v=UoA-P-pbCqQ" target="_blank" rel="noopener" class="btn-pagination primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;"><span>Veure la ponència a YouTube</span><i data-lucide="play" class="lucide" style="width:16px;height:16px;"></i></a></div></div></div>
+      <div class="ordered-steps"><div class="ordered-step-item"><div class="step-indicator"><i data-lucide="shield-check" class="lucide" style="width:16px;height:16px;"></i></div><div class="step-content"><h3>Què aporta executar el model al dispositiu</h3><p>Mas defineix la IA local com la possibilitat d'executar un model al propi ordinador o servidor. Això permet mantenir el còmput al dispositiu i dona més control sobre les dades i sobre els models que es decideixen utilitzar. La ponència també diferencia un model executable en local dels <em>pesos oberts</em> i de la IA lliure, conceptes relacionats però amb abasts diferents.</p></div></div><div class="ordered-step-item"><div class="step-indicator"><i data-lucide="cpu" class="lucide" style="width:16px;height:16px;"></i></div><div class="step-content"><h3>Com ajustar el model a la tasca i al maquinari</h3><p>La xerrada parteix d'una tasca concreta i recomana començar amb un model petit que càpiga a la memòria. Després, la qualitat obtinguda permet decidir si cal augmentar-ne la mida. També diferencia les feines desateses, que poden tolerar una resposta més lenta, dels usos interactius, que necessiten més capacitat de càlcul. La quantització pot reduir el consum de memòria i facilitar l'execució de models al dispositiu.</p></div></div></div>
+      <details class="conference-summary" style="margin-top:1.5rem;border:1px solid var(--border-color);border-radius:var(--radius-lg);background:var(--bg-surface);overflow:hidden;"><summary style="cursor:pointer;padding:1rem 1.15rem;color:var(--text-main);font-weight:700;"><span style="display:inline-flex;align-items:center;gap:.65rem;"><i data-lucide="book-open-text" aria-hidden="true" style="width:20px;height:20px;color:var(--accent-secondary);flex:0 0 20px;"></i><span>Resum detallat de la ponència</span></span><span style="display:block;margin:.35rem 0 0 1.85rem;color:var(--text-muted);font-size:.875rem;font-weight:400;">Desplegueu aquest apartat per llegir un resum detallat de la conferència.</span></summary><div style="border-top:1px solid var(--border-color);padding:1.25rem 1.35rem 1.4rem;">
+        <h4 style="margin:0 0 .45rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="history" aria-hidden="true" style="width:18px;height:18px;color:var(--accent-primary);flex:0 0 18px;"></i><span>1. El context i el "moment Linux"</span></h4><p style="color:var(--text-muted);line-height:1.65;">Jordi Mas parteix d'una idea de context. La IA generativa s'ha convertit en una tecnologia amb efectes profunds sobre moltes feines, mentre que bona part dels sistemes més avançats continuen depenent de serveis al núvol i d'infraestructures controlades per poques empreses. Això genera una tensió entre la utilitat d'aquests sistemes i el poc control que conserva qui els utilitza. Mas compara la situació actual de la IA local amb els primers anys de Linux. Al començament, Linux era percebut com una opció minoritària, amb limitacions de maquinari i menys aplicacions disponibles. Amb el temps es va convertir en una peça central de la infraestructura digital. La comparació serveix per presentar la IA local com una tecnologia encara jove, però amb una evolució molt ràpida. Els models es fan més eficients i el maquinari de consum incorpora cada vegada més capacitat per executar-los al dispositiu.</p><div class="conference-visual" role="img" aria-label="Esquema del pas d'un ecosistema dominat pel núvol cap a una IA local cada vegada més viable"><div class="conference-visual-flow"><div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="cloud"></i></span><span class="conference-visual-label">Núvol dominant</span></div><div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="sprout"></i></span><span class="conference-visual-label">Opcions locals emergents</span></div><div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="sparkles"></i></span><span class="conference-visual-label">Models més eficients</span></div><div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="laptop"></i></span><span class="conference-visual-label">Més capacitat al dispositiu</span></div></div><span class="conference-visual-caption">El paral·lelisme amb Linux apunta a una tecnologia encara jove que guanya viabilitat a mesura que madura l'ecosistema.</span></div>
+        <h4 style="margin:1.35rem 0 .45rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="laptop" aria-hidden="true" style="width:18px;height:18px;color:var(--accent-primary);flex:0 0 18px;"></i><span>2. Què vol dir executar IA en local</span></h4><p style="color:var(--text-muted);line-height:1.65;">La definició que utilitza Mas és operativa. Una IA local és un model que podeu executar al vostre ordinador o en un servidor sota el vostre control. El processament es fa al dispositiu i això pot evitar que el contingut de les consultes s'enviï a un proveïdor extern. La conseqüència principal és un augment del control sobre les dades i sobre el mateix entorn de treball. També podeu conservar un model concret encara que el proveïdor publiqui versions noves o modifiqui un servei al núvol. Per treballar-hi cal disposar del model i d'una eina que en faciliti l'ús. Mas recorda que aquesta idea no és completament nova. Alguns telèfons ja executen al dispositiu funcions de transcripció i traducció. També poden fer determinades operacions sobre imatges sense enviar-les al núvol.</p><div class="conference-visual" role="img" aria-label="Esquema que mostra que el model i les dades es processen dins del dispositiu local i que el núvol pot quedar fora del flux"><div class="conference-visual-split"><div class="conference-visual-panel"><div class="conference-visual-panel-head"><i data-lucide="laptop"></i><span>Dispositiu sota el vostre control</span></div><div class="conference-visual-mini-flow"><i data-lucide="database"></i><span>Dades</span><i data-lucide="arrow-right"></i><i data-lucide="brain-circuit"></i><span>Model local</span></div></div><div class="conference-visual-panel"><div class="conference-visual-panel-head"><i data-lucide="cloud-off"></i><span>Sense enviament obligatori al núvol</span></div><div class="conference-visual-mini-flow"><i data-lucide="shield-check"></i><span>Més control sobre el processament i la versió del model</span></div></div></div></div>
+        <h4 style="margin:1.35rem 0 .45rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="package-open" aria-hidden="true" style="width:18px;height:18px;color:var(--accent-primary);flex:0 0 18px;"></i><span>3. IA local, pesos oberts i IA lliure</span></h4><p style="color:var(--text-muted);line-height:1.65;">La ponència dedica una part important a separar conceptes que sovint es barregen. Poder executar un model localment requereix tenir accés als pesos del model en un format utilitzable, però això no converteix automàticament el sistema en una IA lliure. Mas descriu els pesos com el resultat final del procés d'entrenament. Una obertura més completa exigiria poder conèixer i reutilitzar també les dades d'entrenament, el codi emprat per entrenar, el codi d'inferència i les avaluacions que han servit per validar el sistema. Amb aquests elements, i amb el maquinari suficient, seria possible estudiar millor com s'ha creat el model i intentar reproduir-lo. Com a exemple d'obertura parcial, la xerrada esmenta Whisper. Se'n poden utilitzar els pesos i el codi d'inferència, mentre que altres parts del procés d'entrenament no es publiquen amb el mateix grau d'obertura. Per això Mas diferencia entre models de pesos oberts i un concepte més ampli d'IA lliure.</p><div class="conference-visual" role="img" aria-label="Esquema que diferencia l'execució local dels pesos oberts i mostra els components addicionals necessaris per parlar d'una obertura més completa"><div class="conference-visual-split"><div class="conference-visual-panel"><div class="conference-visual-panel-head"><i data-lucide="hard-drive"></i><span>Executar en local</span></div><div class="conference-visual-mini-flow"><i data-lucide="package-open"></i><span>Necessita pesos utilitzables</span></div></div><div class="conference-visual-panel"><div class="conference-visual-panel-head"><i data-lucide="lock-open"></i><span>Obertura més completa</span></div><div class="conference-visual-pills"><span class="conference-visual-pill"><i data-lucide="database"></i>Dades</span><span class="conference-visual-pill"><i data-lucide="code-2"></i>Codi d'entrenament</span><span class="conference-visual-pill"><i data-lucide="play-circle"></i>Codi d'inferència</span><span class="conference-visual-pill"><i data-lucide="clipboard-check"></i>Avaluacions</span></div></div></div><span class="conference-visual-caption">Poder descarregar els pesos no implica, per si sol, disposar de tots els elements necessaris per estudiar o reproduir el sistema.</span></div>
+        <h4 style="margin:1.35rem 0 .45rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="messages-square" aria-hidden="true" style="width:18px;height:18px;color:var(--accent-primary);flex:0 0 18px;"></i><span>4. Tasques desateses i usos interactius</span></h4><p style="color:var(--text-muted);line-height:1.65;">Mas proposa distingir dos grans tipus d'ús segons la velocitat de resposta que necessiteu. Les tasques desateses poden continuar treballant mentre feu una altra activitat. En aquest grup situa, per exemple, la classificació de documents o la transcripció d'enregistraments llargs. Com que el resultat pot arribar més tard, un ordinador modest pot continuar sent útil. Els usos interactius funcionen de manera diferent. Una conversa amb un assistent o una sessió de programació assistida necessita una resposta prou ràpida perquè la persona pugui mantenir el flux de treball. Aquí la velocitat de generació i la latència tenen molt més pes. Aquesta diferència explica per què la mateixa màquina pot ser adequada per a una tasca en lot i resultar incòmoda per a una activitat que exigeix resposta immediata.</p><div class="conference-visual" role="img" aria-label="Comparació entre tasques desateses, que poden esperar, i usos interactius, que necessiten resposta ràpida"><div class="conference-visual-split"><div class="conference-visual-panel"><div class="conference-visual-panel-head"><i data-lucide="hourglass"></i><span>Tasca desatesa</span></div><div class="conference-visual-mini-flow"><i data-lucide="files"></i><span>Processament en lot</span><i data-lucide="clock-3"></i><span>Pot esperar</span></div></div><div class="conference-visual-panel"><div class="conference-visual-panel-head"><i data-lucide="message-circle"></i><span>Ús interactiu</span></div><div class="conference-visual-mini-flow"><i data-lucide="messages-square"></i><span>Flux de conversa</span><i data-lucide="gauge"></i><span>Baixa latència</span></div></div></div></div>
+        <h4 style="margin:1.35rem 0 .45rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="cpu" aria-hidden="true" style="width:18px;height:18px;color:var(--accent-primary);flex:0 0 18px;"></i><span>5. Maquinari i rendiment</span></h4><p style="color:var(--text-muted);line-height:1.65;">La ponència explica el rendiment amb una mesura habitual, els tokens per segon. Una CPU convencional pot executar models locals, però la velocitat acostuma a ser limitada. Una GPU accelera molt els càlculs necessaris per a la inferència i pot fer viable un ús més interactiu. Mas posa NVIDIA com l'opció més habitual, tot i que també comenta que hi ha alternatives. Per comparar configuracions utilitza com a referència un <strong>Gemma 3 12B</strong> quantitzat. La transcripció automàtica el converteix erròniament en "12 milions de paràmetres". La denominació 12B correspon aproximadament a dotze mil milions de paràmetres. Més enllà de la velocitat, Mas insisteix en la memòria disponible. El model s'ha de poder carregar en RAM o VRAM amb prou marge per al sistema operatiu i per a la finestra de context. Quan el model no hi cap bé, el rendiment pot degradar-se de manera important.</p><div class="conference-visual" role="img" aria-label="Esquema de la relació entre maquinari, memòria disponible, mida del model i velocitat de resposta"><div class="conference-visual-flow"><div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="cpu"></i></span><span class="conference-visual-label">CPU o GPU</span></div><div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="memory-stick"></i></span><span class="conference-visual-label">RAM o VRAM disponible</span></div><div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="box"></i></span><span class="conference-visual-label">Model que hi cap amb marge</span></div><div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="gauge"></i></span><span class="conference-visual-label">Tokens per segon</span></div></div><div class="conference-visual-memory" aria-hidden="true"><span></span></div><span class="conference-visual-caption">La memòria és un límit pràctic: si el model no hi cap amb prou marge, el rendiment es pot degradar.</span></div>
+        <h4 style="margin:1.35rem 0 .45rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="sliders-horizontal" aria-hidden="true" style="width:18px;height:18px;color:var(--accent-primary);flex:0 0 18px;"></i><span>6. Com triar un model i per què importa la quantització</span></h4><p style="color:var(--text-muted);line-height:1.65;">La recomanació pràctica de Mas comença per la tasca. Primer convé definir què voleu fer i provar un model relativament petit que funcioni amb comoditat al dispositiu. Després podeu valorar la qualitat del resultat i augmentar la mida només quan sigui necessari. La xerrada explica la <strong>quantització</strong> com una tècnica que redueix la memòria que necessita un model i pot accelerar-ne l'execució amb una pèrdua de qualitat limitada. Mas posa com a exemple una quantització de 4 bits i esmenta <strong>Q4_K_M</strong>. Les recomanacions de Softcatalà s'actualitzen a mesura que canvien els models i les proves, de manera que convé consultar la <a href="https://www.softcatala.org/ia-local/models-en-catala/" target="_blank" rel="noopener">taula de models recomanats</a> abans de descarregar-ne un. La ponència també introdueix les arquitectures <strong>MoE</strong>, abreviació de <em>Mixture of Experts</em>. En aquests models es carreguen molts paràmetres, però cada consulta activa només una part especialitzada del model. Això pot reduir el càlcul necessari durant la inferència, sempre que hi hagi prou memòria per allotjar el model.</p><div class="conference-visual" role="img" aria-label="Esquema del procés recomanat per triar un model local a partir de la tasca i ajustar-ne la mida o la quantització"><div class="conference-visual-flow"><div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="target"></i></span><span class="conference-visual-label">Definiu la tasca</span></div><div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="box"></i></span><span class="conference-visual-label">Proveu un model petit</span></div><div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="shrink"></i></span><span class="conference-visual-label">Ajusteu la quantització</span></div><div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="trending-up"></i></span><span class="conference-visual-label">Augmenteu mida només si cal</span></div></div></div>
+        <h4 style="margin:1.35rem 0 .45rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="book-a" aria-hidden="true" style="width:18px;height:18px;color:var(--accent-primary);flex:0 0 18px;"></i><span>7. Eines per començar i criteris per al català</span></h4><p style="color:var(--text-muted);line-height:1.65;">Per facilitar l'entrada a la IA local, Mas recomana utilitzar interfícies que evitin haver de configurar manualment tots els components. A la transcripció apareixen <strong>LM Studio</strong> i <strong>Ollama</strong>. També hi apareix <strong>AnythingLLM Desktop</strong>, que Softcatalà documenta com una altra opció per treballar amb models locals i amb documents propis. La ponència explica igualment el treball de Softcatalà per avaluar models des de les necessitats d'una persona catalanoparlant. En lloc de quedar-se únicament amb bancs de proves generals, l'avaluació observa tasques com la traducció i la correcció, juntament amb la reformulació i la capacitat de mantenir una conversa en català. Mas esmenta famílies com <strong>Gemma</strong> i <strong>Qwen</strong>. També adverteix que l'alineament i el context d'entrenament poden fer que alguns models evitin determinats temes, especialment en consultes històriques o polítiques. Per això recomana valorar el model segons el domini concret on s'ha d'utilitzar.</p><div class="conference-visual" role="img" aria-label="Esquema amb dues decisions complementàries: facilitar l'ús amb una interfície local i avaluar el model segons el rendiment en català i el domini d'ús"><div class="conference-visual-branches"><div class="conference-visual-panel"><div class="conference-visual-panel-head"><i data-lucide="workflow"></i><span>Entrada més accessible</span></div><div class="conference-visual-mini-flow"><i data-lucide="boxes"></i><span>Interfície local → model</span></div><div class="conference-visual-pills"><span class="conference-visual-pill">LM Studio</span><span class="conference-visual-pill">Ollama</span><span class="conference-visual-pill">AnythingLLM</span></div></div><div class="conference-visual-panel"><div class="conference-visual-panel-head"><i data-lucide="spell-check-2"></i><span>Criteri lingüístic i de domini</span></div><div class="conference-visual-mini-flow"><i data-lucide="scan-text"></i><span>Proves en català</span><span style="color:var(--accent-secondary);font-weight:700;">→</span><i data-lucide="list-filter"></i><span>Tria segons la tasca</span></div><div class="conference-visual-pills"><span class="conference-visual-pill">Conversa</span><span class="conference-visual-pill">Traducció i correcció</span><span class="conference-visual-pill"><i data-lucide="notebook-tabs"></i>Domini d'ús</span></div></div></div></div>
+        <h4 style="margin:1.35rem 0 .45rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="file-text" aria-hidden="true" style="width:18px;height:18px;color:var(--accent-primary);flex:0 0 18px;"></i><span>8. Transcripció i treball amb documents</span></h4><p style="color:var(--text-muted);line-height:1.65;margin-bottom:.8rem;">La part final amplia els casos d'ús. Per a reconeixement de la parla, Mas parla de <strong>Whisper</strong> i d'adaptacions orientades al català. Les <a href="https://www.softcatala.org/ia-local/models-en-catala/" target="_blank" rel="noopener">recomanacions actuals de Softcatalà</a> identifiquen models específics quan es prioritza la qualitat i ofereixen alternatives quan pesa més la velocitat, de manera que aquesta és una part que convé consultar de manera actualitzada. La ponència també introdueix els models d'<em>embeddings</em>, que converteixen fragments de text en representacions numèriques i permeten recuperar contingut relacionat semànticament. Són una peça habitual dels sistemes <strong>RAG</strong>, o generació amb recuperació augmentada, que permeten respondre a partir de documents propis.</p><p style="color:var(--text-muted);line-height:1.65;margin-bottom:0;">Mas tanca la part pràctica amb un cas exigent de programació assistida en local. Utilitza un model especialitzat de la família Qwen connectat a un servidor local i explica que les primeres peticions poden ser costoses quan cal carregar molt context. Les peticions posteriors poden aprofitar informació que ha quedat a la memòria cau. El missatge final de la ponència és pràctic. Recomana començar amb el maquinari que teniu i escollir una tasca rellevant. A partir d'aquí, proveu un model que encaixi bé en la memòria disponible.</p><div class="conference-visual" role="img" aria-label="Dos fluxos de treball locals: transcripció d'àudio amb Whisper i consulta de documents mitjançant embeddings i RAG"><div class="conference-visual-split"><div class="conference-visual-panel"><div class="conference-visual-panel-head"><i data-lucide="audio-lines"></i><span>Transcripció local</span></div><div class="conference-visual-mini-flow"><i data-lucide="mic"></i><span>Àudio</span><i data-lucide="arrow-right"></i><span>Whisper</span><i data-lucide="arrow-right"></i><i data-lucide="file-text"></i><span>Text</span></div></div><div class="conference-visual-panel"><div class="conference-visual-panel-head"><i data-lucide="files"></i><span>Consulta de documents</span></div><div class="conference-document-flow"><div class="conference-document-step"><i data-lucide="file-stack"></i><span>Documents</span></div><div class="conference-document-arrow" aria-hidden="true">→</div><div class="conference-document-step"><i data-lucide="network"></i><span>Embeddings<br>+ RAG</span></div><div class="conference-document-arrow" aria-hidden="true">→</div><div class="conference-document-step"><i data-lucide="message-square-text"></i><span>Resposta<br>contextual</span></div></div></div></div><span class="conference-visual-caption">En tots dos casos, el valor de la IA local depèn de combinar una tasca útil amb un model que encaixi en el maquinari disponible.</span></div>
+      </div></details>
     </div>
 
-    <!-- Caixa 2: Ponència de Jordi Mas -->
-    <div class="content-box">
-      <h2>Ponència recomanada: <em>Models d'intel·ligència artificial en local</em>, de Jordi Mas</h2>
-      <p class="lead-desc">Una introducció als models locals i als criteris per valorar-ne l'ús en català.</p>
+    <div class="content-box"><h2>Recursos en català per treballar amb IA local</h2><p class="lead-desc">Dues fonts de referència per triar models amb criteri i conèixer recursos lingüístics oberts en català.</p><div class="cards-grid"><div class="card-item" style="display: flex; flex-direction: column; justify-content: space-between;"><div><div class="card-item-icon"><i data-lucide="gauge"></i></div><span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--accent-secondary); letter-spacing: 0.05em; display: block; margin-top: 0.25rem;">Guies i avaluacions</span><h3 style="margin-top: 0.35rem;">IA local i models en català (Softcatalà)</h3><p>Softcatalà manté una guia per comprovar quin tipus de models pot executar el vostre ordinador i publica recomanacions actualitzades segons la memòria disponible. També avalua Models de llenguatge grans (MLG) en tasques en català per poder comparar-ne el rendiment.</p></div><div style="margin-top: 1.25rem; display: grid; gap: 0.55rem;"><a href="https://www.softcatala.org/ia-local/" target="_blank" rel="noopener" class="card-link" style="color: var(--accent-primary); font-weight: 600; text-decoration: none;"><span>Comprovar compatibilitat i models recomanats</span> ↗</a><a href="https://www.softcatala.org/ia-local/models-en-catala/llm/" target="_blank" rel="noopener" class="card-link" style="color: var(--accent-primary); font-weight: 600; text-decoration: none;"><span>Consultar l'avaluació de MLG en català</span> ↗</a></div></div><div class="card-item" style="display: flex; flex-direction: column; justify-content: space-between;"><div><div class="card-item-icon"><i data-lucide="orbit"></i></div><span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--accent-secondary); letter-spacing: 0.05em; display: block; margin-top: 0.25rem;">Recursos lingüístics oberts</span><h3 style="margin-top: 0.35rem;">Projecte Aina</h3><p>El Projecte Aina genera i publica recursos lingüístics i models per facilitar el desenvolupament de tecnologia en català. El seu espai tècnic permet explorar models de llenguatge i conjunts de dades oberts que es poden reutilitzar en altres projectes.</p></div><div style="margin-top: 1.25rem;"><a href="https://projecteaina.cat/" target="_blank" rel="noopener" class="card-link" style="color: var(--accent-primary); font-weight: 600; text-decoration: none;"><span>Explorar el Projecte Aina</span> ↗</a></div></div></div></div>
 
-      <div style="background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1.5rem;">
-        <div style="display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; justify-content: space-between;">
-          <div style="flex: 1; min-width: 280px;">
-            <span style="display: inline-flex; align-items: center; gap: 0.35rem; background: #dc2626; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: var(--radius-sm); margin-bottom: 0.5rem;">
-              <i data-lucide="clapperboard" class="lucide" style="width:14px;height:14px;"></i>
-              Vídeo a YouTube
-            </span>
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-main);">
-              Sessió divulgativa de Jordi Mas (Softcatalà)
-            </h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.55;">
-              Jordi Mas presenta la IA local com una opció per recuperar control sobre el processament i decidir quins models s'executen al dispositiu. La sessió també explica com adaptar la tria del model a la tasca i al maquinari disponible, amb exemples de l'avaluació que Softcatalà fa del rendiment en català.
-            </p>
-          </div>
-          <div>
-            <a href="https://www.youtube.com/watch?v=UoA-P-pbCqQ" target="_blank" rel="noopener" class="btn-pagination primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
-              <span>Veure la ponència a YouTube</span>
-              <i data-lucide="play" class="lucide" style="width:16px;height:16px;"></i>
-            </a>
-          </div>
-        </div>
-      </div>
+    <div class="content-box"><h2>Com executar models locals al vostre ordinador</h2><p class="lead-desc">Aplicacions d'escriptori i criteris bàsics per començar sense haver de configurar una infraestructura pròpia.</p><div class="ordered-steps"><div class="ordered-step-item"><div class="step-indicator"><i data-lucide="folder-search" class="lucide" style="width:16px;height:16px;"></i></div><div class="step-content"><h3><a href="https://rebost.ai/" target="_blank" rel="noopener">Rebost</a> (opció guiada per treballar amb fitxers)</h3><p>Aplicació de codi obert amb llicència MIT per a Mac i Windows. No demana compte i permet vincular carpetes locals per consultar-ne els fitxers amb un model que s'executa al dispositiu. Utilitza la xarxa per trobar o instal·lar el model i per comprovar si hi ha actualitzacions; l'accés al web públic només s'activa si habiliteu l'opció <em>Online</em>.</p><span class="step-tip">Pot ser una via directa per començar quan voleu treballar amb documents locals sense haver de triar manualment tots els paràmetres tècnics del model.</span></div></div><div class="ordered-step-item"><div class="step-indicator"><i data-lucide="layout-dashboard" class="lucide" style="width:16px;height:16px;"></i></div><div class="step-content"><h3><a href="https://lmstudio.ai/" target="_blank" rel="noopener">LM Studio</a> (interfície visual per triar i provar models)</h3><p>Aplicació d'escriptori disponible per a macOS, Windows i Linux. Permet cercar i descarregar models compatibles, carregar-los a la memòria i conversar-hi des d'una interfície gràfica. Un cop descarregats el model i els components necessaris, el xat amb models locals i el treball amb documents poden funcionar fora de línia.</p><span class="step-tip">Per mantenir una pràctica estrictament local, utilitzeu models descarregats al dispositiu i no activeu serveis al núvol com els models remots o la cerca web.</span></div></div><div class="ordered-step-item"><div class="step-indicator"><i data-lucide="terminal" class="lucide" style="width:16px;height:16px;"></i></div><div class="step-content"><h3><a href="https://ollama.com/" target="_blank" rel="noopener">Ollama</a> (motor local amb aplicació i API)</h3><p>Ollama permet executar models al mateix ordinador i connectar-los amb altres eines mitjançant una API local. A macOS i Windows també ofereix una aplicació gràfica; a Linux es pot utilitzar com a servei local. Actualment Ollama també ofereix models al núvol, de manera que utilitzar Ollama no implica automàticament que tot el processament sigui local.</p><span class="step-tip">Si voleu mantenir el processament al dispositiu, comproveu que el model seleccionat sigui local i no una variant identificada com a <code>cloud</code>.</span></div></div><div class="ordered-step-item"><div class="step-indicator"><i data-lucide="hard-drive" class="lucide" style="width:16px;height:16px;"></i></div><div class="step-content"><h3>Trieu el model a partir de la memòria disponible</h3><p>No hi ha una equivalència fixa entre la memòria de l'ordinador i el nombre de paràmetres que podeu executar. La memòria disponible és el primer límit, mentre que la quantització i la longitud de context també modifiquen el consum. Softcatalà manté una taula de recomanacions per maquinari que permet evitar descarregar models massa grans per al dispositiu.</p><span class="step-tip"><a href="https://www.softcatala.org/ia-local/models-en-catala/" target="_blank" rel="noopener">Consulteu les recomanacions actualitzades de Softcatalà</a> abans de triar el model.</span></div></div></div><div style="margin-top: 2rem; padding: 1.15rem; background: var(--bg-subtle); border-radius: var(--radius-md); border: 1px solid var(--border-color);"><h4 style="font-size: 0.95rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;"><i data-lucide="external-link" class="lucide" style="width: 16px; height: 16px; color: var(--accent-secondary);"></i>Enllaços de referència</h4><ul style="padding-left: 1.25rem; font-size: 0.875rem; color: var(--text-muted); line-height: 1.7;"><li><a href="https://www.youtube.com/watch?v=UoA-P-pbCqQ" target="_blank" rel="noopener">Ponència de Jordi Mas a YouTube: <em>Models d'intel·ligència artificial en local</em></a></li><li><a href="https://www.softcatala.org/ia-local/" target="_blank" rel="noopener">Intel·ligència artificial al vostre ordinador personal (Softcatalà)</a></li><li><a href="https://rebost.ai/" target="_blank" rel="noopener">Rebost: aplicació d'IA local de codi obert</a></li><li><a href="https://projecteaina.cat/" target="_blank" rel="noopener">Projecte Aina: recursos lingüístics i models en català</a></li></ul></div></div>
 
-      <div class="ordered-steps">
-        <div class="ordered-step-item">
-          <div class="step-indicator"><i data-lucide="shield-check" class="lucide" style="width:16px;height:16px;"></i></div>
-          <div class="step-content">
-            <h3>Què aporta executar el model al dispositiu</h3>
-            <p>
-              Mas defineix la IA local com la possibilitat d'executar un model al propi ordinador o servidor. Això permet mantenir el còmput al dispositiu i dona més control sobre les dades i sobre els models que es decideixen utilitzar. La ponència també diferencia un model executable en local dels <em>pesos oberts</em> i de la IA lliure, conceptes relacionats però amb abasts diferents.
-            </p>
-          </div>
-        </div>
-        <div class="ordered-step-item">
-          <div class="step-indicator"><i data-lucide="cpu" class="lucide" style="width:16px;height:16px;"></i></div>
-          <div class="step-content">
-            <h3>Com ajustar el model a la tasca i al maquinari</h3>
-            <p>
-              La xerrada parteix d'una tasca concreta i recomana començar amb un model petit que càpiga a la memòria. Després, la qualitat obtinguda permet decidir si cal augmentar-ne la mida. També diferencia les feines desateses, que poden tolerar una resposta més lenta, dels usos interactius, que necessiten més capacitat de càlcul. La quantització pot reduir el consum de memòria i facilitar l'execució de models al dispositiu.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <details class="conference-summary" style="margin-top:1.5rem;border:1px solid var(--border-color);border-radius:var(--radius-lg);background:var(--bg-surface);overflow:hidden;">
-        <summary style="cursor:pointer;padding:1rem 1.15rem;color:var(--text-main);font-weight:700;">
-          <span style="display:inline-flex;align-items:center;gap:.65rem;">
-            <i data-lucide="book-open-text" aria-hidden="true" style="width:20px;height:20px;color:var(--accent-secondary);flex:0 0 20px;"></i>
-            <span>Resum detallat de la ponència</span>
-          </span>
-          <span style="display:block;margin:.35rem 0 0 1.85rem;color:var(--text-muted);font-size:.875rem;font-weight:400;">Desplegueu aquest apartat per llegir un resum detallat de la conferència.</span>
-        </summary>
-        <div style="border-top:1px solid var(--border-color);padding:1.25rem 1.35rem 1.4rem;">
-          <h4 style="margin:0 0 .45rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="history" aria-hidden="true" style="width:18px;height:18px;color:var(--accent-primary);flex:0 0 18px;"></i><span>1. El context i el "moment Linux"</span></h4>
-          <p style="color:var(--text-muted);line-height:1.65;">
-            Jordi Mas parteix d'una idea de context. La IA generativa s'ha convertit en una tecnologia amb efectes profunds sobre moltes feines, mentre que bona part dels sistemes més avançats continuen depenent de serveis al núvol i d'infraestructures controlades per poques empreses. Això genera una tensió entre la utilitat d'aquests sistemes i el poc control que conserva qui els utilitza. Mas compara la situació actual de la IA local amb els primers anys de Linux. Al començament, Linux era percebut com una opció minoritària, amb limitacions de maquinari i menys aplicacions disponibles. Amb el temps es va convertir en una peça central de la infraestructura digital. La comparació serveix per presentar la IA local com una tecnologia encara jove, però amb una evolució molt ràpida. Els models es fan més eficients i el maquinari de consum incorpora cada vegada més capacitat per executar-los al dispositiu.
-          </p>
-          <div class="conference-visual" role="img" aria-label="Esquema del pas d'un ecosistema dominat pel núvol cap a una IA local cada vegada més viable">
-            <div class="conference-visual-flow">
-              <div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="cloud"></i></span><span class="conference-visual-label">Núvol dominant</span></div>
-              <div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="sprout"></i></span><span class="conference-visual-label">Opcions locals emergents</span></div>
-              <div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="sparkles"></i></span><span class="conference-visual-label">Models més eficients</span></div>
-              <div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="laptop"></i></span><span class="conference-visual-label">Més capacitat al dispositiu</span></div>
-            </div>
-            <span class="conference-visual-caption">El paral·lelisme amb Linux apunta a una tecnologia encara jove que guanya viabilitat a mesura que madura l'ecosistema.</span>
-          </div>
-
-          <h4 style="margin:1.35rem 0 .45rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="laptop" aria-hidden="true" style="width:18px;height:18px;color:var(--accent-primary);flex:0 0 18px;"></i><span>2. Què vol dir executar IA en local</span></h4>
-          <p style="color:var(--text-muted);line-height:1.65;">
-            La definició que utilitza Mas és operativa. Una IA local és un model que podeu executar al vostre ordinador o en un servidor sota el vostre control. El processament es fa al dispositiu i això pot evitar que el contingut de les consultes s'enviï a un proveïdor extern. La conseqüència principal és un augment del control sobre les dades i sobre el mateix entorn de treball. També podeu conservar un model concret encara que el proveïdor publiqui versions noves o modifiqui un servei al núvol. Per treballar-hi cal disposar del model i d'una eina que en faciliti l'ús. Mas recorda que aquesta idea no és completament nova. Alguns telèfons ja executen al dispositiu funcions de transcripció i traducció. També poden fer determinades operacions sobre imatges sense enviar-les al núvol.
-          </p>
-          <div class="conference-visual" role="img" aria-label="Esquema que mostra que el model i les dades es processen dins del dispositiu local i que el núvol pot quedar fora del flux">
-            <div class="conference-visual-split">
-              <div class="conference-visual-panel">
-                <div class="conference-visual-panel-head"><i data-lucide="laptop"></i><span>Dispositiu sota el vostre control</span></div>
-                <div class="conference-visual-mini-flow"><i data-lucide="database"></i><span>Dades</span><i data-lucide="arrow-right"></i><i data-lucide="brain-circuit"></i><span>Model local</span></div>
-              </div>
-              <div class="conference-visual-panel">
-                <div class="conference-visual-panel-head"><i data-lucide="cloud-off"></i><span>Sense enviament obligatori al núvol</span></div>
-                <div class="conference-visual-mini-flow"><i data-lucide="shield-check"></i><span>Més control sobre el processament i la versió del model</span></div>
-              </div>
-            </div>
-          </div>
-
-          <h4 style="margin:1.35rem 0 .45rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="package-open" aria-hidden="true" style="width:18px;height:18px;color:var(--accent-primary);flex:0 0 18px;"></i><span>3. IA local, pesos oberts i IA lliure</span></h4>
-          <p style="color:var(--text-muted);line-height:1.65;">
-            La ponència dedica una part important a separar conceptes que sovint es barregen. Poder executar un model localment requereix tenir accés als pesos del model en un format utilitzable, però això no converteix automàticament el sistema en una IA lliure. Mas descriu els pesos com el resultat final del procés d'entrenament. Una obertura més completa exigiria poder conèixer i reutilitzar també les dades d'entrenament, el codi emprat per entrenar, el codi d'inferència i les avaluacions que han servit per validar el sistema. Amb aquests elements, i amb el maquinari suficient, seria possible estudiar millor com s'ha creat el model i intentar reproduir-lo. Com a exemple d'obertura parcial, la xerrada esmenta Whisper. Se'n poden utilitzar els pesos i el codi d'inferència, mentre que altres parts del procés d'entrenament no es publiquen amb el mateix grau d'obertura. Per això Mas diferencia entre models de pesos oberts i un concepte més ampli d'IA lliure.
-          </p>
-          <div class="conference-visual" role="img" aria-label="Esquema que diferencia l'execució local dels pesos oberts i mostra els components addicionals necessaris per parlar d'una obertura més completa">
-            <div class="conference-visual-split">
-              <div class="conference-visual-panel">
-                <div class="conference-visual-panel-head"><i data-lucide="hard-drive"></i><span>Executar en local</span></div>
-                <div class="conference-visual-mini-flow"><i data-lucide="package-open"></i><span>Necessita pesos utilitzables</span></div>
-              </div>
-              <div class="conference-visual-panel">
-                <div class="conference-visual-panel-head"><i data-lucide="lock-open"></i><span>Obertura més completa</span></div>
-                <div class="conference-visual-pills">
-                  <span class="conference-visual-pill"><i data-lucide="database"></i>Dades</span>
-                  <span class="conference-visual-pill"><i data-lucide="code-2"></i>Codi d'entrenament</span>
-                  <span class="conference-visual-pill"><i data-lucide="play-circle"></i>Codi d'inferència</span>
-                  <span class="conference-visual-pill"><i data-lucide="clipboard-check"></i>Avaluacions</span>
-                </div>
-              </div>
-            </div>
-            <span class="conference-visual-caption">Poder descarregar els pesos no implica, per si sol, disposar de tots els elements necessaris per estudiar o reproduir el sistema.</span>
-          </div>
-
-          <h4 style="margin:1.35rem 0 .45rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="messages-square" aria-hidden="true" style="width:18px;height:18px;color:var(--accent-primary);flex:0 0 18px;"></i><span>4. Tasques desateses i usos interactius</span></h4>
-          <p style="color:var(--text-muted);line-height:1.65;">
-            Mas proposa distingir dos grans tipus d'ús segons la velocitat de resposta que necessiteu. Les tasques desateses poden continuar treballant mentre feu una altra activitat. En aquest grup situa, per exemple, la classificació de documents o la transcripció d'enregistraments llargs. Com que el resultat pot arribar més tard, un ordinador modest pot continuar sent útil. Els usos interactius funcionen de manera diferent. Una conversa amb un assistent o una sessió de programació assistida necessita una resposta prou ràpida perquè la persona pugui mantenir el flux de treball. Aquí la velocitat de generació i la latència tenen molt més pes. Aquesta diferència explica per què la mateixa màquina pot ser adequada per a una tasca en lot i resultar incòmoda per a una activitat que exigeix resposta immediata.
-          </p>
-          <div class="conference-visual" role="img" aria-label="Comparació entre tasques desateses, que poden esperar, i usos interactius, que necessiten resposta ràpida">
-            <div class="conference-visual-split">
-              <div class="conference-visual-panel">
-                <div class="conference-visual-panel-head"><i data-lucide="hourglass"></i><span>Tasca desatesa</span></div>
-                <div class="conference-visual-mini-flow"><i data-lucide="files"></i><span>Processament en lot</span><i data-lucide="clock-3"></i><span>Pot esperar</span></div>
-              </div>
-              <div class="conference-visual-panel">
-                <div class="conference-visual-panel-head"><i data-lucide="message-circle"></i><span>Ús interactiu</span></div>
-                <div class="conference-visual-mini-flow"><i data-lucide="messages-square"></i><span>Flux de conversa</span><i data-lucide="gauge"></i><span>Baixa latència</span></div>
-              </div>
-            </div>
-          </div>
-
-          <h4 style="margin:1.35rem 0 .45rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="cpu" aria-hidden="true" style="width:18px;height:18px;color:var(--accent-primary);flex:0 0 18px;"></i><span>5. Maquinari i rendiment</span></h4>
-          <p style="color:var(--text-muted);line-height:1.65;">
-            La ponència explica el rendiment amb una mesura habitual, els tokens per segon. Una CPU convencional pot executar models locals, però la velocitat acostuma a ser limitada. Una GPU accelera molt els càlculs necessaris per a la inferència i pot fer viable un ús més interactiu. Mas posa NVIDIA com l'opció més habitual, tot i que també comenta que hi ha alternatives. Per comparar configuracions utilitza com a referència un <strong>Gemma 3 12B</strong> quantitzat. La transcripció automàtica el converteix erròniament en "12 milions de paràmetres". La denominació 12B correspon aproximadament a dotze mil milions de paràmetres. Més enllà de la velocitat, Mas insisteix en la memòria disponible. El model s'ha de poder carregar en RAM o VRAM amb prou marge per al sistema operatiu i per a la finestra de context. Quan el model no hi cap bé, el rendiment pot degradar-se de manera important.
-          </p>
-          <div class="conference-visual" role="img" aria-label="Esquema de la relació entre maquinari, memòria disponible, mida del model i velocitat de resposta">
-            <div class="conference-visual-flow">
-              <div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="cpu"></i></span><span class="conference-visual-label">CPU o GPU</span></div>
-              <div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="memory-stick"></i></span><span class="conference-visual-label">RAM o VRAM disponible</span></div>
-              <div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="box"></i></span><span class="conference-visual-label">Model que hi cap amb marge</span></div>
-              <div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="gauge"></i></span><span class="conference-visual-label">Tokens per segon</span></div>
-            </div>
-            <div class="conference-visual-memory" aria-hidden="true"><span></span></div>
-            <span class="conference-visual-caption">La memòria és un límit pràctic: si el model no hi cap amb prou marge, el rendiment es pot degradar.</span>
-          </div>
-
-          <h4 style="margin:1.35rem 0 .45rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="sliders-horizontal" aria-hidden="true" style="width:18px;height:18px;color:var(--accent-primary);flex:0 0 18px;"></i><span>6. Com triar un model i per què importa la quantització</span></h4>
-          <p style="color:var(--text-muted);line-height:1.65;">
-            La recomanació pràctica de Mas comença per la tasca. Primer convé definir què voleu fer i provar un model relativament petit que funcioni amb comoditat al dispositiu. Després podeu valorar la qualitat del resultat i augmentar la mida només quan sigui necessari. La xerrada explica la <strong>quantització</strong> com una tècnica que redueix la memòria que necessita un model i pot accelerar-ne l'execució amb una pèrdua de qualitat limitada. Mas posa com a exemple una quantització de 4 bits i esmenta <strong>Q4_K_M</strong>. Les recomanacions de Softcatalà s'actualitzen a mesura que canvien els models i les proves, de manera que convé consultar la <a href="https://www.softcatala.org/ia-local/models-en-catala/" target="_blank" rel="noopener">taula de models recomanats</a> abans de descarregar-ne un. La ponència també introdueix les arquitectures <strong>MoE</strong>, abreviació de <em>Mixture of Experts</em>. En aquests models es carreguen molts paràmetres, però cada consulta activa només una part especialitzada del model. Això pot reduir el càlcul necessari durant la inferència, sempre que hi hagi prou memòria per allotjar el model.
-          </p>
-          <div class="conference-visual" role="img" aria-label="Esquema del procés recomanat per triar un model local a partir de la tasca i ajustar-ne la mida o la quantització">
-            <div class="conference-visual-flow">
-              <div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="target"></i></span><span class="conference-visual-label">Definiu la tasca</span></div>
-              <div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="box"></i></span><span class="conference-visual-label">Proveu un model petit</span></div>
-              <div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="shrink"></i></span><span class="conference-visual-label">Ajusteu la quantització</span></div>
-              <div class="conference-visual-node"><span class="conference-visual-icon"><i data-lucide="trending-up"></i></span><span class="conference-visual-label">Augmenteu mida només si cal</span></div>
-            </div>
-          </div>
-
-          <h4 style="margin:1.35rem 0 .45rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="book-a" aria-hidden="true" style="width:18px;height:18px;color:var(--accent-primary);flex:0 0 18px;"></i><span>7. Eines per començar i criteris per al català</span></h4>
-          <p style="color:var(--text-muted);line-height:1.65;">
-            Per facilitar l'entrada a la IA local, Mas recomana utilitzar interfícies que evitin haver de configurar manualment tots els components. A la transcripció apareixen <strong>LM Studio</strong> i <strong>Ollama</strong>. També hi apareix <strong>AnythingLLM Desktop</strong>, que Softcatalà documenta com una altra opció per treballar amb models locals i amb documents propis. La ponència explica igualment el treball de Softcatalà per avaluar models des de les necessitats d'una persona catalanoparlant. En lloc de quedar-se únicament amb bancs de proves generals, l'avaluació observa tasques com la traducció i la correcció, juntament amb la reformulació i la capacitat de mantenir una conversa en català. Mas esmenta famílies com <strong>Gemma</strong> i <strong>Qwen</strong>. També adverteix que l'alineament i el context d'entrenament poden fer que alguns models evitin determinats temes, especialment en consultes històriques o polítiques. Per això recomana valorar el model segons el domini concret on s'ha d'utilitzar.
-          </p>
-          <div class="conference-visual" role="img" aria-label="Esquema amb dues decisions complementàries: facilitar l'ús amb una interfície local i avaluar el model segons el rendiment en català i el domini d'ús">
-            <div class="conference-visual-branches">
-              <div class="conference-visual-panel">
-                <div class="conference-visual-panel-head"><i data-lucide="workflow"></i><span>Entrada més accessible</span></div>
-                <div class="conference-visual-mini-flow"><i data-lucide="boxes"></i><span>Interfície local → model</span></div>
-                <div class="conference-visual-pills">
-                  <span class="conference-visual-pill">LM Studio</span>
-                  <span class="conference-visual-pill">Ollama</span>
-                  <span class="conference-visual-pill">AnythingLLM</span>
-                </div>
-              </div>
-              <div class="conference-visual-panel">
-                <div class="conference-visual-panel-head"><i data-lucide="spell-check-2"></i><span>Criteri lingüístic i de domini</span></div>
-                <div class="conference-visual-mini-flow"><i data-lucide="scan-text"></i><span>Proves en català</span><span style="color:var(--accent-secondary);font-weight:700;">→</span><i data-lucide="list-filter"></i><span>Tria segons la tasca</span></div>
-                <div class="conference-visual-pills">
-                  <span class="conference-visual-pill">Conversa</span>
-                  <span class="conference-visual-pill">Traducció i correcció</span>
-                  <span class="conference-visual-pill"><i data-lucide="notebook-tabs"></i>Domini d'ús</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <h4 style="margin:1.35rem 0 .45rem;display:flex;align-items:center;gap:.5rem;"><i data-lucide="file-text" aria-hidden="true" style="width:18px;height:18px;color:var(--accent-primary);flex:0 0 18px;"></i><span>8. Transcripció i treball amb documents</span></h4>
-          <p style="color:var(--text-muted);line-height:1.65;margin-bottom:.8rem;">
-            La part final amplia els casos d'ús. Per a reconeixement de la parla, Mas parla de <strong>Whisper</strong> i d'adaptacions orientades al català. Les <a href="https://www.softcatala.org/ia-local/models-en-catala/" target="_blank" rel="noopener">recomanacions actuals de Softcatalà</a> identifiquen models específics quan es prioritza la qualitat i ofereixen alternatives quan pesa més la velocitat, de manera que aquesta és una part que convé consultar de manera actualitzada. La ponència també introdueix els models d'<em>embeddings</em>, que converteixen fragments de text en representacions numèriques i permeten recuperar contingut relacionat semànticament. Són una peça habitual dels sistemes <strong>RAG</strong>, o generació amb recuperació augmentada, que permeten respondre a partir de documents propis.
-          </p>
-          <p style="color:var(--text-muted);line-height:1.65;margin-bottom:0;">
-            Mas tanca la part pràctica amb un cas exigent de programació assistida en local. Utilitza un model especialitzat de la família Qwen connectat a un servidor local i explica que les primeres peticions poden ser costoses quan cal carregar molt context. Les peticions posteriors poden aprofitar informació que ha quedat a la memòria cau. El missatge final de la ponència és pràctic. Recomana començar amb el maquinari que teniu i escollir una tasca rellevant. A partir d'aquí, proveu un model que encaixi bé en la memòria disponible.
-          </p>
-          <div class="conference-visual" role="img" aria-label="Dos fluxos de treball locals: transcripció d'àudio amb Whisper i consulta de documents mitjançant embeddings i RAG">
-            <div class="conference-visual-split">
-              <div class="conference-visual-panel">
-                <div class="conference-visual-panel-head"><i data-lucide="audio-lines"></i><span>Transcripció local</span></div>
-                <div class="conference-visual-mini-flow"><i data-lucide="mic"></i><span>Àudio</span><i data-lucide="arrow-right"></i><span>Whisper</span><i data-lucide="arrow-right"></i><i data-lucide="file-text"></i><span>Text</span></div>
-              </div>
-              <div class="conference-visual-panel">
-                <div class="conference-visual-panel-head"><i data-lucide="files"></i><span>Consulta de documents</span></div>
-                <div class="conference-document-flow">
-                  <div class="conference-document-step"><i data-lucide="file-stack"></i><span>Documents</span></div>
-                  <div class="conference-document-arrow" aria-hidden="true">→</div>
-                  <div class="conference-document-step"><i data-lucide="network"></i><span>Embeddings + RAG</span></div>
-                  <div class="conference-document-arrow" aria-hidden="true">→</div>
-                  <div class="conference-document-step"><i data-lucide="message-square-text"></i><span>Resposta contextual</span></div>
-                </div>
-              </div>
-            </div>
-            <span class="conference-visual-caption">En tots dos casos, el valor de la IA local depèn de combinar una tasca útil amb un model que encaixi en el maquinari disponible.</span>
-          </div>
-        </div>
-      </details>
-    </div>
-
-    <!-- Caixa 3: Recursos en català -->
-    <div class="content-box">
-      <h2>Recursos en català per treballar amb IA local</h2>
-      <p class="lead-desc">Dues fonts de referència per triar models amb criteri i conèixer recursos lingüístics oberts en català.</p>
-
-      <div class="cards-grid">
-        <div class="card-item" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div class="card-item-icon">
-              <i data-lucide="gauge"></i>
-            </div>
-            <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--accent-secondary); letter-spacing: 0.05em; display: block; margin-top: 0.25rem;">Guies i avaluacions</span>
-            <h3 style="margin-top: 0.35rem;">IA local i models en català (Softcatalà)</h3>
-            <p>
-              Softcatalà manté una guia per comprovar quin tipus de models pot executar el vostre ordinador i publica recomanacions actualitzades segons la memòria disponible. També avalua Models de llenguatge grans (MLG) en tasques en català per poder comparar-ne el rendiment.
-            </p>
-          </div>
-          <div style="margin-top: 1.25rem; display: grid; gap: 0.55rem;">
-            <a href="https://www.softcatala.org/ia-local/" target="_blank" rel="noopener" class="card-link" style="color: var(--accent-primary); font-weight: 600; text-decoration: none;">
-              <span>Comprovar compatibilitat i models recomanats</span> ↗
-            </a>
-            <a href="https://www.softcatala.org/ia-local/models-en-catala/llm/" target="_blank" rel="noopener" class="card-link" style="color: var(--accent-primary); font-weight: 600; text-decoration: none;">
-              <span>Consultar l'avaluació de MLG en català</span> ↗
-            </a>
-          </div>
-        </div>
-
-        <div class="card-item" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div class="card-item-icon">
-              <i data-lucide="orbit"></i>
-            </div>
-            <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--accent-secondary); letter-spacing: 0.05em; display: block; margin-top: 0.25rem;">Recursos lingüístics oberts</span>
-            <h3 style="margin-top: 0.35rem;">Projecte Aina</h3>
-            <p>
-              El Projecte Aina genera i publica recursos lingüístics i models per facilitar el desenvolupament de tecnologia en català. El seu espai tècnic permet explorar models de llenguatge i conjunts de dades oberts que es poden reutilitzar en altres projectes.
-            </p>
-          </div>
-          <div style="margin-top: 1.25rem;">
-            <a href="https://projecteaina.cat/" target="_blank" rel="noopener" class="card-link" style="color: var(--accent-primary); font-weight: 600; text-decoration: none;">
-              <span>Explorar el Projecte Aina</span> ↗
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Caixa 4: Com executar models locals -->
-    <div class="content-box">
-      <h2>Com executar models locals al vostre ordinador</h2>
-      <p class="lead-desc">Aplicacions d'escriptori i criteris bàsics per començar sense haver de configurar una infraestructura pròpia.</p>
-
-      <div class="ordered-steps">
-        <div class="ordered-step-item">
-          <div class="step-indicator">
-            <i data-lucide="folder-search" class="lucide" style="width:16px;height:16px;"></i>
-          </div>
-          <div class="step-content">
-            <h3><a href="https://rebost.ai/" target="_blank" rel="noopener">Rebost</a> (opció guiada per treballar amb fitxers)</h3>
-            <p>
-              Aplicació de codi obert amb llicència MIT per a Mac i Windows. No demana compte i permet vincular carpetes locals per consultar-ne els fitxers amb un model que s'executa al dispositiu. Utilitza la xarxa per trobar o instal·lar el model i per comprovar si hi ha actualitzacions; l'accés al web públic només s'activa si habiliteu l'opció <em>Online</em>.
-            </p>
-            <span class="step-tip">Pot ser una via directa per començar quan voleu treballar amb documents locals sense haver de triar manualment tots els paràmetres tècnics del model.</span>
-          </div>
-        </div>
-
-        <div class="ordered-step-item">
-          <div class="step-indicator">
-            <i data-lucide="layout-dashboard" class="lucide" style="width:16px;height:16px;"></i>
-          </div>
-          <div class="step-content">
-            <h3><a href="https://lmstudio.ai/" target="_blank" rel="noopener">LM Studio</a> (interfície visual per triar i provar models)</h3>
-            <p>
-              Aplicació d'escriptori disponible per a macOS, Windows i Linux. Permet cercar i descarregar models compatibles, carregar-los a la memòria i conversar-hi des d'una interfície gràfica. Un cop descarregats el model i els components necessaris, el xat amb models locals i el treball amb documents poden funcionar fora de línia.
-            </p>
-            <span class="step-tip">Per mantenir una pràctica estrictament local, utilitzeu models descarregats al dispositiu i no activeu serveis al núvol com els models remots o la cerca web.</span>
-          </div>
-        </div>
-
-        <div class="ordered-step-item">
-          <div class="step-indicator">
-            <i data-lucide="terminal" class="lucide" style="width:16px;height:16px;"></i>
-          </div>
-          <div class="step-content">
-            <h3><a href="https://ollama.com/" target="_blank" rel="noopener">Ollama</a> (motor local amb aplicació i API)</h3>
-            <p>
-              Ollama permet executar models al mateix ordinador i connectar-los amb altres eines mitjançant una API local. A macOS i Windows també ofereix una aplicació gràfica; a Linux es pot utilitzar com a servei local. Actualment Ollama també ofereix models al núvol, de manera que utilitzar Ollama no implica automàticament que tot el processament sigui local.
-            </p>
-            <span class="step-tip">Si voleu mantenir el processament al dispositiu, comproveu que el model seleccionat sigui local i no una variant identificada com a <code>cloud</code>.</span>
-          </div>
-        </div>
-
-        <div class="ordered-step-item">
-          <div class="step-indicator">
-            <i data-lucide="hard-drive" class="lucide" style="width:16px;height:16px;"></i>
-          </div>
-          <div class="step-content">
-            <h3>Trieu el model a partir de la memòria disponible</h3>
-            <p>
-              No hi ha una equivalència fixa entre la memòria de l'ordinador i el nombre de paràmetres que podeu executar. La memòria disponible és el primer límit, mentre que la quantització i la longitud de context també modifiquen el consum. Softcatalà manté una taula de recomanacions per maquinari que permet evitar descarregar models massa grans per al dispositiu.
-            </p>
-            <span class="step-tip"><a href="https://www.softcatala.org/ia-local/models-en-catala/" target="_blank" rel="noopener">Consulteu les recomanacions actualitzades de Softcatalà</a> abans de triar el model.</span>
-          </div>
-        </div>
-      </div>
-
-      <div style="margin-top: 2rem; padding: 1.15rem; background: var(--bg-subtle); border-radius: var(--radius-md); border: 1px solid var(--border-color);">
-        <h4 style="font-size: 0.95rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
-          <i data-lucide="external-link" class="lucide" style="width: 16px; height: 16px; color: var(--accent-secondary);"></i>
-          Enllaços de referència
-        </h4>
-        <ul style="padding-left: 1.25rem; font-size: 0.875rem; color: var(--text-muted); line-height: 1.7;">
-          <li><a href="https://www.youtube.com/watch?v=UoA-P-pbCqQ" target="_blank" rel="noopener">Ponència de Jordi Mas a YouTube: <em>Models d'intel·ligència artificial en local</em></a></li>
-          <li><a href="https://www.softcatala.org/ia-local/" target="_blank" rel="noopener">Intel·ligència artificial al vostre ordinador personal (Softcatalà)</a></li>
-          <li><a href="https://rebost.ai/" target="_blank" rel="noopener">Rebost: aplicació d'IA local de codi obert</a></li>
-          <li><a href="https://projecteaina.cat/" target="_blank" rel="noopener">Projecte Aina: recursos lingüístics i models en català</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Paginació inferior -->
-    <div class="page-pagination">
-      <a href="bloc8-verificacio.html" class="btn-pagination" data-nav="prev">
-        ◀ <span>Anterior: Bloc 8 — Verificació</span>
-      </a>
-      <a href="credits.html" class="btn-pagination primary" data-nav="next">
-        <span>Següent: Crèdits i llicències</span> ▶
-      </a>
-    </div>
+    <div class="page-pagination"><a href="bloc8-verificacio.html" class="btn-pagination" data-nav="prev">◀ <span>Anterior: Bloc 8 — Verificació</span></a><a href="credits.html" class="btn-pagination primary" data-nav="next"><span>Següent: Crèdits i llicències</span> ▶</a></div>
   </main>
 
-  <!-- Peu de pàgina -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <p><strong>Eines d'intel·ligència artificial per a l'aula</strong> — Servei Educatiu del Vallès Occidental II. Octubre, 2026.</p>
-      <div class="footer-links">
-        <a href="https://github.com/miquelangelfuentes/eines-ia-aula" target="_blank" rel="noopener">Repositori</a>
-        <a href="https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html" target="_blank" rel="noopener">Guia de <em>vibe coding</em> responsable</a>
-        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-SA 4.0</a>
-        <a href="credits.html">Crèdits i llicències</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="assets/vendor/lucide/lucide.min.js"></script>
-  <script src="app.js?v=6"></script>
-
-
+  <footer class="footer"><div class="footer-inner"><p><strong>Eines d'intel·ligència artificial per a l'aula</strong> — Servei Educatiu del Vallès Occidental II. Octubre, 2026.</p><div class="footer-links"><a href="https://github.com/miquelangelfuentes/eines-ia-aula" target="_blank" rel="noopener">Repositori</a><a href="https://vibe-coding-educativo.github.io/vibe-responsable/ca/guia.html" target="_blank" rel="noopener">Guia de <em>vibe coding</em> responsable</a><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ca" target="_blank" rel="noopener">Llicència CC BY-SA 4.0</a><a href="credits.html">Crèdits i llicències</a></div></div></footer>
+  <script src="assets/vendor/lucide/lucide.min.js"></script><script src="app.js?v=6"></script>
 </body></html>
