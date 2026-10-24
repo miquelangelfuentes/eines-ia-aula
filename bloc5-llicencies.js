@@ -97,6 +97,8 @@
   function renderQuestion() {
     const key = path[current];
     const q = questions[key];
+    const isFinalQuestion = key === 'dependencies';
+
     questionHost.innerHTML = `<div class="quiz-question-card active">
       <div class="quiz-question-header"><span class="quiz-q-num-pill">Pas ${current + 1}</span><h3 class="quiz-q-title">${q.title}</h3></div>
       <p class="quiz-q-context">${q.context}</p><div class="quiz-options-list">${optionLabels(q.options)}</div>
@@ -108,22 +110,35 @@
         questionHost.querySelectorAll('.quiz-option-card').forEach(label => label.classList.remove('selected'));
         input.closest('.quiz-option-card').classList.add('selected');
         results.hidden = true;
-        nextBtn.disabled = false;
-        resultBtn.disabled = false;
+
+        if (isFinalQuestion) {
+          nextBtn.hidden = true;
+          nextBtn.style.display = 'none';
+          resultBtn.hidden = true;
+          resultBtn.style.display = 'none';
+          showResult();
+        } else {
+          nextBtn.disabled = false;
+        }
       });
     });
 
     stepper.innerHTML = path.map((_, index) => `<span class="quiz-step-btn${index === current ? ' active' : ''}${index < current ? ' answered' : ''}" aria-hidden="true">${index + 1}</span>`).join('');
-    const estimated = Math.max(path.length + (key === 'dependencies' ? 0 : 1), 2);
-    const percent = key === 'dependencies' ? 100 : Math.min(90, Math.round(((current + 1) / estimated) * 100));
+    const estimated = Math.max(path.length + (isFinalQuestion ? 0 : 1), 2);
+    const percent = isFinalQuestion ? 100 : Math.min(90, Math.round(((current + 1) / estimated) * 100));
     progressFill.style.width = `${percent}%`;
     progressText.textContent = `Pas ${current + 1}`;
-    progressPercent.textContent = key === 'dependencies' ? 'Última pregunta' : 'Orientació en curs';
+    progressPercent.textContent = isFinalQuestion ? 'Última pregunta' : 'Orientació en curs';
     prevBtn.disabled = current === 0;
-    nextBtn.hidden = key === 'dependencies';
-    resultBtn.hidden = key !== 'dependencies';
-    nextBtn.disabled = !answers[key];
-    resultBtn.disabled = !answers[key];
+
+    nextBtn.hidden = isFinalQuestion;
+    nextBtn.style.display = isFinalQuestion ? 'none' : '';
+    nextBtn.disabled = isFinalQuestion || !answers[key];
+
+    resultBtn.hidden = true;
+    resultBtn.style.display = 'none';
+    resultBtn.disabled = true;
+
     if (window.lucide) window.lucide.createIcons();
   }
 
@@ -202,6 +217,7 @@
       <p style="margin:.75rem 0 0;color:var(--text-dim);font-size:.825rem;line-height:1.55;">Si combineu codi amb llicències diferents, comproveu-ne la compatibilitat abans de distribuir el projecte.</p>`;
     results.hidden = false;
     progressFill.style.width = '100%';
+    progressText.textContent = 'Resultat';
     progressPercent.textContent = 'Completat';
     if (window.lucide) window.lucide.createIcons();
     results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
