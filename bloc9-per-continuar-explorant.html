@@ -98,7 +98,10 @@
       <h2>Què és la intel·ligència artificial local i per què és rellevant a l'escola?</h2>
       <p class="lead-desc">Com reduir la dependència de serveis al núvol i mantenir una part més gran del processament al dispositiu del centre.</p>
 
-      <div class="pedagogical-highlight">Quan fem servir serveis d’intel·ligència artificial al núvol, les consultes es processen en servidors remots. Amb una configuració realment <strong>local</strong>, el model pot executar-se al mateix dispositiu i reduir les transferències de dades a tercers. Cal comprovar, però, si la interfície utilitzada incorpora telemetria, serveis connectats o altres funcions de xarxa.</div>
+      <div class="pedagogical-highlight" style="display:flex;align-items:flex-start;gap:.75rem;">
+        <i data-lucide="cloud" aria-hidden="true" style="width:20px;height:20px;color:var(--accent-primary);flex:0 0 20px;margin-top:.15rem;"></i>
+        <div>Quan fem servir serveis d’intel·ligència artificial al núvol, les consultes es processen en servidors remots. Amb una configuració realment <strong>local</strong>, el model pot executar-se al mateix dispositiu i reduir les transferències de dades a tercers. Cal comprovar, però, si la interfície utilitzada incorpora telemetria, serveis connectats o altres funcions de xarxa.</div>
+      </div>
 
       <figure class="inline-support-figure">
         <img src="assets/images/unsplash/bloc9-ia-local.jpg" width="1200" height="630" alt="Processador i circuits electrònics d'un ordinador, símbol de computació local autònoma" loading="lazy">
@@ -154,7 +157,7 @@
               Sessió divulgativa de Jordi Mas (Softcatalà)
             </h3>
             <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.55;">
-              Jordi Mas explica què implica executar un model d'IA al propi ordinador i quins condicionants tècnics cal tenir en compte. La sessió també ajuda a situar l'oferta de models de pesos oberts que funcionen en català.
+              Jordi Mas presenta la IA local com una opció per recuperar control sobre el processament i decidir quins models s'executen al dispositiu. La sessió també explica com adaptar la tria del model a la tasca i al maquinari disponible, amb exemples de l'avaluació que Softcatalà fa del rendiment en català.
             </p>
           </div>
           <div>
@@ -168,20 +171,20 @@
 
       <div class="ordered-steps">
         <div class="ordered-step-item">
-          <div class="step-indicator">A</div>
+          <div class="step-indicator"><i data-lucide="shield-check" class="lucide" style="width:16px;height:16px;"></i></div>
           <div class="step-content">
-            <h3>Què vol dir executar un model en local</h3>
+            <h3>Què aporta executar el model al dispositiu</h3>
             <p>
-              La ponència ajuda a distingir el model de la interfície amb què hi interactuem. Un mateix model pot executar-se des de diferents aplicacions, i el caràcter local depèn d'on es fa el processament i de quins serveis addicionals utilitza la interfície.
+              Mas defineix la IA local com la possibilitat d'executar un model al propi ordinador o servidor. Això permet mantenir el còmput al dispositiu i dona més control sobre les dades i sobre els models que es decideixen utilitzar. La ponència també diferencia un model executable en local dels <em>pesos oberts</em> i de la IA lliure, conceptes relacionats però amb abasts diferents.
             </p>
           </div>
         </div>
         <div class="ordered-step-item">
-          <div class="step-indicator">B</div>
+          <div class="step-indicator"><i data-lucide="cpu" class="lucide" style="width:16px;height:16px;"></i></div>
           <div class="step-content">
-            <h3>Models locals que funcionen en català</h3>
+            <h3>Com ajustar el model a la tasca i al maquinari</h3>
             <p>
-              El treball de Softcatalà permet comparar models segons el rendiment en català i triar opcions adequades al maquinari disponible. Això permet treballar amb models de pesos oberts sense dependre exclusivament de serveis comercials al núvol.
+              La xerrada parteix d'una tasca concreta i recomana començar amb un model petit que càpiga a la memòria. Després, la qualitat obtinguda permet decidir si cal augmentar-ne la mida. També diferencia les feines desateses, que poden tolerar una resposta més lenta, dels usos interactius, que necessiten més capacitat de càlcul. La quantització pot reduir el consum de memòria i facilitar l'execució de models al dispositiu.
             </p>
           </div>
         </div>
