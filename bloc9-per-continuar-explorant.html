@@ -166,32 +166,37 @@
     }
     .conference-document-flow {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: .4rem;
+      grid-template-columns: max-content auto max-content auto max-content;
+      gap: .35rem;
+      align-items: center;
+      justify-content: center;
       margin-top: .3rem;
+      overflow-x: auto;
+      padding-bottom: .1rem;
     }
     .conference-document-step {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: .5rem;
-      padding: .45rem .55rem;
+      gap: .35rem;
+      padding: .4rem .5rem;
       border: 1px solid var(--border-color);
       border-radius: var(--radius-sm);
       background: var(--bg-subtle);
       color: var(--text-muted);
-      font-size: .78rem;
-      line-height: 1.25;
+      font-size: .74rem;
+      line-height: 1.2;
+      white-space: nowrap;
     }
     .conference-document-step .lucide {
-      width: 15px;
-      height: 15px;
-      flex: 0 0 15px;
+      width: 14px;
+      height: 14px;
+      flex: 0 0 14px;
       color: var(--accent-secondary);
     }
     .conference-document-arrow {
       display: grid;
       place-items: center;
-      height: 10px;
+      min-width: 14px;
       color: var(--accent-secondary);
       font-size: .8rem;
       line-height: 1;
@@ -209,6 +214,9 @@
       .conference-visual-split,
       .conference-visual-branches {
         grid-template-columns: 1fr;
+      }
+      .conference-document-flow {
+        justify-content: start;
       }
     }
     @media print {
@@ -541,9 +549,9 @@
                 <div class="conference-visual-panel-head"><i data-lucide="files"></i><span>Consulta de documents</span></div>
                 <div class="conference-document-flow">
                   <div class="conference-document-step"><i data-lucide="file-stack"></i><span>Documents</span></div>
-                  <div class="conference-document-arrow" aria-hidden="true">↓</div>
+                  <div class="conference-document-arrow" aria-hidden="true">→</div>
                   <div class="conference-document-step"><i data-lucide="network"></i><span>Embeddings + RAG</span></div>
-                  <div class="conference-document-arrow" aria-hidden="true">↓</div>
+                  <div class="conference-document-arrow" aria-hidden="true">→</div>
                   <div class="conference-document-step"><i data-lucide="message-square-text"></i><span>Resposta contextual</span></div>
                 </div>
               </div>
