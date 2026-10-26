@@ -1,0 +1,88 @@
+name: Patch bloc 3 structure
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-bloc3-structure.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Reorganize bloc 3
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('bloc3-github.html')
+          text = path.read_text(encoding='utf-8')
+
+          def replace_once(old, new, label):
+              global text
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{label}: expected 1 occurrence, found {count}')
+              text = text.replace(old, new, 1)
+
+          replace_once(
+              '      <h2>GitHub explicat per a docents principiants</h2>',
+              '''      <h2 style="display:flex; align-items:center; gap:.6rem;">\n        <i data-lucide="book-open-text" aria-hidden="true" style="width:24px;height:24px;color:var(--accent-primary);flex:0 0 24px;"></i>\n        <span>GitHub explicat per a docents principiants</span>\n      </h2>''',
+              'guide heading'
+          )
+
+          replace_once(
+              '''\n    <!-- Pràctica principal: Antigravity -> GitHub -> Antigravity -> push -->''',
+              '''\n    </div>\n\n    <!-- Pràctica principal: Antigravity -> GitHub -> Antigravity -> push -->''',
+              'close guide box'
+          )
+
+          replace_once(
+              '      <h2>Pràctica guiada: del projecte local al primer <em>push</em></h2>',
+              '''      <h2 style="display:flex; align-items:center; gap:.6rem;">\n        <i data-lucide="git-compare-arrows" aria-hidden="true" style="width:24px;height:24px;color:var(--accent-primary);flex:0 0 24px;"></i>\n        <span>Pràctica guiada: del projecte local al primer <em>push</em></span>\n      </h2>''',
+              'practice heading'
+          )
+
+          replace_once(
+              '''    </div>\n\n      <!-- Token temporal per al taller -->''',
+              '''    </div>\n\n    <div class="content-box" id="token-repositori">\n      <h2 style="display:flex; align-items:center; gap:.6rem;">\n        <i data-lucide="key-square" aria-hidden="true" style="width:24px;height:24px;color:var(--accent-primary);flex:0 0 24px;"></i>\n        <span>Per què creem el token després del repositori?</span>\n      </h2>\n\n      <!-- Token temporal per al taller -->''',
+              'open token box'
+          )
+
+          replace_once(
+              '''      <div data-content-fix="fine-grained-only">\n        <h3 style="margin-top:2rem;margin-bottom:.75rem">Per què creem el token després del repositori?</h3>\n        <p style="color:var(--text-muted);font-size:.925rem;line-height:1.6">''',
+              '''      <div data-content-fix="fine-grained-only" style="margin-top:1.5rem;">\n        <p style="color:var(--text-muted);font-size:.925rem;line-height:1.6">''',
+              'remove duplicate token heading'
+          )
+
+          replace_once(
+              '''      </div>\n\n      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Per què activem GitHub Pages després de pujar el projecte?</h3>\n      <p style="color:var(--text-muted);font-size:.925rem;line-height:1.6;margin-bottom:1.25rem;">''',
+              '''      </div>\n    </div>\n\n    <div class="content-box" id="github-pages-publicacio">\n      <h2 style="display:flex; align-items:center; gap:.6rem;">\n        <i data-lucide="cloud-upload" aria-hidden="true" style="width:24px;height:24px;color:var(--accent-primary);flex:0 0 24px;"></i>\n        <span>Per què activem GitHub Pages després de pujar el projecte?</span>\n      </h2>\n      <p style="color:var(--text-muted);font-size:.925rem;line-height:1.6;margin-bottom:1.25rem;">''',
+              'split Pages box'
+          )
+
+          replace_once(
+              '      <h2>Alternativa opcional: GitHub Desktop</h2>',
+              '''      <h2 style="display:flex; align-items:center; gap:.6rem;">\n        <i data-lucide="monitor-up" aria-hidden="true" style="width:24px;height:24px;color:var(--accent-primary);flex:0 0 24px;"></i>\n        <span>Alternativa opcional: GitHub Desktop</span>\n      </h2>''',
+              'desktop heading'
+          )
+
+          path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bloc3-github.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Reorganize bloc 3 sections"
+          git push origin main
