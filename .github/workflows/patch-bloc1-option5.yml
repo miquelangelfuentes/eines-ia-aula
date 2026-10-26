@@ -1,0 +1,46 @@
+name: Patch bloc 1 callout option 5
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-bloc1-option5.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Replace highlighted callout
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('bloc1-marc.html')
+          text = path.read_text(encoding='utf-8')
+
+          old = '''      <div class="pedagogical-highlight" style="margin-bottom:1.75rem; display:flex; align-items:flex-start; gap:.75rem;">\n        <i data-lucide="telescope" aria-hidden="true" style="width:20px;height:20px;color:var(--accent-primary);flex:0 0 20px;margin-top:.15rem;"></i>\n        <div>\n          <strong>Exploreu els límits del que és possible</strong>\n          <p style="margin:.4rem 0 0;">Una bona pregunta per acompanyar qualsevol projecte amb IA és fins on podríeu portar-lo. Proveu d'ampliar-ne l'abast cada vegada que assoliu un objectiu. Quan aparegui una limitació, haureu après alguna cosa sobre la tecnologia. Quan la supereu, haureu descobert una nova possibilitat.</p>\n        </div>\n      </div>'''
+
+          new = '''      <div class="pedagogical-highlight" style="margin-bottom:1.75rem; display:flex; align-items:flex-start; gap:.75rem;">\n        <i data-lucide="milestone" aria-hidden="true" style="width:20px;height:20px;color:var(--accent-primary);flex:0 0 20px;margin-top:.15rem;"></i>\n        <div>\n          <strong>I si el següent pas fos més ambiciós?</strong>\n          <p style="margin:.4rem 0 0;">Quan una proposta funciona, podeu preguntar-vos com seria una versió més ambiciosa. La IA us pot ajudar a explorar aquesta nova direcció i comprovar fins on arriba. Cada intent aporta informació per decidir com continuar desenvolupant el projecte.</p>\n        </div>\n      </div>'''
+
+          if old not in text:
+              raise SystemExit('Target callout not found')
+
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bloc1-marc.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Replace bloc 1 callout with option 5"
+          git push origin main
