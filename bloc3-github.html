@@ -122,7 +122,10 @@
       <span>Feu servir la pàgina com a guia per repetir el procés amb calma i recuperar els detalls que no cal memoritzar durant la sessió.</span>
     </a></nav>
     <div class="content-box" id="guia-consulta">
-      <h2>GitHub explicat per a docents principiants</h2>
+      <h2 style="display:flex; align-items:center; gap:.6rem;">
+        <i data-lucide="book-open-text" aria-hidden="true" style="width:24px;height:24px;color:var(--accent-primary);flex:0 0 24px;"></i>
+        <span>GitHub explicat per a docents principiants</span>
+      </h2>
       <p class="lead-desc">Com entendre el servei sense termes informàtics innecessaris</p>
 
       <div class="pedagogical-highlight">
@@ -167,9 +170,14 @@
         </ul>
       </div>
 
+    </div>
+
     <!-- Pràctica principal: Antigravity -> GitHub -> Antigravity -> push -->
     <div class="content-box" id="practica-taller">
-      <h2>Pràctica guiada: del projecte local al primer <em>push</em></h2>
+      <h2 style="display:flex; align-items:center; gap:.6rem;">
+        <i data-lucide="git-compare-arrows" aria-hidden="true" style="width:24px;height:24px;color:var(--accent-primary);flex:0 0 24px;"></i>
+        <span>Pràctica guiada: del projecte local al primer <em>push</em></span>
+      </h2>
       <p class="lead-desc">Creeu el repositori a GitHub, connecteu-hi el projecte local i demaneu a Antigravity que hi pugi la primera versió</p>
 
       <div class="pedagogical-highlight">
@@ -267,6 +275,12 @@ Quan ho aprovi, envia la primera versió del recurs al repositori. Si GitHub nec
       </div>
     </div>
 
+    <div class="content-box" id="token-repositori">
+      <h2 style="display:flex; align-items:center; gap:.6rem;">
+        <i data-lucide="key-square" aria-hidden="true" style="width:24px;height:24px;color:var(--accent-primary);flex:0 0 24px;"></i>
+        <span>Per què creem el token després del repositori?</span>
+      </h2>
+
       <!-- Token temporal per al taller -->
       <div style="margin-top: 2rem; background: var(--bg-subtle); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.35rem 1.5rem;">
         <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-main); display: flex; align-items: center; gap: 0.5rem;">
@@ -277,8 +291,7 @@ Quan ho aprovi, envia la primera versió del recurs al repositori. Si GitHub nec
         <p style="font-size: 0.9rem; margin-bottom: 0;">Un token s’ha de tractar com una contrasenya. Com que en aquest recorregut Antigravity el pot demanar dins del xat, <strong>no el conservem com a credencial permanent</strong>: el restringim, l’utilitzem per a la pujada i el revoquem immediatament després.</p>
       </div>
 
-      <div data-content-fix="fine-grained-only">
-        <h3 style="margin-top:2rem;margin-bottom:.75rem">Per què creem el token després del repositori?</h3>
+      <div data-content-fix="fine-grained-only" style="margin-top:1.5rem;">
         <p style="color:var(--text-muted);font-size:.925rem;line-height:1.6">Creeu el token després d’haver creat el repositori. Això permet limitar-ne l’accés al projecte concret que utilitzareu durant la pràctica.</p>
         <div class="ordered-steps">
           <div class="ordered-step-item"><div class="step-indicator">1</div><div class="step-content"><h3>Obriu Fine-grained tokens</h3><p>Aneu a <a href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener"><strong>Settings &gt; Developer settings &gt; Personal access tokens &gt; Fine-grained tokens</strong></a> i premeu <em>Generate new token</em>.</p></div></div>
@@ -298,8 +311,13 @@ Quan ho aprovi, envia la primera versió del recurs al repositori. Si GitHub nec
           <span>Obrir la guia oficial de GitHub</span> ↗
         </a>
       </div>
+    </div>
 
-      <h3 style="margin-top: 2rem; margin-bottom: 0.75rem;">Per què activem GitHub Pages després de pujar el projecte?</h3>
+    <div class="content-box" id="github-pages-publicacio">
+      <h2 style="display:flex; align-items:center; gap:.6rem;">
+        <i data-lucide="cloud-upload" aria-hidden="true" style="width:24px;height:24px;color:var(--accent-primary);flex:0 0 24px;"></i>
+        <span>Per què activem GitHub Pages després de pujar el projecte?</span>
+      </h2>
       <p style="color:var(--text-muted);font-size:.925rem;line-height:1.6;margin-bottom:1.25rem;">GitHub Pages publica com a web els fitxers que ja són al repositori. Per això l’activem quan la primera versió del projecte ja hi és i podem indicar a GitHub quina branca ha de convertir en el lloc web públic.</p>
 
       <div class="ordered-steps">
@@ -420,7 +438,10 @@ Quan ho aprovi, envia la primera versió del recurs al repositori. Si GitHub nec
 
     <!-- Secció opcional: GitHub Desktop i portàtils del PEDC -->
     <div class="content-box" id="github-desktop-opcional">
-      <h2>Alternativa opcional: GitHub Desktop</h2>
+      <h2 style="display:flex; align-items:center; gap:.6rem;">
+        <i data-lucide="monitor-up" aria-hidden="true" style="width:24px;height:24px;color:var(--accent-primary);flex:0 0 24px;"></i>
+        <span>Alternativa opcional: GitHub Desktop</span>
+      </h2>
       <p class="lead-desc">Una via gràfica alternativa per sincronitzar el projecte quan no vulgueu fer el <em>push</em> des d'Antigravity</p>
 
       <div class="pedagogical-highlight" style="display:flex;align-items:center;justify-content:space-between;gap:1.25rem;flex-wrap:wrap;">
