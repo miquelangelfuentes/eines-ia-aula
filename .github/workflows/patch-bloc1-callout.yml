@@ -1,0 +1,48 @@
+name: Patch bloc 1 callout
+
+on:
+  push:
+    paths:
+      - '.github/workflows/patch-bloc1-callout.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Add highlighted callout
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('bloc1-marc.html')
+          text = path.read_text(encoding='utf-8')
+
+          old = '''      <p style="margin-top:1rem; margin-bottom:1.75rem;">\n        Podeu començar definint una funció concreta i, després de provar-la, decidir com voleu continuar desenvolupant-la. La IA us ajuda a aplicar aquests canvis sobre el mateix projecte.\n      </p>\n\n      <figure class="inline-support-figure">'''
+
+          new = '''      <p style="margin-top:1rem; margin-bottom:1.75rem;">\n        Podeu començar definint una funció concreta i, després de provar-la, decidir com voleu continuar desenvolupant-la. La IA us ajuda a aplicar aquests canvis sobre el mateix projecte.\n      </p>\n\n      <div class="pedagogical-highlight" style="margin-bottom:1.75rem; display:flex; align-items:flex-start; gap:.75rem;">\n        <i data-lucide="telescope" aria-hidden="true" style="width:20px;height:20px;color:var(--accent-primary);flex:0 0 20px;margin-top:.15rem;"></i>\n        <div>\n          <strong>Exploreu els límits del que és possible</strong>\n          <p style="margin:.4rem 0 0;">Una bona pregunta per acompanyar qualsevol projecte amb IA és fins on podríeu portar-lo. Proveu d'ampliar-ne l'abast cada vegada que assoliu un objectiu. Quan aparegui una limitació, haureu après alguna cosa sobre la tecnologia. Quan la supereu, haureu descobert una nova possibilitat.</p>\n        </div>\n      </div>\n\n      <figure class="inline-support-figure">'''
+
+          if old not in text:
+              raise SystemExit('Target block not found')
+          if 'data-lucide="telescope"' in text:
+              raise SystemExit('Callout already present')
+
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bloc1-marc.html
+          git diff --cached --quiet && exit 0
+          git commit -m "Add exploration callout to bloc 1"
+          git push origin main
