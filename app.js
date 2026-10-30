@@ -108,6 +108,8 @@
       .replace(/\bcomparativa\b/g, 'comparació')
       .replace(/\bChecklist\b/g, 'Llista de verificació')
       .replace(/\bchecklist\b/g, 'llista de verificació')
+      .replace(/Obriu Google Antigravity per seguir la pràctica del bloc\./g, 'Tingueu Google Antigravity a mà durant la pràctica del bloc.')
+      .replace(/Obriu GitHub per seguir la configuració i la publicació del recurs\./g, 'Necessitareu GitHub durant la configuració i la publicació del recurs.')
       .replace(/Ves a Google Antigravity/g, 'Obriu Google Antigravity')
       .replace(/Ves a GitHub/g, 'Obriu GitHub')
       .replace(/Octubre, 2026/g, 'Octubre de 2026')
