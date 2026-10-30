@@ -108,6 +108,8 @@
       .replace(/\bcomparativa\b/g, 'comparació')
       .replace(/\bChecklist\b/g, 'Llista de verificació')
       .replace(/\bchecklist\b/g, 'llista de verificació')
+      .replace(/Ves a Google Antigravity/g, 'Obriu Google Antigravity')
+      .replace(/Ves a GitHub/g, 'Obriu GitHub')
       .replace(/Octubre, 2026/g, 'Octubre de 2026')
       .replace(/\s—\s/g, ' - ');
   };
@@ -161,7 +163,7 @@
 
     setHtml(
       document.querySelector('.hero-impact-headline span'),
-      'Amb el <em>vibe coding</em>, el valor no és només estalviar temps, sinó ampliar el que podeu construir amb criteri docent.'
+      'Amb el <em>vibe coding</em> no es guanya temps, però permet elevar els resultats.'
     );
 
     const objectiveTwo = [...document.querySelectorAll('#objectius-sessio .ordered-step-item')]
