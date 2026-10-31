@@ -11,7 +11,9 @@
   loadScript('app-base.js?v=20261031', () => {
     const start = () => {
       if (!document.getElementById('diagnostic-quiz-section')) return;
-      loadScript('quiz-refresh.js?v=20261031');
+      loadScript('quiz-refresh.js?v=20261031', () => {
+        loadScript('quiz-score-label.js?v=20261031');
+      });
     };
 
     if (document.readyState === 'loading') {
