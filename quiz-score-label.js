@@ -19,12 +19,16 @@
     );
     if (!label) return;
 
+    const scoreText = `Puntuació: ${average.toFixed(1).replace('.', ',')} / 4`;
     label.dataset.quizScoreLabel = 'true';
-    label.textContent = `Puntuació: ${average.toFixed(1).replace('.', ',')} / 4`;
+    if (label.textContent !== scoreText) label.textContent = scoreText;
   };
 
-  const observer = new MutationObserver(updateScoreLabel);
+  const observer = new MutationObserver(() => {
+    window.requestAnimationFrame(updateScoreLabel);
+  });
   observer.observe(panel, { childList: true, subtree: true });
+
   form.addEventListener('change', () => window.setTimeout(updateScoreLabel, 0));
   document.getElementById('quiz-finish-btn')?.addEventListener('click', () => window.setTimeout(updateScoreLabel, 0));
   updateScoreLabel();
