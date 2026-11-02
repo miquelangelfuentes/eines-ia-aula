@@ -6,44 +6,44 @@
   const GAP = 18;
 
   const controlReminders = [
-    'Recordatori: el botó del cursor de la barra superior em mostra o m’amaga.',
-    'Si em voleu amagar o recuperar, feu servir el botó del cursor de la barra superior.'
+    'Recordatori: podeu mostrar-me o amagar-me amb el botó del cursor de la barra superior.',
+    'Si em voleu amagar o tornar a mostrar, feu servir el botó del cursor de la barra superior.'
   ];
 
   const clickTips = [
     'Proveu una idea amb un recurs petit abans d’aplicar-la a una activitat important.',
-    'Quan una resposta d’IA sembli convincent, busqueu algun detall que pugueu verificar independentment.',
-    'Si un agent modifica una web, proveu el resultat després de cada canvi important.',
+    'Quan una resposta d’IA sembli convincent, busqueu algun detall que pugueu comprovar per una altra via.',
+    'Si un agent modifica una web, comproveu el resultat després de cada canvi important.',
     'Abans de publicar, navegueu una estona només amb el teclat: sovint fa visibles problemes d’accessibilitat.',
-    'Abans d’un canvi gran, conserveu una versió que ja funcioni. Git permet tornar-hi si alguna cosa es trenca.',
+    'Abans d’un canvi important, conserveu una versió que ja funcioni. Git us permet recuperar-la si alguna cosa es trenca.',
     'Si una eina no aporta prou valor pedagògic, descartar-la també és una decisió útil.',
     'Quan adapteu un recurs generat amb IA, reviseu primer el contingut que afectarà directament l’alumnat.',
-    'En una web educativa, un error petit de ruta pot fer desaparèixer una imatge encara que el fitxer existeixi.',
+    'En una web educativa, un petit error en una ruta pot fer desaparèixer una imatge encara que el fitxer existeixi.',
     'Si una funció depèn d’un servei extern, penseu què veurà l’usuari quan aquell servei no estigui disponible.',
-    'Una prova en mode fosc pot revelar contrastos que passen desapercebuts en el tema clar.',
-    'Quan una indicació no dona el resultat esperat, sovint és més útil concretar el criteri de revisió que fer-la més llarga.',
-    'Si compartiu un recurs amb altres docents, intenteu que puguin entendre què fa sense haver de llegir el codi.'
+    'Una prova en mode fosc pot revelar problemes de contrast que passen desapercebuts en el tema clar.',
+    'Quan una indicació no dona el resultat esperat, sovint ajuda més concretar el criteri de revisió que allargar-la.',
+    'Si compartiu un recurs amb altres docents, procureu que en puguin entendre el funcionament sense haver de llegir el codi.'
   ];
 
   const pagePhrases = {
     'index.html': {
       'Qüestionari de coneixements previs per a docents': [
-        'Curiositat: les respostes d’aquest qüestionari es desen al navegador; no s’envien a cap servidor.',
+        'Curiositat: les respostes d’aquest qüestionari es desen al navegador i no s’envien a cap servidor.',
         'Consell: respongueu segons el que feu ara. El resultat serveix per orientar el recorregut pel material.'
       ],
       'Accés al material del taller': [
-        'Consell: l’adreça curta i el QR porten al mateix lloc; podeu triar el que sigui més còmode durant la sessió.',
-        'Curiositat: un QR no conté la pàgina web, sinó l’adreça que el dispositiu ha d’obrir.'
+        'Consell: l’adreça curta i el codi QR porten al mateix lloc. Trieu l’opció que us sigui més còmoda durant la sessió.',
+        'Curiositat: un codi QR no conté la pàgina web, sinó l’adreça que el dispositiu ha d’obrir.'
       ]
     },
     'bloc1-marc.html': {
       'Feu créixer una idea en forma de recurs web': [
-        'Consell: una primera versió que funcioni és més útil que intentar definir tot el projecte abans de provar-lo.',
+        'Consell: és preferible començar amb una primera versió que funcioni i ampliar-la després de provar-la.',
         'Curiositat: treballar sobre el mateix projecte permet comparar canvis successius sense començar de zero.'
       ],
       "Per què s'ha triat Google Antigravity i GitHub?": [
-        'Fixeu-vos en la funció de cada eina dins del recorregut. Aquesta distinció és reutilitzable amb altres eines.',
-        'Consell: separar l’edició local de la publicació ajuda a saber on buscar quan alguna cosa falla.'
+        'Fixeu-vos en la funció de cada eina dins del recorregut. Aquest criteri també es pot aplicar a altres eines.',
+        'Consell: separar l’edició local de la publicació ajuda a identificar on cal revisar quan apareix un problema.'
       ]
     }
   };
@@ -151,17 +151,17 @@
 
     if (text.includes('github pages')) {
       items.push('Curiositat: GitHub Pages publica fitxers web estàtics directament des d’un repositori.');
-      items.push('Consell: a GitHub Pages, una ruta relativa mal escrita pot trencar un recurs encara que el fitxer sigui al repositori.');
+      items.push('Consell: a GitHub Pages, una ruta relativa incorrecta pot fer que un recurs deixi de funcionar encara que el fitxer sigui al repositori.');
     }
     if (text.includes('index.html')) {
       items.push('Curiositat: molts servidors web busquen index.html com a pàgina d’entrada per defecte.');
-      items.push('Consell: en publicar, reviseu majúscules i minúscules dels noms de fitxer; poden importar més que al vostre ordinador.');
+      items.push('Consell: en publicar, reviseu les majúscules i minúscules dels noms de fitxer perquè el servidor pot distingir-les.');
     }
     if (text.includes('llicència') || text.includes('llicencies') || text.includes('llicències')) {
-      items.push('Curiositat: una llicència no elimina els drets d’autor; explica quins usos autoritza la persona titular.');
+      items.push('Curiositat: una llicència no elimina els drets d’autor; indica quins usos autoritza la persona titular.');
     }
     if (target.querySelector('img')) {
-      items.push('Consell: el text alternatiu d’una imatge ha d’explicar la informació que aporta, no descriure cada detall visual.');
+      items.push('Consell: el text alternatiu d’una imatge ha de transmetre la informació rellevant que aporta al contingut.');
     }
     if (target.querySelector('input, select, textarea, button')) {
       items.push('Consell: proveu aquest element amb Tab i Enter. És una comprovació ràpida per detectar barreres de navegació.');
@@ -170,12 +170,12 @@
       items.push('Consell: quan reviseu codi generat, canvieu una sola cosa cada vegada i comproveu el resultat abans de continuar.');
     }
     if (target.querySelector('a[target="_blank"]')) {
-      items.push('Consell: els recursos externs poden canviar. Si són essencials per a l’activitat, convé tenir una alternativa.');
+      items.push('Consell: els recursos externs poden canviar. Si són essencials per a l’activitat, convé preveure una alternativa.');
     }
 
     if (!items.length) {
-      items.push(`Consell: després de «${title}», proveu de resumir en una frase què aplicaríeu en un recurs propi.`);
-      items.push('Fixeu-vos en quina decisió pràctica us emporteu d’aquest apartat; la resta pot quedar com a material de consulta.');
+      items.push(`Consell: després de «${title}», proveu de resumir en una frase quina idea podríeu aplicar en un recurs propi.`);
+      items.push('Fixeu-vos en quina decisió pràctica us emporteu d’aquest apartat. La resta pot quedar com a material de consulta.');
     }
 
     return items;
@@ -261,7 +261,7 @@
   }
 
   function introText() {
-    return 'Hola! Soc l’acompanyant. Em podeu mostrar o amagar amb el botó del cursor de la barra. Feu-me clic per veure un consell.';
+    return 'Hola! Soc l’acompanyant. Podeu mostrar-me o amagar-me amb el botó del cursor de la barra. Feu clic sobre l’acompanyant per veure un consell.';
   }
 
   function showIntro() {
@@ -283,7 +283,7 @@
     if (enabled) {
       positionCompanion();
       if (!introShown) showIntro();
-      else showMessage('Ja torno a ser aquí. El botó del cursor em torna a amagar.', { duration: 4800, force: true });
+      else showMessage('Ja torno a ser aquí. Podeu amagar-me de nou amb el botó del cursor.', { duration: 4800, force: true });
       announce('Acompanyant de lectura activat');
     } else {
       announce('Acompanyant de lectura amagat');
