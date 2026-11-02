@@ -19,7 +19,7 @@
   loadStyle('companion.css?v=20261102b');
 
   loadScript('app-base.js?v=20261031', () => {
-    loadScript('companion.js?v=20261102c');
+    loadScript('companion.js?v=20261102d');
 
     const start = () => {
       if (!document.getElementById('diagnostic-quiz-section')) return;
