@@ -16,10 +16,10 @@
     document.head.appendChild(link);
   };
 
-  loadStyle('companion.css?v=20261102');
+  loadStyle('companion.css?v=20261102b');
 
   loadScript('app-base.js?v=20261031', () => {
-    loadScript('companion.js?v=20261102');
+    loadScript('companion.js?v=20261102b');
 
     const start = () => {
       if (!document.getElementById('diagnostic-quiz-section')) return;

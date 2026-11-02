@@ -1,9 +1,10 @@
 (() => {
   const PREF_KEY = 'eines-ia:companion-enabled-v1';
-  const SESSION_KEY = 'eines-ia:companion-session-v1';
-  const INTRO_KEY = 'eines-ia:companion-intro-v1';
+  const SESSION_KEY = 'eines-ia:companion-session-v2';
+  const INTRO_KEY = 'eines-ia:companion-intro-v2';
   const AUTO_MIN_GAP = 18000;
-  const DESKTOP_QUERY = '(min-width: 1180px)';
+  const GUTTER_MIN = 252;
+  const GAP = 18;
 
   const clickPhrases = [
     'No cal retenir-ho tot ara. Aquest material també està pensat per tornar-hi quan us sigui útil.',
@@ -59,9 +60,10 @@
 
   let enabled = readPreference();
   let activeTarget = null;
+  let activeIndex = 0;
   let activeKey = '';
   let messageTimer = null;
-  let lastAutoAt = 0;
+  let lastAutoAt = Date.now();
   let sectionChanges = 0;
   let observer = null;
   let footerObserver = null;
@@ -69,9 +71,8 @@
   let avatar;
   let bubble;
   let bubbleText;
-  let inlineMessage;
   let toggle;
-  let mediaQuery;
+  let introDone = sessionStorage.getItem(INTRO_KEY) === 'seen';
 
   function readPreference() {
     const saved = localStorage.getItem(PREF_KEY);
@@ -146,14 +147,12 @@
     const main = document.getElementById('contingut-principal') || document.querySelector('main');
     if (!main) return [];
 
-    let nodes = [...main.querySelectorAll(':scope > .content-box, :scope > section, :scope > .diagnostic-quiz-box')];
-    if (nodes.length < 2) {
-      nodes = [...main.querySelectorAll('.content-box, section')];
-    }
+    let nodes = [...main.querySelectorAll(':scope > .content-box, :scope > section, :scope > .diagnostic-quiz-box, :scope > figure, :scope > .pedagogical-highlight')];
+    if (nodes.length < 2) nodes = [...main.querySelectorAll('.content-box, section')];
 
     return nodes.filter((node) => {
       const rect = node.getBoundingClientRect();
-      return rect.height > 120 && !node.closest('[hidden]');
+      return rect.height > 110 && !node.closest('[hidden]');
     });
   }
 
@@ -161,10 +160,7 @@
     const title = titleFor(target, index);
     const specific = pagePhrases[currentPage()]?.[title];
     if (specific?.length) return { title, items: specific };
-    return {
-      title,
-      items: genericSectionPhrases.map((makePhrase) => makePhrase({ title }))
-    };
+    return { title, items: genericSectionPhrases.map((makePhrase) => makePhrase({ title })) };
   }
 
   function announce(message) {
@@ -226,14 +222,6 @@
     root.append(bubble, avatar);
     document.body.appendChild(root);
 
-    inlineMessage = document.createElement('div');
-    inlineMessage.className = 'companion-inline-message';
-    inlineMessage.hidden = true;
-    inlineMessage.setAttribute('role', 'status');
-    inlineMessage.setAttribute('aria-live', 'polite');
-
-    mediaQuery = window.matchMedia(DESKTOP_QUERY);
-    mediaQuery.addEventListener?.('change', handleLayoutChange);
     window.addEventListener('resize', positionCompanion, { passive: true });
     refreshLucide();
   }
@@ -242,108 +230,127 @@
     if (!toggle) return;
     toggle.setAttribute('aria-pressed', String(enabled));
     toggle.classList.toggle('is-active', enabled);
-    const action = enabled ? 'Desactivar' : 'Activar';
+    const action = enabled ? 'Amagar' : 'Mostrar';
     toggle.setAttribute('aria-label', `${action} l’acompanyant de lectura`);
     toggle.title = `${action} l’acompanyant de lectura`;
+  }
+
+  function introText() {
+    return 'Hola! Soc l’acompanyant de lectura. Em mouré per la pàgina i, de tant en tant, em fixaré en algun detall. Podeu mostrar-me o amagar-me amb el botó del cursor de la barra superior. També em podeu fer clic quan vulgueu llegir un comentari.';
+  }
+
+  function showIntro() {
+    if (!enabled || introDone) return;
+    introDone = true;
+    sessionStorage.setItem(INTRO_KEY, 'seen');
+    lastAutoAt = Date.now();
+    showMessage(introText(), { duration: 12000, force: true });
   }
 
   function setEnabled(next, userAction = false) {
     enabled = next;
     localStorage.setItem(PREF_KEY, String(enabled));
-    document.body.classList.toggle('companion-enabled', enabled);
-    root?.classList.toggle('is-disabled', !enabled);
     if (root) root.hidden = !enabled;
     if (!enabled) hideMessage(true);
     updateToggle();
 
-    if (userAction) {
-      if (enabled) {
-        showMessage('Ja torno a ser aquí. Si em feu clic, us deixaré algun comentari mentre exploreu el material.', { duration: 6500, force: true });
-        announce('Acompanyant de lectura activat');
-      } else {
-        announce('Acompanyant de lectura desactivat');
-      }
+    if (!userAction) return;
+    if (enabled) {
+      positionCompanion();
+      if (!introDone) showIntro();
+      else showMessage('Ja torno a ser aquí. Em mouré amb la lectura. Si em feu clic, us deixaré algun comentari.', { duration: 6500, force: true });
+      announce('Acompanyant de lectura activat');
+    } else {
+      announce('Acompanyant de lectura amagat');
     }
   }
 
   function handleCompanionClick() {
     if (!enabled) return;
     const text = takeFromDeck('click', clickPhrases);
-    showMessage(text, { duration: 7500, force: true });
+    showMessage(text, { duration: 7600, force: true });
     avatar.classList.remove('is-reacting');
     void avatar.offsetWidth;
     avatar.classList.add('is-reacting');
   }
 
-  function placeInlineMessage() {
-    if (!inlineMessage || mediaQuery.matches) return;
-    const target = activeTarget || document.getElementById('contingut-principal') || document.querySelector('main');
-    if (!target) return;
-
-    const heading = target.querySelector?.(':scope > h2, :scope > h3');
-    if (heading) {
-      heading.insertAdjacentElement('afterend', inlineMessage);
-    } else if (target.firstElementChild) {
-      target.insertBefore(inlineMessage, target.firstElementChild);
-    } else {
-      target.appendChild(inlineMessage);
-    }
-  }
-
   function showMessage(text, { duration = 5600, force = false } = {}) {
     if (!enabled || !text) return;
     clearTimeout(messageTimer);
-
-    if (mediaQuery.matches) {
-      bubbleText.textContent = text;
-      bubble.hidden = false;
-      bubble.classList.remove('is-visible');
-      requestAnimationFrame(() => bubble.classList.add('is-visible'));
-    } else {
-      placeInlineMessage();
-      inlineMessage.textContent = text;
-      inlineMessage.hidden = false;
-      inlineMessage.classList.add('is-visible');
-    }
-
+    bubbleText.textContent = text;
+    bubble.hidden = false;
+    bubble.classList.remove('is-visible');
+    requestAnimationFrame(() => bubble.classList.add('is-visible'));
     if (force) announce(text);
     messageTimer = setTimeout(() => hideMessage(), duration);
   }
 
   function hideMessage(immediate = false) {
     clearTimeout(messageTimer);
-    if (bubble) {
-      bubble.classList.remove('is-visible');
-      if (immediate) bubble.hidden = true;
-      else setTimeout(() => { if (!bubble.classList.contains('is-visible')) bubble.hidden = true; }, 180);
-    }
-    if (inlineMessage) {
-      inlineMessage.classList.remove('is-visible');
-      if (immediate) inlineMessage.hidden = true;
-      else setTimeout(() => { if (!inlineMessage.classList.contains('is-visible')) inlineMessage.hidden = true; }, 180);
-    }
+    if (!bubble) return;
+    bubble.classList.remove('is-visible');
+    if (immediate) bubble.hidden = true;
+    else setTimeout(() => {
+      if (!bubble.classList.contains('is-visible')) bubble.hidden = true;
+    }, 180);
+  }
+
+  function placeInline() {
+    if (!root || !activeTarget) return;
+    root.classList.add('is-inline');
+    root.classList.remove('is-left', 'is-right');
+    root.style.removeProperty('top');
+    root.style.removeProperty('left');
+    const heading = activeTarget.querySelector?.(':scope > h2, :scope > h3');
+    if (heading) heading.insertAdjacentElement('afterend', root);
+    else if (activeTarget.firstElementChild) activeTarget.insertBefore(root, activeTarget.firstElementChild);
+    else activeTarget.appendChild(root);
   }
 
   function positionCompanion() {
-    if (!enabled || !root || !mediaQuery.matches || !activeTarget) return;
+    if (!enabled || !root || !activeTarget) return;
+
+    if (root.parentElement !== document.body) document.body.appendChild(root);
+    root.classList.remove('is-inline', 'is-left', 'is-right');
+
     const rect = activeTarget.getBoundingClientRect();
-    const preferred = rect.top + Math.min(rect.height * 0.35, 180);
-    const top = Math.max(175, Math.min(window.innerHeight - 125, preferred));
-    root.style.setProperty('--companion-top', `${top}px`);
+    const rootWidth = 232;
+    const rightSpace = window.innerWidth - rect.right;
+    const leftSpace = rect.left;
+    const canRight = rightSpace >= GUTTER_MIN;
+    const canLeft = leftSpace >= GUTTER_MIN;
+
+    if (!canRight && !canLeft) {
+      placeInline();
+      return;
+    }
+
+    const side = canRight && (!canLeft || rightSpace >= leftSpace) ? 'right' : 'left';
+    const docTop = window.scrollY + rect.top;
+    const targetOffset = Math.min(86, Math.max(34, rect.height * 0.12));
+    const top = Math.max(110, docTop + targetOffset);
+    const left = side === 'right'
+      ? window.scrollX + rect.right + GAP
+      : window.scrollX + rect.left - rootWidth - GAP;
+
+    root.classList.add(side === 'right' ? 'is-right' : 'is-left');
+    root.style.top = `${Math.round(top)}px`;
+    root.style.left = `${Math.round(Math.max(8, left))}px`;
   }
 
-  function activateSection(target, index) {
+  function activateSection(target, index, { silent = false } = {}) {
     if (!target || target === activeTarget) return;
     activeTarget = target;
+    activeIndex = index;
     const { title, items } = sectionPhrases(target, index);
     activeKey = `${currentPage()}::${title}`;
     sectionChanges += 1;
     positionCompanion();
 
-    if (!enabled) return;
+    if (!enabled || silent || !introDone) return;
     const now = Date.now();
     const enoughTime = now - lastAutoAt >= AUTO_MIN_GAP;
-    const shouldComment = sectionChanges === 1 || sectionChanges % 2 === 0;
+    const shouldComment = sectionChanges % 2 === 0;
     if (!enoughTime || !shouldComment) return;
 
     const text = takeFromDeck(`section:${activeKey}`, items);
@@ -353,16 +360,15 @@
     }
   }
 
-  function observeSections() {
-    const sections = candidates();
+  function observeSections(sections) {
     if (!sections.length) return;
 
     observer = new IntersectionObserver((entries) => {
       const visible = entries
         .filter((entry) => entry.isIntersecting)
         .sort((a, b) => {
-          const aDistance = Math.abs(a.boundingClientRect.top - window.innerHeight * 0.36);
-          const bDistance = Math.abs(b.boundingClientRect.top - window.innerHeight * 0.36);
+          const aDistance = Math.abs(a.boundingClientRect.top - window.innerHeight * 0.38);
+          const bDistance = Math.abs(b.boundingClientRect.top - window.innerHeight * 0.38);
           return aDistance - bDistance;
         });
 
@@ -370,12 +376,11 @@
       const target = visible[0].target;
       activateSection(target, sections.indexOf(target));
     }, {
-      rootMargin: '-18% 0px -48% 0px',
+      rootMargin: '-16% 0px -46% 0px',
       threshold: [0.02, 0.15, 0.4]
     });
 
     sections.forEach((section) => observer.observe(section));
-    activateSection(sections[0], 0);
   }
 
   function observeFooter() {
@@ -387,28 +392,26 @@
     footerObserver.observe(footer);
   }
 
-  function handleLayoutChange() {
-    hideMessage(true);
-    positionCompanion();
-  }
-
-  function showIntroIfNeeded() {
-    if (!enabled) return;
-    if (sessionStorage.getItem(INTRO_KEY) === 'seen') return;
-    sessionStorage.setItem(INTRO_KEY, 'seen');
-    setTimeout(() => {
-      showMessage('Hola! Soc l’acompanyant de lectura. Em podeu activar o desactivar amb el botó del cursor de la barra superior. Si em feu clic, us deixaré algun comentari mentre exploreu el material.', { duration: 10500, force: true });
-    }, 650);
-  }
-
   function init() {
     if (document.getElementById('reading-companion')) return;
     buildUI();
+
+    const sections = candidates();
+    if (sections.length) {
+      activeTarget = sections[0];
+      activeIndex = 0;
+      const { title } = sectionPhrases(activeTarget, 0);
+      activeKey = `${currentPage()}::${title}`;
+    } else {
+      activeTarget = document.getElementById('contingut-principal') || document.querySelector('main');
+    }
+
     setEnabled(enabled, false);
-    observeSections();
-    observeFooter();
     positionCompanion();
-    showIntroIfNeeded();
+    observeSections(sections);
+    observeFooter();
+
+    if (enabled && !introDone) setTimeout(showIntro, 500);
   }
 
   if (document.readyState === 'loading') {
