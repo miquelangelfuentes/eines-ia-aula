@@ -6,36 +6,28 @@
 }
 
 .reading-companion {
-  position: absolute;
+  position: fixed;
   z-index: 720;
   width: 232px;
   display: flex;
   flex-direction: column;
   gap: .5rem;
   pointer-events: none;
-  transition: top .52s cubic-bezier(.22,.61,.36,1), left .28s ease, opacity .2s ease;
+  transition: top .28s cubic-bezier(.22,.61,.36,1), left .22s ease, opacity .18s ease;
 }
 
 .reading-companion[hidden] {
   display: none !important;
 }
 
-.reading-companion.is-right {
-  align-items: flex-start;
-}
-
-.reading-companion.is-left {
-  align-items: flex-end;
-}
-
-.reading-companion.near-footer {
-  opacity: .22;
-}
+.reading-companion.is-right { align-items: flex-start; }
+.reading-companion.is-left { align-items: flex-end; }
 
 .companion-avatar {
   position: relative;
   width: 44px;
   height: 44px;
+  flex: 0 0 44px;
   border-radius: 50%;
   border: 1px solid var(--border-color);
   background: var(--bg-surface-elevated);
@@ -59,13 +51,8 @@
   background: var(--border-color);
 }
 
-.reading-companion.is-right .companion-avatar::before {
-  right: 100%;
-}
-
-.reading-companion.is-left .companion-avatar::before {
-  left: 100%;
-}
+.reading-companion.is-right .companion-avatar::before { right: 100%; }
+.reading-companion.is-left .companion-avatar::before { left: 100%; }
 
 .companion-avatar svg {
   width: 20px;
@@ -86,9 +73,7 @@
   outline-offset: 2px;
 }
 
-.companion-avatar.is-reacting {
-  animation: companion-react .36s ease;
-}
+.companion-avatar.is-reacting { animation: companion-react .36s ease; }
 
 .companion-status-dot {
   position: absolute;
@@ -122,11 +107,9 @@
   transform: translateY(0);
 }
 
-.companion-bubble-text {
-  margin: 0;
-}
+.companion-bubble-text { margin: 0; }
 
-/* Sense marge lateral suficient, l'acompanyant entra al flux i no tapa contingut. */
+/* Si no hi ha prou marge lateral, entra al flux per no cobrir el contingut. */
 .reading-companion.is-inline {
   position: relative;
   top: auto !important;
@@ -138,8 +121,10 @@
   align-items: center;
   justify-content: flex-start;
   gap: .65rem;
-  transition: opacity .2s ease;
+  transition: opacity .18s ease;
 }
+
+.home-blocks-grid > .reading-companion.is-inline { grid-column: 1 / -1; }
 
 .reading-companion.is-inline .companion-avatar {
   flex: 0 0 40px;
@@ -148,9 +133,7 @@
   box-shadow: var(--shadow-sm);
 }
 
-.reading-companion.is-inline .companion-avatar::before {
-  display: none;
-}
+.reading-companion.is-inline .companion-avatar::before { display: none; }
 
 .reading-companion.is-inline .companion-bubble {
   width: min(560px, calc(100% - 52px));
