@@ -20,7 +20,7 @@
 
   loadScript('app-base.js?v=20261031', () => {
     loadScript('companion-core.js?v=20261102a', () => {
-      loadScript('companion-scroll-comments.js?v=20261102b');
+      loadScript('companion-scroll-comments.js?v=20261102c');
     });
 
     const start = () => {
