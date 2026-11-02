@@ -134,6 +134,7 @@
 
 @media (min-width: 1180px) {
   body.companion-enabled .main-content {
+    max-width: min(var(--max-width), calc(100% - 220px));
     margin-right: 220px;
     margin-left: auto;
   }
@@ -211,6 +212,7 @@
   }
 
   body.companion-enabled .main-content {
+    max-width: var(--max-width) !important;
     margin: 0 auto !important;
     padding-right: 1.25rem !important;
   }
