@@ -8,7 +8,7 @@
 .reading-companion {
   position: fixed;
   z-index: 720;
-  width: 232px;
+  width: 186px;
   display: flex;
   flex-direction: column;
   gap: .5rem;
@@ -46,7 +46,7 @@
   content: '';
   position: absolute;
   top: 50%;
-  width: 18px;
+  width: 10px;
   height: 1px;
   background: var(--border-color);
 }
@@ -87,15 +87,15 @@
 }
 
 .companion-bubble {
-  width: 222px;
-  padding: .72rem .82rem;
+  width: 178px;
+  padding: .68rem .74rem;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   background: var(--bg-surface-elevated);
   color: var(--text-main);
   box-shadow: var(--shadow-md);
-  font-size: .83rem;
-  line-height: 1.46;
+  font-size: .81rem;
+  line-height: 1.42;
   opacity: 0;
   transform: translateY(5px);
   transition: opacity .18s ease, transform .18s ease;
@@ -109,7 +109,7 @@
 
 .companion-bubble-text { margin: 0; }
 
-/* Si no hi ha prou marge lateral, entra al flux per no cobrir el contingut. */
+/* En pantalles sense marge suficient, es col·loca entre blocs principals. */
 .reading-companion.is-inline {
   position: relative;
   top: auto !important;
