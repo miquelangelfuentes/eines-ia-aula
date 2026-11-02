@@ -1,66 +1,55 @@
 (() => {
   const PREF_KEY = 'eines-ia:companion-enabled-v1';
-  const SESSION_KEY = 'eines-ia:companion-session-v2';
-  const INTRO_KEY = 'eines-ia:companion-intro-v2';
-  const AUTO_MIN_GAP = 18000;
+  const SESSION_KEY = 'eines-ia:companion-session-v3';
+  const AUTO_MIN_GAP = 14000;
   const GUTTER_MIN = 252;
   const GAP = 18;
 
-  const clickPhrases = [
-    'No cal retenir-ho tot ara. Aquest material també està pensat per tornar-hi quan us sigui útil.',
-    'Podeu quedar-vos amb la idea principal i recuperar els detalls quan els necessiteu.',
-    'Si una eina no encaixa amb la vostra manera de treballar, també és una conclusió útil.',
-    'Provar una idea amb un recurs petit pot ajudar a decidir si val la pena continuar-hi.',
-    'Potser aquesta part ja us és familiar. Podeu centrar-vos només en allò que us aporti alguna cosa nova.',
-    'Quan una prova no surt com esperàveu, sovint dona pistes sobre què convé ajustar.',
-    'Podeu avançar al vostre ritme. El recorregut està pensat perquè cada apartat es pugui reprendre més endavant.',
-    'Una pregunta útil aquí és si això respon a una necessitat que ja teníeu a l’aula.',
-    'No totes les possibilitats han d’acabar convertides en una pràctica habitual.',
-    'Si esteu fent proves mentre llegiu, segurament ja esteu descobrint matisos que el text no pot anticipar.',
-    'Podeu adaptar la proposta al vostre context abans de decidir si us resulta útil.',
-    'Tenir criteri per descartar una opció també forma part del procés de treball amb aquestes eines.',
-    'Si aquest apartat us obre una pregunta nova, ja està fent una part important de la seva feina.',
-    'Podeu tornar a una idea anterior sempre que us ajudi a entendre millor el que esteu provant.'
+  const controlReminders = [
+    'Recordatori: el botó del cursor de la barra superior em mostra o m’amaga.',
+    'Si em voleu amagar o recuperar, feu servir el botó del cursor de la barra superior.'
   ];
 
-  const genericSectionPhrases = [
-    ({ title }) => `Aquest apartat, «${title}», pot ser un bon punt per aturar-vos un moment.`,
-    ({ title }) => `Aquí pot ser útil pensar com encaixaria «${title}» en la vostra pràctica.`,
-    () => 'Aquest és un d’aquells punts que pot guanyar sentit quan el proveu amb un cas propi.',
-    () => 'Podeu llegir aquesta part amb calma i quedar-vos només amb el que us sigui útil ara.',
-    () => 'Aquí hi ha una idea que pot valer la pena recuperar quan comenceu a fer proves.',
-    () => 'Potser aquesta idea ja us és familiar. Fixeu-vos en el matís que us resulti més rellevant.'
+  const clickTips = [
+    'Proveu una idea amb un recurs petit abans d’aplicar-la a una activitat important.',
+    'Quan una resposta d’IA sembli convincent, busqueu algun detall que pugueu verificar independentment.',
+    'Si un agent modifica una web, proveu el resultat després de cada canvi important.',
+    'Abans de publicar, navegueu una estona només amb el teclat: sovint fa visibles problemes d’accessibilitat.',
+    'Abans d’un canvi gran, conserveu una versió que ja funcioni. Git permet tornar-hi si alguna cosa es trenca.',
+    'Si una eina no aporta prou valor pedagògic, descartar-la també és una decisió útil.',
+    'Quan adapteu un recurs generat amb IA, reviseu primer el contingut que afectarà directament l’alumnat.',
+    'En una web educativa, un error petit de ruta pot fer desaparèixer una imatge encara que el fitxer existeixi.',
+    'Si una funció depèn d’un servei extern, penseu què veurà l’usuari quan aquell servei no estigui disponible.',
+    'Una prova en mode fosc pot revelar contrastos que passen desapercebuts en el tema clar.',
+    'Quan una indicació no dona el resultat esperat, sovint és més útil concretar el criteri de revisió que fer-la més llarga.',
+    'Si compartiu un recurs amb altres docents, intenteu que puguin entendre què fa sense haver de llegir el codi.'
   ];
 
   const pagePhrases = {
     'index.html': {
       'Qüestionari de coneixements previs per a docents': [
-        'Aquest qüestionari serveix per situar el punt de partida. No és cap examen.',
-        'Podeu respondre segons el que feu ara mateix, sense pensar en el que creieu que hauríeu de saber.',
-        'El resultat només vol orientar el recorregut pel material.'
+        'Curiositat: les respostes d’aquest qüestionari es desen al navegador; no s’envien a cap servidor.',
+        'Consell: respongueu segons el que feu ara. El resultat serveix per orientar el recorregut pel material.'
       ],
       'Accés al material del taller': [
-        'Aquí teniu dues maneres d’entrar al mateix material durant la sessió.',
-        'Si compartiu el recurs amb altres docents, aquesta entrada curta pot facilitar-ne l’accés.'
+        'Consell: l’adreça curta i el QR porten al mateix lloc; podeu triar el que sigui més còmode durant la sessió.',
+        'Curiositat: un QR no conté la pàgina web, sinó l’adreça que el dispositiu ha d’obrir.'
       ]
     },
     'bloc1-marc.html': {
       'Feu créixer una idea en forma de recurs web': [
-        'Aquesta idea és central: el recurs pot evolucionar a mesura que el proveu.',
-        'No cal decidir-ho tot al principi. Una primera versió ja us dona informació per continuar.',
-        'Aquí el valor és poder revisar el mateix projecte després de cada prova.'
+        'Consell: una primera versió que funcioni és més útil que intentar definir tot el projecte abans de provar-lo.',
+        'Curiositat: treballar sobre el mateix projecte permet comparar canvis successius sense començar de zero.'
       ],
       "Per què s'ha triat Google Antigravity i GitHub?": [
-        'Aquesta tria respon al recorregut del taller. Podeu aplicar el mateix criteri amb altres eines.',
-        'Fixeu-vos en la funció de cada eina dins del procés, més que en el nom concret del producte.',
-        'Aquest apartat pot ajudar a separar què feu al dispositiu del que després publiqueu.'
+        'Fixeu-vos en la funció de cada eina dins del recorregut. Aquesta distinció és reutilitzable amb altres eines.',
+        'Consell: separar l’edició local de la publicació ajuda a saber on buscar quan alguna cosa falla.'
       ]
     }
   };
 
   let enabled = readPreference();
   let activeTarget = null;
-  let activeIndex = 0;
   let activeKey = '';
   let messageTimer = null;
   let lastAutoAt = Date.now();
@@ -72,7 +61,7 @@
   let bubble;
   let bubbleText;
   let toggle;
-  let introDone = sessionStorage.getItem(INTRO_KEY) === 'seen';
+  let introShown = false;
 
   function readPreference() {
     const saved = localStorage.getItem(PREF_KEY);
@@ -156,11 +145,47 @@
     });
   }
 
+  function contextualPhrases(target, title) {
+    const text = (target.textContent || '').toLowerCase();
+    const items = [];
+
+    if (text.includes('github pages')) {
+      items.push('Curiositat: GitHub Pages publica fitxers web estàtics directament des d’un repositori.');
+      items.push('Consell: a GitHub Pages, una ruta relativa mal escrita pot trencar un recurs encara que el fitxer sigui al repositori.');
+    }
+    if (text.includes('index.html')) {
+      items.push('Curiositat: molts servidors web busquen index.html com a pàgina d’entrada per defecte.');
+      items.push('Consell: en publicar, reviseu majúscules i minúscules dels noms de fitxer; poden importar més que al vostre ordinador.');
+    }
+    if (text.includes('llicència') || text.includes('llicencies') || text.includes('llicències')) {
+      items.push('Curiositat: una llicència no elimina els drets d’autor; explica quins usos autoritza la persona titular.');
+    }
+    if (target.querySelector('img')) {
+      items.push('Consell: el text alternatiu d’una imatge ha d’explicar la informació que aporta, no descriure cada detall visual.');
+    }
+    if (target.querySelector('input, select, textarea, button')) {
+      items.push('Consell: proveu aquest element amb Tab i Enter. És una comprovació ràpida per detectar barreres de navegació.');
+    }
+    if (target.querySelector('code, pre')) {
+      items.push('Consell: quan reviseu codi generat, canvieu una sola cosa cada vegada i comproveu el resultat abans de continuar.');
+    }
+    if (target.querySelector('a[target="_blank"]')) {
+      items.push('Consell: els recursos externs poden canviar. Si són essencials per a l’activitat, convé tenir una alternativa.');
+    }
+
+    if (!items.length) {
+      items.push(`Consell: després de «${title}», proveu de resumir en una frase què aplicaríeu en un recurs propi.`);
+      items.push('Fixeu-vos en quina decisió pràctica us emporteu d’aquest apartat; la resta pot quedar com a material de consulta.');
+    }
+
+    return items;
+  }
+
   function sectionPhrases(target, index) {
     const title = titleFor(target, index);
     const specific = pagePhrases[currentPage()]?.[title];
     if (specific?.length) return { title, items: specific };
-    return { title, items: genericSectionPhrases.map((makePhrase) => makePhrase({ title })) };
+    return { title, items: contextualPhrases(target, title) };
   }
 
   function announce(message) {
@@ -215,7 +240,7 @@
     avatar = document.createElement('button');
     avatar.type = 'button';
     avatar.className = 'companion-avatar';
-    avatar.setAttribute('aria-label', 'Fer clic a l’acompanyant de lectura');
+    avatar.setAttribute('aria-label', 'Llegir un consell de l’acompanyant');
     avatar.innerHTML = '<i data-lucide="mouse-pointer-2" aria-hidden="true"></i><span class="companion-status-dot" aria-hidden="true"></span>';
     avatar.addEventListener('click', handleCompanionClick);
 
@@ -236,15 +261,15 @@
   }
 
   function introText() {
-    return 'Hola! Soc l’acompanyant de lectura. Em mouré per la pàgina i, de tant en tant, em fixaré en algun detall. Podeu mostrar-me o amagar-me amb el botó del cursor de la barra superior. També em podeu fer clic quan vulgueu llegir un comentari.';
+    return 'Hola! Soc l’acompanyant. Em podeu mostrar o amagar amb el botó del cursor de la barra. Feu-me clic per veure un consell.';
   }
 
   function showIntro() {
-    if (!enabled || introDone) return;
-    introDone = true;
-    sessionStorage.setItem(INTRO_KEY, 'seen');
+    if (!enabled || introShown) return;
+    introShown = true;
     lastAutoAt = Date.now();
-    showMessage(introText(), { duration: 12000, force: true });
+    positionCompanion();
+    showMessage(introText(), { duration: 7200, force: true });
   }
 
   function setEnabled(next, userAction = false) {
@@ -257,8 +282,8 @@
     if (!userAction) return;
     if (enabled) {
       positionCompanion();
-      if (!introDone) showIntro();
-      else showMessage('Ja torno a ser aquí. Em mouré amb la lectura. Si em feu clic, us deixaré algun comentari.', { duration: 6500, force: true });
+      if (!introShown) showIntro();
+      else showMessage('Ja torno a ser aquí. El botó del cursor em torna a amagar.', { duration: 4800, force: true });
       announce('Acompanyant de lectura activat');
     } else {
       announce('Acompanyant de lectura amagat');
@@ -267,14 +292,15 @@
 
   function handleCompanionClick() {
     if (!enabled) return;
-    const text = takeFromDeck('click', clickPhrases);
-    showMessage(text, { duration: 7600, force: true });
+    const reminder = takeFromDeck('controls', controlReminders);
+    const tip = takeFromDeck('click-tips', clickTips);
+    showMessage(`${reminder} ${tip}`, { duration: 7800, force: true });
     avatar.classList.remove('is-reacting');
     void avatar.offsetWidth;
     avatar.classList.add('is-reacting');
   }
 
-  function showMessage(text, { duration = 5600, force = false } = {}) {
+  function showMessage(text, { duration = 5400, force = false } = {}) {
     if (!enabled || !text) return;
     clearTimeout(messageTimer);
     bubbleText.textContent = text;
@@ -338,16 +364,15 @@
     root.style.left = `${Math.round(Math.max(8, left))}px`;
   }
 
-  function activateSection(target, index, { silent = false } = {}) {
+  function activateSection(target, index) {
     if (!target || target === activeTarget) return;
     activeTarget = target;
-    activeIndex = index;
     const { title, items } = sectionPhrases(target, index);
     activeKey = `${currentPage()}::${title}`;
     sectionChanges += 1;
     positionCompanion();
 
-    if (!enabled || silent || !introDone) return;
+    if (!enabled || !introShown) return;
     const now = Date.now();
     const enoughTime = now - lastAutoAt >= AUTO_MIN_GAP;
     const shouldComment = sectionChanges % 2 === 0;
@@ -399,7 +424,6 @@
     const sections = candidates();
     if (sections.length) {
       activeTarget = sections[0];
-      activeIndex = 0;
       const { title } = sectionPhrases(activeTarget, 0);
       activeKey = `${currentPage()}::${title}`;
     } else {
@@ -411,7 +435,7 @@
     observeSections(sections);
     observeFooter();
 
-    if (enabled && !introDone) setTimeout(showIntro, 500);
+    if (enabled) setTimeout(showIntro, 350);
   }
 
   if (document.readyState === 'loading') {
