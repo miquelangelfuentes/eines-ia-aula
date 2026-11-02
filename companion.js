@@ -1,6 +1,6 @@
 (() => {
   const PREF_KEY = 'eines-ia:companion-enabled-v1';
-  const SESSION_KEY = 'eines-ia:companion-session-v3';
+  const SESSION_KEY = 'eines-ia:companion-session-v4';
   const AUTO_MIN_GAP = 14000;
   const GUTTER_MIN = 252;
   const GAP = 18;
@@ -34,6 +34,18 @@
       'Accés al material del taller': [
         'Consell: l’adreça curta i el codi QR porten al mateix lloc. Trieu l’opció que us sigui més còmoda durant la sessió.',
         'Curiositat: un codi QR no conté la pàgina web, sinó l’adreça que el dispositiu ha d’obrir.'
+      ],
+      'Marc: de consultar a crear': [
+        'Curiositat: una web senzilla pot continuar funcionant encara que canvieu d’assistent d’IA, perquè els fitxers són vostres.',
+        'Consell: comenceu per una funció concreta i amplieu-la quan ja hàgiu comprovat que funciona.'
+      ],
+      'Google Antigravity pas a pas': [
+        'Consell: quan treballeu amb un agent, demaneu canvis petits i comprovables. Això facilita detectar què ha canviat.',
+        'Curiositat: un agent pot editar diversos fitxers d’un projecte en una sola tasca.'
+      ],
+      'Configuració de GitHub': [
+        'Curiositat: un repositori conserva l’historial dels canvis i permet recuperar versions anteriors.',
+        'Consell: abans de publicar, reviseu que els noms dels fitxers coincideixin exactament amb les rutes de la web.'
       ]
     },
     'bloc1-marc.html': {
@@ -54,14 +66,14 @@
   let messageTimer = null;
   let lastAutoAt = Date.now();
   let sectionChanges = 0;
-  let observer = null;
-  let footerObserver = null;
   let root;
   let avatar;
   let bubble;
   let bubbleText;
   let toggle;
   let introShown = false;
+  let sections = [];
+  let positionFrame = 0;
 
   function readPreference() {
     const saved = localStorage.getItem(PREF_KEY);
@@ -136,12 +148,22 @@
     const main = document.getElementById('contingut-principal') || document.querySelector('main');
     if (!main) return [];
 
-    let nodes = [...main.querySelectorAll(':scope > .content-box, :scope > section, :scope > .diagnostic-quiz-box, :scope > figure, :scope > .pedagogical-highlight')];
-    if (nodes.length < 2) nodes = [...main.querySelectorAll('.content-box, section')];
+    let nodes = [...main.querySelectorAll(
+      ':scope > .content-box, ' +
+      ':scope > section, ' +
+      ':scope > .diagnostic-quiz-box, ' +
+      ':scope > figure, ' +
+      ':scope > .pedagogical-highlight, ' +
+      ':scope > .home-blocks-grid > .home-block-card'
+    )];
+
+    if (nodes.length < 2) {
+      nodes = [...main.querySelectorAll('.content-box, section, .home-block-card')];
+    }
 
     return nodes.filter((node) => {
       const rect = node.getBoundingClientRect();
-      return rect.height > 110 && !node.closest('[hidden]');
+      return rect.height > 90 && !node.closest('[hidden]');
     });
   }
 
@@ -193,6 +215,7 @@
       window.announce(message);
       return;
     }
+
     let region = document.getElementById('companion-live-region');
     if (!region) {
       region = document.createElement('div');
@@ -201,6 +224,7 @@
       region.setAttribute('aria-live', 'polite');
       document.body.appendChild(region);
     }
+
     region.textContent = '';
     setTimeout(() => { region.textContent = message; }, 20);
   }
@@ -211,6 +235,7 @@
 
   function buildUI() {
     const controls = document.querySelector('.controls-group');
+
     if (controls && !document.getElementById('btn-toggle-companion')) {
       toggle = document.createElement('button');
       toggle.id = 'btn-toggle-companion';
@@ -229,6 +254,13 @@
     root.className = 'reading-companion';
     root.setAttribute('aria-label', 'Acompanyant de lectura');
 
+    avatar = document.createElement('button');
+    avatar.type = 'button';
+    avatar.className = 'companion-avatar';
+    avatar.setAttribute('aria-label', 'Llegir un consell de l’acompanyant');
+    avatar.innerHTML = '<i data-lucide="mouse-pointer-2" aria-hidden="true"></i><span class="companion-status-dot" aria-hidden="true"></span>';
+    avatar.addEventListener('click', handleCompanionClick);
+
     bubble = document.createElement('div');
     bubble.className = 'companion-bubble';
     bubble.hidden = true;
@@ -237,17 +269,11 @@
     bubbleText.className = 'companion-bubble-text';
     bubble.appendChild(bubbleText);
 
-    avatar = document.createElement('button');
-    avatar.type = 'button';
-    avatar.className = 'companion-avatar';
-    avatar.setAttribute('aria-label', 'Llegir un consell de l’acompanyant');
-    avatar.innerHTML = '<i data-lucide="mouse-pointer-2" aria-hidden="true"></i><span class="companion-status-dot" aria-hidden="true"></span>';
-    avatar.addEventListener('click', handleCompanionClick);
-
-    root.append(bubble, avatar);
+    root.append(avatar, bubble);
     document.body.appendChild(root);
 
-    window.addEventListener('resize', positionCompanion, { passive: true });
+    window.addEventListener('scroll', schedulePosition, { passive: true });
+    window.addEventListener('resize', schedulePosition, { passive: true });
     refreshLucide();
   }
 
@@ -268,20 +294,22 @@
     if (!enabled || introShown) return;
     introShown = true;
     lastAutoAt = Date.now();
-    positionCompanion();
+    schedulePosition();
     showMessage(introText(), { duration: 7200, force: true });
   }
 
   function setEnabled(next, userAction = false) {
     enabled = next;
     localStorage.setItem(PREF_KEY, String(enabled));
+
     if (root) root.hidden = !enabled;
     if (!enabled) hideMessage(true);
     updateToggle();
 
     if (!userAction) return;
+
     if (enabled) {
-      positionCompanion();
+      schedulePosition();
       if (!introShown) showIntro();
       else showMessage('Ja torno a ser aquí. Podeu amagar-me de nou amb el botó del cursor.', { duration: 4800, force: true });
       announce('Acompanyant de lectura activat');
@@ -295,6 +323,7 @@
     const reminder = takeFromDeck('controls', controlReminders);
     const tip = takeFromDeck('click-tips', clickTips);
     showMessage(`${reminder} ${tip}`, { duration: 7800, force: true });
+
     avatar.classList.remove('is-reacting');
     void avatar.offsetWidth;
     avatar.classList.add('is-reacting');
@@ -302,11 +331,17 @@
 
   function showMessage(text, { duration = 5400, force = false } = {}) {
     if (!enabled || !text) return;
+
     clearTimeout(messageTimer);
     bubbleText.textContent = text;
     bubble.hidden = false;
     bubble.classList.remove('is-visible');
-    requestAnimationFrame(() => bubble.classList.add('is-visible'));
+
+    requestAnimationFrame(() => {
+      bubble.classList.add('is-visible');
+      schedulePosition();
+    });
+
     if (force) announce(text);
     messageTimer = setTimeout(() => hideMessage(), duration);
   }
@@ -314,35 +349,88 @@
   function hideMessage(immediate = false) {
     clearTimeout(messageTimer);
     if (!bubble) return;
+
     bubble.classList.remove('is-visible');
-    if (immediate) bubble.hidden = true;
-    else setTimeout(() => {
-      if (!bubble.classList.contains('is-visible')) bubble.hidden = true;
+
+    if (immediate) {
+      bubble.hidden = true;
+      schedulePosition();
+      return;
+    }
+
+    setTimeout(() => {
+      if (!bubble.classList.contains('is-visible')) {
+        bubble.hidden = true;
+        schedulePosition();
+      }
     }, 180);
   }
 
   function placeInline() {
     if (!root || !activeTarget) return;
+
     root.classList.add('is-inline');
     root.classList.remove('is-left', 'is-right');
     root.style.removeProperty('top');
     root.style.removeProperty('left');
+
+    const grid = activeTarget.closest?.('.home-blocks-grid');
+    if (grid && activeTarget.parentElement === grid) {
+      activeTarget.insertAdjacentElement('beforebegin', root);
+      return;
+    }
+
     const heading = activeTarget.querySelector?.(':scope > h2, :scope > h3');
     if (heading) heading.insertAdjacentElement('afterend', root);
     else if (activeTarget.firstElementChild) activeTarget.insertBefore(root, activeTarget.firstElementChild);
     else activeTarget.appendChild(root);
   }
 
+  function headerBottom() {
+    const topBar = document.querySelector('.top-bar');
+    const rect = topBar?.getBoundingClientRect();
+    if (!rect || rect.bottom <= 0) return 0;
+    return rect.bottom;
+  }
+
+  function updateActiveTarget() {
+    if (!sections.length) return;
+
+    const minY = Math.max(0, headerBottom());
+    const anchorY = minY + (window.innerHeight - minY) * 0.38;
+    let best = null;
+    let bestDistance = Number.POSITIVE_INFINITY;
+
+    sections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.bottom <= minY || rect.top >= window.innerHeight) return;
+
+      let distance = 0;
+      if (anchorY < rect.top) distance = rect.top - anchorY;
+      else if (anchorY > rect.bottom) distance = anchorY - rect.bottom;
+
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        best = { section, index };
+      }
+    });
+
+    if (best && best.section !== activeTarget) {
+      activateSection(best.section, best.index);
+    }
+  }
+
   function positionCompanion() {
     if (!enabled || !root || !activeTarget) return;
 
-    if (root.parentElement !== document.body) document.body.appendChild(root);
-    root.classList.remove('is-inline', 'is-left', 'is-right');
+    const main = document.getElementById('contingut-principal') || document.querySelector('main');
+    const mainRect = main?.getBoundingClientRect();
+    const targetRect = activeTarget.getBoundingClientRect();
+    if (!mainRect) return;
 
-    const rect = activeTarget.getBoundingClientRect();
     const rootWidth = 232;
-    const rightSpace = window.innerWidth - rect.right;
-    const leftSpace = rect.left;
+    const rightSpace = window.innerWidth - mainRect.right;
+    const leftSpace = mainRect.left;
     const canRight = rightSpace >= GUTTER_MIN;
     const canLeft = leftSpace >= GUTTER_MIN;
 
@@ -351,21 +439,46 @@
       return;
     }
 
+    if (root.parentElement !== document.body) document.body.appendChild(root);
+    root.classList.remove('is-inline', 'is-left', 'is-right');
+
     const side = canRight && (!canLeft || rightSpace >= leftSpace) ? 'right' : 'left';
-    const docTop = window.scrollY + rect.top;
-    const targetOffset = Math.min(86, Math.max(34, rect.height * 0.12));
-    const top = Math.max(110, docTop + targetOffset);
     const left = side === 'right'
-      ? window.scrollX + rect.right + GAP
-      : window.scrollX + rect.left - rootWidth - GAP;
+      ? mainRect.right + GAP
+      : mainRect.left - rootWidth - GAP;
+
+    const minTop = Math.max(72, headerBottom() + 16);
+    const rootHeight = Math.max(44, root.getBoundingClientRect().height);
+    const maxTop = Math.max(minTop, window.innerHeight - rootHeight - 24);
+    const visibleTop = Math.max(targetRect.top, minTop);
+    const visibleBottom = Math.min(targetRect.bottom, window.innerHeight - 24);
+
+    let preferredTop = minTop + (window.innerHeight - minTop) * 0.38;
+    if (visibleBottom > visibleTop + 20) {
+      const visibleHeight = visibleBottom - visibleTop;
+      preferredTop = visibleTop + Math.min(86, Math.max(22, visibleHeight * 0.28));
+    }
+
+    const top = Math.min(maxTop, Math.max(minTop, preferredTop));
 
     root.classList.add(side === 'right' ? 'is-right' : 'is-left');
     root.style.top = `${Math.round(top)}px`;
     root.style.left = `${Math.round(Math.max(8, left))}px`;
   }
 
+  function schedulePosition() {
+    if (positionFrame) return;
+
+    positionFrame = requestAnimationFrame(() => {
+      positionFrame = 0;
+      updateActiveTarget();
+      positionCompanion();
+    });
+  }
+
   function activateSection(target, index) {
     if (!target || target === activeTarget) return;
+
     activeTarget = target;
     const { title, items } = sectionPhrases(target, index);
     activeKey = `${currentPage()}::${title}`;
@@ -373,6 +486,7 @@
     positionCompanion();
 
     if (!enabled || !introShown) return;
+
     const now = Date.now();
     const enoughTime = now - lastAutoAt >= AUTO_MIN_GAP;
     const shouldComment = sectionChanges % 2 === 0;
@@ -385,55 +499,21 @@
     }
   }
 
-  function observeSections(sections) {
-    if (!sections.length) return;
-
-    observer = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => {
-          const aDistance = Math.abs(a.boundingClientRect.top - window.innerHeight * 0.38);
-          const bDistance = Math.abs(b.boundingClientRect.top - window.innerHeight * 0.38);
-          return aDistance - bDistance;
-        });
-
-      if (!visible.length) return;
-      const target = visible[0].target;
-      activateSection(target, sections.indexOf(target));
-    }, {
-      rootMargin: '-16% 0px -46% 0px',
-      threshold: [0.02, 0.15, 0.4]
-    });
-
-    sections.forEach((section) => observer.observe(section));
-  }
-
-  function observeFooter() {
-    const footer = document.querySelector('.footer, footer');
-    if (!footer || !root) return;
-    footerObserver = new IntersectionObserver(([entry]) => {
-      root.classList.toggle('near-footer', entry.isIntersecting);
-    }, { threshold: 0.05 });
-    footerObserver.observe(footer);
-  }
-
   function init() {
     if (document.getElementById('reading-companion')) return;
-    buildUI();
 
-    const sections = candidates();
-    if (sections.length) {
-      activeTarget = sections[0];
-      const { title } = sectionPhrases(activeTarget, 0);
+    buildUI();
+    sections = candidates();
+    activeTarget = sections[0] || document.getElementById('contingut-principal') || document.querySelector('main');
+
+    if (activeTarget) {
+      const index = Math.max(0, sections.indexOf(activeTarget));
+      const { title } = sectionPhrases(activeTarget, index);
       activeKey = `${currentPage()}::${title}`;
-    } else {
-      activeTarget = document.getElementById('contingut-principal') || document.querySelector('main');
     }
 
     setEnabled(enabled, false);
-    positionCompanion();
-    observeSections(sections);
-    observeFooter();
+    schedulePosition();
 
     if (enabled) setTimeout(showIntro, 350);
   }
