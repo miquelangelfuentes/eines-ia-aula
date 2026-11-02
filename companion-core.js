@@ -1,8 +1,8 @@
 (() => {
   const PREF_KEY = 'eines-ia:companion-enabled-v1';
   const SESSION_KEY = 'eines-ia:companion-core-v1';
-  const GUTTER_MIN = 196;
-  const GAP = 10;
+  const RIGHT_GAP = 12;
+  const VIEWPORT_GAP = 12;
 
   const controlReminders = [
     'Podeu mostrar-me o amagar-me amb el botó del cursor de la barra superior.',
@@ -123,7 +123,7 @@
 
     root = document.createElement('aside');
     root.id = 'reading-companion';
-    root.className = 'reading-companion';
+    root.className = 'reading-companion is-right';
     root.setAttribute('aria-label', 'Acompanyant de lectura');
 
     avatar = document.createElement('button');
@@ -241,6 +241,14 @@
       '.prompt-box',
       '.comparison-card',
       '.tool-card',
+      '.card-item',
+      '.vibe-card',
+      '.check-item',
+      '.license-box',
+      '.conference-visual',
+      '.table-responsive',
+      '.pedagogical-highlight',
+      '.workshop-access-card',
       '[data-companion-comment]'
     ].join(', ');
 
@@ -286,69 +294,43 @@
     if (best) activeTarget = best;
   }
 
-  function placeInline() {
-    if (!root || !activeTarget) return;
-    const main = document.getElementById('contingut-principal') || document.querySelector('main');
-    if (!main) return;
-
-    root.classList.add('is-inline');
-    root.classList.remove('is-left', 'is-right');
-    root.style.removeProperty('top');
-    root.style.removeProperty('left');
-
-    let block = activeTarget;
-    while (block.parentElement && block.parentElement !== main) {
-      block = block.parentElement;
-    }
-
-    if (block.parentElement === main) block.insertAdjacentElement('beforebegin', root);
-    else main.prepend(root);
-  }
-
   function positionCompanion() {
     if (!enabled || !root) return;
     if (!activeTarget) updateActiveTarget();
     if (!activeTarget) return;
+
+    if (root.parentElement !== document.body) document.body.appendChild(root);
+    root.classList.remove('is-inline', 'is-left');
+    root.classList.add('is-right');
 
     const main = document.getElementById('contingut-principal') || document.querySelector('main');
     const mainRect = main?.getBoundingClientRect();
     const targetRect = activeTarget.getBoundingClientRect();
     if (!mainRect) return;
 
-    const rootWidth = 186;
-    const rightSpace = window.innerWidth - mainRect.right;
-    const leftSpace = mainRect.left;
-    const canRight = rightSpace >= GUTTER_MIN;
-    const canLeft = leftSpace >= GUTTER_MIN;
-
-    if (!canRight && !canLeft) {
-      placeInline();
-      return;
-    }
-
-    if (root.parentElement !== document.body) document.body.appendChild(root);
-    root.classList.remove('is-inline', 'is-left', 'is-right');
-
-    const side = canRight && (!canLeft || rightSpace >= leftSpace) ? 'right' : 'left';
-    const left = side === 'right'
-      ? mainRect.right + GAP
-      : mainRect.left - rootWidth - GAP;
+    const rootWidth = Math.max(44, root.getBoundingClientRect().width || 186);
+    const idealLeft = mainRect.right + RIGHT_GAP;
+    const maxLeft = window.innerWidth - rootWidth - VIEWPORT_GAP;
+    const left = Math.max(VIEWPORT_GAP, Math.min(idealLeft, maxLeft));
 
     const minTop = Math.max(72, headerBottom() + 16);
     const rootHeight = Math.max(44, root.getBoundingClientRect().height);
-    const maxTop = Math.max(minTop, window.innerHeight - rootHeight - 24);
+    const maxTop = Math.max(minTop, window.innerHeight - rootHeight - 20);
+
     const visibleTop = Math.max(targetRect.top, minTop);
-    const visibleBottom = Math.min(targetRect.bottom, window.innerHeight - 24);
+    const visibleBottom = Math.min(targetRect.bottom, window.innerHeight - 20);
+    const visibleHeight = Math.max(0, visibleBottom - visibleTop);
 
     let preferredTop = minTop + (window.innerHeight - minTop) * 0.42;
-    if (visibleBottom > visibleTop + 20) {
-      preferredTop = visibleTop + Math.min(72, Math.max(18, (visibleBottom - visibleTop) * 0.26));
+    if (visibleHeight > 20) {
+      const targetAnchor = visibleTop + Math.min(72, Math.max(22, visibleHeight * 0.28));
+      preferredTop = targetAnchor - 22;
     }
 
     const top = Math.min(maxTop, Math.max(minTop, preferredTop));
-    root.classList.add(side === 'right' ? 'is-right' : 'is-left');
     root.style.top = `${Math.round(top)}px`;
-    root.style.left = `${Math.round(Math.max(8, left))}px`;
+    root.style.left = `${Math.round(left)}px`;
+    root.style.right = 'auto';
   }
 
   function schedulePosition() {
