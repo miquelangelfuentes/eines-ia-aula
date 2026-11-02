@@ -16,10 +16,10 @@
     document.head.appendChild(link);
   };
 
-  loadStyle('companion.css?v=20261102d');
+  loadStyle('companion.css?v=20261102e');
 
   loadScript('app-base.js?v=20261031', () => {
-    loadScript('companion-core.js?v=20261102b', () => {
+    loadScript('companion-core.js?v=20261102c', () => {
       loadScript('companion-scroll-comments.js?v=20261102f');
     });
 
