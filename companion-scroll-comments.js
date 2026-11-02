@@ -1,7 +1,7 @@
 (() => {
   const READY_DELAY = 5900;
   const COMMENT_DURATION = 3000;
-  const STORAGE_KEY = 'eines-ia:companion-scroll-comments-v4';
+  const STORAGE_KEY = 'eines-ia:companion-scroll-comments-v5';
   let readyAt = Date.now() + READY_DELAY;
   let lastTarget = null;
   let hideTimer = null;
@@ -11,45 +11,56 @@
 
   const specificComments = {
     'Accés al material del taller': [
-      'El codi QR facilita l’accés al material des del mòbil.',
-      'L’adreça curta és pràctica quan compartiu el recurs a la pissarra.'
+      'Amb el codi QR, el grup pot obrir el material directament des del mòbil.',
+      'Si projecteu l’adreça curta, tothom pot entrar al recurs sense copiar una URL llarga.'
     ],
     'Qüestionari de coneixements previs per a docents': [
-      'Us orienta cap als blocs que poden encaixar millor amb el vostre punt de partida.',
-      'Les respostes queden desades al navegador i podeu reprendre el recorregut més endavant.'
+      'No sabeu per on començar? Aquest qüestionari us orienta cap als blocs més adients.',
+      'El resultat us pot servir per decidir quines parts del taller voleu prioritzar.'
     ],
     'Objectius de la sessió': [
-      'Aquí podeu veure què treballareu i amb quin propòsit.'
+      'Una mirada ràpida als objectius us ajuda a anticipar què podreu posar en pràctica.',
+      'Aquí podeu situar el recorregut de la sessió abans d’entrar en els detalls.'
     ],
     'Marc: de consultar a crear': [
-      'Aquí veureu com una necessitat docent es pot transformar en una primera idea de recurs.'
+      'Penseu en una necessitat docent concreta: aquest bloc mostra com començar a convertir-la en un recurs.',
+      'És un bon punt de partida per passar d’una idea general a una primera prova.'
     ],
     'Google Antigravity pas a pas': [
-      'Podeu demanar canvis concrets amb llenguatge natural i comprovar-ne el resultat.'
+      'Proveu d’explicar el canvi que voleu amb paraules senzilles i reviseu què modifica l’agent.',
+      'Aquí veureu com donar instruccions a una eina que pot editar els fitxers del projecte.'
     ],
     'Configuració de GitHub': [
-      'L’historial de versions us permet recuperar una versió anterior quan la necessiteu.'
+      'Si un canvi no surt com esperàveu, l’historial us permet recuperar una versió anterior.',
+      'GitHub us ajuda a conservar el projecte i seguir-ne l’evolució amb el temps.'
     ],
     'Pages en comparació amb Google Sites': [
-      'Aquesta comparació us ajuda a triar una forma de publicació adequada al recurs que voleu crear.'
+      'Quina opció encaixa millor amb el recurs que voleu publicar? Aquesta comparació us ajuda a decidir.',
+      'Fixeu-vos en la portabilitat: pot ser important si voleu conservar el control dels fitxers.'
     ],
     'Llicències i codi obert': [
-      'La llicència indica com voleu que altres persones puguin reutilitzar el material.'
+      'Una llicència explica què permeteu fer amb el material que compartiu.',
+      'Aquesta part us pot ajudar a reutilitzar recursos d’altres persones amb més seguretat.'
     ],
     'Recursos visuals i citació': [
-      'Aquí trobareu criteris per incorporar imatges amb una atribució adequada.'
+      'Una imatge ben citada també ensenya una bona pràctica a qui consulta el material.',
+      'Aquí trobareu una manera senzilla d’incorporar recursos visuals indicant-ne l’origen.'
     ],
     "Bones pràctiques a l'aula": [
-      'Podeu utilitzar aquests criteris com a revisió abans de portar el recurs a l’aula.'
+      'Abans de portar un recurs a l’aula, aquesta secció us pot servir com a revisió pràctica.',
+      'Podeu comparar aquestes pautes amb un material que ja feu servir i detectar possibles millores.'
     ],
     'Llista de verificació': [
-      'Aquesta llista és útil com a última comprovació abans de compartir el recurs.'
+      'Una comprovació final pot evitar petits problemes quan compartiu el recurs amb el grup.',
+      'Feu servir aquesta llista quan el recurs ja estigui gairebé a punt per publicar.'
     ],
     'Per continuar explorant: IA local': [
-      'La IA local pot ser interessant quan voleu tenir més control sobre les dades.'
+      'Treballar amb IA local pot donar-vos més control sobre on es processen les dades.',
+      'Aquest enfocament pot ser interessant si al centre us preocupa especialment la gestió de dades.'
     ],
     'Crèdits i llicències': [
-      'Aquí podeu comprovar l’autoria dels recursos i les condicions d’ús.'
+      'Els crèdits permeten saber d’on prové cada recurs i com es pot reutilitzar.',
+      'Quan creeu materials propis, aquesta secció us pot servir de model per documentar les fonts.'
     ]
   };
 
@@ -80,6 +91,13 @@
     return text;
   }
 
+  function cleanVisibleText(text) {
+    return (text || '')
+      .replace(/[«»]/g, '')
+      .replace(/\bclau\b/gi, 'important')
+      .trim();
+  }
+
   function titleFor(target) {
     const heading = target.querySelector?.('h2, h3, .home-card-title, .quiz-q-title, .step-content h3');
     return (heading?.textContent || '')
@@ -99,7 +117,7 @@
 
   function commentsFor(target) {
     const explicit = target.getAttribute?.('data-companion-comment');
-    if (explicit) return [explicit.replace(/[«»]/g, '')];
+    if (explicit) return [cleanVisibleText(explicit)];
 
     const title = titleFor(target);
     if (specificComments[title]) return specificComments[title];
@@ -110,97 +128,118 @@
     if (hasImageCredit(target)) {
       return [
         'Aquesta imatge està correctament citada!',
-        'Fixeu-vos en el peu: pot servir de model quan citeu imatges als vostres recursos.'
+        'Fixeu-vos en el peu: és un bon model per citar imatges en materials propis.'
       ];
     }
 
     if (target.matches?.('figure')) {
       const image = target.querySelector('img');
       if (image?.alt?.trim()) {
-        items.push('El text alternatiu permet transmetre la informació de la imatge a qui no la pot veure.');
+        items.push('El text alternatiu fa que la informació de la imatge també sigui accessible sense veure-la.');
+        items.push('Bona pràctica: aquesta imatge incorpora una descripció per a tecnologies d’assistència.');
       }
       if (target.querySelector('figcaption')) {
-        items.push('El peu de la imatge ajuda a identificar-ne l’origen o a explicar què mostra.');
+        items.push('El peu aporta context i ajuda a identificar l’origen de la imatge.');
       }
     }
 
     if (target.classList?.contains('home-block-card')) {
-      items.push(`Si aquest tema us resulta nou, el bloc ${title} us permet començar-hi de manera guiada.`);
+      items.push(`Us interessa aquest tema? El bloc ${title} us permet aprofundir-hi de manera guiada.`);
+      items.push(`Podeu deixar ${title} per més endavant i tornar-hi quan us sigui útil.`);
     }
 
     if (target.classList?.contains('ordered-step-item')) {
-      items.push('Aquest objectiu concreta què podreu posar en pràctica durant la sessió.');
+      items.push('Aquest objectiu concreta una acció que podreu provar durant la sessió.');
+      items.push('Pregunteu-vos com traslladaríeu aquest objectiu a una activitat vostra.');
     }
 
     if (target.classList?.contains('pedagogical-highlight')) {
-      items.push('Podeu fer servir aquesta idea com a criteri quan adapteu el recurs a la vostra aula.');
+      items.push('Aquesta idea us pot servir com a criteri quan reviseu una activitat pròpia.');
+      items.push('Pot ser un bon moment per pensar si aquest criteri encaixa amb el vostre alumnat.');
     }
 
     if (target.classList?.contains('workshop-access-card')) {
-      items.push('Aquest accés us permet obrir el material ràpidament durant la sessió.');
+      items.push('Aquest accés està pensat perquè pugueu entrar al material ràpidament durant la sessió.');
     }
 
     if (text.includes('github pages')) {
-      items.push('GitHub Pages us serveix per convertir els fitxers del projecte en una web pública.');
+      items.push('GitHub Pages converteix els fitxers del projecte en una web que podeu compartir.');
+      items.push('Una vegada publicat, el recurs es pot obrir amb un enllaç com qualsevol altra web.');
     }
 
     if (text.includes('index.html')) {
-      items.push('Recordeu index.html: acostuma a ser el fitxer que una web obre primer.');
+      items.push('Curiositat: index.html acostuma a ser el primer fitxer que obre una web.');
+      items.push('Si la pàgina inicial no apareix, revisar index.html és un bon primer pas.');
     }
 
     if (text.includes('lucide')) {
-      items.push('Lucide és una biblioteca d’icones que ajuda a mantenir un estil visual coherent.');
+      items.push('Lucide ofereix icones amb un estil coherent, útil quan voleu donar unitat visual al material.');
+      items.push('Podeu reutilitzar aquestes icones en altres recursos mantenint el mateix llenguatge visual.');
     }
 
     if (text.includes('llicència') || text.includes('llicències')) {
-      items.push('La llicència explica quins usos autoritzeu quan compartiu el recurs.');
+      items.push('La llicència us diu què podeu fer amb un recurs abans de reutilitzar-lo.');
+      items.push('Quan publiqueu material propi, indicar la llicència facilita que altres docents sàpiguen com el poden fer servir.');
     }
 
     if (text.includes('privacitat') || text.includes('rgpd') || text.includes('dades personals')) {
-      items.push('Aquí convé pensar quines dades introduïu abans de fer servir una eina amb alumnat.');
+      items.push('Abans d’introduir informació en una eina, penseu si conté dades personals de l’alumnat.');
+      items.push('Aquest criteri és especialment útil quan una activitat demana noms, treballs o informació de l’alumnat.');
     }
 
     if (text.includes('accessibilitat') || text.includes('dua')) {
-      items.push('Aquest criteri us ajuda a preparar un recurs que pugui utilitzar més alumnat.');
+      items.push('Una petita adaptació aquí pot fer que el recurs sigui més fàcil d’utilitzar per més alumnat.');
+      items.push('Proveu de mirar aquest element des del punt de vista d’algú que navega amb teclat.');
     }
 
     if (text.includes('indicació') || text.includes('prompt')) {
-      items.push('Una indicació concreta ajuda la IA a entendre millor quin resultat espereu.');
+      items.push('Què voleu que faci exactament la IA? Escriure aquesta intenció de manera concreta sol ajudar molt.');
+      items.push('Una bona indicació explica el resultat esperat amb paraules senzilles i específiques.');
     }
 
     if (text.includes('git') && !text.includes('github pages')) {
-      items.push('Git conserva l’historial dels canvis i us permet tornar a una versió anterior.');
+      items.push('Git funciona com un historial del projecte: cada versió us permet veure com ha anat canviant.');
+      items.push('Si experimenteu amb el recurs, l’historial us dona una xarxa de seguretat per tornar enrere.');
     }
 
     if (text.includes('repositori')) {
-      items.push('Podeu imaginar el repositori com la carpeta del projecte amb l’historial dels canvis incorporat.');
+      items.push('Imagineu el repositori com la carpeta principal del projecte, amb l’historial dels canvis incorporat.');
+      items.push('Quan busqueu un fitxer del projecte, el repositori és el primer lloc on mirar.');
     }
 
     if (target.querySelector('input, select, textarea, button')) {
-      items.push('Provar aquest element amb el teclat és una manera senzilla de revisar-ne l’accessibilitat.');
+      items.push('Proveu aquest element amb Tab: és una comprovació ràpida d’accessibilitat.');
+      items.push('Si podeu arribar-hi amb el teclat i activar-lo, ja heu fet una primera prova útil.');
     }
 
     if (target.querySelector('code, pre')) {
-      items.push('Quan modifiqueu codi amb IA, comprovar cada canvi us facilita detectar on apareix un error.');
+      items.push('Quan la IA modifica codi, revisar un canvi cada vegada facilita trobar l’origen d’un error.');
+      items.push('No cal entendre tot el codi per comprovar si el resultat final fa el que necessiteu.');
     }
 
     if (target.querySelector('a[target="_blank"]')) {
-      items.push('Aquest enllaç amplia la informació quan necessiteu aprofundir-hi.');
+      items.push('Aquest enllaç us porta a una font externa per ampliar la informació.');
+      items.push('Guardeu aquest recurs si penseu que us pot servir més endavant com a consulta.');
     }
 
     if (target.querySelector('img') && !target.matches?.('figure')) {
-      items.push('Aquesta imatge mostra un exemple del que s’explica en aquest apartat.');
+      items.push('Mireu la imatge com un exemple del que s’explica en aquest punt.');
+      items.push('Pot ajudar-vos a visualitzar el resultat abans de provar-lo pel vostre compte.');
     }
 
     if (!items.length && title) {
-      items.push(`Aquest apartat explica per a què serveix ${title} dins del procés.`);
+      items.push(`Si ${title} us resulta nou, quedeu-vos primer amb la funció que té dins del procés.`);
+      items.push(`Us serviria ${title} per resoldre alguna necessitat que ja teniu al centre?`);
+      items.push('Podeu tornar a aquest apartat quan us trobeu amb una necessitat semblant en un recurs propi.');
+      items.push('Una lectura ràpida ja us pot donar una idea de quan us podria ser útil aquest apartat.');
     }
 
     if (!items.length) {
-      items.push('Penseu com podríeu aplicar aquesta idea en un recurs que ja feu servir.');
+      items.push('Penseu si aquesta idea encaixa amb alguna activitat que ja feu.');
+      items.push('Potser us resulta més útil com a material de consulta per recuperar més endavant.');
     }
 
-    return [...new Set(items)];
+    return [...new Set(items.map(cleanVisibleText).filter(Boolean))];
   }
 
   function candidates() {
@@ -269,7 +308,7 @@
     if (!bubble || !bubbleText || !target) return;
     const comments = commentsFor(target);
     const key = `${location.pathname}::${titleFor(target) || target.className || target.tagName}`;
-    const text = choose(key, comments).replace(/[«»]/g, '');
+    const text = cleanVisibleText(choose(key, comments));
     if (!text) return;
 
     clearTimeout(hideTimer);
@@ -321,9 +360,8 @@
     }
 
     const sanitize = () => {
-      if (bubbleText.textContent.includes('«') || bubbleText.textContent.includes('»')) {
-        bubbleText.textContent = bubbleText.textContent.replace(/[«»]/g, '');
-      }
+      const clean = cleanVisibleText(bubbleText.textContent);
+      if (bubbleText.textContent !== clean) bubbleText.textContent = clean;
     };
     new MutationObserver(sanitize).observe(bubbleText, { childList: true, characterData: true, subtree: true });
 
