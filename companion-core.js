@@ -1,8 +1,8 @@
 (() => {
   const PREF_KEY = 'eines-ia:companion-enabled-v1';
   const SESSION_KEY = 'eines-ia:companion-core-v1';
-  const GUTTER_MIN = 252;
-  const GAP = 18;
+  const GUTTER_MIN = 196;
+  const GAP = 10;
 
   const controlReminders = [
     'Podeu mostrar-me o amagar-me amb el botó del cursor de la barra superior.',
@@ -288,21 +288,21 @@
 
   function placeInline() {
     if (!root || !activeTarget) return;
+    const main = document.getElementById('contingut-principal') || document.querySelector('main');
+    if (!main) return;
+
     root.classList.add('is-inline');
     root.classList.remove('is-left', 'is-right');
     root.style.removeProperty('top');
     root.style.removeProperty('left');
 
-    const grid = activeTarget.closest?.('.home-blocks-grid');
-    if (grid && activeTarget.parentElement === grid) {
-      activeTarget.insertAdjacentElement('beforebegin', root);
-      return;
+    let block = activeTarget;
+    while (block.parentElement && block.parentElement !== main) {
+      block = block.parentElement;
     }
 
-    const heading = activeTarget.querySelector?.(':scope > h2, :scope > h3');
-    if (heading) heading.insertAdjacentElement('afterend', root);
-    else if (activeTarget.firstElementChild) activeTarget.insertBefore(root, activeTarget.firstElementChild);
-    else activeTarget.appendChild(root);
+    if (block.parentElement === main) block.insertAdjacentElement('beforebegin', root);
+    else main.prepend(root);
   }
 
   function positionCompanion() {
@@ -315,7 +315,7 @@
     const targetRect = activeTarget.getBoundingClientRect();
     if (!mainRect) return;
 
-    const rootWidth = 232;
+    const rootWidth = 186;
     const rightSpace = window.innerWidth - mainRect.right;
     const leftSpace = mainRect.left;
     const canRight = rightSpace >= GUTTER_MIN;
