@@ -156,7 +156,7 @@
     toggle.title = `${action} l’acompanyant de lectura`;
   }
 
-  function showMessage(text, duration = 5200, announceText = false) {
+  function showMessage(text, duration = 7000, announceText = false) {
     if (!enabled || !text) return;
 
     clearTimeout(messageTimer);
@@ -188,7 +188,7 @@
   function showIntro() {
     if (!enabled || introShown) return;
     introShown = true;
-    showMessage('Hola! Soc l’acompanyant. Em podeu mostrar o amagar amb el botó del cursor. Feu-me clic per veure un consell.', 5600, true);
+    showMessage('Hola! Soc l’acompanyant. Em podeu mostrar o amagar amb el botó del cursor. Feu-me clic per veure un consell.', 7200, true);
   }
 
   function setEnabled(next, userAction = false) {
@@ -206,7 +206,7 @@
     schedulePosition();
     if (userAction) {
       if (!introShown) showIntro();
-      else showMessage('Ja torno a ser aquí. El botó del cursor em torna a amagar.', 3600, true);
+      else showMessage('Ja torno a ser aquí. El botó del cursor em torna a amagar.', 5200, true);
       announce('Acompanyant de lectura activat');
     }
   }
@@ -215,7 +215,7 @@
     if (!enabled) return;
     const reminder = takeFromDeck('controls', controlReminders);
     const tip = takeFromDeck('tips', clickTips);
-    showMessage(`${reminder} ${tip}`, 8200, true);
+    showMessage(`${reminder} ${tip}`, 10500, true);
 
     avatar.classList.remove('is-reacting');
     void avatar.offsetWidth;
