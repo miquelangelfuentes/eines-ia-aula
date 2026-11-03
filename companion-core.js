@@ -1,6 +1,6 @@
 (() => {
   const PREF_KEY = 'eines-ia:companion-enabled-v1';
-  const SESSION_KEY = 'eines-ia:companion-core-v1';
+  const SESSION_KEY = 'eines-ia:companion-core-v2';
   const RIGHT_GAP = 12;
   const VIEWPORT_GAP = 12;
 
@@ -10,18 +10,16 @@
   ];
 
   const clickTips = [
-    'Comenceu amb un recurs petit i feu-lo créixer després de provar-lo.',
-    'Si una resposta de la IA us sembla important, comproveu-ne una dada abans d’utilitzar-la.',
-    'Després d’un canvi a la web, mireu què ha canviat abans de continuar.',
-    'Proveu de navegar per la pàgina amb el teclat. Us pot ajudar a detectar barreres d’accessibilitat.',
-    'Conserveu una versió que funcioni abans de fer un canvi important.',
-    'Si una eina no us resol cap necessitat docent, podeu deixar-la de banda.',
-    'Reviseu amb cura qualsevol contingut que arribarà directament a l’alumnat.',
-    'Si desapareix una imatge, reviseu primer el nom del fitxer i la carpeta on es troba.',
-    'Quan un recurs depèn d’un servei extern, penseu què passarà si aquell servei no està disponible.',
-    'Comproveu el recurs també en mode fosc per detectar problemes de contrast.',
-    'Quan una petició a la IA no funciona, concreteu millor què voleu canviar.',
-    'Si compartiu el recurs amb altres docents, procureu que en puguin entendre l’ús sense haver de llegir el codi.'
+    'Quan vulgueu provar una idea nova, comenceu amb un canvi petit i observeu el resultat abans de continuar.',
+    'Si la IA us dona una dada important, contrasteu-la amb una font fiable abans d’utilitzar-la amb l’alumnat.',
+    'Després de modificar una web, mireu què ha canviat. Això ajuda a detectar errors abans que s’acumulin.',
+    'Proveu de recórrer el recurs amb la tecla Tab. És una manera ràpida de comprovar si els controls es poden utilitzar amb teclat.',
+    'Conserveu una versió que funcioni abans de fer un canvi important. Així tindreu un punt de retorn si alguna cosa falla.',
+    'Si una eina no resol cap necessitat docent concreta, potser no cal incorporar-la a la vostra manera de treballar.',
+    'Abans de compartir un material amb l’alumnat, reviseu-lo com si el veiéssiu per primera vegada. Sovint així apareixen instruccions poc evidents.',
+    'Si una imatge desapareix, comproveu el nom del fitxer i la carpeta on és. Molts errors de web tenen aquest origen.',
+    'Quan un recurs depèn d’un servei extern, penseu què fareu si aquell servei deixa d’estar disponible.',
+    'Si una indicació a la IA dona un resultat poc útil, concreteu quin element voleu canviar i com hauria de quedar.'
   ];
 
   let enabled = readPreference();
@@ -217,7 +215,7 @@
     if (!enabled) return;
     const reminder = takeFromDeck('controls', controlReminders);
     const tip = takeFromDeck('tips', clickTips);
-    showMessage(`${reminder} ${tip}`, 6500, true);
+    showMessage(`${reminder} ${tip}`, 8200, true);
 
     avatar.classList.remove('is-reacting');
     void avatar.offsetWidth;
