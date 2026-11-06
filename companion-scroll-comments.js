@@ -888,6 +888,9 @@
   }
 
   function titleFor(target) {
+    if (target.matches?.('h2, h3, h4, .home-card-title, .quiz-q-title')) {
+      return cleanVisibleText(target.textContent || '').slice(0, 140);
+    }
     const heading = target.querySelector?.('h2, h3, h4, .home-card-title, .quiz-q-title, .step-content h3');
     return cleanVisibleText(heading?.textContent || '').slice(0, 140);
   }
@@ -969,6 +972,42 @@
     return rect && rect.bottom > 0 ? rect.bottom : 0;
   }
 
+  // Els h3/h4 que són dins d'una capsa llarga també tenen la seva pròpia
+  // franja de lectura, fins a l'encapçalament següent. Així una observació
+  // sobre quantització apareix mentre es llegeix aquell paràgraf, no en un altre.
+  function activeSubheading(anchorY) {
+    const main = document.getElementById('contingut-principal') || document.querySelector('main');
+    if (!main) return null;
+
+    const itemSelector = [
+      '.ordered-step-item', '.home-block-card', '.quiz-question-card',
+      '.comparison-card', '.tool-card', '.card-item', '.vibe-card',
+      '.check-item', '.license-box', '.conference-visual',
+      '.infographic-prompt-box', '.pedagogy-infographic'
+    ].join(',');
+
+    let active = null;
+    for (const heading of main.querySelectorAll('h3, h4')) {
+      if (heading.closest(itemSelector) || !commentsFor(heading).length) continue;
+      const box = heading.closest('.content-box');
+      if (!box) continue;
+
+      const rect = heading.getBoundingClientRect();
+      const container = box.getBoundingClientRect();
+      if (rect.height < 12 || rect.top > anchorY || container.bottom <= anchorY) continue;
+
+      const later = [...box.querySelectorAll('h3, h4')].find((next) => {
+        if (next === heading || !(heading.compareDocumentPosition(next) & Node.DOCUMENT_POSITION_FOLLOWING)) return false;
+        const nextRect = next.getBoundingClientRect();
+        return nextRect.height >= 12 && nextRect.top > rect.top + 1;
+      });
+      const bottom = later ? Math.min(container.bottom, later.getBoundingClientRect().top) : container.bottom;
+      if (anchorY >= rect.top && anchorY < bottom) active = heading;
+    }
+
+    return active;
+  }
+
   function activeCandidate() {
     const nodes = candidates();
     if (!nodes.length) return null;
@@ -997,7 +1036,7 @@
       }
     });
 
-    return best;
+    return activeSubheading(anchorY) || best;
   }
 
   function durationFor(text) {
