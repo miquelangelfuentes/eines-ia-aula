@@ -1473,6 +1473,195 @@
   }
 });
 
+  Object.assign(rotationExtras, {
+  "bloc3-github.html": {
+    "El repositori (repo)": [
+      "Una web publicada des de Pages pot continuar funcionant encara que l’usuari no obri mai el repositori."
+    ],
+    "Pujada i versions": [
+      "El nom d’un commit us ajuda a localitzar en quin moment vau introduir una nova funció."
+    ],
+    "Token temporal i restringit": [
+      "Revocar una credencial després de la pràctica és compatible amb mantenir el repositori publicat."
+    ],
+    "Abans de publicar un repositori públic": [
+      "Reviseu els noms dels fitxers i el seu contingut: a vegades una carpeta temporal conserva informació que no s’hauria de compartir."
+    ],
+    "Creeu un repositori buit a GitHub": [
+      "Començar amb un repositori buit evita haver de combinar fitxers inicials amb els del projecte local."
+    ],
+    "Copieu l'adreça HTTPS del repositori": [
+      "L’URL HTTPS acostuma a acabar amb el nom del repositori i es pot copiar des de l’apartat Code de GitHub."
+    ],
+    "Torneu a la mateixa carpeta a Antigravity": [
+      "Si el projecte funciona localment, aquesta és la carpeta que interessa publicar, amb els mateixos fitxers."
+    ],
+    "Creeu un token temporal per a aquest repositori": [
+      "La data de caducitat del token pot ser breu perquè només s’utilitza durant la pràctica."
+    ],
+    "Demaneu a Antigravity que connecti el projecte": [
+      "Un enllaç remot configurat incorrectament pot enviar els fitxers a un repositori diferent del previst."
+    ],
+    "Reviseu què s'enviarà abans d'aprovar-ho": [
+      "Un fitxer amb claus d’API o dades personals no hauria d’entrar mai en un repositori públic."
+    ],
+    "Comproveu la pujada i revoqueu el token": [
+      "Revocar el token no elimina els commits que ja s’han publicat a GitHub."
+    ],
+    "Per què utilitzem un token temporal?": [
+      "Un accés d’escriptura permanent seria innecessari per a una única publicació."
+    ],
+    "Obriu Fine-grained tokens": [
+      "Distingiu la pantalla de creació del token de la configuració de permisos del repositori."
+    ],
+    "Limiteu-lo al repositori de la pràctica": [
+      "Comproveu que el selector de repositoris no hagi quedat en una opció més àmplia del que necessiteu."
+    ],
+    "Doneu només el permís necessari": [
+      "La revisió de permisos és una mesura de seguretat perquè la credencial pugui fer només allò previst."
+    ],
+    "Utilitzeu-lo només per a aquesta pujada": [
+      "Una credencial no ha d’aparèixer a les captures de pantalla que compartiu del taller."
+    ],
+    "Revoqueu-lo en acabar": [
+      "La revocació és una operació que es fa des del compte de GitHub, independent del contingut del repositori."
+    ],
+    "Entreu a Settings del repositori": [
+      "La configuració de Pages és pròpia de cada repositori; activar-la en un projecte no la configura en els altres."
+    ],
+    "Feu clic a Pages": [
+      "GitHub Pages pot publicar HTML, CSS i JavaScript que s’executa al navegador."
+    ],
+    "Trieu la branca principal i premeu Save": [
+      "Si Pages no mostra la versió nova, comproveu si el desplegament ha acabat."
+    ],
+    "Veieu un 404?": [
+      "La ruta és sensible al nom exacte del repositori, incloent-hi guions i majúscules segons el context."
+    ],
+    "1. La pàgina principal d'usuari (User site)": [
+      "El nom del repositori de pàgina d’usuari segueix el patró del compte github.io."
+    ],
+    "2. Les pàgines de projecte (Project sites)": [
+      "Una ruta que comença per / pot ignorar el subdirectori del projecte i deixar de carregar imatges."
+    ],
+    "1. El fitxer principal s'ha de dir `index.html`": [
+      "Un fitxer HTML amb un altre nom també pot publicar-se, però caldrà indicar-ne explícitament l’adreça."
+    ],
+    "2. Les rutes han de ser relatives": [
+      "Fer servir ./ al principi de la ruta és una manera de deixar explícita la ubicació relativa."
+    ],
+    "3. El repositori ha de ser públic": [
+      "Revisar la llicència del projecte ajuda altres docents a saber quines adaptacions poden fer."
+    ],
+    "Quan fer servir GitHub (web)?": [
+      "La pestanya de commits permet veure les versions del repositori sense instal·lar cap programa."
+    ],
+    "Quan fer servir GitHub Desktop?": [
+      "Des de Desktop podeu seleccionar un fitxer modificat i consultar-ne les diferències abans del commit."
+    ],
+    "GitHub explicat per a docents principiants": [
+      "El repositori pot incloure un README amb instruccions de funcionament per als docents que el reutilitzin.",
+      "L’historial ajuda a trobar una versió anterior quan una modificació perjudica l’activitat."
+    ],
+    "Pràctica guiada: del projecte local al primer push": [
+      "El primer push estableix la còpia remota a partir del projecte que ja teniu.",
+      "Comproveu que el repositori de destí és el que voleu fer servir per publicar."
+    ],
+    "Indicació per connectar el projecte i fer la primera pujada": [
+      "La petició pot incloure la instrucció de mostrar els fitxers abans d’enviar-los.",
+      "Després de pujar-los, reviseu si el repositori conté els mateixos recursos que funcionaven en local."
+    ],
+    "Per què creem el token després del repositori?": [
+      "El nom del repositori apareix al selector quan el token es crea amb permisos restringits.",
+      "L’ordre proposat fa més senzill evitar donar accés a projectes aliens a la pràctica."
+    ],
+    "Per què activem GitHub Pages després de pujar el projecte?": [
+      "Pages publica una branca o una font configurada, no necessàriament tots els fitxers de totes les branques.",
+      "El primer desplegament permet comprovar que el fitxer d’entrada és accessible."
+    ],
+    "Tipus de llocs web a GitHub Pages: pàgina d'usuari i pàgines de projectes": [
+      "Una mateixa persona pot tenir una pàgina principal i diverses pàgines de projecte.",
+      "La forma de la URL ajuda a entendre per què les rutes relatives són rellevants."
+    ],
+    "Tres particularitats indispensables per no tenir errors:": [
+      "Una imatge que no apareix pot tenir un nom amb majúscules diferents del que figura al codi.",
+      "Reviseu l’arrel del projecte quan funcionen algunes pàgines però fallen d’altres."
+    ],
+    "Alternativa opcional: GitHub Desktop": [
+      "Desktop conserva la lògica de commit i push, però presenta els passos amb controls gràfics.",
+      "Pot ser una bona via per revisar canvis manuals fets fora d’Antigravity."
+    ],
+    "Instal·lació en els portàtils del PEDC": [
+      "Una aplicació pot estar permesa però requerir un procediment d’instal·lació específic del centre.",
+      "El portal de suport institucional pot ajudar si Windows bloqueja una instal·lació."
+    ],
+    "Comparació entre GitHub i GitHub Desktop": [
+      "GitHub Desktop necessita una connexió amb GitHub per sincronitzar, però permet preparar commits localment.",
+      "Un repositori ja existent es pot clonar i obrir des de Desktop."
+    ],
+    "Pàgines d'ajuda oficials i documentació de referència:": [
+      "Quan un videotutorial és antic, la documentació oficial pot confirmar el nom actual d’un menú.",
+      "Val la pena guardar l’enllaç de la guia més rellevant per recuperar-lo després del taller."
+    ],
+    "Ordinadors docents del PEDC": [
+      "La documentació del PEDC permet distingir problemes d’instal·lació de problemes del projecte Git.",
+      "Les polítiques del dispositiu poden explicar per què un instal·lador funciona en un ordinador personal i no al del centre."
+    ],
+    "GitHub Desktop oficial": [
+      "Descarregar Desktop des del web oficial redueix el risc d’instal·lar una còpia modificada.",
+      "Un cop configurat, podeu obrir un repositori i revisar-ne l’historial amb la interfície gràfica."
+    ],
+    "Guia de GitHub Pages": [
+      "Els errors 404 poden venir de la configuració del desplegament o de la ruta del fitxer HTML.",
+      "La documentació de Pages explica com vincular la branca publicada amb una URL."
+    ],
+    "Gestió de tokens personals (PAT)": [
+      "Una credencial restringida a un repositori no s’ha de confondre amb la contrasenya general del compte.",
+      "Guardeu només el temps necessari les credencials temporals que feu servir al taller."
+    ],
+    "Videotutorials recomanats de GitHub i GitHub Pages": [
+      "La creació d’un repositori i la publicació amb Pages són processos diferents; els vídeos es poden consultar per separat.",
+      "Comproveu si el tutorial treballa amb la web de GitHub o amb Desktop abans de seguir-lo."
+    ],
+    "Tutorial oficial: Com crear el vostre primer repositori a GitHub": [
+      "Un repositori buit és el punt de partida de la pràctica, abans d’enviar els fitxers d’Antigravity.",
+      "Vegeu com s’estableix el nom del repositori, perquè serà visible a l’adreça pública."
+    ],
+    "Tutorial oficial de GitHub: Getting started with GitHub Pages": [
+      "El vídeo mostra l’activació del desplegament; comproveu els menús si la interfície ha canviat.",
+      "Després de publicar, obriu la URL de Pages per validar les rutes dels recursos."
+    ],
+    "Com crear un fine-grained personal access token": [
+      "El permís de continguts s’assigna dins de l’àmbit de repositoris seleccionats.",
+      "Quan el token ja no és necessari, el podeu revocar des del compte de GitHub."
+    ],
+    "Canviar la visibilitat del repositori (de privat a públic)": [
+      "Reviseu l’historial abans de canviar a públic un repositori que ha contingut secrets.",
+      "La visibilitat pública pot facilitar la reutilització del codi per altres docents."
+    ],
+    "Com crear la vostra web gratuïta a GitHub Pages (en castellà)": [
+      "Les captures de tutorials poden mostrar una interfície diferent; busqueu la secció Pages dins de Settings.",
+      "Fixeu-vos en la URL final que genera el repositori de projecte."
+    ],
+    "Rutes absolutes i relatives a HTML (Kiko Palomares)": [
+      "Les rutes que comencen per / es resolen des de l’arrel del domini.",
+      "Un projecte allotjat dins d’un subdirectori acostuma a necessitar rutes relatives per als recursos."
+    ],
+    "GitHub Desktop + GitHub Pages (en anglès / subtitulat)": [
+      "Desktop facilita preparar el commit, mentre que Pages s’activa dins de la configuració web de GitHub.",
+      "El tutorial pot servir per comparar els passos amb l’agent i fer-los manualment."
+    ],
+    "Publicar la vostra web a GitHub Pages per a principiants": [
+      "L’ordre de crear el repositori i triar la font de publicació ajuda a comprendre el desplegament.",
+      "Després del tutorial, proveu d’actualitzar una línia de text i observar quan apareix a la web."
+    ],
+    "Canal oficial de GitHub a YouTube": [
+      "La documentació del canal es pot consultar per veure funcions noves de Pages o Desktop.",
+      "Compareu la data del vídeo amb la versió que utilitzeu."
+    ]
+  }
+});
+
   for (const [page, notes] of Object.entries(rotationExtras)) {
     for (const [title, additions] of Object.entries(notes)) {
       const existing = specificCommentsByPage[page]?.[title] || [];
