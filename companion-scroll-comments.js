@@ -1883,19 +1883,69 @@
   }
 
   const checklistComments = [
-    ['Revisió docent:', 'La prova final és completar l’activitat com ho faria l’alumnat. Comproveu també la retroacció de cada resposta.'],
-    ['Privacitat (RGPD):', 'Una activitat que funciona sense identificar l’alumnat evita recollir dades que potser no necessiteu.'],
-    ['Codi entès:', 'Saber on es calcula la puntuació o com es mostra la retroacció facilita corregir el recurs després.'],
-    ['Recursos i dependències:', 'Una web pot carregar biblioteques o imatges externes. Comproveu què passa si es perd la connexió.'],
-    ['Accessibilitat:', 'Proveu la navegació amb la tecla Tab i el contrast en mode fosc. Són comprovacions observables.'],
-    ['Autoria i crèdits:', 'Un enllaç a la fotografia original ajuda més que citar només la portada d’un banc d’imatges.'],
-    ['Rastre guardat:', 'Un README amb les decisions docents explica per què el recurs funciona com funciona.'],
-    ["Declaració d'ús d'IA:", 'Una declaració útil indica què ha fet la IA i què ha comprovat personalment el docent.'],
-    ['Llicència visible:', 'Les condicions del contingut pedagògic i les del codi poden ser diferents.'],
-    ['Codi obert:', 'La pàgina publicada mostra el resultat; el repositori permet que un altre docent estudiï i adapti el codi.']
-  ];
+  [
+    "Revisió docent:",
+    "La prova final és completar l’activitat com ho faria l’alumnat. Comproveu també la retroacció de cada resposta.",
+    "Proveu també les preguntes en ordre diferent, si l’activitat ho permet.",
+    "La retroacció d’una resposta errònia pot requerir tanta revisió com l’enunciat de la pregunta."
+  ],
+  [
+    "Privacitat (RGPD):",
+    "Una activitat que funciona sense identificar l’alumnat evita recollir dades que potser no necessiteu.",
+    "Les proves amb noms inventats permeten comprovar formularis sense utilitzar dades de l’alumnat.",
+    "Si un camp de dades no té una funció necessària, potser el podeu eliminar."
+  ],
+  [
+    "Codi entès:",
+    "Saber on es calcula la puntuació o com es mostra la retroacció facilita corregir el recurs després.",
+    "Saber quin fitxer conté la correcció ajuda a mantenir l’activitat quan se’n canvien les preguntes.",
+    "Una explicació breu de la funció de cada fitxer pot ser útil per a un altre docent."
+  ],
+  [
+    "Recursos i dependències:",
+    "Una web pot carregar biblioteques o imatges externes. Comproveu què passa si es perd la connexió.",
+    "Proveu el recurs amb Internet desconnectat per observar quins elements continuen funcionant.",
+    "Una biblioteca carregada d’un servidor extern pot deixar la web sense una funció essencial si aquest servidor falla."
+  ],
+  [
+    "Accessibilitat:",
+    "Proveu la navegació amb la tecla Tab i el contrast en mode fosc. Són comprovacions observables.",
+    "Comproveu si el focus del teclat és visible en passar d’un botó al següent.",
+    "El contrast adequat s’ha de conservar tant en mode clar com en mode fosc."
+  ],
+  [
+    "Autoria i crèdits:",
+    "Un enllaç a la fotografia original ajuda més que citar només la portada d’un banc d’imatges.",
+    "La citació d’una fotografia hauria de permetre localitzar l’obra original.",
+    "Els avisos dels components de tercers poden ser diferents de la llicència general del projecte."
+  ],
+  [
+    "Rastre guardat:",
+    "Un README amb les decisions docents explica per què el recurs funciona com funciona.",
+    "El README pot documentar quin problema docent resol el recurs.",
+    "Una nota sobre els canvis més importants ajuda a reprendre el projecte el curs següent."
+  ],
+  [
+    "Declaració d'ús d'IA:",
+    "Una declaració útil indica què ha fet la IA i què ha comprovat personalment el docent.",
+    "Podeu indicar quines parts de la web s’han creat amb assistència d’IA.",
+    "Les comprovacions docents fetes abans de publicar donen context a aquesta declaració."
+  ],
+  [
+    "Llicència visible:",
+    "Les condicions del contingut pedagògic i les del codi poden ser diferents.",
+    "El text del recurs i el codi que el fa funcionar poden tenir llicències separades.",
+    "Un enllaç al text oficial permet consultar les condicions completes."
+  ],
+  [
+    "Codi obert:",
+    "La pàgina publicada mostra el resultat; el repositori permet que un altre docent estudiï i adapti el codi.",
+    "Un enllaç al repositori facilita que altres docents adaptin les preguntes.",
+    "El codi compartit ha de conservar els avisos de llicència pertinents."
+  ]
+];
 
-  const STORAGE_VERSION = 'eines-ia:companion-context-v9';
+  const STORAGE_VERSION = 'eines-ia:companion-context-v10';
   function currentPage() {
     return location.pathname.split('/').pop() || 'index.html';
   }
@@ -1919,7 +1969,7 @@
     const state = currentState();
     state.indexes ||= {};
     const current = Number.isInteger(state.indexes[key])
-      ? state.indexes[key] : Math.floor(Math.random() * items.length);
+      ? state.indexes[key] : 0;
     const text = items[current % items.length];
     state.indexes[key] = (current + 1) % items.length;
     saveState(state);
@@ -1965,14 +2015,18 @@
     if (page === 'bloc8-verificacio.html' && target.classList?.contains('check-item')) {
       const text = cleanVisibleText(target.textContent || '');
       const note = checklistComments.find(([label]) => text.includes(label));
-      return note ? [note[1]] : [];
+      return note ? note.slice(1) : [];
     }
 
     // El peu de figura és una dada verificable; evitem deduccions sobre la imatge.
     if (page === 'bloc6-recursos-visuals.html' && target.matches?.('figure')) {
       const caption = cleanVisibleText(target.querySelector('figcaption')?.textContent || '');
       if (caption && target.querySelector('figcaption a[href]')) {
-        return ['El peu d’aquesta imatge inclou un enllaç a la font. Podeu obrir-lo per consultar-ne l’autoria i la llicència.'];
+        return [
+          'El peu d’aquesta imatge inclou un enllaç a la font. Podeu obrir-lo per consultar-ne l’autoria i la llicència.',
+          'L’enllaç a la fitxa d’origen permet comprovar les condicions d’ús de la imatge concreta.',
+          'Quan reutilitzeu una imatge, conservar la URL original ajuda a recuperar-ne la procedència.'
+        ];
       }
     }
 
@@ -2118,6 +2172,15 @@
     clearTimeout(pendingTimer);
     pendingTimer = null;
     bubbleText.textContent = text;
+    // El cursor anuncia quin dels tres comentaris apareixerà amb el clic següent.
+    const avatar = document.querySelector('#reading-companion .companion-avatar');
+    if (avatar) {
+      const next = ((comments.indexOf(text) + 1) % comments.length) + 1;
+      const label = `Llegir el comentari ${next} de ${comments.length} d’aquest apartat`;
+      avatar.setAttribute('aria-label', label);
+      avatar.title = label;
+    }
+    window.dispatchEvent(new Event('companion:comment-show'));
     bubble.hidden = false;
     bubble.classList.remove('is-visible');
 
@@ -2147,7 +2210,8 @@
 
     const target = activeCandidate();
     if (!target) return;
-    if (!force && target === lastTarget) return;
+    // La comprovació inicial no avança els missatges si el lector ja ha fet clic.
+    if (target === lastTarget) return;
 
     // Si no hi ha cap observació específica, retirem la bafarada anterior.
     if (!commentsFor(target).length) {
