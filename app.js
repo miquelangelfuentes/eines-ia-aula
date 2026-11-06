@@ -19,8 +19,8 @@
   loadStyle('companion.css?v=20261102e');
 
   loadScript('app-base.js?v=20261031', () => {
-    loadScript('companion-core.js?v=20261106', () => {
-      loadScript('companion-scroll-comments.js?v=20261106bb');
+    loadScript('companion-core.js?v=20261106b', () => {
+      loadScript('companion-scroll-comments.js?v=20261106c');
     });
 
     const start = () => {
