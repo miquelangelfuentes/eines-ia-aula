@@ -109,9 +109,11 @@
     avatar = document.createElement('button');
     avatar.type = 'button';
     avatar.className = 'companion-avatar';
-    avatar.setAttribute('aria-label', 'Llegir una observació sobre el contingut actual');
+    avatar.setAttribute('aria-label', 'Llegir el següent comentari del contingut actual');
     avatar.innerHTML = '<i data-lucide="mouse-pointer-2" aria-hidden="true"></i><span class="companion-status-dot" aria-hidden="true"></span>';
     avatar.addEventListener('click', handleClick);
+    // Les observacions contextuals gestionen la seva pròpia durada.
+    window.addEventListener('companion:comment-show', () => clearTimeout(messageTimer));
 
     bubble = document.createElement('div');
     bubble.className = 'companion-bubble';
@@ -170,7 +172,7 @@
   function showIntro() {
     if (!enabled || introShown) return;
     introShown = true;
-    showMessage('Hola! Soc l’acompanyant. Em podeu mostrar o amagar amb el botó del cursor. Feu-me clic per explorar una curiositat del fragment que llegiu.', 7200, true);
+    showMessage('Hola! Soc l’acompanyant. Em podeu mostrar o amagar amb el botó del cursor. Feu-me clic per veure les tres observacions d’aquest apartat, una darrere l’altra.', 7200, true);
   }
 
   function setEnabled(next, userAction = false) {
