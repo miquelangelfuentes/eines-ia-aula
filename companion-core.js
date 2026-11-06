@@ -4,24 +4,6 @@
   const RIGHT_GAP = 12;
   const VIEWPORT_GAP = 12;
 
-  const controlReminders = [
-    'Podeu mostrar-me o amagar-me amb el botó del cursor de la barra superior.',
-    'El botó del cursor de la barra superior controla si em voleu veure.'
-  ];
-
-  const clickTips = [
-    'Quan vulgueu provar una idea nova, comenceu amb un canvi petit i observeu el resultat abans de continuar.',
-    'Si la IA us dona una dada important, contrasteu-la amb una font fiable abans d’utilitzar-la amb l’alumnat.',
-    'Després de modificar una web, mireu què ha canviat. Això ajuda a detectar errors abans que s’acumulin.',
-    'Proveu de recórrer el recurs amb la tecla Tab. És una manera ràpida de comprovar si els controls es poden utilitzar amb teclat.',
-    'Conserveu una versió que funcioni abans de fer un canvi important. Així tindreu un punt de retorn si alguna cosa falla.',
-    'Si una eina no resol cap necessitat docent concreta, potser no cal incorporar-la a la vostra manera de treballar.',
-    'Abans de compartir un material amb l’alumnat, reviseu-lo com si el veiéssiu per primera vegada. Sovint així apareixen instruccions poc evidents.',
-    'Si una imatge desapareix, comproveu el nom del fitxer i la carpeta on és. Molts errors de web tenen aquest origen.',
-    'Quan un recurs depèn d’un servei extern, penseu què fareu si aquell servei deixa d’estar disponible.',
-    'Si una indicació a la IA dona un resultat poc útil, concreteu quin element voleu canviar i com hauria de quedar.'
-  ];
-
   let enabled = readPreference();
   let root;
   let avatar;
@@ -127,7 +109,7 @@
     avatar = document.createElement('button');
     avatar.type = 'button';
     avatar.className = 'companion-avatar';
-    avatar.setAttribute('aria-label', 'Llegir un consell de l’acompanyant');
+    avatar.setAttribute('aria-label', 'Llegir una observació sobre el contingut actual');
     avatar.innerHTML = '<i data-lucide="mouse-pointer-2" aria-hidden="true"></i><span class="companion-status-dot" aria-hidden="true"></span>';
     avatar.addEventListener('click', handleClick);
 
@@ -188,7 +170,7 @@
   function showIntro() {
     if (!enabled || introShown) return;
     introShown = true;
-    showMessage('Hola! Soc l’acompanyant. Em podeu mostrar o amagar amb el botó del cursor. Feu-me clic per veure un consell.', 7200, true);
+    showMessage('Hola! Soc l’acompanyant. Em podeu mostrar o amagar amb el botó del cursor. Feu-me clic per explorar una curiositat del fragment que llegiu.', 7200, true);
   }
 
   function setEnabled(next, userAction = false) {
@@ -213,9 +195,7 @@
 
   function handleClick() {
     if (!enabled) return;
-    const reminder = takeFromDeck('controls', controlReminders);
-    const tip = takeFromDeck('tips', clickTips);
-    showMessage(`${reminder} ${tip}`, 10500, true);
+    window.dispatchEvent(new Event('companion:request-comment'));
 
     avatar.classList.remove('is-reacting');
     void avatar.offsetWidth;
