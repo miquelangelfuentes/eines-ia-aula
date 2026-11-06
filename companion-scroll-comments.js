@@ -547,7 +547,7 @@
       "La ruta de projecte inclou el nom del repositori; per això les rutes relatives són tan importants.",
       "Una imatge que funciona en local pot fallar a Pages si la ruta comença al directori arrel equivocat."
     ],
-    "1. El fitxer principal s'ha de dir index.html": [
+    "1. El fitxer principal s'ha de dir `index.html`": [
       "index.html és el document d’entrada habitual quan visiteu una carpeta d’una web estàtica.",
       "Les majúscules importen en alguns entorns: Index.html i index.html poden ser fitxers diferents."
     ],
