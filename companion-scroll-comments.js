@@ -839,6 +839,278 @@
     Object.assign(specificCommentsByPage[page] ||= {}, byTitle);
   }
 
+  // Cobertura complementària dels blocs: passos, eines i materials de consulta.
+  const supplementaryComments = {
+  "index.html": {
+    "Objectius de la sessió": [
+      "Els objectius inclouen crear un recurs web que després podreu mantenir. És una manera concreta de passar d’una prova d’IA a un material d’aula."
+    ],
+    "Creació d'activitats interactives amb IA (Google Antigravity)": [
+      "Una activitat interactiva necessita una regla de correcció. Penseu com explicaríeu a l’agent què ha de passar després d’una resposta incorrecta."
+    ],
+    "Publicació lliure i sobirania digital (GitHub Pages)": [
+      "La URL de GitHub Pages és pública, mentre que el repositori conserva els fitxers originals. Podeu compartir tots dos enllaços segons el destinatari."
+    ],
+    "Criteris ètics i llicències d'ús (vibe coding responsable)": [
+      "La revisió docent inclou comprovar les respostes que l’alumnat rebrà automàticament: un error al sistema de correcció es pot repetir moltes vegades."
+    ]
+  },
+  "bloc1-marc.html": {
+    "Feu créixer una idea en forma de recurs web": [
+      "Una pàgina HTML pot començar amb una sola activitat i créixer conservant la mateixa adreça. Això facilita introduir millores a partir de les proves d’aula."
+    ],
+    "Per què s'ha triat Google Antigravity i GitHub?": [
+      "El projecte es construeix en una carpeta local; després es publica des de GitHub. Aquesta separació permet continuar editant encara que canvieu d’eina."
+    ],
+    "Enllaços de referència d'aquest bloc:": [
+      "Els enllaços d’aquesta secció permeten aprofundir en les eines escollides i consultar-ne la documentació quan torneu al projecte."
+    ]
+  },
+  "bloc2-antigravity.html": {
+    "Com funciona Google Antigravity?": [
+      "Un agent pot crear fitxers nous dins del projecte. Reviseu-ne la llista abans de publicar: alguns poden ser auxiliars o no formar part del recurs final."
+    ],
+    "La vostra primera web funcional": [
+      "El primer objectiu és disposar d’una web que pugueu provar. Si una interacció falla, podeu descriure a l’agent el resultat exacte que heu observat."
+    ],
+    "Ampliació: descàrrega massiva de documents PDF d'un lloc web a Documents": [
+      "Aquesta pràctica fa servir l’agent per reunir documents. Comproveu que el nombre de fitxers descarregats coincideixi amb els enllaços esperats."
+    ],
+    "Comparació: Google Antigravity, OpenAI Codex i Claude Code d'Anthropic": [
+      "La diferència més útil per al taller és com cada agent mostra les modificacions i demana autorització. El fitxer HTML final es pot conservar al marge de l’eina."
+    ],
+    "Plantilla d'indicació llesta per copiar i fer servir a Antigravity:": [
+      "Canvieu la URL d’origen i la carpeta de destinació abans d’executar la plantilla. És la part que defineix on trobarà i on desarà els documents."
+    ],
+    "Per què Antigravity simplifica l'accés al taller?": [
+      "El taller es planteja per a comptes XTEC i dispositius docents. Això fa important comprovar l’accés disponible abans de seguir una guia pensada per a altres entorns."
+    ],
+    "Videotutorials oficials de Google Antigravity": [
+      "Els vídeos mostren operacions que poden canviar amb les actualitzacions. Si la interfície és diferent, busqueu la funció equivalent en lloc de repetir els clics literalment."
+    ],
+    "Google Antigravity 2.0: Guia oficial d'inici": [
+      "Aquest vídeo és útil per veure el flux de treball complet abans de seguir les instruccions del taller."
+    ],
+    "Introducció a les habilitats dels agents (Agent Skills)": [
+      "Una habilitat reutilitzable evita haver d’escriure cada vegada la mateixa explicació per a tasques repetides."
+    ],
+    "Demostració de control remot i supervisió d'agents": [
+      "Fixeu-vos en quin moment la persona supervisora pot revisar les accions proposades per l’agent abans d’autoritzar-les."
+    ],
+    "Quina modalitat d'Antigravity triar per a la docència?": [
+      "La modalitat escollida determina des d’on superviseu el treball de l’agent. Comproveu si necessiteu una vista directa dels fitxers del projecte."
+    ],
+    "Creació d'eines d'automatització personalitzades": [
+      "Connectar un agent amb un servei extern afegeix permisos i dependències. Convé saber quines accions podrà executar abans d’activar la connexió."
+    ],
+    "Canal oficial de Google Antigravity": [
+      "El canal oficial és una font per identificar canvis d’interfície posteriors a les captures del taller."
+    ]
+  },
+  "bloc3-github.html": {
+    "GitHub explicat per a docents principiants": [
+      "Una URL de repositori identifica el projecte i les seves versions; la URL de Pages obre la web publicada. Aquesta distinció ajuda quan compartiu un recurs amb un altre docent."
+    ],
+    "Pràctica guiada: del projecte local al primer push": [
+      "Un push envia a GitHub el que ja heu registrat localment. Si falta un fitxer, reviseu si s’ha inclòs al commit."
+    ],
+    "Indicació per connectar el projecte i fer la primera pujada": [
+      "Abans de copiar la indicació, substituïu el nom del repositori i comproveu que correspon al projecte que teniu obert a Antigravity."
+    ],
+    "Per què creem el token després del repositori?": [
+      "Crear primer el repositori permet limitar la credencial exactament al projecte de la pràctica. Aquest és l’avantatge principal de l’ordre proposat."
+    ],
+    "Per què activem GitHub Pages després de pujar el projecte?": [
+      "Pages necessita uns fitxers per publicar. Primer els enviem al repositori i després indiquem quina branca ha de servir la web."
+    ],
+    "Tipus de llocs web a GitHub Pages: pàgina d'usuari i pàgines de projectes": [
+      "Una pàgina de projecte incorpora el nom del repositori a la URL. Això afecta les rutes de les imatges i dels fulls d’estil."
+    ],
+    "Tres particularitats indispensables per no tenir errors:": [
+      "Quan una web es veu bé en local però falla a Pages, revisar l’arxiu index.html i les rutes dels recursos és un primer diagnòstic útil."
+    ],
+    "Alternativa opcional: GitHub Desktop": [
+      "GitHub Desktop deixa veure quins fitxers han canviat abans de fer un commit. És una alternativa visual al mateix flux de versions."
+    ],
+    "Instal·lació en els portàtils del PEDC": [
+      "En un equip gestionat pel centre, l’experiència d’instal·lació pot dependre de les polítiques del dispositiu. Consulteu les instruccions del PEDC si hi ha restriccions."
+    ],
+    "Comparació entre GitHub i GitHub Desktop": [
+      "GitHub és el servei on s’allotja el repositori; Desktop és una aplicació per gestionar-ne la còpia local i sincronitzar-la."
+    ],
+    "Pàgines d'ajuda oficials i documentació de referència:": [
+      "Si canvia un menú de GitHub, la documentació oficial és un bon punt de partida per identificar el procediment actual."
+    ],
+    "Ordinadors docents del PEDC": [
+      "La guia del PEDC ajuda a entendre quines instal·lacions i configuracions s’admeten als equips docents."
+    ],
+    "GitHub Desktop oficial": [
+      "La web oficial permet descarregar l’aplicació i consultar els passos per vincular una carpeta amb un repositori."
+    ],
+    "Guia de GitHub Pages": [
+      "La guia oficial inclou els ajustos de desplegament i les comprovacions útils si la pàgina retorna un error."
+    ],
+    "Gestió de tokens personals (PAT)": [
+      "Les credencials de GitHub es poden limitar per repositori i revocar. Comproveu sempre la data de caducitat."
+    ],
+    "Videotutorials recomanats de GitHub i GitHub Pages": [
+      "Els vídeos d’aquest apartat mostren procediments diferents. Trieu el que correspongui a l’eina que voleu utilitzar: navegador o Desktop."
+    ],
+    "Tutorial oficial: Com crear el vostre primer repositori a GitHub": [
+      "Aquest vídeo se centra en la creació del repositori, abans de connectar-hi el projecte local."
+    ],
+    "Tutorial oficial de GitHub: Getting started with GitHub Pages": [
+      "Aquí podeu observar on s’activa Pages i com s’obté l’adreça pública després del desplegament."
+    ],
+    "Com crear un fine-grained personal access token": [
+      "Fixeu-vos en l’opció de seleccionar repositoris: és la que permet evitar donar accés a tot el compte."
+    ],
+    "Canviar la visibilitat del repositori (de privat a públic)": [
+      "Fer públic un repositori significa que qualsevol persona pot consultar-ne els fitxers; cal revisar-los abans del canvi."
+    ],
+    "Com crear la vostra web gratuïta a GitHub Pages (en castellà)": [
+      "Aquest tutorial segueix la publicació des del navegador i pot ajudar si preferiu veure els clics abans de fer la pràctica."
+    ],
+    "Rutes absolutes i relatives a HTML (Kiko Palomares)": [
+      "La ruta relativa d’una imatge es calcula des del document que la crida. És una causa habitual de recursos que no carreguen a Pages."
+    ],
+    "GitHub Desktop + GitHub Pages (en anglès / subtitulat)": [
+      "Una ruta alternativa: fer els commits amb Desktop i configurar la publicació a GitHub Pages."
+    ],
+    "Publicar la vostra web a GitHub Pages per a principiants": [
+      "Aquest recorregut permet veure el procés sencer de publicació i comparar-lo amb els passos del taller."
+    ],
+    "Canal oficial de GitHub a YouTube": [
+      "Per consultar funcions que hagin canviat, els materials recents del canal poden complementar els tutorials del taller."
+    ]
+  },
+  "bloc4-pages-sites.html": {
+    "De Gemini a Google Sites sense copiar codi": [
+      "Un artefacte creat amb Gemini pot traslladar-se a Sites amb el flux disponible a l’eina. Després convé provar si conserva les interaccions esperades."
+    ],
+    "Una comparació des de la pràctica d'aula": [
+      "La diferència de manteniment és rellevant: a Sites editeu visualment i a GitHub Pages actualitzeu els fitxers del projecte."
+    ],
+    "Enllaços i documentació oficial:": [
+      "L’enllaç a la comunicació oficial permet consultar els requisits i l’abast de la funció de publicació des de Gemini."
+    ]
+  },
+  "bloc5-llicencies.html": {
+    "Per què cal distingir entre contingut i codi?": [
+      "En una activitat interactiva, els textos i les preguntes són contingut pedagògic; la lògica que comprova respostes és programari."
+    ],
+    "Quina llicència de codi encaixa amb el vostre projecte?": [
+      "L’orientador es basa en què voleu permetre a qui adapti el programa. Podeu contrastar la proposta amb el text complet de la llicència."
+    ],
+    "Llicències recomanades per a docents": [
+      "La compatibilitat entre llicències depèn de les condicions de cada obra incorporada. Llegiu també els avisos de biblioteques i imatges de tercers."
+    ],
+    "Fonts oficials de les llicències": [
+      "Consulteu la versió original de cada llicència quan necessiteu comprovar una condició concreta de reutilització."
+    ]
+  },
+  "bloc6-recursos-visuals.html": {
+    "Imatges generades amb IA: percepció i criteri pedagògic": [
+      "Una mateixa il·lustració pot percebre’s de manera diferent quan s’explica com s’ha produït. És una pregunta interessant per obrir un debat sobre transparència."
+    ],
+    "Autenticitat percebuda i transparència": [
+      "La informació sobre l’origen d’una imatge pot influir en com la valorem. A l’aula podeu comparar dues presentacions de la mateixa obra."
+    ],
+    "Funció pedagògica abans que decoració": [
+      "El principi de coherència multimèdia suggereix evitar detalls visuals que competeixin amb la informació que volem ensenyar."
+    ],
+    "Emoji per a senyals breus i informals": [
+      "El mateix emoji pot tenir formes diferents a Windows i a un mòbil. Per això un control important també necessita text."
+    ],
+    "Icones SVG per a un sistema visual coherent": [
+      "Un SVG és vectorial i es pot ampliar sense perdre nitidesa. En un botó, una etiqueta accessible explica l’acció a qui utilitza un lector de pantalla."
+    ],
+    "Prepareu el contingut abans del disseny": [
+      "Si una infografia encara té frases massa llargues, és més senzill corregir-les abans de pensar en les icones."
+    ],
+    "Construïu la infografia en HTML": [
+      "Mantenir la infografia en HTML permet fer canvis de text i provar el contrast en mode fosc abans d’exportar-la."
+    ],
+    "Reviseu-la en pantalla": [
+      "Proveu també una finestra estreta: una infografia que funciona en una pantalla gran pot perdre llegibilitat al mòbil."
+    ],
+    "Exporteu el component a PNG": [
+      "Exportar un component concret evita els marges blancs de capturar tota la pàgina. Comproveu també que la transparència es conserva."
+    ],
+    "Mostra inserida directament amb HTML i Lucide": [
+      "Aquesta mostra continua sent HTML editable. Si detecteu una errada, es pot corregir sense regenerar una imatge sencera."
+    ],
+    "Wikimedia Commons": [
+      "Cada fitxer de Commons té una fitxa pròpia amb les condicions d’ús. Dos fitxers del mateix banc poden tenir llicències diferents."
+    ],
+    "Unsplash (secció gratuïta)": [
+      "La llicència d’Unsplash permet molts usos, però convé consultar les limitacions abans de redistribuir fotografies dins d’un paquet de recursos."
+    ],
+    "Pexels": [
+      "La gratuïtat de Pexels té condicions específiques. Conserveu l’enllaç de la fotografia concreta per revisar-les en el futur."
+    ],
+    "Pixabay": [
+      "Pixabay utilitza una llicència pròpia; «gratuït» i «sense condicions» no són sinònims."
+    ],
+    "T - Títol (Title)": [
+      "El títol identifica l’obra que citeu. Si no en té, una descripció breu pot ajudar a reconèixer-la."
+    ],
+    "A - Autoria (Author)": [
+      "Enllaçar l’autoria permet reconèixer qui ha creat l’obra i localitzar-ne l’origen."
+    ],
+    "S - Font (Source)": [
+      "La font és preferiblement l’adreça de la pàgina original de la imatge, no només la del banc que l’allotja."
+    ],
+    "L - Llicència (License)": [
+      "L’enllaç a la llicència permet comprovar quins usos i adaptacions estan autoritzats."
+    ]
+  },
+  "bloc7-bones-practiques.html": {
+    "Consells abans de publicar": [
+      "Proveu l’activitat com un alumne que no ha rebut instruccions addicionals. Aquesta simulació pot revelar passos implícits."
+    ],
+    "Guies i recursos recomanats de bones pràctiques:": [
+      "Les guies vinculades permeten convertir les recomanacions en criteris concrets per revisar un material abans de compartir-lo."
+    ]
+  },
+  "bloc8-verificacio.html": {
+    "Pàgines d'ajuda oficials i enllaços de referència:": [
+      "Aquests enllaços amplien les comprovacions de la llista amb documentació oficial sobre eines i publicació."
+    ]
+  },
+  "bloc9-per-continuar-explorant.html": {
+    "Ponència recomanada: Models d'intel·ligència artificial en local, de Jordi Mas": [
+      "Aquesta ponència relaciona la IA local amb decisions de maquinari i models en català. Podeu comparar les recomanacions amb el vostre equip."
+    ],
+    "Enllaços de referència": [
+      "Les referències permeten provar les eines descrites i consultar recursos en català des de les pàgines oficials."
+    ]
+  },
+  "credits.html": {
+    "Autoria i marc institucional": [
+      "El context de creació ajuda a entendre per què el lloc prioritza activitats web per a docents i materials reutilitzables."
+    ],
+    "Projectes i fonts de referència": [
+      "Els recursos citats aquí permeten tornar a les fonts que han inspirat les decisions pedagògiques del lloc."
+    ],
+    "Recursos de tercers i marques": [
+      "Una biblioteca d’icones o un logotip pot tenir condicions pròpies. Els avisos de tercers indiquen què cal respectar en reutilitzar el projecte."
+    ],
+    "Llicències del projecte": [
+      "La declaració de llicències separa els drets del contingut pedagògic dels drets del codi font."
+    ],
+    "Contingut pedagògic - CC BY-SA 4.0": [
+      "CC BY-SA exigeix reconèixer l’autoria i compartir les adaptacions sota la mateixa llicència o una de compatible."
+    ],
+    "Codi font - GNU GPL v3": [
+      "La GPL v3 permet estudiar i modificar el codi, amb obligacions quan es distribueixen versions derivades cobertes per la llicència."
+    ]
+  }
+};
+  for (const [page, byTitle] of Object.entries(supplementaryComments)) {
+    Object.assign(specificCommentsByPage[page] ||= {}, byTitle);
+  }
+
   const checklistComments = [
     ['Revisió docent:', 'La prova final és completar l’activitat com ho faria l’alumnat. Comproveu també la retroacció de cada resposta.'],
     ['Privacitat (RGPD):', 'Una activitat que funciona sense identificar l’alumnat evita recollir dades que potser no necessiteu.'],
@@ -884,7 +1156,13 @@
   }
 
   function cleanVisibleText(text) {
-    return (text || '').replace(/[«»]/g, '').replace(/\s+/g, ' ').trim();
+    return (text || '')
+      .replace(/[«»]/g, '')
+      .replace(/\s+/g, ' ')
+      .replace(/\s+([,:;.!?])/g, '$1')
+      .replace(/\(\s+/g, '(')
+      .replace(/\s+\)/g, ')')
+      .trim();
   }
 
   function titleFor(target) {
@@ -1019,6 +1297,7 @@
     let bestHeight = Number.POSITIVE_INFINITY;
 
     nodes.forEach((node) => {
+      if (!commentsFor(node).length) return;
       const rect = node.getBoundingClientRect();
       if (rect.bottom <= minY || rect.top >= window.innerHeight) return;
 
@@ -1036,6 +1315,9 @@
       }
     });
 
+    // Una targeta concreta al punt de lectura té preferència sobre un
+    // subtítol general situat més amunt dins la mateixa capsa.
+    if (best && bestDistance === 0 && !best.classList?.contains('content-box')) return best;
     return activeSubheading(anchorY) || best;
   }
 
@@ -1148,9 +1430,8 @@
     window.addEventListener('companion:request-comment', () => {
       const target = activeCandidate();
       if (!target) return;
-      const eligible = commentsFor(target).length ? target : target.closest?.('.content-box, .workshop-access-card');
-      if (!eligible || !commentsFor(eligible).length) return;
-      showComment(eligible);
+      if (!commentsFor(target).length) return;
+      showComment(target);
       window.announce?.(bubbleText.textContent);
     });
 
