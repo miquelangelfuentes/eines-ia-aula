@@ -3,7 +3,6 @@
   const MIN_COMMENT_DURATION = 6500;
   const MAX_COMMENT_DURATION = 9500;
   const MIN_REPLACE_GAP = 5200;
-  const STORAGE_KEY = 'eines-ia:companion-scroll-comments-v8';
 
   let readyAt = Date.now() + READY_DELAY;
   let lastTarget = null;
@@ -269,78 +268,598 @@
     }
   };
 
-  const pageFallbacks = {
-    'index.html': [
-      'Si aquest apartat és nou, pregunteu-vos primer què us permet fer dins del taller.',
-      'Relacioneu aquesta part amb una necessitat concreta de la sessió; així serà més fàcil recordar-la.',
-      'Podeu tornar a aquest punt més endavant quan necessiteu recuperar-ne la funció.'
-    ],
-    'bloc1-marc.html': [
-      'Penseu en una necessitat docent que ja tingueu i mireu com aquest concepte hi podria encaixar.',
-      'Aquí és més important entendre el procés que memoritzar vocabulari tècnic.',
-      'Relacionar aquesta idea amb un recurs que ja utilitzeu us pot ajudar a donar-li sentit.'
-    ],
-    'bloc2-antigravity.html': [
-      'Quan proveu un agent, feu un canvi petit i observeu què ha modificat.',
-      'Si un terme us resulta nou, busqueu quina acció concreta representa dins del projecte.',
-      'Una prova curta us ajuda a entendre l’eina abans de confiar-li canvis més amplis.'
-    ],
-    'bloc3-github.html': [
-      'Si apareix un terme nou, traduïu-lo mentalment a una acció: guardar, enviar o publicar.',
-      'Moltes paraules de GitHub semblen tècniques, però descriuen passos que ja coneixeu d’altres eines.',
-      'Quan tingueu dubtes, pregunteu-vos on són els fitxers ara i on voleu que acabin.'
-    ],
-    'bloc4-pages-sites.html': [
-      'Penseu qui haurà d’editar aquest material després: aquesta dada pot orientar la plataforma que trieu.',
-      'Una eina visual acostuma a facilitar el manteniment compartit; treballar amb fitxers dona més control tècnic.',
-      'La pregunta pràctica és com voleu actualitzar el recurs quan el taller ja hagi acabat.'
-    ],
-    'bloc5-llicencies.html': [
-      'Davant d’una llicència, comenceu per preguntar què voleu permetre a qui reutilitzi el material.',
-      'Les sigles es poden consultar; entendre les condicions és el que us ajuda a prendre decisions.',
-      'Abans de triar, identifiqueu si esteu compartint contingut pedagògic o codi.'
-    ],
-    'bloc6-recursos-visuals.html': [
-      'Pregunteu-vos què ajuda a entendre aquest recurs visual. Aquesta resposta orienta millor que la decoració.',
-      'Fer visible l’autoria pot convertir el mateix material en un model de bona pràctica per a l’alumnat.',
-      'Quan trieu una imatge, penseu també com la podrà interpretar una persona que no conegui el context.'
-    ],
-    'bloc7-bones-practiques.html': [
-      'Compareu aquesta pauta amb un recurs que ja utilitzeu i busqueu-hi un canvi concret.',
-      'Una comprovació petita abans de publicar pot evitar una incidència durant la classe.',
-      'Provar el recurs com si fóssiu una persona nova ajuda a descobrir instruccions poc evidents.'
-    ],
-    'bloc8-verificacio.html': [
-      'Una llista de verificació és útil quan cada punt es pot comprovar amb una acció concreta.',
-      'Si dubteu en marcar un element, ja heu trobat una part del recurs que mereix una revisió.',
-      'Podeu convertir aquesta comprovació en una rutina per als materials que publiqueu més endavant.'
-    ],
-    'bloc9-per-continuar-explorant.html': [
-      'En IA local, la pregunta pràctica és quina tasca voleu resoldre amb el maquinari que teniu.',
-      'La memòria disponible condiciona molt l’experiència amb models locals.',
-      'Començar amb una prova petita facilita veure si aquest enfocament encaixa amb el vostre centre.'
-    ],
-    'credits.html': [
-      'Uns crèdits ben documentats faciliten saber d’on prové cada recurs i com es pot reutilitzar.',
-      'Guardar les fonts ara simplifica molt les actualitzacions futures del material.',
-      'Aquest apartat pot servir de model per documentar un projecte propi.'
-    ]
-  };
 
-  const universalFallbacks = [
-    'Si aquest terme és nou, busqueu primer què us permet fer abans d’intentar memoritzar-ne el nom.',
-    'Una manera d’entendre aquest punt és relacionar-lo amb una tasca que ja feu a l’aula.',
-    'Pregunteu-vos quin problema concret resol aquesta idea; la resposta ajuda a situar-ne la utilitat.'
+  // Notes editorialment vinculades a títols de secció, eines i passos concrets.
+  // Quan no hi ha una nota pertinent, l'acompanyant resta en silenci.
+  const contextualComments = {
+  "index.html": {
+    "Accés al material del taller": [
+      "El QR i l’adreça curta obren el mateix material. És una bona manera d’oferir dues vies d’accés durant una formació.",
+      "Una curiositat: el QR codifica l’adreça web. Si canvia l’adreça de destinació, cal revisar també el codi que es projecta."
+    ],
+    "Qüestionari de coneixements previs per a docents": [
+      "Les respostes es desen al navegador. Si canvieu de dispositiu, el qüestionari no recuperarà automàticament la vostra selecció.",
+      "La diagnosi orienta cap als blocs que us poden ser més útils. Podeu consultar qualsevol bloc encara que no us el recomani."
+    ],
+    "Creació de recursos web i ús de la intel·ligència artificial": [
+      "Crear un exercici interactiu també implica decidir què passa quan l’alumnat s’equivoca. La retroacció forma part del disseny pedagògic.",
+      "Una pregunta per a aquesta diagnosi: ja heu demanat alguna vegada a una IA que modifiqui una pàgina que havíeu creat?"
+    ],
+    "Google Antigravity i eines al dispositiu docent": [
+      "Un agent de programació pot treballar sobre una carpeta concreta. Saber quina carpeta té oberta és tan important com redactar la indicació.",
+      "El mateix recurs pot passar per diverses revisions sense començar de zero: l’agent modifica els fitxers existents."
+    ],
+    "GitHub com a repositori educatiu": [
+      "GitHub desa versions del projecte. Aquesta història de canvis pot ser molt útil quan cal recuperar una activitat que funcionava.",
+      "El repositori conté els fitxers; GitHub Pages els pot convertir en una web pública. Són funcions diferents."
+    ],
+    "Estructura web: el fitxer index.html i les rutes relatives": [
+      "El nom index.html té una funció particular: acostuma a ser el document que el servidor obre per defecte dins d’una carpeta.",
+      "Una ruta relativa com images/foto.png depèn del lloc on és el fitxer HTML. Això explica molts errors d’imatges en publicar una web."
+    ],
+    "Llicències de continguts (Creative Commons) i de codi (MIT)": [
+      "La mateixa web pot necessitar dues llicències: una per als materials educatius i una altra per al programari que els fa funcionar.",
+      "Creative Commons ofereix opcions per a obres creatives; MIT és una llicència de programari. La distinció ajuda a compartir amb criteri."
+    ],
+    "Protecció de dades i IA local": [
+      "Un model local pot executar les consultes al dispositiu, però l’aplicació encara pot utilitzar Internet per descarregar models o actualitzacions.",
+      "Quan valoreu una eina local per al centre, mireu també on es desen les converses i qui pot accedir al dispositiu."
+    ],
+    "Marc: de consultar a crear": [
+      "En aquest bloc es passa d’obtenir respostes a construir recursos que es poden provar i revisar. Penseu en una activitat que voldríeu transformar.",
+      "Un recurs HTML senzill pot funcionar directament al navegador. Aquesta és una de les raons per començar per projectes web petits."
+    ],
+    "Google Antigravity pas a pas": [
+      "L’agent pot modificar fitxers; la revisió del que ha canviat continua sent una decisió docent.",
+      "Per a la primera prova, una activitat amb un resultat observable facilita valorar si la indicació s’ha interpretat bé."
+    ],
+    "Configuració de GitHub": [
+      "Un commit registra un estat del projecte; un push envia els commits locals al repositori remot.",
+      "El token de la pràctica pot restringir-se a un sol repositori. Així l’autorització és proporcional a la tasca."
+    ],
+    "Pages en comparació amb Google Sites": [
+      "Google Sites permet editar visualment. GitHub Pages publica fitxers web: aquesta diferència condiciona com podreu mantenir el material.",
+      "Abans de triar plataforma, penseu qui actualitzarà el recurs quan l’hagi d’utilitzar un altre docent."
+    ],
+    "Llicències i codi obert": [
+      "Compartir el codi fa possible adaptar la lògica de l’activitat, com el sistema de puntuació o la retroacció.",
+      "Una llicència visible resol una pregunta important per a qui reutilitza el recurs: quines modificacions estan permeses?"
+    ],
+    "Recursos visuals i citació": [
+      "El text alternatiu descriu la funció informativa d’una imatge per a qui no la pot veure.",
+      "En una citació TASL, la S és la font: l’enllaç a l’obra original facilita comprovar’n les condicions."
+    ],
+    "Bones pràctiques a l'aula": [
+      "Penseu en la primera persona que provarà el recurs: podrà completar l’activitat sense la vostra ajuda?",
+      "Una bona prova d’aula inclou també què passa quan una resposta és incorrecta o quan falla una connexió."
+    ],
+    "Llista de verificació": [
+      "La llista combina decisions pedagògiques amb comprovacions tècniques. Cada casella hauria de correspondre a una prova feta.",
+      "Podeu conservar aquesta llista com a rutina de publicació per als recursos que creeu més endavant."
+    ],
+    "Per continuar explorant: IA local": [
+      "El català també és un criteri de selecció de models: un model gran no és necessàriament el que millor respon en aquesta llengua.",
+      "El funcionament fora de línia depèn tant del model triat com dels serveis que activa l’aplicació."
+    ]
+  },
+  "bloc1-marc.html": {
+    "D'una resposta a un projecte": [
+      "Una resposta d’IA desapareix entre converses; un fitxer HTML conserva una versió que podeu obrir i seguir modificant.",
+      "Quan una activitat es converteix en una web, podeu provar el seu comportament com ho faria l’alumnat."
+    ],
+    "Entendre el recurs sense escriure'l tot a mà": [
+      "Saber localitzar on hi ha el text, l’estil i les interaccions us ajuda a demanar canvis amb més precisió.",
+      "Una pregunta pràctica per a qualsevol web: què passa si un enllaç o un botó no funciona?"
+    ],
+    "Google Antigravity": [
+      "Antigravity treballa amb els fitxers del projecte. Un canvi a l’HTML modifica el recurs que després obriu al navegador.",
+      "L’accés a la carpeta és una autorització important: reviseu quin projecte esteu posant a disposició de l’agent."
+    ],
+    "GitHub": [
+      "GitHub pot conservar el codi de l’activitat i l’historial de versions. GitHub Pages s’encarrega de fer visible la web.",
+      "Una curiositat: un recurs pot tenir una adreça pública de Pages i, alhora, una altra adreça per consultar-ne el codi."
+    ]
+  },
+  "bloc2-antigravity.html": {
+    "Instal·lació de l'aplicació al dispositiu": [
+      "En un ordinador administrat pel centre, els permisos d’instal·lació poden determinar si aquesta pràctica és viable.",
+      "Després d’instal·lar Antigravity, fixeu-vos en la carpeta que obre: és l’espai on llegirà i modificarà els fitxers."
+    ],
+    "La carpeta de treball (workspace)": [
+      "Workspace vol dir espai de treball. Si obriu només la carpeta del projecte, delimiteu quins fitxers pot consultar l’agent.",
+      "Una carpeta ben delimitada també fa més fàcil detectar quins fitxers ha creat o modificat l’eina."
+    ],
+    "Tria del model d'intel·ligència artificial": [
+      "Els models disponibles poden variar segons el compte i el servei. El criteri és comprovar quin resol la tasca que teniu.",
+      "Per comparar models, proveu la mateixa indicació amb el mateix fitxer inicial: així podreu observar diferències."
+    ],
+    "Com demanar recursos a l’agent: criteris docents": [
+      "Incloure el nivell educatiu i el tipus de retroacció que voleu canvia molt el resultat d’una activitat generada.",
+      "Una indicació útil descriu què ha de poder fer l’alumnat amb el recurs, més enllà del seu aspecte visual."
+    ],
+    "Opcions de configuració recomanades per a docents que no l'han obert mai": [
+      "Les opcions de revisió indiquen quan l’agent demana permís abans d’actuar. Afecten directament el control que manteniu.",
+      "Reviseu aquestes opcions sobretot si treballeu en una carpeta on ja teniu materials que voleu conservar."
+    ],
+    "Plan Review Policy (Política de revisió del pla)": [
+      "La revisió del pla permet veure les accions que l’agent preveu fer abans que modifiqui el projecte.",
+      "És una oportunitat per detectar una interpretació equivocada de la indicació abans d’haver de desfer canvis."
+    ],
+    "Permisos a Windows - configuració recomanada": [
+      "Els permisos de l’eina són independents dels permisos del vostre usuari de Windows. Les restriccions del centre continuen vigents.",
+      "Si un agent demana executar una ordre, llegiu què farà i a quina carpeta afectarà abans d’autoritzar-la."
+    ],
+    "Model Selection & Thinking (Model i raonament)": [
+      "La configuració de raonament pot canviar el temps i els recursos que dedica el model a una tasca.",
+      "Una activitat senzilla és una bona prova per observar si necessiteu una configuració més exigent."
+    ],
+    "Artifacts & Browser Preview (Previsualització en viu)": [
+      "La vista prèvia permet detectar errors de mida, alineació o interacció abans de publicar.",
+      "Obriu també la web fora de la vista prèvia: us ajudarà a comprovar que funciona com un recurs independent."
+    ],
+    "Assistent per redactar la vostra primera indicació": [
+      "Aquest assistent estructura la petició. La decisió important és descriure què hauria de fer l’alumnat quan utilitzi la web.",
+      "Després de copiar la indicació, podeu ajustar les instruccions sobre nivell de dificultat o retroacció."
+    ],
+    "Creeu un microrecurs": [
+      "Un microrecurs dona un resultat que podeu provar ràpidament, com una pregunta amb retroacció immediata.",
+      "Abans d’ampliar-lo, comproveu què passa amb una resposta encertada i amb una d’equivocada."
+    ],
+    "Indicació per començar": [
+      "Si demaneu una activitat interactiva, detalleu també què passarà després que l’alumnat respongui.",
+      "Una indicació curta amb un resultat esperat verificable pot ser més útil que una petició extensa i ambigua."
+    ],
+    "Comproveu que funciona": [
+      "Proveu els botons com ho faria l’alumnat. Una web pot semblar acabada i tenir interaccions que no responen.",
+      "Una prova útil és recarregar la pàgina i comprovar si l’activitat conserva el comportament esperat."
+    ],
+    "Demaneu una sola millora": [
+      "Modificar una cosa cada vegada facilita atribuir un error al canvi que l’ha provocat.",
+      "Podeu demanar una millora pedagògica concreta, com variar la retroacció després de cada resposta."
+    ],
+    "Mireu què ha creat l'agent": [
+      "Busqueu el fitxer HTML principal i observeu com es relaciona amb els estils i els scripts.",
+      "Si més endavant canvieu d’eina, entendre aquesta estructura us ajudarà a continuar treballant sobre el mateix projecte."
+    ],
+    "Bons hàbits mentre treballeu amb l'agent": [
+      "Una versió que ja funciona és un bon punt de recuperació abans d’experimentar amb canvis més amplis.",
+      "Reviseu el recurs amb el teclat: alguns errors d’interacció passen desapercebuts quan només s’utilitza el ratolí."
+    ],
+    "Trieu la pàgina web d'origen i la carpeta de destinació": [
+      "La carpeta de destinació és part de la indicació. Així podeu comprovar on han anat a parar els PDF descarregats.",
+      "Abans de descarregar en massa, verifiqueu que la pàgina permet l’accés als documents que voleu utilitzar."
+    ],
+    "Envieu la indicació a l'assistent de Google Antigravity": [
+      "Aquí l’agent ha d’identificar enllaços a PDF i desar els fitxers. És una tasca diferent de crear una pàgina web.",
+      "Demaneu que mantingui noms de fitxer comprensibles; després serà més fàcil localitzar cada document."
+    ],
+    "Reviseu el pla i comproveu la carpeta al vostre ordinador": [
+      "Compareu el nombre d’enllaços detectats amb el nombre de PDF desats. És una comprovació concreta del resultat.",
+      "Si hi ha fitxers repetits, demaneu a l’agent que expliqui com els identifica abans d’eliminar-los."
+    ],
+    "Pàgines d'accés obert": [
+      "L’accés públic a una pàgina no implica permís per redistribuir els PDF que conté.",
+      "Conservar l’enllaç original de cada document ajuda a revisar-ne l’autoria i les condicions d’ús."
+    ],
+    "Carpeta neta i sense duplicats": [
+      "Dos PDF poden tenir noms diferents i ser el mateix document. El nom del fitxer és només una pista.",
+      "Una comprovació de duplicats pot comparar el contingut dels fitxers quan cal una identificació més fiable."
+    ],
+    "Per què s'ha triat Google Antigravity per a aquesta formació?": [
+      "El taller parteix d’una interfície que permet veure el projecte mentre s’hi apliquen canvis.",
+      "Aquest criteri és pedagògic: facilita observar el procés i discutir el resultat amb altres docents."
+    ],
+    "I si ja es fa servir Codex o Claude Code?": [
+      "Els projectes web són portables: podeu continuar editant els mateixos fitxers HTML amb altres eines compatibles.",
+      "Compareu sobretot com cada agent mostra els canvis i demana autorització abans d’aplicar-los."
+    ]
+  },
+  "bloc3-github.html": {
+    "El repositori (repo)": [
+      "Un repositori és la carpeta del projecte amb un historial de canvis. La web publicada pot mostrar-ne només el resultat.",
+      "Fixeu-vos en la diferència entre l’enllaç al repositori i l’enllaç a la pàgina web."
+    ],
+    "Pujada i versions": [
+      "Commit i push són accions diferents: el primer registra una versió i el segon envia els canvis al repositori remot.",
+      "Un missatge de commit com «Afegeix retroacció a les preguntes» ajuda a trobar un canvi mesos després."
+    ],
+    "Token temporal i restringit": [
+      "Un token funciona com una credencial amb permisos definits. El de la pràctica només necessita accés al repositori escollit.",
+      "Una data de caducitat breu limita el temps durant el qual la credencial continua sent vàlida."
+    ],
+    "Abans de publicar un repositori públic": [
+      "Un repositori públic mostra el codi i els fitxers que hi heu pujat. Reviseu-lo per detectar dades que havien de quedar privades.",
+      "Esborrar un secret en un commit posterior no el fa desaparèixer necessàriament de l’historial."
+    ],
+    "Creeu un repositori buit a GitHub": [
+      "Crear primer el repositori permet restringir el token exactament a aquest projecte.",
+      "Un nom curt i descriptiu ajuda a identificar l’adreça que després tindrà el repositori."
+    ],
+    "Copieu l'adreça HTTPS del repositori": [
+      "L’adreça HTTPS identifica el repositori remot. L’agent la necessita per saber on enviarà el projecte.",
+      "Comproveu que l’adreça pertany al compte i al repositori que acabeu de crear."
+    ],
+    "Torneu a la mateixa carpeta a Antigravity": [
+      "Si obriu una altra carpeta, podeu acabar publicant un projecte diferent. Aquí és útil revisar la ruta del workspace.",
+      "Conservar la mateixa carpeta també manté a mà els fitxers que ja heu provat al navegador."
+    ],
+    "Creeu un token temporal per a aquest repositori": [
+      "Els fine-grained tokens de GitHub permeten seleccionar repositoris concrets i permisos limitats.",
+      "Revocar el token al final de la pràctica evita mantenir una credencial de publicació que ja no utilitzeu."
+    ],
+    "Demaneu a Antigravity que connecti el projecte": [
+      "L’agent ha de vincular la carpeta local amb el repositori remot. Comproveu el nom del repositori abans d’autoritzar la pujada.",
+      "Podeu demanar que us mostri quins fitxers inclourà la primera pujada."
+    ],
+    "Reviseu què s'enviarà abans d'aprovar-ho": [
+      "Aquesta és la revisió més important abans del primer push: el repositori pot ser públic.",
+      "Busqueu dades personals, credencials o fitxers temporals que no formen part del recurs docent."
+    ],
+    "Comproveu la pujada i revoqueu el token": [
+      "Obriu el repositori al navegador per comprovar que hi són els fitxers esperats.",
+      "Després de revocar el token, la web publicada continua accessible; el que es tanca és aquella credencial d’accés."
+    ],
+    "Per què utilitzem un token temporal?": [
+      "Un token temporal redueix la finestra d’exposició d’una credencial que dona permisos d’escriptura.",
+      "Un únic repositori i els permisos estrictament necessaris són una configuració fàcil de justificar."
+    ],
+    "Obriu Fine-grained tokens": [
+      "Fine-grained vol dir que la credencial pot tenir un abast més concret que un token general.",
+      "La configuració del token determina què podrà fer l’agent amb GitHub."
+    ],
+    "Limiteu-lo al repositori de la pràctica": [
+      "Aquesta selecció evita autoritzar accidentalment altres projectes del mateix compte.",
+      "Reviseu el nom del repositori a la pantalla de permisos abans de generar el token."
+    ],
+    "Doneu només el permís necessari": [
+      "Per pujar fitxers, el permís de continguts amb escriptura és el que cal revisar.",
+      "Els permisos administratius no formen part de la tasca de publicar els fitxers d’aquesta pràctica."
+    ],
+    "Utilitzeu-lo només per a aquesta pujada": [
+      "Un token és una credencial; si l’enganxeu en un fitxer públic, també l’exposeu a terceres persones.",
+      "Després de la pujada, podeu comprovar el resultat directament al repositori."
+    ],
+    "Revoqueu-lo en acabar": [
+      "La revocació impedeix tornar a autenticar-se amb aquella credencial.",
+      "La publicació del projecte es manté; només cal generar una altra credencial si més endavant voleu fer una operació que la requereixi."
+    ],
+    "Entreu a Settings del repositori": [
+      "Pages es configura dins del repositori. Activar-lo aquí associa la web pública amb aquest projecte concret.",
+      "Podeu consultar l’estat de la publicació des de la configuració del mateix repositori."
+    ],
+    "Feu clic a Pages": [
+      "GitHub Pages serveix fitxers HTML estàtics. Un exercici amb JavaScript al navegador pot funcionar-hi sense servidor propi.",
+      "Una funció que necessiti guardar informació al servidor requeriria una arquitectura diferent."
+    ],
+    "Trieu la branca principal i premeu Save": [
+      "La branca seleccionada indica a Pages d’on ha de llegir els fitxers publicats.",
+      "Després d’un push, la nova versió pot necessitar un breu procés de desplegament abans d’aparèixer a la web."
+    ],
+    "Veieu un 404?": [
+      "En una pàgina de projecte, l’adreça acostuma a incloure el nom del repositori. Ometre’l pot donar un error 404.",
+      "També convé comprovar que hi ha un fitxer index.html a la ubicació publicada."
+    ],
+    "1. La pàgina principal d'usuari (User site)": [
+      "Una pàgina d’usuari s’associa a un repositori amb el patró usuari.github.io.",
+      "És una adreça diferent de les pàgines de projecte, que afegeixen el nom del repositori."
+    ],
+    "2. Les pàgines de projecte (Project sites)": [
+      "La ruta de projecte inclou el nom del repositori; per això les rutes relatives són tan importants.",
+      "Una imatge que funciona en local pot fallar a Pages si la ruta comença al directori arrel equivocat."
+    ],
+    "1. El fitxer principal s'ha de dir index.html": [
+      "index.html és el document d’entrada habitual quan visiteu una carpeta d’una web estàtica.",
+      "Les majúscules importen en alguns entorns: Index.html i index.html poden ser fitxers diferents."
+    ],
+    "2. Les rutes han de ser relatives": [
+      "Una ruta com ./imatges/foto.png es resol a partir de la ubicació del document actual.",
+      "Les rutes que comencen amb / apunten a l’arrel del domini i poden fallar dins d’un projecte de GitHub Pages."
+    ],
+    "3. El repositori ha de ser públic": [
+      "Aquesta pràctica planteja un repositori públic perquè el codi sigui consultable i reutilitzable.",
+      "Abans de fer-lo públic, confirmeu que no conté fitxers amb dades de l’alumnat."
+    ],
+    "Quan fer servir GitHub (web)?": [
+      "Al web de GitHub podeu revisar commits, gestionar el repositori i consultar els fitxers des de qualsevol navegador.",
+      "També és el lloc on configureu la publicació amb GitHub Pages."
+    ],
+    "Quan fer servir GitHub Desktop?": [
+      "GitHub Desktop permet revisar els fitxers modificats i preparar commits des d’una interfície gràfica.",
+      "La finestra de canvis és útil per veure què s’ha modificat abans d’enviar-ho al repositori."
+    ]
+  },
+  "bloc4-pages-sites.html": {
+    "Google Gemini": [
+      "Aquí Gemini genera l’artefacte web. És útil comprovar les interaccions abans d’enviar-lo al lloc on es publicarà.",
+      "Un artefacte pot mostrar-se correctament dins de l’editor i necessitar alguna revisió en el lloc final."
+    ],
+    "Google Sites": [
+      "Google Sites facilita el manteniment visual del material, una característica útil quan hi han de col·laborar diversos docents.",
+      "Les opcions d’edició de Sites són diferents de les d’un projecte amb fitxers HTML propis."
+    ],
+    "Quan té sentit fer servir cadascuna?": [
+      "La pregunta que marca la diferència és qui editarà el recurs quan ja estigui en ús al centre.",
+      "GitHub Pages afavoreix el control del codi; Sites facilita l’edició des de la interfície visual."
+    ],
+    "Feu servir Google Sites quan...": [
+      "Sites pot encaixar en materials que diverses persones han de revisar des del navegador.",
+      "Comproveu quines possibilitats d’interacció necessiteu abans de triar una plataforma visual."
+    ],
+    "Feu servir GitHub Pages amb IA quan...": [
+      "Pages permet publicar el JavaScript que dona comportament a una activitat interactiva.",
+      "Tenir els fitxers al repositori facilita portar el projecte a un altre allotjament si més endavant ho necessiteu."
+    ]
+  },
+  "bloc5-llicencies.html": {
+    "Contingut pedagògic": [
+      "Les instruccions d’una activitat i els textos explicatius formen part del contingut que pot tenir llicència Creative Commons.",
+      "Penseu en una fitxa que un altre docent voldria adaptar: la llicència li indica les condicions."
+    ],
+    "Codi font": [
+      "El codi controla comportaments com la correcció de respostes o la navegació d’una activitat.",
+      "Una llicència de programari regula com es pot copiar i modificar aquesta part del projecte."
+    ],
+    "Per què no una sola llicència?": [
+      "Les llicències de continguts i les de programari estan pensades per a tipus d’obra diferents.",
+      "Una web educativa pot combinar-les i documentar cada part al repositori."
+    ],
+    "I el que no heu creat vosaltres?": [
+      "Que un recurs sigui gratuït no significa que es pugui redistribuir lliurement. Consulteu-ne la llicència d’origen.",
+      "Logotips i marques poden tenir condicions diferents de les del text pedagògic del vostre projecte."
+    ],
+    "Com queda en aquest projecte?": [
+      "Aquest lloc documenta per separat la llicència del contingut i la del codi. Podeu utilitzar-lo com a exemple de declaració.",
+      "Llegiu també els avisos de tercers: una biblioteca d’icones pot conservar la seva pròpia llicència."
+    ],
+    "Model de declaració per a un recurs web": [
+      "Incloure la llicència al repositori i al peu de pàgina ajuda a localitzar-la des de qualsevol de les dues entrades.",
+      "Si feu servir imatges de tercers, la seva atribució s’ha de mantenir encara que el projecte tingui una llicència general."
+    ],
+    "Per a continguts": [
+      "En CC BY s’exigeix reconèixer l’autoria. En CC BY-SA, les adaptacions han de compartir-se sota la mateixa llicència o una de compatible.",
+      "Trieu segons com voleu que circulin les adaptacions dels vostres materials pedagògics."
+    ],
+    "Per al codi": [
+      "MIT és una llicència permissiva; GPL inclou obligacions de compartir el codi derivat quan es distribueix programari en determinades condicions.",
+      "Podeu tenir codi obert amb models de reutilització diferents: la paraula «obert» no descriu totes les obligacions."
+    ]
+  },
+  "bloc6-recursos-visuals.html": {
+    "Emoji i icones vectorials: quan convé utilitzar-los": [
+      "Els emoji es dibuixen segons el sistema operatiu; una icona SVG del projecte manté una forma més estable.",
+      "Per a un botó important, el text accessible continua sent necessari encara que la icona sigui familiar."
+    ],
+    "Infografies pedagògiques amb HTML i icones": [
+      "Construir una infografia en HTML permet corregir el text abans d’exportar-la com a imatge.",
+      "Les icones Lucide són SVG: es poden escalar sense perdre nitidesa."
+    ],
+    "Com verificar una resposta d'IA": [
+      "Aquesta mostra visualitza un procediment de verificació. Observeu si cada pas indica una acció que es pot comprovar.",
+      "Una infografia pedagògica és més útil quan el text continua sent comprensible sense dependre només de les icones."
+    ],
+    "Model d'indicació per crear l'HTML": [
+      "Podeu demanar a la IA que conservi el text literal mentre modifica només la composició visual.",
+      "Aquest és un bon lloc per especificar que la infografia s’ha de llegir en mode clar i fosc."
+    ],
+    "Model d'indicació després de revisar el contingut": [
+      "La conversió a PNG arriba després de revisar el text; així s’evita fixar errors dins d’una imatge.",
+      "Un PNG transparent es pot reutilitzar en diapositives, però reviseu el contrast amb el fons de destinació."
+    ],
+    "Bancs d'imatges reals creades per persones": [
+      "La disponibilitat d’una fotografia no determina automàticament si en podeu fer una adaptació.",
+      "Una fitxa d’imatge amb autoria i llicència us estalvia haver de reconstruir-ne la procedència més endavant."
+    ],
+    "Com atribuir una imatge: el mètode TASL": [
+      "TASL resumeix Títol, Autoria, Font i Llicència. Serveix com a recordatori per revisar una atribució.",
+      "La font és especialment útil quan algú vol consultar els termes originals de reutilització."
+    ],
+    "Exemple visual d'una atribució completa": [
+      "Una atribució ben enllaçada permet arribar fins a l’obra original i a les condicions d’ús.",
+      "Podeu copiar l’estructura d’aquesta citació i substituir-la per les dades de la imatge que utilitzeu."
+    ]
+  },
+  "bloc7-bones-practiques.html": {
+    "Revisar el contingut sense delegar-lo a la IA": [
+      "Un qüestionari pot tenir una resposta marcada com a correcta i, tanmateix, contenir un error conceptual. Proveu-lo com a docent.",
+      "La comprovació també inclou la retroacció que rebrà l’alumnat després d’una resposta incorrecta."
+    ],
+    "No enviar dades personals de l'alumnat": [
+      "Podeu provar un recurs amb dades fictícies abans de valorar-ne l’ús amb informació del centre.",
+      "Un camp de nom o correu pot ser innecessari si l’activitat funciona directament al navegador."
+    ],
+    "Entendre què fa el material": [
+      "Demaneu una explicació dels fitxers principals i de què passa en clicar cada botó. Això facilita el manteniment.",
+      "Si una activitat calcula una puntuació, convé saber on és aquesta regla al codi."
+    ],
+    "Decidir quins recursos convé desar en local": [
+      "Una biblioteca carregada des d’un servidor extern pot impedir que una activitat funcioni sense connexió.",
+      "Desar els recursos essencials al projecte és útil quan la llicència permet la redistribució."
+    ],
+    "Separar accessibilitat web i DUA": [
+      "L’accessibilitat web permet comprovar aspectes com l’ús del teclat. El DUA orienta el disseny de l’experiència d’aprenentatge.",
+      "Un recurs pot complir requisits tècnics i encara necessitar més bastides pedagògiques per a l’alumnat."
+    ],
+    "Citar l'autoria del que es pren d'altres persones": [
+      "Una citació també pot convertir-se en una oportunitat per ensenyar com seguir la pista d’una font original.",
+      "En una fotografia, anoteu l’enllaç a l’obra concreta: la portada del banc d’imatges acostuma a ser insuficient."
+    ],
+    "Guardar el rastre de com es va fer": [
+      "El README pot explicar per què vau triar una activitat o un format. Aquesta informació és valuosa per al docent que la reutilitzarà.",
+      "Guardar decisions del procés evita haver de reconstruir-les quan toqueu el recurs el curs següent."
+    ],
+    "Declarar l'ús d'IA i el que s'ha comprovat": [
+      "Una declaració concreta pot indicar què ha generat la IA i quina revisió docent s’ha fet.",
+      "La transparència ajuda altres persones a interpretar millor el procés de creació del material."
+    ],
+    "Publicar amb una llicència lliure a la vista": [
+      "Fer visible la llicència al peu de la web facilita trobar les condicions de reutilització.",
+      "Si el projecte conté codi i materials pedagògics, comproveu que cada part tingui documentada la seva llicència."
+    ],
+    "Oferir el codi perquè altres persones l'adaptin": [
+      "Compartir el repositori facilita que un altre docent canviï exemples o afegeixi activitats sense reconstruir tota la web.",
+      "Una URL de Pages mostra el resultat; l’enllaç al repositori permet consultar com està fet."
+    ]
+  },
+  "bloc8-verificacio.html": {
+    "Comprovació ràpida del material": [
+      "Cada casella de la llista hauria de respondre a una prova concreta. Per exemple, fer tota l’activitat com ho faria l’alumnat.",
+      "Les comprovacions es conserven al navegador. Podeu reiniciar-les quan reviseu una nova versió del recurs."
+    ]
+  },
+  "bloc9-per-continuar-explorant.html": {
+    "Què és la intel·ligència artificial local i per què és rellevant a l'escola?": [
+      "Una curiositat: «local» descriu on s’executa el model, no la llicència ni la qualitat de les respostes.",
+      "La privacitat també depèn de l’aplicació que envolta el model, dels registres que desa i de les connexions que activa."
+    ],
+    "Més control sobre les dades": [
+      "Executar el model al centre pot evitar enviar consultes a un servidor extern. Cal revisar igualment on guarda els historials l’aplicació.",
+      "Un ordinador compartit mereix tanta atenció com el servei: qui pot obrir els fitxers i les converses locals?"
+    ],
+    "Autonomia i funcionament fora de línia": [
+      "Moltes eines locals necessiten Internet per descarregar el model, però després poden respondre sense connexió.",
+      "Provar una sessió amb la xarxa desactivada és una manera directa de comprovar què funciona fora de línia."
+    ],
+    "Sobirania digital i continuïtat pedagògica": [
+      "Guardar els models i els recursos necessaris al centre pot reduir la dependència d’un servei remot.",
+      "La continuïtat també implica conservar una manera de reinstal·lar l’eina quan es renova l’equip."
+    ],
+    "Sessió divulgativa de Jordi Mas (Softcatalà)": [
+      "La ponència de Jordi Mas aporta una mirada pràctica als models locals i al català.",
+      "Mentre l’escolteu, distingiu les limitacions del model de les limitacions de l’ordinador que l’executa."
+    ],
+    "Què aporta executar el model al dispositiu": [
+      "La resposta es genera al mateix equip, però això no garanteix que totes les funcions de l’aplicació siguin fora de línia.",
+      "Una manera de posar-ho a prova és observar el comportament de l’eina amb Internet desconnectat."
+    ],
+    "Com ajustar el model a la tasca i al maquinari": [
+      "Un model petit pot ser suficient per classificar textos breus, mentre que altres tasques exigeixen més capacitat.",
+      "La memòria disponible i la longitud del context influeixen en el rendiment que notareu."
+    ],
+    "1. El context i el \"moment Linux\"": [
+      "La comparació amb Linux apunta a una idea interessant: una tecnologia pot guanyar autonomia quan existeix un ecosistema d’eines obertes.",
+      "Penseu com canviaria la feina del centre si poguéssiu executar una part de les eines sense dependre d’un servei remot."
+    ],
+    "2. Què vol dir executar IA en local": [
+      "Un model descarregat encara necessita un programa que el carregui i l’executi. Les dues peces fan funcions diferents.",
+      "«Al vostre ordinador» pot voler dir també un servidor del centre, segons qui controli el dispositiu."
+    ],
+    "3. IA local, pesos oberts i IA lliure": [
+      "Poder descarregar els pesos d’un model no equival necessàriament a tenir permís per entrenar-lo o redistribuir-lo sense condicions.",
+      "La llicència del model és una pregunta diferent de la ubicació on s’executa."
+    ],
+    "4. Tasques desateses i usos interactius": [
+      "Transcriure un lot d’àudios és diferent de mantenir una conversa en temps real. El temps de resposta admissible canvia.",
+      "Una tasca desatesa pot aprofitar un model més lent perquè el docent no necessita veure la resposta immediatament."
+    ],
+    "5. Maquinari i rendiment": [
+      "La RAM i la memòria de la targeta gràfica condicionen el model que podreu carregar.",
+      "Dos equips amb memòria semblant poden respondre a velocitats diferents segons el processador i l’acceleració disponible."
+    ],
+    "6. Com triar un model i per què importa la quantització": [
+      "La quantització redueix la memòria necessària per guardar els pesos del model, tot i que pot afectar-ne el rendiment.",
+      "Si un model no cap a la memòria disponible, una versió quantitzada pot fer viable la prova."
+    ],
+    "7. Eines per començar i criteris per al català": [
+      "Per valorar un model en català, proveu-hi textos semblants als que faríeu servir al centre.",
+      "Softcatalà publica comparacions de models en català que poden orientar la tria."
+    ],
+    "8. Transcripció i treball amb documents": [
+      "La transcripció local pot ser interessant per treballar amb àudio sense enviar-lo a un servei remot.",
+      "Quan consulteu documents amb un model local, comproveu si cita passatges reals del fitxer o genera una resposta sense referències."
+    ],
+    "Recursos en català per treballar amb IA local": [
+      "Una comparació específica en català pot revelar diferències que no es veuen en classificacions generals de models.",
+      "El Projecte Aina i Softcatalà tenen funcions complementàries: recursos lingüístics i orientacions per avaluar models."
+    ],
+    "IA local i models en català (Softcatalà)": [
+      "Softcatalà publica proves de models en tasques en català. És un punt de partida més pertinent que una classificació només en anglès.",
+      "Podeu fer una prova pròpia amb indicacions del vostre àmbit i comparar-les amb les recomanacions publicades."
+    ],
+    "Projecte Aina": [
+      "El Projecte Aina posa a disposició recursos lingüístics i models per impulsar tecnologia en català.",
+      "Una curiositat: els conjunts de dades són tan importants com els models per desenvolupar noves eines lingüístiques."
+    ],
+    "Com executar models locals al vostre ordinador": [
+      "Aquestes aplicacions són interfícies o motors per executar models. La tria de l’aplicació i la tria del model són decisions diferents.",
+      "Abans de començar, mireu si necessiteu consultar fitxers, conversar amb un model o connectar-lo a una altra eina."
+    ],
+    "Rebost (opció guiada per treballar amb fitxers)": [
+      "Rebost permet vincular carpetes locals per consultar documents amb un model executat al dispositiu. Podeu començar per una carpeta de prova.",
+      "El mode Online és opcional. Comproveu-lo si voleu assegurar-vos que la consulta es manté dins de l’entorn local."
+    ],
+    "LM Studio (interfície visual per triar i provar models)": [
+      "LM Studio permet descarregar un model i després carregar-lo des de la interfície gràfica. Una descàrrega i una conversa local són operacions diferents.",
+      "Si busqueu funcionament fora de línia, comproveu que heu seleccionat un model local i que els components necessaris ja són al dispositiu."
+    ],
+    "Ollama (motor local amb aplicació i API)": [
+      "L’API local d’Ollama permet que altres aplicacions del mateix ordinador facin consultes al model.",
+      "Ollama també ofereix models al núvol. El nom i la configuració del model indiquen on es processarà la consulta."
+    ],
+    "Trieu el model a partir de la memòria disponible": [
+      "La quantització pot reduir els gigabytes necessaris per carregar un model. Per això dues versions del mateix model poden tenir requisits diferents.",
+      "La longitud del context també consumeix memòria. Si una prova falla amb documents llargs, aquesta variable pot ser rellevant."
+    ]
+  },
+  "credits.html": {
+    "Servei Educatiu del Vallès Occidental II": [
+      "Aquest apartat situa el material en el context de la formació per a docents.",
+      "Conèixer l’origen institucional d’un recurs facilita valorar per a quin públic i quina finalitat es va crear."
+    ],
+    "Autoria i manteniment": [
+      "Fer visible qui manté un projecte facilita comunicar-hi correccions o propostes de millora.",
+      "Quan reutilitzeu una web d’un altre docent, és útil conservar-ne l’atribució original."
+    ],
+    "Vibe coding educatiu responsable (VCER)": [
+      "Les guies de pràctica responsable poden ajudar a revisar una activitat abans que arribi a l’alumnat.",
+      "Una pauta útil és transformar recomanacions generals en proves concretes que es puguin repetir."
+    ],
+    "CEDEC - seLIA": [
+      "Aquestes referències connecten el projecte amb altres recursos educatius sobre IA.",
+      "Consultar la font original permet veure quines orientacions són aplicables al vostre context."
+    ],
+    "Softcatalà": [
+      "Softcatalà contribueix a disposar de recursos i criteris d’avaluació per a models que treballen en català.",
+      "Un model amb bon resultat en anglès pot tenir comportaments diferents quan li demaneu una activitat en català."
+    ],
+    "Projecte Aina": [
+      "Aina impulsa recursos lingüístics que poden reutilitzar investigadors i desenvolupadors de tecnologia en català.",
+      "En IA, els conjunts de dades també són una part del recurs que convé documentar i citar."
+    ],
+    "Rebost": [
+      "Rebost és una de les eines que apareixen al bloc d’IA local per treballar amb fitxers del dispositiu.",
+      "Les eines obertes poden canviar de versió: conservar-ne l’enllaç oficial facilita revisar-ne les funcions."
+    ],
+    "TERMCAT": [
+      "La terminologia tecnològica en català evoluciona. TERMCAT és una font útil per revisar com anomenem conceptes tècnics.",
+      "Triar una terminologia coherent ajuda els lectors a relacionar el material amb altres recursos en català."
+    ]
+  }
+};
+  for (const [page, byTitle] of Object.entries(contextualComments)) {
+    Object.assign(specificCommentsByPage[page] ||= {}, byTitle);
+  }
+
+  const checklistComments = [
+    ['Revisió docent:', 'La prova final és completar l’activitat com ho faria l’alumnat. Comproveu també la retroacció de cada resposta.'],
+    ['Privacitat (RGPD):', 'Una activitat que funciona sense identificar l’alumnat evita recollir dades que potser no necessiteu.'],
+    ['Codi entès:', 'Saber on es calcula la puntuació o com es mostra la retroacció facilita corregir el recurs després.'],
+    ['Recursos i dependències:', 'Una web pot carregar biblioteques o imatges externes. Comproveu què passa si es perd la connexió.'],
+    ['Accessibilitat:', 'Proveu la navegació amb la tecla Tab i el contrast en mode fosc. Són comprovacions observables.'],
+    ['Autoria i crèdits:', 'Un enllaç a la fotografia original ajuda més que citar només la portada d’un banc d’imatges.'],
+    ['Rastre guardat:', 'Un README amb les decisions docents explica per què el recurs funciona com funciona.'],
+    ["Declaració d'ús d'IA:", 'Una declaració útil indica què ha fet la IA i què ha comprovat personalment el docent.'],
+    ['Llicència visible:', 'Les condicions del contingut pedagògic i les del codi poden ser diferents.'],
+    ['Codi obert:', 'La pàgina publicada mostra el resultat; el repositori permet que un altre docent estudiï i adapti el codi.']
   ];
 
+  const STORAGE_VERSION = 'eines-ia:companion-context-v9';
   function currentPage() {
-    const name = location.pathname.split('/').pop();
-    return name || 'index.html';
+    return location.pathname.split('/').pop() || 'index.html';
   }
 
   function currentState() {
     try {
-      return JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '{}');
+      return JSON.parse(sessionStorage.getItem(STORAGE_VERSION) || '{}');
     } catch {
       return {};
     }
@@ -348,7 +867,7 @@
 
   function saveState(state) {
     try {
-      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      sessionStorage.setItem(STORAGE_VERSION, JSON.stringify(state));
     } catch {}
   }
 
@@ -357,8 +876,7 @@
     const state = currentState();
     state.indexes ||= {};
     const current = Number.isInteger(state.indexes[key])
-      ? state.indexes[key]
-      : Math.floor(Math.random() * items.length);
+      ? state.indexes[key] : Math.floor(Math.random() * items.length);
     const text = items[current % items.length];
     state.indexes[key] = (current + 1) % items.length;
     saveState(state);
@@ -366,10 +884,7 @@
   }
 
   function cleanVisibleText(text) {
-    return (text || '')
-      .replace(/[«»]/g, '')
-      .replace(/\s+/g, ' ')
-      .trim();
+    return (text || '').replace(/[«»]/g, '').replace(/\s+/g, ' ').trim();
   }
 
   function titleFor(target) {
@@ -378,301 +893,38 @@
   }
 
   function fingerprintFor(target) {
-    const title = titleFor(target);
-    if (title) return title;
-    if (target.id) return target.id;
-    return cleanVisibleText(target.textContent || '').slice(0, 90) || target.className || target.tagName;
-  }
-
-  function hasImageCredit(target) {
-    if (!target.matches?.('figure')) return false;
-    const caption = target.querySelector('figcaption');
-    if (!caption) return false;
-    const text = caption.textContent.toLowerCase();
-    const links = caption.querySelectorAll('a[href]');
-    return links.length > 0 && /fotografia de|imatge de|foto:|font:|llicència|unsplash|wikimedia|flickr/.test(text);
+    return [titleFor(target), target.id || '', cleanVisibleText(target.textContent || '').slice(0, 50)].join('::');
   }
 
   function unique(items) {
     return [...new Set(items.map(cleanVisibleText).filter(Boolean))];
   }
 
-  function ensureThree(items, target) {
-    const page = currentPage();
-    const fallbacks = pageFallbacks[page] || universalFallbacks;
-    const title = titleFor(target);
-    const titleOptions = title
-      ? [
-          `Si ${title} us resulta nou, penseu primer què us permet fer en una activitat.`,
-          `Podeu relacionar ${title} amb una necessitat concreta del vostre context docent.`,
-          `Una pregunta útil aquí és com aplicaríeu ${title} en un recurs que ja coneixeu.`
-        ]
-      : universalFallbacks;
-
-    return unique([...items, ...fallbacks, ...titleOptions, ...universalFallbacks]).slice(0, 3);
-  }
-
   function commentsFor(target) {
     const explicit = target.getAttribute?.('data-companion-comment');
-    if (explicit) {
-      return ensureThree([
-        explicit,
-        'Penseu en quina decisió docent us ajuda a prendre aquesta idea.',
-        'Relacionar aquest punt amb un material propi us pot ajudar a recordar-lo.'
-      ], target);
-    }
+    if (explicit) return [cleanVisibleText(explicit)];
 
     const page = currentPage();
     const title = titleFor(target);
-    const specific = specificCommentsByPage[page]?.[title];
-    if (specific) return ensureThree(specific, target);
+    const curated = specificCommentsByPage[page]?.[title];
+    if (curated?.length) return unique(curated);
 
-    const text = cleanVisibleText(target.textContent || '').toLowerCase();
-    const items = [];
-
-    if (hasImageCredit(target)) {
-      return ensureThree([
-        'Aquesta imatge està correctament citada: autoria i procedència queden visibles.',
-        'Fixeu-vos en el peu: pot servir de model quan citeu imatges en materials propis.',
-        'Una citació visible permet que altres persones localitzin l’origen de la imatge.'
-      ], target);
+    // La llista de verificació no té cap títol dins de cada casella.
+    if (page === 'bloc8-verificacio.html' && target.classList?.contains('check-item')) {
+      const text = cleanVisibleText(target.textContent || '');
+      const note = checklistComments.find(([label]) => text.includes(label));
+      return note ? [note[1]] : [];
     }
 
-    if (target.matches?.('figure')) {
-      const image = target.querySelector('img');
-      if (image?.alt?.trim()) {
-        items.push(
-          'Aquesta imatge incorpora text alternatiu. Serveix perquè la informació visual també sigui accessible amb tecnologies d’assistència.',
-          'El text alternatiu ha d’explicar allò que aporta la imatge al context, sense convertir-se en una descripció interminable.',
-          'Quan una imatge conté informació important, descriure-la ajuda a fer el recurs més accessible.'
-        );
-      }
-      if (target.querySelector('figcaption')) {
-        items.push(
-          'El peu pot explicar la procedència de la imatge i afegir context sense carregar el text principal.',
-          'Fer visible l’origen d’una imatge facilita revisar-ne l’ús quan actualitzeu el material.',
-          'Un bon peu pot ajudar a entendre què mostra la imatge i d’on prové.'
-        );
+    // El peu de figura és una dada verificable; evitem deduccions sobre la imatge.
+    if (page === 'bloc6-recursos-visuals.html' && target.matches?.('figure')) {
+      const caption = cleanVisibleText(target.querySelector('figcaption')?.textContent || '');
+      if (caption && target.querySelector('figcaption a[href]')) {
+        return ['El peu d’aquesta imatge inclou un enllaç a la font. Podeu obrir-lo per consultar-ne l’autoria i la llicència.'];
       }
     }
 
-    if (target.classList?.contains('home-block-card')) {
-      items.push(
-        'Aquesta targeta resumeix què trobareu al bloc i us ajuda a decidir si respon a una necessitat actual.',
-        'Podeu saltar directament a aquest bloc si és el que més encaixa amb el vostre punt de partida.',
-        'Llegir el resum abans d’entrar-hi és una manera ràpida de construir el vostre propi recorregut.'
-      );
-    }
-
-    if (target.classList?.contains('ordered-step-item')) {
-      items.push(
-        'Si aquest pas us sembla tècnic, busqueu primer quin resultat visible hauríeu d’obtenir al final.',
-        'Fer un pas i comprovar-ne el resultat abans de continuar ajuda a detectar errors aviat.',
-        'Penseu en aquest pas com una prova petita: l’objectiu és veure què canvia al projecte.'
-      );
-    }
-
-    if (target.classList?.contains('vibe-card')) {
-      items.push(
-        'Una pregunta útil és quin canvi concret aporta aquesta pauta a una activitat vostra.',
-        'Compareu aquesta recomanació amb un recurs que ja utilitzeu; així serà més fàcil veure’n la utilitat.',
-        'Aquest criteri pot convertir-se en una comprovació breu abans de portar el material a l’aula.'
-      );
-    }
-
-    if (target.classList?.contains('check-item')) {
-      items.push(
-        'Si podeu marcar aquest punt amb seguretat, ja heu comprovat una part concreta del recurs.',
-        'Un dubte aquí és útil: assenyala exactament què convé revisar abans de publicar.',
-        'Aquesta mateixa comprovació es pot reutilitzar en altres materials digitals.'
-      );
-    }
-
-    if (target.classList?.contains('license-box')) {
-      items.push(
-        'Fixeu-vos en quin tipus de material regula aquesta llicència: contingut pedagògic o codi.',
-        'Una llicència serveix per deixar per escrit què permeteu a qui reutilitzi el vostre treball.',
-        'Aquesta distinció evita que altres persones hagin d’endevinar quines condicions s’apliquen.'
-      );
-    }
-
-    if (target.classList?.contains('conference-visual')) {
-      items.push(
-        'Aquest esquema transforma una explicació llarga en una relació visual entre idees.',
-        'Llegir primer l’esquema pot ajudar-vos a situar el tema abans d’entrar en els detalls.',
-        'Aquest tipus de resum visual pot ser útil en formacions quan voleu donar una visió general ràpida.'
-      );
-    }
-
-    if (target.classList?.contains('table-responsive')) {
-      items.push(
-        'La taula és útil quan voleu comparar opcions amb el mateix criteri.',
-        'Mireu primer la columna que respon a la vostra necessitat; després podeu completar la comparació.',
-        'Una taula redueix la càrrega de memòria perquè manté les opcions visibles al mateix temps.'
-      );
-    }
-
-    if (target.classList?.contains('pedagogical-highlight')) {
-      items.push(
-        'Aquesta capsa concentra una idea que pot orientar una decisió docent concreta.',
-        'Proveu de relacionar aquesta idea amb un material que ja feu servir a l’aula.',
-        'Si aquesta recomanació us sembla útil, penseu quin canvi petit podríeu provar en un recurs propi.'
-      );
-    }
-
-    if (target.classList?.contains('workshop-access-card')) {
-      items.push(
-        'Aquest accés ràpid està pensat per reduir el temps d’entrada al material durant una sessió.',
-        'Una adreça curta o un QR poden ser útils quan tot el grup ha d’arribar al mateix recurs.',
-        'Aquest mateix sistema pot funcionar en una activitat d’aula si voleu compartir un recurs sense dictar una URL llarga.'
-      );
-    }
-
-    if (target.classList?.contains('infographic-prompt-box')) {
-      items.push(
-        'Aquesta indicació es pot copiar i adaptar al contingut que vulgueu representar.',
-        'Conservar l’HTML editable permet corregir el text abans de convertir la infografia en una imatge.',
-        'Abans d’exportar, reviseu el contingut com revisaríeu qualsevol material que arribarà a l’alumnat.'
-      );
-    }
-
-    if (target.classList?.contains('pedagogy-infographic')) {
-      items.push(
-        'Aquesta infografia continua sent HTML: el text es pot revisar i editar directament.',
-        'La jerarquia visual ajuda a separar idees sense convertir-les en una imatge tancada.',
-        'Aquest format és pràctic quan voleu revisar el contingut abans de generar una versió final en PNG.'
-      );
-    }
-
-    if (target.classList?.contains('quiz-question-card')) {
-      items.push(
-        'Responeu segons la vostra pràctica actual; així el qüestionari pot orientar millor el recorregut.',
-        'Aquesta pregunta serveix per situar el punt de partida, no per avaluar-vos.',
-        'El qüestionari pot ajudar-vos a prioritzar blocs sense obligar-vos a seguir un ordre únic.'
-      );
-    }
-
-    if (text.includes('github pages')) {
-      items.push(
-        'GitHub Pages publica els fitxers web del repositori com un lloc accessible amb una adreça.',
-        'Quan actualitzeu el projecte a GitHub, Pages pot publicar també aquella versió nova.',
-        'És útil quan voleu conservar el control directe dels fitxers que formen la web.'
-      );
-    }
-
-    if (text.includes('google sites')) {
-      items.push(
-        'Google Sites permet editar visualment el recurs sense treballar directament amb els fitxers web.',
-        'Pot ser pràctic en centres que ja treballen amb Google Workspace i necessiten edició compartida.',
-        'Si diverses persones han de mantenir el material, una interfície visual pot simplificar les actualitzacions.'
-      );
-    }
-
-    if (text.includes('index.html')) {
-      items.push(
-        'index.html acostuma a ser el fitxer que s’obre primer quan entreu en un lloc web.',
-        'Si la portada d’una web no es carrega, revisar index.html és un bon punt de partida.',
-        'Reconèixer aquest nom us ajuda a identificar on comença l’estructura principal del lloc.'
-      );
-    }
-
-    if (text.includes('lucide')) {
-      items.push(
-        'Lucide és una biblioteca d’icones vectorials: totes comparteixen un estil visual coherent.',
-        'Fer servir una sola família d’icones evita que el material sembli construït amb estils diferents.',
-        'Les icones decoratives es poden ocultar als lectors de pantalla perquè no afegeixin soroll.'
-      );
-    }
-
-    if (text.includes('llicència') || text.includes('llicències')) {
-      items.push(
-        'La llicència explica què es pot fer amb un recurs quan una altra persona el reutilitza.',
-        'Abans de reutilitzar una obra, mireu les condicions de la llicència concreta.',
-        'Fer visible la llicència facilita que altres docents reutilitzin el material amb criteri.'
-      );
-    }
-
-    if (text.includes('privacitat') || text.includes('rgpd') || text.includes('dades personals')) {
-      items.push(
-        'Abans d’introduir informació en una eina, pregunteu-vos si conté dades personals de l’alumnat.',
-        'Treballar només amb les dades necessàries redueix el risc quan feu servir serveis externs.',
-        'Si una activitat funciona amb dades fictícies, aquesta opció pot simplificar molt la protecció de la privacitat.'
-      );
-    }
-
-    if (text.includes('accessibilitat') || text.includes('dua')) {
-      items.push(
-        'Provar el recurs amb la tecla Tab és una manera ràpida de comprovar si es pot navegar sense ratolí.',
-        'El contrast i la mida del text poden convertir un recurs entenedor en un recurs difícil de llegir.',
-        'Pensar en diferents maneres d’accedir al material ajuda a detectar barreres abans de portar-lo a l’aula.'
-      );
-    }
-
-    if (text.includes('indicació') || text.includes('prompt')) {
-      items.push(
-        'Una indicació concreta explica què voleu canviar i quin resultat espereu veure.',
-        'Si la resposta s’allunya del que necessiteu, afegir context acostuma a orientar millor l’eina.',
-        'Podeu descriure el canvi amb paraules docents: no cal conèixer vocabulari de programació per començar.'
-      );
-    }
-
-    if (text.includes('git') && !text.includes('github pages')) {
-      items.push(
-        'Git guarda un historial dels canvis del projecte, semblant a tenir punts de recuperació.',
-        'Treballar amb canvis petits facilita saber què ha provocat un problema si alguna cosa deixa de funcionar.',
-        'L’historial permet tornar a una versió anterior quan una prova no dona el resultat esperat.'
-      );
-    }
-
-    if (text.includes('repositori')) {
-      items.push(
-        'Podeu pensar en el repositori com la carpeta principal del projecte a GitHub.',
-        'El repositori reuneix els fitxers que després poden formar el recurs publicat.',
-        'Mirar el repositori us permet comprovar què esteu compartint públicament.'
-      );
-    }
-
-    if (text.includes('ia local') || text.includes('model local') || text.includes('models locals')) {
-      items.push(
-        'En IA local, el model s’executa al vostre ordinador o en un equip que controleu.',
-        'La memòria de l’ordinador és una de les dades que més condiciona quins models podreu utilitzar.',
-        'Per començar, és més fàcil triar una tasca concreta i provar un model petit.'
-      );
-    }
-
-    if (target.querySelector?.('input, select, textarea, button')) {
-      items.push(
-        'Proveu aquest control amb la tecla Tab: és una comprovació senzilla d’accessibilitat.',
-        'Un control entenedor ha de deixar clar què passarà quan l’activeu.',
-        'Fer una prova amb teclat pot revelar barreres que amb el ratolí passen desapercebudes.'
-      );
-    }
-
-    if (target.querySelector?.('code, pre')) {
-      items.push(
-        'Quan la IA modifica codi, revisar el resultat després de cada canvi ajuda a detectar errors.',
-        'Podeu demanar a la IA que expliqui amb llenguatge planer què fa aquest fragment abans de modificar-lo.',
-        'Entendre la funció de les parts importants facilita mantenir el recurs quan torni a caldre actualitzar-lo.'
-      );
-    }
-
-    if (target.querySelector?.('a[target="_blank"]')) {
-      items.push(
-        'Aquest enllaç obre una font externa que amplia la informació.',
-        'Conservar l’enllaç original facilita comprovar la informació quan el material s’actualitza.',
-        'Si una decisió depèn d’una condició d’ús, la font original és el lloc més segur per revisar-la.'
-      );
-    }
-
-    if (target.querySelector?.('img') && !target.matches?.('figure')) {
-      items.push(
-        'Fixeu-vos en què aporta aquesta imatge al contingut que l’envolta.',
-        'Una imatge útil acostuma a explicar una idea o a orientar la lectura.',
-        'Si la imatge desaparegués, pregunteu-vos quina informació trobaríeu a faltar: això revela la seva funció.'
-      );
-    }
-
-    return ensureThree(items, target);
+    return [];
   }
 
   function candidates() {
@@ -766,6 +1018,7 @@
   function showComment(target) {
     if (!bubble || !bubbleText || !target) return;
     const comments = commentsFor(target);
+    if (!comments.length) return;
     const key = `${location.pathname}::${fingerprintFor(target)}`;
     const text = choose(key, comments);
     if (!text) return;
@@ -795,7 +1048,7 @@
   }
 
   function evaluate({ force = false } = {}) {
-    if (Date.now() < readyAt) return;
+    if (!force && Date.now() < readyAt) return;
 
     const companion = document.getElementById('reading-companion');
     if (!companion || companion.hidden) return;
@@ -803,6 +1056,15 @@
     const target = activeCandidate();
     if (!target) return;
     if (!force && target === lastTarget) return;
+
+    // Si no hi ha cap observació específica, retirem la bafarada anterior.
+    if (!commentsFor(target).length) {
+      clearTimeout(hideTimer);
+      bubble?.classList.remove('is-visible');
+      if (bubble) bubble.hidden = true;
+      lastTarget = target;
+      return;
+    }
 
     const elapsed = Date.now() - shownAt;
     if (!force && shownAt && elapsed < MIN_REPLACE_GAP) {
@@ -844,6 +1106,14 @@
 
     window.addEventListener('scroll', scheduleEvaluate, { passive: true });
     window.addEventListener('resize', scheduleEvaluate, { passive: true });
+    window.addEventListener('companion:request-comment', () => {
+      const target = activeCandidate();
+      if (!target) return;
+      const eligible = commentsFor(target).length ? target : target.closest?.('.content-box, .workshop-access-card');
+      if (!eligible || !commentsFor(eligible).length) return;
+      showComment(eligible);
+      window.announce?.(bubbleText.textContent);
+    });
 
     setTimeout(() => evaluate({ force: true }), READY_DELAY + 120);
   }
