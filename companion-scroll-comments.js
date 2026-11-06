@@ -1662,6 +1662,218 @@
   }
 });
 
+  Object.assign(rotationExtras, {
+  "bloc4-pages-sites.html": {
+    "Google Gemini": [
+      "Després d’exportar, obriu la pàgina publicada en una finestra diferent per comprovar com la veu el lector."
+    ],
+    "Google Sites": [
+      "L’edició visual de Sites pot simplificar canvis en els textos que altres docents han de mantenir."
+    ],
+    "Quan té sentit fer servir cadascuna?": [
+      "Les necessitats d’interacció, com corregir respostes automàticament, poden influir en la plataforma més adequada."
+    ],
+    "Feu servir Google Sites quan...": [
+      "Un equip docent pot preferir una eina amb permisos d’edició compartida per mantenir un recurs conjunt."
+    ],
+    "Feu servir GitHub Pages amb IA quan...": [
+      "Conservar el JavaScript propi permet modificar després les regles d’una activitat interactiva."
+    ],
+    "De Gemini a Google Sites sense copiar codi": [
+      "La publicació és també una prova de compatibilitat: comproveu que els botons continuïn funcionant.",
+      "Un canvi a l’artefacte original pot requerir revisar la versió ja publicada a Sites."
+    ],
+    "Una comparació des de la pràctica d'aula": [
+      "Si el recurs canviarà sovint, el sistema d’edició pot ser més determinant que la primera publicació.",
+      "La possibilitat d’exportar o conservar els fitxers també influeix en la continuïtat del projecte."
+    ],
+    "Enllaços i documentació oficial:": [
+      "Les funcions de publicació poden tenir condicions d’accés segons el compte.",
+      "La comunicació oficial ajuda a confirmar quin tipus d’artefactes s’admeten."
+    ]
+  },
+  "bloc5-llicencies.html": {
+    "Contingut pedagògic": [
+      "La mateixa llicència pot acompanyar un text que un altre docent tradueixi o adapti."
+    ],
+    "Codi font": [
+      "Una llicència de programari cobreix també adaptacions del codi que canvien les interaccions."
+    ],
+    "Per què no una sola llicència?": [
+      "La separació facilita que una persona reutilitzi només els continguts sense copiar el programa."
+    ],
+    "I el que no heu creat vosaltres?": [
+      "Una fotografia pot tenir requisits d’atribució encara que el lloc on la poseu sigui de creació pròpia."
+    ],
+    "Com queda en aquest projecte?": [
+      "Els avisos sobre recursos de tercers eviten confondre les seves condicions amb les del codi propi."
+    ],
+    "Model de declaració per a un recurs web": [
+      "Una declaració hauria d’indicar també on trobar el text complet de cada llicència."
+    ],
+    "Per a continguts": [
+      "Podeu comparar CC BY i CC BY-SA segons el tractament que voleu donar a les adaptacions."
+    ],
+    "Per al codi": [
+      "La distribució de versions modificades pot activar obligacions diferents segons la llicència de programari."
+    ],
+    "Per què cal distingir entre contingut i codi?": [
+      "En una web d’exercicis, el text de les preguntes es pot reutilitzar separat de la lògica de correcció.",
+      "Els fitxers de llicència del repositori ajuden a fer visible aquesta distinció."
+    ],
+    "Quina llicència de codi encaixa amb el vostre projecte?": [
+      "L’orientador és una ajuda per pensar les condicions, i les podeu contrastar amb el text oficial.",
+      "Valoreu si voleu exigir que les versions distribuïdes del programari mantinguin certes llibertats."
+    ],
+    "Llicències recomanades per a docents": [
+      "La llicència de les imatges que incorporeu pot ser diferent de la del conjunt del recurs.",
+      "Per a materials que altres docents adaptaran, l’atribució ha de continuar sent localitzable."
+    ],
+    "Fonts oficials de les llicències": [
+      "Una traducció resumida pot ajudar a entendre la llicència, però el text oficial és la referència jurídica.",
+      "Consulteu també la versió concreta: les obligacions poden canviar entre llicències o versions."
+    ]
+  },
+  "bloc6-recursos-visuals.html": {
+    "Emoji i icones vectorials: quan convé utilitzar-los": [
+      "Un emoji pot tenir colors diferents a cada plataforma; un SVG manté les formes definides al projecte."
+    ],
+    "Infografies pedagògiques amb HTML i icones": [
+      "Les capses HTML permeten conservar el text seleccionable i editable mentre reviseu la infografia."
+    ],
+    "Com verificar una resposta d'IA": [
+      "Una seqüència visual de verificació pot recordar al lector quan cal consultar la font original."
+    ],
+    "Model d'indicació per crear l'HTML": [
+      "Especifiqueu l’amplada màxima del component per evitar que la infografia quedi massa extensa."
+    ],
+    "Model d'indicació després de revisar el contingut": [
+      "Abans de renderitzar, demaneu que es mantinguin els textos validats sense introduir-ne de nous."
+    ],
+    "Bancs d'imatges reals creades per persones": [
+      "La fitxa de l’obra és més important que la reputació general del banc a l’hora de revisar-ne l’ús."
+    ],
+    "Com atribuir una imatge: el mètode TASL": [
+      "Una atribució completa permet que qui rep el material comprovi la procedència sense haver de preguntar-vos-la."
+    ],
+    "Exemple visual d'una atribució completa": [
+      "Enllaçar la font de l’obra facilita identificar-ne l’autoria i verificar-ne la llicència."
+    ],
+    "Imatges generades amb IA: percepció i criteri pedagògic": [
+      "En una activitat docent, el context d’ús pot canviar el valor d’una imatge.",
+      "Podeu analitzar què fa que una fotografia sigui una font documental i quan una imatge sintètica compleix una funció diferent."
+    ],
+    "Autenticitat percebuda i transparència": [
+      "Un peu explicatiu pot indicar l’origen sintètic de la imatge quan és rellevant.",
+      "Aquesta transparència permet discutir com influeix l’etiqueta en la interpretació d’una obra."
+    ],
+    "Funció pedagògica abans que decoració": [
+      "Una imatge que acompanya una definició pot ajudar a situar-la o bé competir amb la lectura.",
+      "La pregunta útil és quina informació s’entendria pitjor si retiréssiu la imatge."
+    ],
+    "Emoji per a senyals breus i informals": [
+      "L’emoji no és un substitut fiable d’una etiqueta quan serveix per activar una funció.",
+      "Podeu fer una prova visual comparant el mateix símbol al mòbil i a l’ordinador."
+    ],
+    "Icones SVG per a un sistema visual coherent": [
+      "Una sola biblioteca facilita mantenir mides i gruixos de traç semblants.",
+      "Les icones decoratives poden marcar-se perquè els lectors de pantalla les ignorin."
+    ],
+    "Prepareu el contingut abans del disseny": [
+      "Escriure un títol breu per a cada idea ajuda a definir l’estructura abans de maquetar.",
+      "Si una idea necessita molt de text, podeu separar-ne l’explicació de la representació visual."
+    ],
+    "Construïu la infografia en HTML": [
+      "Les icones Lucide són elements vectorials que podeu ajustar amb CSS.",
+      "Un avantatge de l’HTML és que el text es pot corregir sense haver de generar una imatge nova."
+    ],
+    "Reviseu-la en pantalla": [
+      "El mode fosc pot revelar capses sense prou contrast.",
+      "Comproveu si les icones continuen tenint sentit quan el text del costat ocupa dues línies."
+    ],
+    "Exporteu el component a PNG": [
+      "Un PNG amb transparència pot sobreposar-se a fons diferents; reviseu si el text hi conserva el contrast.",
+      "Exportar només el component evita espais buits que dificulten reutilitzar-lo."
+    ],
+    "Mostra inserida directament amb HTML i Lucide": [
+      "El text d’aquesta mostra es pot seleccionar perquè forma part del document.",
+      "Una versió PNG es pot utilitzar en diapositives, però s’ha de regenerar si després corregiu l’HTML."
+    ],
+    "Wikimedia Commons": [
+      "No totes les obres de Commons comparteixen exactament les mateixes condicions.",
+      "La fitxa de cada imatge acostuma a indicar la procedència i les dades d’autoria."
+    ],
+    "Unsplash (secció gratuïta)": [
+      "Les fotografies d’Unsplash tenen una llicència pròpia, diferent de Creative Commons.",
+      "Conservar la URL original facilita comprovar-ne les condicions abans d’una nova publicació."
+    ],
+    "Pexels": [
+      "Cal revisar la llicència si es vol redistribuir un conjunt gran d’imatges.",
+      "Una atribució voluntària pot reconèixer l’autoria fins i tot quan no és obligatòria."
+    ],
+    "Pixabay": [
+      "Els usos comercials o la redistribució de contingut sense modificar poden tenir condicions particulars.",
+      "La informació de l’autor i la font de cada imatge és útil per documentar el recurs."
+    ],
+    "T - Títol (Title)": [
+      "Quan l’obra no té un títol formal, una descripció identificativa pot fer aquest paper.",
+      "El títol ajuda a distingir dues obres que provenen de la mateixa pàgina."
+    ],
+    "A - Autoria (Author)": [
+      "Algunes imatges indiquen una persona creadora concreta; d’altres tenen informació d’autoria més complexa.",
+      "Si hi ha un perfil oficial, enllaçar-lo pot facilitar trobar l’obra original."
+    ],
+    "S - Font (Source)": [
+      "Una URL a la fitxa concreta és més informativa que una URL a la pàgina principal del banc.",
+      "La font és el camí que permet comprovar de nou les dades d’una atribució."
+    ],
+    "L - Llicència (License)": [
+      "El nom de la llicència hauria de correspondre a la versió aplicable a l’obra.",
+      "Un enllaç als termes complets ajuda a entendre si s’admet una adaptació."
+    ]
+  },
+  "bloc7-bones-practiques.html": {
+    "Revisar el contingut sense delegar-lo a la IA": [
+      "Una resposta incorrecta que es marca com a encertada pot passar desapercebuda si només proveu la primera pregunta."
+    ],
+    "No enviar dades personals de l'alumnat": [
+      "Una activitat que no demana identificació és més senzilla de desplegar sense gestionar comptes."
+    ],
+    "Entendre què fa el material": [
+      "Saber on es guarden les dades de l’activitat permet explicar què passarà en tancar el navegador."
+    ],
+    "Decidir quins recursos convé desar en local": [
+      "Si un recurs extern falla, la web hauria de seguir mostrant les parts essencials de l’activitat."
+    ],
+    "Separar accessibilitat web i DUA": [
+      "Un selector utilitzable amb teclat és una comprovació tècnica; donar opcions de participació respon a decisions didàctiques."
+    ],
+    "Citar l'autoria del que es pren d'altres persones": [
+      "Documentar la URL d’origen de cada fotografia evita perdre la referència quan es mouen els fitxers."
+    ],
+    "Guardar el rastre de com es va fer": [
+      "Un README pot registrar decisions didàctiques que el codi per si sol no explica."
+    ],
+    "Declarar l'ús d'IA i el que s'ha comprovat": [
+      "Explicar com s’ha verificat la correcció del material ajuda a valorar-lo abans de reutilitzar-lo."
+    ],
+    "Publicar amb una llicència lliure a la vista": [
+      "El peu de pàgina és un lloc fàcil de trobar per enllaçar les condicions de reutilització."
+    ],
+    "Oferir el codi perquè altres persones l'adaptin": [
+      "Un altre docent pot modificar les preguntes si té accés als fitxers que generen l’activitat."
+    ],
+    "Consells abans de publicar": [
+      "Provar en una pantalla de mòbil pot revelar problemes de maquetació que no es veuen a l’ordinador.",
+      "Una comprovació final inclou l’estat dels botons quan una pregunta ja s’ha respost."
+    ],
+    "Guies i recursos recomanats de bones pràctiques:": [
+      "Una guia pot donar suport a un criteri que després incorporeu a la llista de verificació.",
+      "Quan documenteu una decisió, conservar la font original permet tornar a consultar-la."
+    ]
+  }
+});
+
   for (const [page, notes] of Object.entries(rotationExtras)) {
     for (const [title, additions] of Object.entries(notes)) {
       const existing = specificCommentsByPage[page]?.[title] || [];
