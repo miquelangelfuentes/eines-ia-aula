@@ -1111,6 +1111,250 @@
     Object.assign(specificCommentsByPage[page] ||= {}, byTitle);
   }
 
+  // Missatges complementaris revisats per completar les tres observacions de cada apartat.
+  const rotationExtras = {
+  "index.html": {
+    "Accés al material del taller": [
+      "Si projecteu l’adreça curta, tothom pot accedir-hi també des d’un ordinador sense càmera."
+    ],
+    "Qüestionari de coneixements previs per a docents": [
+      "Un qüestionari diagnòstic és més útil quan orienta la lectura que quan simplement dona una puntuació."
+    ],
+    "Creació de recursos web i ús de la intel·ligència artificial": [
+      "Un exercici interactiu pot adaptar la següent pregunta a partir de la resposta anterior. És una opció que requereix dissenyar les regles."
+    ],
+    "Google Antigravity i eines al dispositiu docent": [
+      "Una carpeta de treball acotada ajuda a saber exactament sobre quins materials pot actuar l’agent."
+    ],
+    "GitHub com a repositori educatiu": [
+      "Un commit permet identificar quin canvi va introduir una versió nova de l’activitat."
+    ],
+    "Estructura web: el fitxer index.html i les rutes relatives": [
+      "Quan traslladeu una web a un altre servidor, les rutes relatives acostumen a ser més portables que les rutes que comencen amb /."
+    ],
+    "Llicències de continguts (Creative Commons) i de codi (MIT)": [
+      "Una icona incorporada des d’una biblioteca externa també pot tenir avisos de llicència independents."
+    ],
+    "Protecció de dades i IA local": [
+      "Desconnectar la xarxa durant una prova permet observar quines funcions són realment disponibles sense Internet."
+    ],
+    "Marc: de consultar a crear": [
+      "Una activitat HTML pot distribuir-se amb els fitxers del projecte i reutilitzar-se sense mantenir la conversa original amb la IA."
+    ],
+    "Google Antigravity pas a pas": [
+      "Demanar una explicació dels canvis ajuda a decidir si la nova versió manté el propòsit pedagògic."
+    ],
+    "Configuració de GitHub": [
+      "Un repositori privat protegeix l’accés als fitxers, però també cal revisar què passa si després es fa públic."
+    ],
+    "Pages en comparació amb Google Sites": [
+      "Una pàgina que utilitza JavaScript propi dona més marge per crear interaccions personalitzades, sempre que l’allotjament ho permeti."
+    ],
+    "Llicències i codi obert": [
+      "La llicència del codi ha de tenir en compte també les dependències que s’hi incorporen."
+    ],
+    "Recursos visuals i citació": [
+      "Si una imatge transmet una dada, el seu text alternatiu ha de fer arribar aquella dada a qui no pot veure-la."
+    ],
+    "Bones pràctiques a l'aula": [
+      "Una prova amb el teclat pot revelar errors de navegació que no apareixen en fer servir el ratolí."
+    ],
+    "Llista de verificació": [
+      "Després d’una modificació important, convé repetir les comprovacions que podrien haver quedat afectades."
+    ],
+    "Per continuar explorant: IA local": [
+      "La quantització permet executar versions més compactes d’alguns models en dispositius amb menys memòria."
+    ],
+    "Objectius de la sessió": [
+      "Podeu identificar quin objectiu del taller correspon a una necessitat del vostre departament.",
+      "Un bon resultat de la sessió és disposar d’un recurs que un altre docent pugui revisar i adaptar."
+    ],
+    "Creació d'activitats interactives amb IA (Google Antigravity)": [
+      "La pregunta «Què passa si l’alumnat torna enrere?» pot descobrir comportaments que no apareixen en una prova ràpida.",
+      "Les bastides de suport també poden formar part del codi, per exemple amb pistes progressives."
+    ],
+    "Publicació lliure i sobirania digital (GitHub Pages)": [
+      "Si els fitxers són estàtics, es poden traslladar a altres allotjaments compatibles amb HTML.",
+      "Un repositori públic permet compartir el procés de construcció del recurs amb altres docents."
+    ],
+    "Criteris ètics i llicències d'ús (vibe coding responsable)": [
+      "Una dada fictícia permet provar formularis sense haver d’utilitzar informació de l’alumnat.",
+      "El text del peu del recurs pot explicar com s’ha utilitzat la IA i qui ha revisat el contingut."
+    ]
+  },
+  "bloc1-marc.html": {
+    "D'una resposta a un projecte": [
+      "Un fitxer HTML es pot tornar a obrir i modificar independentment de l’eina d’IA que el va generar."
+    ],
+    "Entendre el recurs sense escriure'l tot a mà": [
+      "Si una activitat té una puntuació, saber on es calcula us ajuda a corregir-ne el comportament."
+    ],
+    "Google Antigravity": [
+      "Podeu sol·licitar que l’agent expliqui els canvis abans d’acceptar-los."
+    ],
+    "GitHub": [
+      "Amb un historial de commits és possible comparar una versió nova amb l’anterior."
+    ],
+    "Feu créixer una idea en forma de recurs web": [
+      "Una versió inicial pot incloure una sola pregunta; les proves poden revelar quin tipus de retroacció falta.",
+      "Conservar la versió inicial permet comparar si les ampliacions han fet l’activitat més útil."
+    ],
+    "Per què s'ha triat Google Antigravity i GitHub?": [
+      "Podeu canviar d’editor sense haver de canviar el format HTML del projecte.",
+      "Tenir el recurs en fitxers propis facilita fer-ne una còpia de seguretat independent."
+    ],
+    "Enllaços de referència d'aquest bloc:": [
+      "La documentació oficial és útil quan un menú canvia de nom en una actualització.",
+      "Guardar la referència original facilita revisar els passos quan repreneu la pràctica."
+    ]
+  },
+  "bloc8-verificacio.html": {
+    "Comprovació ràpida del material": [
+      "Si la web és interactiva, també s’ha de revisar què passa quan una resposta és errònia."
+    ],
+    "Pàgines d'ajuda oficials i enllaços de referència:": [
+      "Els enllaços oficials són útils per resoldre dubtes tècnics que no es poden confirmar només amb la llista.",
+      "Quan detecteu una incidència, anoteu la prova exacta que ha fallat abans de demanar una correcció."
+    ]
+  },
+  "bloc9-per-continuar-explorant.html": {
+    "Què és la intel·ligència artificial local i per què és rellevant a l'escola?": [
+      "Un ordinador del centre també pot allotjar models per a altres dispositius de la xarxa local; caldria gestionar-ne els accessos."
+    ],
+    "Més control sobre les dades": [
+      "Si una aplicació conserva els xats, cal valorar també els permisos de la carpeta on els desa."
+    ],
+    "Autonomia i funcionament fora de línia": [
+      "Un model ja descarregat pot continuar funcionant sense la xarxa, mentre no depengui de serveis remots."
+    ],
+    "Sobirania digital i continuïtat pedagògica": [
+      "Conservar els fitxers del model i les instruccions d’instal·lació ajuda a recuperar el servei després d’un canvi d’equip."
+    ],
+    "Sessió divulgativa de Jordi Mas (Softcatalà)": [
+      "La comparació de models en català és una oportunitat per observar errors de comprensió que poden passar desapercebuts en proves en anglès."
+    ],
+    "Què aporta executar el model al dispositiu": [
+      "Una consulta local evita el viatge al servidor de la resposta, però el processament continua depenent de la potència de l’equip."
+    ],
+    "Com ajustar el model a la tasca i al maquinari": [
+      "Fer la mateixa prova amb dos models permet comparar qualitat i velocitat sobre el vostre ordinador."
+    ],
+    "1. El context i el \"moment Linux\"": [
+      "L’analogia amb Linux convida a pensar en ecosistemes que es poden instal·lar i mantenir sense un únic proveïdor."
+    ],
+    "2. Què vol dir executar IA en local": [
+      "El programa que executa el model pot tenir llicència diferent de la dels pesos del model."
+    ],
+    "3. IA local, pesos oberts i IA lliure": [
+      "Un model amb pesos descarregables pot imposar limitacions de reutilització: la llicència és el document que cal llegir."
+    ],
+    "4. Tasques desateses i usos interactius": [
+      "Per transcriure una carpeta d’àudios, potser importa més acabar correctament el lot que respondre en pocs segons."
+    ],
+    "5. Maquinari i rendiment": [
+      "La quantitat de memòria limita quins models caben; el tipus de processador influeix en la rapidesa de generació."
+    ],
+    "6. Com triar un model i per què importa la quantització": [
+      "Quan compareu descàrregues del mateix model, mireu si canvia la precisió dels pesos i la memòria requerida."
+    ],
+    "7. Eines per començar i criteris per al català": [
+      "Feu la prova en català amb exemples del vostre àmbit, com correccions o resums de materials didàctics."
+    ],
+    "8. Transcripció i treball amb documents": [
+      "Una transcripció automàtica s’ha de revisar amb l’àudio original, sobretot quan hi ha noms propis o termes tècnics."
+    ],
+    "Recursos en català per treballar amb IA local": [
+      "Un model que respon bé preguntes generals pot tenir dificultats amb varietats lingüístiques o terminologia específica."
+    ],
+    "IA local i models en català (Softcatalà)": [
+      "Una classificació de models és una fotografia de les proves disponibles; convé consultar-ne la data i el mètode."
+    ],
+    "Projecte Aina": [
+      "Els corpus i altres dades lingüístiques poden servir per entrenar o avaluar models en català."
+    ],
+    "Com executar models locals al vostre ordinador": [
+      "La interfície no determina per si sola la qualitat lingüística: aquesta depèn sobretot del model escollit."
+    ],
+    "Rebost (opció guiada per treballar amb fitxers)": [
+      "Per provar Rebost, és preferible començar amb documents no sensibles i comprovar què pot respondre sobre els fitxers vinculats."
+    ],
+    "LM Studio (interfície visual per triar i provar models)": [
+      "El fet de descarregar un model no implica que estigui carregat a la memòria: LM Studio permet gestionar aquests dos passos."
+    ],
+    "Ollama (motor local amb aplicació i API)": [
+      "Una API local pot connectar una activitat pròpia amb un model, sempre que configureu els permisos i el servei."
+    ],
+    "Trieu el model a partir de la memòria disponible": [
+      "Un model quantitzat pot cabre on la versió original no cabria; la finestra de context encara condiciona la memòria consumida."
+    ],
+    "Ponència recomanada: Models d'intel·ligència artificial en local, de Jordi Mas": [
+      "La ponència ajuda a distingir què depèn de l’aplicació i què depèn del model instal·lat.",
+      "Podeu prendre nota d’un model esmentat i comprovar després si existeix una avaluació del seu rendiment en català."
+    ],
+    "Enllaços de referència": [
+      "La guia de Softcatalà permet contrastar els requisits amb el vostre maquinari.",
+      "Els enllaços a Rebost i al Projecte Aina us porten a recursos amb finalitats diferents dins de l’ecosistema local."
+    ]
+  },
+  "credits.html": {
+    "Servei Educatiu del Vallès Occidental II": [
+      "El marc institucional explica a qui s’adreça el material formatiu."
+    ],
+    "Autoria i manteniment": [
+      "Una adreça de contacte o un repositori accessible faciliten comunicar errades trobades durant l’ús."
+    ],
+    "Vibe coding educatiu responsable (VCER)": [
+      "Les recomanacions de la guia es poden convertir en proves concretes abans de publicar un recurs."
+    ],
+    "CEDEC - seLIA": [
+      "Les fonts educatives permeten contrastar les orientacions amb altres experiències de creació de materials."
+    ],
+    "Softcatalà": [
+      "En una comparació de models, el tipus de prova en català pot importar tant com la puntuació final."
+    ],
+    "Projecte Aina": [
+      "A més de models, el desenvolupament d’eines en català depèn de corpus i dades lingüístiques."
+    ],
+    "Rebost": [
+      "Una aplicació local també necessita manteniment; les actualitzacions poden afectar com es descarreguen els models."
+    ],
+    "TERMCAT": [
+      "Una cerca terminològica pot aclarir si dos noms tècnics es refereixen al mateix concepte."
+    ],
+    "Autoria i marc institucional": [
+      "Indicar la procedència facilita contextualitzar la reutilització del recurs.",
+      "Les dades de manteniment ajuden a saber a qui comunicar un enllaç trencat."
+    ],
+    "Projectes i fonts de referència": [
+      "Citar la pàgina original facilita comprovar si una recomanació s’ha actualitzat.",
+      "Les fonts també poden ajudar altres docents a crear variants del material per al seu centre."
+    ],
+    "Recursos de tercers i marques": [
+      "La llicència del projecte no canvia automàticament les llicències dels recursos que incorpora.",
+      "Conservar els avisos de tercers és rellevant si es distribueix una còpia del lloc."
+    ],
+    "Llicències del projecte": [
+      "Una persona que vulgui reutilitzar la web necessita saber quina llicència correspon al codi.",
+      "La separació permet adaptar material didàctic i programari amb les condicions que pertoquen a cadascun."
+    ],
+    "Contingut pedagògic - CC BY-SA 4.0": [
+      "L’enllaç a la llicència explica les condicions d’atribució i d’adaptació.",
+      "L’obligació de compartir igual s’aplica a les adaptacions en els termes que estableix la llicència."
+    ],
+    "Codi font - GNU GPL v3": [
+      "La GPL regula els drets i les obligacions de qui redistribueix el programari cobert.",
+      "Per reutilitzar el projecte, convé revisar les condicions del codi propi i dels components de tercers."
+    ]
+  }
+};
+  for (const [page, notes] of Object.entries(rotationExtras)) {
+    for (const [title, additions] of Object.entries(notes)) {
+      const existing = specificCommentsByPage[page]?.[title] || [];
+      if (!existing.length) continue;
+      specificCommentsByPage[page][title] = [...new Set([...existing, ...additions])].slice(0, 3);
+    }
+  }
+
   const checklistComments = [
     ['Revisió docent:', 'La prova final és completar l’activitat com ho faria l’alumnat. Comproveu també la retroacció de cada resposta.'],
     ['Privacitat (RGPD):', 'Una activitat que funciona sense identificar l’alumnat evita recollir dades que potser no necessiteu.'],
