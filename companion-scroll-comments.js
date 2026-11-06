@@ -1347,6 +1347,132 @@
     ]
   }
 };
+  Object.assign(rotationExtras, {
+  "bloc2-antigravity.html": {
+    "Instal·lació de l'aplicació al dispositiu": [
+      "Si el centre gestiona els ordinadors, confirmeu la ruta de descàrrega i les restriccions del dispositiu abans de començar."
+    ],
+    "La carpeta de treball (workspace)": [
+      "Una carpeta anomenada per projecte és més fàcil de reconèixer quan l’agent demana permisos d’accés."
+    ],
+    "Tria del model d'intel·ligència artificial": [
+      "Per comparar resultats, manteniu la mateixa indicació i canvieu només el model."
+    ],
+    "Com demanar recursos a l’agent: criteris docents": [
+      "Descripcions com «alumnat de 2n d’ESO» i «pista després del segon intent» concreten millor la interacció."
+    ],
+    "Opcions de configuració recomanades per a docents que no l'han obert mai": [
+      "La configuració inicial determina quan l’agent pot actuar directament sobre els fitxers."
+    ],
+    "Plan Review Policy (Política de revisió del pla)": [
+      "La revisió del pla és útil per detectar si l’agent vol crear arxius en una carpeta equivocada."
+    ],
+    "Permisos a Windows - configuració recomanada": [
+      "Un canvi de configuració no elimina les restriccions establertes per l’administració del dispositiu."
+    ],
+    "Model Selection & Thinking (Model i raonament)": [
+      "Podeu comparar el resultat d’un retoc senzill amb dues configuracions i valorar si compensa la diferència de temps."
+    ],
+    "Artifacts & Browser Preview (Previsualització en viu)": [
+      "La vista prèvia és una prova visual; obrir després el fitxer HTML al navegador permet detectar dependències externes."
+    ],
+    "Assistent per redactar la vostra primera indicació": [
+      "Reviseu la indicació generada i comproveu que explica la resposta esperada quan l’alumnat s’equivoca."
+    ],
+    "Creeu un microrecurs": [
+      "Una pregunta amb correcció immediata és una unitat petita que permet avaluar el funcionament de la web."
+    ],
+    "Indicació per començar": [
+      "Especifiqueu si voleu mostrar pistes abans o després de revelar la resposta correcta."
+    ],
+    "Comproveu que funciona": [
+      "Un botó «Torna-ho a provar» també hauria de reiniciar l’estat de l’activitat de manera coherent."
+    ],
+    "Demaneu una sola millora": [
+      "Si la nova millora afecta la retroacció, proveu tant la resposta correcta com la incorrecta."
+    ],
+    "Mireu què ha creat l'agent": [
+      "Comproveu si el projecte conté fitxers externs al document HTML i si cal mantenir-los en publicar."
+    ],
+    "Bons hàbits mentre treballeu amb l'agent": [
+      "Quan un canvi falla, descriure els passos per reproduir l’error ajuda més que dir només «no funciona»."
+    ],
+    "Trieu la pàgina web d'origen i la carpeta de destinació": [
+      "No tots els enllaços d’una pàgina porten directament a PDF. Cal comprovar quin tipus de fitxer es descarrega."
+    ],
+    "Envieu la indicació a l'assistent de Google Antigravity": [
+      "Una indicació de descàrrega pot especificar com tractar fitxers amb el mateix nom."
+    ],
+    "Reviseu el pla i comproveu la carpeta al vostre ordinador": [
+      "Obriu algun PDF descarregat per confirmar que el contingut és llegible, més enllà de comprovar-ne l’existència."
+    ],
+    "Pàgines d'accés obert": [
+      "Un PDF accessible públicament pot tenir drets de reproducció reservats; reviseu-ne les condicions."
+    ],
+    "Carpeta neta i sense duplicats": [
+      "Si dos documents tenen el mateix títol, la data o l’editor poden ajudar a distingir-ne les versions."
+    ],
+    "Per què s'ha triat Google Antigravity per a aquesta formació?": [
+      "La previsualització dins l’editor permet comentar una modificació amb criteris pedagògics mentre s’està fent."
+    ],
+    "I si ja es fa servir Codex o Claude Code?": [
+      "La portabilitat del projecte facilita comparar agents sense reconstruir el recurs des de zero."
+    ],
+    "Com funciona Google Antigravity?": [
+      "L’agent pot modificar el mateix fitxer més d’una vegada; l’historial de canvis és important per entendre’n l’evolució.",
+      "Un canvi visual pot venir de CSS, mentre que una nova interacció acostuma a requerir JavaScript."
+    ],
+    "La vostra primera web funcional": [
+      "La primera versió ha de contenir una acció que es pugui provar, com comprovar una resposta.",
+      "Un cop funciona, podeu millorar-ne el text o l’accessibilitat sense refer tota l’activitat."
+    ],
+    "Ampliació: descàrrega massiva de documents PDF d'un lloc web a Documents": [
+      "Demanar que l’agent mostri la llista d’enllaços abans de descarregar-los facilita detectar documents que no corresponen.",
+      "La carpeta Documents és una destinació fàcil de comprovar manualment en acabar la descàrrega."
+    ],
+    "Comparació: Google Antigravity, OpenAI Codex i Claude Code d'Anthropic": [
+      "Compareu com cada entorn presenta el pla de treball abans de modificar fitxers.",
+      "Una pregunta concreta: podeu veure el diff i decidir quins canvis accepteu?"
+    ],
+    "Plantilla d'indicació llesta per copiar i fer servir a Antigravity:": [
+      "La plantilla pot demanar un informe final amb els noms i les ubicacions dels arxius desats.",
+      "Indiqueu també com voleu que es gestionin els errors d’accés a algun document."
+    ],
+    "Per què Antigravity simplifica l'accés al taller?": [
+      "L’accés disponible amb comptes institucionals pot variar segons la configuració del servei.",
+      "La mateixa pràctica pot ser viable amb altres agents si permeten treballar sobre fitxers locals."
+    ],
+    "Videotutorials oficials de Google Antigravity": [
+      "Comproveu la data dels vídeos quan busqueu una opció de configuració.",
+      "Un videotutorial pot mostrar una versió diferent de la instal·lada al vostre ordinador."
+    ],
+    "Google Antigravity 2.0: Guia oficial d'inici": [
+      "Fixeu-vos en com l’agent crea el primer projecte a partir de la indicació.",
+      "Podeu aturar el vídeo al pas de la previsualització i comparar-lo amb el vostre editor."
+    ],
+    "Introducció a les habilitats dels agents (Agent Skills)": [
+      "Una habilitat modular pot documentar passos que voleu repetir en diversos projectes.",
+      "Reviseu quins permisos requereix una habilitat abans d’activar-la."
+    ],
+    "Demostració de control remot i supervisió d'agents": [
+      "La supervisió és més efectiva quan les accions de l’agent queden visibles.",
+      "Comproveu si la demostració inclou una etapa d’aprovació abans d’aplicar canvis."
+    ],
+    "Quina modalitat d'Antigravity triar per a la docència?": [
+      "La modalitat amb interfície de fitxers pot facilitar entendre l’estructura d’un projecte web.",
+      "Si voleu supervisar l’agent a distància, reviseu quines accions es poden autoritzar."
+    ],
+    "Creació d'eines d'automatització personalitzades": [
+      "Una automatització reutilitzable pot ajudar amb tasques repetitives del mateix projecte.",
+      "Les connexions amb serveis externs s’han de revisar també des de la perspectiva de les dades que s’hi envien."
+    ],
+    "Canal oficial de Google Antigravity": [
+      "Podeu cercar-hi anuncis sobre funcions que no apareixen a les captures del taller.",
+      "El canal pot complementar la documentació textual quan necessiteu veure una interacció."
+    ]
+  }
+});
+
   for (const [page, notes] of Object.entries(rotationExtras)) {
     for (const [title, additions] of Object.entries(notes)) {
       const existing = specificCommentsByPage[page]?.[title] || [];
