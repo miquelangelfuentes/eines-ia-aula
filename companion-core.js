@@ -220,6 +220,7 @@
     const reminder = takeFromDeck('controls-v3', controlReminders);
     const tip = takeFromDeck('tips-v3', clickTips);
     const duration = 11500;
+    window.companionManualTipUntil = Date.now() + duration;
     window.dispatchEvent(new CustomEvent('companion:manual-tip', { detail: { duration } }));
     showMessage(`${reminder} ${tip}`, duration, true);
 
