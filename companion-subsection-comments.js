@@ -974,3 +974,58 @@ window.companionHighlightedNotes = {
     ]
   ]
 };
+
+window.companionTableNotes = {
+  "bloc2-antigravity.html": [
+    [
+      "Aquesta taula compara com es treballa amb cadascun dels agents que s’hi presenten.",
+      "Fixeu-vos en la supervisió que permet cada eina abans d’escollir-ne una.",
+      "Les eines evolucionen: per prendre una decisió, convé contrastar les funcions amb la documentació actual."
+    ]
+  ],
+  "bloc3-github.html": [
+    [
+      "GitHub és el servei web del repositori; GitHub Desktop és una aplicació per gestionar els canvis des de l’ordinador.",
+      "Aquesta taula ajuda a identificar quines tasques es poden fer des de cada interfície.",
+      "Podeu començar per la manera de treballar que us resulti més fàcil de supervisar."
+    ]
+  ],
+  "bloc4-pages-sites.html": [
+    [
+      "Compareu com s’edita el material en cada plataforma abans de triar on publicar-lo.",
+      "La columna de GitHub Pages ajuda a entendre què implica treballar amb fitxers web.",
+      "La de Google Sites mostra com funciona l’edició visual dins del servei."
+    ]
+  ],
+  "bloc5-llicencies.html": [
+    [
+      "La taula separa les llicències segons la part del projecte a la qual s’apliquen.",
+      "Fixeu-vos on es documenta cada llicència: aquesta informació hauria de ser fàcil de trobar.",
+      "Un recurs interactiu pot combinar continguts pedagògics i codi amb condicions diferents."
+    ],
+    [
+      "Les llicències de continguts permeten expressar com es pot reutilitzar un material.",
+      "Compareu què demana cada opció quan una altra persona adapta la vostra activitat.",
+      "La tria depèn de les condicions que voleu aplicar al contingut que heu creat."
+    ],
+    [
+      "Les llicències de programari regulen la reutilització del codi.",
+      "Fixeu-vos en què exigeix cada llicència si algú distribueix una versió modificada.",
+      "Consultar-ne el text oficial ajuda a comprovar les condicions abans de publicar."
+    ]
+  ],
+  "bloc6-recursos-visuals.html": [
+    [
+      "Aquesta comparació ajuda a triar una biblioteca d’icones segons les necessitats del recurs.",
+      "Fixeu-vos en les llicències abans d’incorporar una biblioteca a una web.",
+      "Utilitzar una família d’icones coherent facilita mantenir l’estil visual."
+    ]
+  ],
+  "credits.html": [
+    [
+      "La taula documenta la procedència dels elements de tercers utilitzats al projecte.",
+      "Conservar els enllaços originals facilita revisar les condicions d’ús en el futur.",
+      "Si substituïu un recurs, actualitzar aquesta informació ajuda a mantenir els crèdits correctes."
+    ]
+  ]
+};
