@@ -463,7 +463,7 @@ Object.assign(window.companionSubsectionComments, {
     ],
     "Separar accessibilitat web i DUA": [
       "L’accessibilitat web ajuda a comprovar si tothom pot utilitzar els controls del recurs.",
-      "El DUA orienta les decisions pedagògiques perquè l’alumnat tingui diferents oportunitats d’aprenendre.",
+      "El DUA orienta les decisions pedagògiques perquè l’alumnat tingui diferents oportunitats d’aprendre.",
       "Un recurs pot ser accessible tècnicament i necessitar encara ajustos didàctics."
     ],
     "Citar l'autoria del que es pren d'altres persones": [
@@ -654,3 +654,150 @@ Object.assign(window.companionSubsectionComments, {
     ]
   }
 });
+
+for (const [page, entries] of Object.entries({
+  "bloc1-marc.html": {
+    "Enllaços de referència d'aquest bloc:": [
+      "Aquests enllaços permeten ampliar els conceptes presentats en la introducció.",
+      "Consultar la font original pot ajudar-vos a entendre com funciona una eina abans d’utilitzar-la.",
+      "Guardar una referència útil us facilitarà recuperar-la quan prepareu una activitat."
+    ]
+  },
+  "bloc2-antigravity.html": {
+    "Plantilla d'indicació llesta per copiar i fer servir a Antigravity:": [
+      "Abans de copiar la plantilla, substituïu les dades d’exemple per les del vostre projecte.",
+      "Una indicació adaptada explica quins documents voleu obtenir i on s’han de guardar.",
+      "Després d’executar-la, reviseu que els fitxers descarregats coincideixin amb el que havíeu demanat."
+    ],
+    "Videotutorials oficials de Google Antigravity": [
+      "Els vídeos oficials poden ajudar a reconèixer la interfície abans de fer la pràctica.",
+      "Fixeu-vos en els permisos que es mostren durant les demostracions.",
+      "Quan una eina evoluciona, convé consultar la documentació de la versió actual."
+    ],
+    "Google Antigravity 2.0: Guia oficial d'inici": [
+      "Una guia d’inici és útil per identificar els primers controls de l’aplicació.",
+      "Compareu els passos del vídeo amb la versió que teniu instal·lada.",
+      "Si la interfície ha canviat, consulteu la documentació oficial més recent."
+    ],
+    "Introducció a les habilitats dels agents (Agent Skills)": [
+      "Les habilitats d’un agent permeten organitzar instruccions per a tasques concretes.",
+      "Abans de provar una habilitat, mireu què pot executar sobre els fitxers.",
+      "Per començar, és suficient entendre un exemple i comprovar-ne el resultat."
+    ],
+    "Demostració de control remot i supervisió d'agents": [
+      "Supervisar un agent implica saber quina acció està executant i com es pot interrompre.",
+      "Quan observeu una demostració, fixeu-vos en els moments en què es demana autorització.",
+      "Una tasca automatitzada necessita un resultat que pugueu comprovar."
+    ],
+    "Creació d'eines d'automatització personalitzades": [
+      "Una automatització pot estalviar passos repetitius quan la tasca és previsible.",
+      "Comenceu amb una prova curta abans de confiar-hi molts documents.",
+      "Un bon resultat ha de poder-se revisar sense haver de repetir tota la tasca."
+    ],
+    "Canal oficial de Google Antigravity": [
+      "El canal oficial reuneix demostracions que poden ajudar a veure funcions noves.",
+      "Les instruccions d’un vídeo poden variar segons la versió de l’aplicació.",
+      "Fixeu-vos en les accions de revisió que apareixen durant cada demostració."
+    ]
+  },
+  "bloc3-github.html": {
+    "Pàgines d'ajuda oficials i documentació de referència:": [
+      "Les pàgines oficials permeten comprovar els passos quan una interfície ha canviat.",
+      "Guardeu l’enllaç que respongui al dubte concret que hàgiu tingut durant la pràctica.",
+      "Una guia actualitzada és una bona referència quan apareix un missatge d’error."
+    ],
+    "Ordinadors docents del PEDC": [
+      "Els ordinadors del centre poden tenir polítiques de seguretat que afecten les instal·lacions.",
+      "Abans de començar, comproveu si el programa està disponible al vostre equip.",
+      "Si una opció està bloquejada, consulteu els canals de suport establerts al centre."
+    ],
+    "GitHub Desktop oficial": [
+      "Descarregar GitHub Desktop del lloc oficial facilita identificar l’aplicació correcta.",
+      "Desktop mostra els fitxers modificats abans d’enviar-los a GitHub.",
+      "Si us inicieu, proveu una modificació petita per entendre el procés de sincronització."
+    ],
+    "Guia de GitHub Pages": [
+      "Les instruccions oficials expliquen on configurar la publicació d’un repositori.",
+      "Si una web no apareix, comproveu l’origen de publicació indicat a Pages.",
+      "Quan GitHub canvia la interfície, la guia oficial és una bona referència."
+    ],
+    "Gestió de tokens personals (PAT)": [
+      "Un token permet donar permisos limitats a una aplicació externa.",
+      "Comproveu la caducitat i el repositori autoritzat abans de crear la credencial.",
+      "Revocar els tokens que ja no utilitzeu facilita controlar els accessos."
+    ],
+    "Videotutorials recomanats de GitHub i GitHub Pages": [
+      "Els videotutorials permeten veure l’ordre dels passos abans de repetir-los.",
+      "Compareu el que apareix al vídeo amb la interfície actual del vostre compte.",
+      "Si un vídeo és antic, contrastar-lo amb la documentació oficial us ajudarà."
+    ],
+    "Tutorial oficial: Com crear el vostre primer repositori a GitHub": [
+      "El primer repositori és la carpeta de referència del vostre projecte al servei.",
+      "Fixeu-vos com es posa nom al repositori i quins fitxers s’hi afegeixen.",
+      "Una vegada creat, obriu-lo al navegador per comprovar què conté."
+    ],
+    "Tutorial oficial de GitHub: Getting started with GitHub Pages": [
+      "El tutorial explica com passar d’un repositori a una adreça web pública.",
+      "Quan acabeu els passos, proveu l’enllaç en una finestra nova.",
+      "Recordeu que l’adreça pot incloure el nom del projecte."
+    ],
+    "Com crear un fine-grained personal access token": [
+      "Els tokens de permisos detallats permeten escollir a quin repositori doneu accés.",
+      "Fixeu-vos en els permisos de lectura i escriptura abans de generar la credencial.",
+      "Conserveu el token només mentre necessiteu utilitzar-lo."
+    ],
+    "Canviar la visibilitat del repositori (de privat a públic)": [
+      "Abans de fer públic un repositori, reviseu els fitxers que hi heu desat.",
+      "Un repositori públic pot ser consultat per qualsevol persona a Internet.",
+      "Comproveu que hi hagi els avisos de llicència corresponents als materials."
+    ],
+    "Com crear la vostra web gratuïta a GitHub Pages (en castellà)": [
+      "Un tutorial en castellà pot ajudar-vos a seguir els menús si us resulten més familiars.",
+      "Compareu els noms dels botons amb els que mostra el vostre compte.",
+      "Després de publicar, comproveu els enllaços interns de la pàgina."
+    ],
+    "Rutes absolutes i relatives a HTML (Kiko Palomares)": [
+      "Una ruta relativa indica on és un fitxer a partir de la pàgina actual.",
+      "Entendre les rutes ajuda a resoldre imatges que desapareixen després de publicar.",
+      "Una activitat útil és obrir una pàgina des d’una subcarpeta i provar-ne els enllaços."
+    ],
+    "GitHub Desktop + GitHub Pages (en anglès / subtitulat)": [
+      "Els subtítols poden facilitar seguir les accions que es mostren al vídeo.",
+      "Observeu la relació entre l’aplicació d’escriptori i el repositori de GitHub.",
+      "Al final de la pràctica, comproveu que la web publicada inclogui els canvis."
+    ],
+    "Publicar la vostra web a GitHub Pages per a principiants": [
+      "Una primera publicació pot ser una pàgina HTML molt senzilla.",
+      "Comenceu comprovant que index.html s’obre correctament.",
+      "Quan la portada funciona, podeu provar els enllaços cap a les altres pàgines."
+    ],
+    "Canal oficial de GitHub a YouTube": [
+      "El canal oficial és una font per conèixer funcionalitats i procediments del servei.",
+      "Els vídeos poden ajudar-vos a reconèixer visualment els menús.",
+      "Per als permisos i les condicions d’ús, consulteu també les guies escrites."
+    ]
+  },
+  "bloc4-pages-sites.html": {
+    "Enllaços i documentació oficial:": [
+      "Aquests enllaços permeten ampliar els detalls de publicació de cada plataforma.",
+      "Comproveu a la font oficial si una funció continua disponible amb el vostre compte.",
+      "Guardar la documentació us facilitarà resoldre dubtes quan actualitzeu el recurs."
+    ]
+  },
+  "bloc7-bones-practiques.html": {
+    "Guies i recursos recomanats de bones pràctiques:": [
+      "Les fonts originals permeten aprofundir en cada recomanació del bloc.",
+      "Una guia es pot adaptar a la vostra realitat de centre si en conserveu el criteri pedagògic.",
+      "Quan un requisit canvia, tornar a la font us ajudarà a revisar la pauta."
+    ]
+  },
+  "bloc9-per-continuar-explorant.html": {
+    "Enllaços de referència": [
+      "Aquests recursos permeten continuar explorant la IA local al vostre ritme.",
+      "Comproveu els requisits del model abans de descarregar-lo.",
+      "Les guies oficials són útils quan canvien les versions de les eines."
+    ]
+  }
+})) {
+  Object.assign(window.companionSubsectionComments[page] ||= {}, entries);
+}
