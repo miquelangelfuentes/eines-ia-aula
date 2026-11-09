@@ -10,6 +10,7 @@
   let pendingTimer = null;
   let frame = 0;
   let shownAt = 0;
+  let manualUntil = 0;
   let replaceAfter = 0;
   let bubble;
   let bubbleText;
@@ -2141,8 +2142,24 @@
         ];
       }
     }
+    if (target.classList?.contains('pedagogical-highlight')) {
+      const main = document.getElementById('contingut-principal') || document.querySelector('main');
+      const highlights = main ? [...main.querySelectorAll('.pedagogical-highlight')] : [];
+      const highlightIndex = highlights.indexOf(target);
+      const highlightNotes = window.companionHighlightedNotes?.[page]?.[highlightIndex];
+      if (highlightNotes?.length) return unique(highlightNotes);
+    }
+
+    if (target.classList?.contains('table-responsive')) {
+      const main = document.getElementById('contingut-principal') || document.querySelector('main');
+      const tables = main ? [...main.querySelectorAll('.table-responsive')] : [];
+      const tableIndex = tables.indexOf(target);
+      const tableNotes = window.companionTableNotes?.[page]?.[tableIndex];
+      if (tableNotes?.length) return unique(tableNotes);
+    }
+
     const title = titleFor(target);
-    const curated = specificCommentsByPage[page]?.[title];
+    const curated = specificCommentsByPage[page]?.[title] || window.companionSubsectionComments?.[page]?.[title];
     if (curated?.length) return unique(curated);
 
     // La llista de verificació no té cap títol dins de cada casella.
@@ -2150,6 +2167,14 @@
       const text = cleanVisibleText(target.textContent || '');
       const note = checklistComments.find(([label]) => text.includes(label));
       return note ? note.slice(1) : [];
+    }
+
+    if (target.matches?.('figure') && target.querySelector('figcaption a[href]')) {
+      return [
+        'El peu de la imatge inclou un enllaç a la font original perquè en pugueu comprovar la procedència.',
+        'Quan prepareu un material, guardar l’enllaç original facilita citar la imatge.',
+        'Una citació accessible permet que altres docents consultin la fotografia d’origen.'
+      ];
     }
 
     // El peu de figura és una dada verificable; evitem deduccions sobre la imatge.
@@ -2308,13 +2333,10 @@
     clearTimeout(pendingTimer);
     pendingTimer = null;
     bubbleText.textContent = text;
-    // El cursor anuncia quin dels tres comentaris apareixerà amb el clic següent.
     const avatar = document.querySelector('#reading-companion .companion-avatar');
     if (avatar) {
-      const next = ((comments.indexOf(text) + 1) % comments.length) + 1;
-      const label = `Llegir el comentari ${next} de ${comments.length} d’aquest apartat`;
-      avatar.setAttribute('aria-label', label);
-      avatar.title = label;
+      avatar.setAttribute('aria-label', 'Llegir un consell de l’acompanyant');
+      avatar.title = 'Llegir un consell de l’acompanyant';
     }
     window.dispatchEvent(new Event('companion:comment-show'));
     bubble.hidden = false;
@@ -2341,6 +2363,11 @@
   }
 
   function evaluate({ force = false } = {}) {
+    const manualWaitUntil = Math.max(manualUntil, window.companionManualTipUntil || 0);
+    if (Date.now() < manualWaitUntil) {
+      if (Date.now() >= readyAt) queueLatestTarget(manualWaitUntil - Date.now());
+      return;
+    }
     if (!force && Date.now() < readyAt) return;
 
     const companion = document.getElementById('reading-companion');
@@ -2409,12 +2436,13 @@
         window.dispatchEvent(new Event('companion:refresh-position'));
       }).observe(quiz, { attributes: true, subtree: true, attributeFilter: ['class', 'style'] });
     }
-    window.addEventListener('companion:request-comment', () => {
-      const target = activeCandidate();
-      if (!target) return;
-      if (!commentsFor(target).length) return;
-      showComment(target);
-      window.announce?.(bubbleText.textContent);
+    window.addEventListener('companion:manual-tip', (event) => {
+      const duration = Math.max(1000, Number(event.detail?.duration) || 11500);
+      manualUntil = Date.now() + duration;
+      clearTimeout(hideTimer);
+      clearTimeout(pendingTimer);
+      pendingTimer = null;
+      queueLatestTarget(duration + 80);
     });
 
     setTimeout(() => evaluate({ force: true }), READY_DELAY + 120);

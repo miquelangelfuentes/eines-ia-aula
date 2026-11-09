@@ -19,8 +19,10 @@
   loadStyle('companion.css?v=20261102e');
 
   loadScript('app-base.js?v=20261031', () => {
-    loadScript('companion-core.js?v=20261109a', () => {
-      loadScript('companion-scroll-comments.js?v=20261109a');
+    loadScript('companion-core.js?v=20261109b', () => {
+      loadScript('companion-subsection-comments.js?v=20261109a', () => {
+        loadScript('companion-scroll-comments.js?v=20261109b');
+      });
     });
 
     const start = () => {
