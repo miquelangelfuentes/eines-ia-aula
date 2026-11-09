@@ -2150,6 +2150,14 @@
       if (highlightNotes?.length) return unique(highlightNotes);
     }
 
+    if (target.classList?.contains('table-responsive')) {
+      const main = document.getElementById('contingut-principal') || document.querySelector('main');
+      const tables = main ? [...main.querySelectorAll('.table-responsive')] : [];
+      const tableIndex = tables.indexOf(target);
+      const tableNotes = window.companionTableNotes?.[page]?.[tableIndex];
+      if (tableNotes?.length) return unique(tableNotes);
+    }
+
     const title = titleFor(target);
     const curated = specificCommentsByPage[page]?.[title] || window.companionSubsectionComments?.[page]?.[title];
     if (curated?.length) return unique(curated);
@@ -2355,8 +2363,9 @@
   }
 
   function evaluate({ force = false } = {}) {
-    if (Date.now() < manualUntil) {
-      if (Date.now() >= readyAt) queueLatestTarget(manualUntil - Date.now());
+    const manualWaitUntil = Math.max(manualUntil, window.companionManualTipUntil || 0);
+    if (Date.now() < manualWaitUntil) {
+      if (Date.now() >= readyAt) queueLatestTarget(manualWaitUntil - Date.now());
       return;
     }
     if (!force && Date.now() < readyAt) return;
