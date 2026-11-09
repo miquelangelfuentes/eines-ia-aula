@@ -391,3 +391,266 @@ window.companionSubsectionComments = {
     ]
   }
 };
+
+Object.assign(window.companionSubsectionComments, {
+  "bloc6-recursos-visuals.html": {
+    "Emoji i icones vectorials: quan convé utilitzar-los": [
+      "Els emoji poden canviar d’aspecte segons el dispositiu; les icones SVG permeten mantenir un estil més estable.",
+      "Quan un símbol serveix per activar una acció, afegir una etiqueta escrita ajuda a entendre’l.",
+      "Una icona coherent pot orientar la lectura, mentre que un emoji és útil en missatges breus."
+    ],
+    "Infografies pedagògiques amb HTML i icones": [
+      "Una infografia creada en HTML es pot corregir mentre el text encara és editable.",
+      "Les icones vectorials mantenen la nitidesa quan canvieu la mida del recurs.",
+      "Provar la infografia en mode fosc ajuda a detectar problemes de contrast abans d’exportar-la."
+    ],
+    "Mostra inserida directament amb HTML i Lucide": [
+      "Aquesta mostra es construeix amb elements web, de manera que el text es pot revisar directament.",
+      "Fixeu-vos com les icones ajuden a distingir les parts de l’explicació.",
+      "Una mostra editable facilita corregir errors abans de crear-ne una imatge final."
+    ],
+    "Com verificar una resposta d'IA": [
+      "Una resposta plausible pot contenir errors. Comprovar una dada a la font original és una bona pràctica.",
+      "Podeu utilitzar aquest esquema per explicar a l’alumnat com revisar informació generada.",
+      "Una verificació útil identifica quin fragment necessita una font contrastable."
+    ],
+    "Model d'indicació per crear l'HTML": [
+      "Una indicació per crear infografies hauria d’explicar quin contingut ha de quedar visible.",
+      "Demaneu text editable mentre esteu revisant el material.",
+      "Concretar el format facilita comprovar si el resultat es pot reutilitzar."
+    ],
+    "Model d'indicació després de revisar el contingut": [
+      "Quan el contingut ja és correcte, podeu demanar una imatge que reprodueixi el disseny.",
+      "Una exportació fidel ha de conservar els textos i la disposició que heu validat.",
+      "Guardeu la versió HTML per poder corregir el recurs més endavant."
+    ],
+    "Bancs d'imatges reals creades per persones": [
+      "Cada banc d’imatges té condicions d’ús pròpies. Consulteu sempre la fitxa de la fotografia.",
+      "Conservar l’enllaç original facilita citar-ne l’autoria amb precisió.",
+      "Per a materials escolars, una imatge documentada pot ajudar a contextualitzar els continguts."
+    ],
+    "Com atribuir una imatge: el mètode TASL": [
+      "TASL recorda les dades habituals d’una atribució: títol, autoria, font i llicència.",
+      "Un enllaç a l’obra original permet comprovar-ne la procedència.",
+      "Podeu fer servir el mateix criteri quan prepareu una presentació per a classe."
+    ],
+    "Exemple visual d'una atribució completa": [
+      "El peu de la imatge mostra com es poden reunir les dades d’atribució.",
+      "Conservar la font original facilita revisar les condicions de reutilització.",
+      "Un exemple complet de citació pot servir de model per a l’alumnat."
+    ]
+  },
+  "bloc7-bones-practiques.html": {
+    "Revisar el contingut sense delegar-lo a la IA": [
+      "Resoleu l’activitat com ho faria l’alumnat abans de compartir-la.",
+      "Una resposta generada pot sonar convincent i contenir un error: comproveu les solucions.",
+      "Revisar la retroacció d’una resposta errònia ajuda a detectar explicacions poc adequades."
+    ],
+    "No enviar dades personals de l'alumnat": [
+      "Per fer proves, podeu utilitzar noms inventats en lloc de dades personals.",
+      "Abans d’introduir informació en una eina, mireu si realment és necessària per a la tasca.",
+      "Un recurs que funciona sense identificar l’alumnat simplifica la gestió de dades."
+    ],
+    "Entendre què fa el material": [
+      "Saber on es calculen les puntuacions facilita corregir l’activitat després.",
+      "Podeu demanar a l’agent una explicació en llenguatge planer de cada fitxer important.",
+      "Si el recurs fa una cosa inesperada, entendre’n l’estructura us ajuda a localitzar el problema."
+    ],
+    "Decidir quins recursos convé desar en local": [
+      "Una imatge carregada des d’un servei extern pot deixar de mostrar-se si es perd la connexió.",
+      "Guardar al projecte els recursos que podeu redistribuir ajuda a mantenir la web disponible.",
+      "Proveu l’activitat sense Internet per descobrir quins elements en depenen."
+    ],
+    "Separar accessibilitat web i DUA": [
+      "L’accessibilitat web ajuda a comprovar si tothom pot utilitzar els controls del recurs.",
+      "El DUA orienta les decisions pedagògiques perquè l’alumnat tingui diferents oportunitats d’aprenendre.",
+      "Un recurs pot ser accessible tècnicament i necessitar encara ajustos didàctics."
+    ],
+    "Citar l'autoria del que es pren d'altres persones": [
+      "Un enllaç directe a la fotografia original facilita comprovar-ne l’autoria.",
+      "Els crèdits permeten reconèixer les persones que han creat recursos reutilitzats.",
+      "Conservar la procedència d’una imatge us facilitarà revisar la citació el curs vinent."
+    ],
+    "Guardar el rastre de com es va fer": [
+      "Un README pot explicar com s’ha creat el recurs i què cal saber per actualitzar-lo.",
+      "Desar les indicacions principals ajuda a continuar el projecte després d’una pausa.",
+      "Una nota amb els canvis més importants facilita compartir la feina amb un altre docent."
+    ],
+    "Declarar l'ús d'IA i el que s'ha comprovat": [
+      "Una declaració d’ús d’IA pot explicar en quines parts del projecte ha intervingut l’eina.",
+      "Indicar quines comprovacions heu fet ajuda a contextualitzar el procés de creació.",
+      "Fer visible el procés pot afavorir una conversa educativa sobre l’ús responsable de la IA."
+    ],
+    "Publicar amb una llicència lliure a la vista": [
+      "Una llicència visible ajuda altres docents a saber com poden reutilitzar el material.",
+      "El contingut pedagògic i el codi poden necessitar llicències diferents.",
+      "Un enllaç al text oficial permet consultar les condicions d’ús completes."
+    ],
+    "Oferir el codi perquè altres persones l'adaptin": [
+      "Compartir el repositori permet que altres docents estudiïn i adaptin el recurs.",
+      "El codi del projecte pot ajudar algú a crear una activitat semblant per al seu grup.",
+      "Afegir instruccions d’ús al repositori facilita que una altra persona entengui com funciona."
+    ]
+  },
+  "bloc8-verificacio.html": {
+    "Pàgines d'ajuda oficials i enllaços de referència:": [
+      "Les guies originals permeten aprofundir en els criteris de revisió del material.",
+      "Podeu guardar la llista com a pauta per revisar futurs recursos del centre.",
+      "Si un punt genera dubtes, consultar-ne la font us ajudarà a prendre una decisió."
+    ]
+  },
+  "bloc9-per-continuar-explorant.html": {
+    "Més control sobre les dades": [
+      "En un model local, el processament pot tenir lloc al dispositiu que controleu.",
+      "Abans d’utilitzar dades del centre, comproveu com funciona exactament l’eina local.",
+      "Una aplicació d’escriptori també pot connectar-se a Internet: reviseu-ne les opcions de privacitat."
+    ],
+    "Autonomia i funcionament fora de línia": [
+      "Alguns models locals es poden utilitzar sense connexió un cop instal·lats.",
+      "Per comprovar-ho, feu una prova amb Internet desconnectat.",
+      "Treballar fora de línia pot ser útil quan la connexió del centre és inestable."
+    ],
+    "Sobirania digital i continuïtat pedagògica": [
+      "Conservar els models i els documents al centre pot facilitar-ne l’ús continuat.",
+      "Una eina local també requereix manteniment i equips amb prou recursos.",
+      "Quan valoreu una solució, penseu qui la podrà actualitzar en el futur."
+    ],
+    "Sessió divulgativa de Jordi Mas (Softcatalà)": [
+      "La ponència ofereix una introducció a la IA que s’executa en dispositius propis.",
+      "Podeu començar per observar els exemples pràctics i després aprofundir en els termes tècnics.",
+      "Relacionar la ponència amb una tasca docent concreta us ajudarà a situar-ne la utilitat."
+    ],
+    "Què aporta executar el model al dispositiu": [
+      "Un model executat al dispositiu pot reduir la dependència de serveis externs.",
+      "El rendiment d’un model local depèn dels recursos disponibles a l’ordinador.",
+      "Abans de triar-lo, determineu quina tasca necessiteu resoldre."
+    ],
+    "Com ajustar el model a la tasca i al maquinari": [
+      "Un model petit pot ser suficient per fer una prova de classificació o resum.",
+      "Comproveu quanta memòria té disponible l’equip abans de descarregar un model.",
+      "Provar una tasca breu us ajuda a valorar si el rendiment és adequat."
+    ],
+    "1. El context i el \"moment Linux\"": [
+      "Aquesta comparació situa la IA local dins del debat sobre autonomia tecnològica.",
+      "Entendre el context ajuda a veure per què hi ha interès en alternatives que podem executar nosaltres.",
+      "Una tecnologia oberta també necessita suport i manteniment per ser útil al centre."
+    ],
+    "2. Què vol dir executar IA en local": [
+      "Executar en local vol dir que el model funciona en un dispositiu que controleu.",
+      "Podeu comprovar si la tasca continua funcionant quan la connexió a Internet falla.",
+      "Cal distingir entre tenir instal·lada una aplicació i saber on processa les dades."
+    ],
+    "3. IA local, pesos oberts i IA lliure": [
+      "Els pesos d’un model són les dades que en determinen el comportament després de l’entrenament.",
+      "Que un model tingui pesos disponibles no implica necessàriament que es pugui reutilitzar sense condicions.",
+      "Abans de compartir un model, comproveu-ne la llicència concreta."
+    ],
+    "4. Tasques desateses i usos interactius": [
+      "Una tasca desatesa s’executa sense que una persona hagi d’intervenir en cada pas.",
+      "En una activitat interactiva, el temps de resposta condiciona l’experiència d’ús.",
+      "Per començar, trieu una prova curta que permeti comprovar el resultat fàcilment."
+    ],
+    "5. Maquinari i rendiment": [
+      "La memòria disponible és una de les limitacions habituals dels models locals.",
+      "Un model massa exigent pot respondre molt lentament en un ordinador modest.",
+      "Consulteu els requisits abans de descarregar fitxers de diversos gigabytes."
+    ],
+    "6. Com triar un model i per què importa la quantització": [
+      "La quantització redueix la precisió numèrica dels pesos per ocupar menys memòria.",
+      "Un model quantitzat pot ser més fàcil d’executar en un ordinador amb recursos limitats.",
+      "El millor punt de partida és una tasca concreta i una prova amb el maquinari disponible."
+    ],
+    "7. Eines per començar i criteris per al català": [
+      "Proveu els models amb instruccions en català semblants a les que utilitzaríeu en una activitat.",
+      "El suport al català pot variar molt entre models i versions.",
+      "Abans de triar una eina, comproveu si el vostre ordinador compleix els requisits."
+    ],
+    "8. Transcripció i treball amb documents": [
+      "Una transcripció local pot resultar útil quan voleu processar àudio sense enviar-lo a un servei extern.",
+      "Comproveu que el programa tracti les dades al dispositiu, segons la configuració que utilitzeu.",
+      "Revisar el text transcrit continua sent important: els noms propis poden generar errors."
+    ],
+    "IA local i models en català (Softcatalà)": [
+      "Softcatalà recull recursos que poden ajudar a descobrir eines disponibles en català.",
+      "Provar una indicació en català us permet valorar la resposta del model que heu triat.",
+      "Una mateixa eina pot funcionar millor amb unes tasques que amb altres."
+    ],
+    "Projecte Aina": [
+      "El Projecte Aina impulsa recursos lingüístics oberts per reforçar la presència del català en tecnologies d’IA.",
+      "Disposar de dades i models en català facilita investigar aplicacions adaptades a la llengua.",
+      "Podeu consultar els recursos del projecte per entendre què hi ha disponible."
+    ],
+    "Rebost (opció guiada per treballar amb fitxers)": [
+      "Rebost ofereix una via per explorar recursos locals des d’una interfície guiada.",
+      "Si voleu treballar amb documents, comproveu quins formats admet l’eina.",
+      "Una prova amb arxius ficticis us ajudarà a entendre el procés abans d’utilitzar materials del centre."
+    ],
+    "LM Studio (interfície visual per triar i provar models)": [
+      "LM Studio permet explorar models locals des d’una interfície gràfica.",
+      "Comenceu amb un model adequat a la memòria disponible a l’ordinador.",
+      "Després de descarregar-lo, feu una prova curta per valorar-ne la velocitat."
+    ],
+    "Ollama (motor local amb aplicació i API)": [
+      "Ollama permet executar models al dispositiu i integrar-los en altres aplicacions.",
+      "Si us inicieu, comproveu primer que el model respon a una indicació senzilla.",
+      "La integració amb altres eines és una possibilitat per explorar quan ja domineu el funcionament bàsic."
+    ],
+    "Trieu el model a partir de la memòria disponible": [
+      "Un model més gran acostuma a necessitar més memòria per executar-se.",
+      "Podeu començar amb un model petit i observar-ne el rendiment.",
+      "Les especificacions de l’ordinador us ajudaran a descartar descàrregues massa exigents."
+    ]
+  },
+  "credits.html": {
+    "Servei Educatiu del Vallès Occidental II": [
+      "El marc institucional indica en quin context s’ha desenvolupat la formació.",
+      "Identificar l’organització ajuda a situar a qui s’adrecen els materials.",
+      "Una descripció breu del context facilita reutilitzar el recurs en altres formacions."
+    ],
+    "Autoria i manteniment": [
+      "Indicar qui manté la web facilita saber a qui adreçar correccions.",
+      "Conservar la informació d’autoria ajuda a reconèixer la feina que hi ha darrere del recurs.",
+      "Una persona responsable del manteniment pot actualitzar els enllaços quan canvien."
+    ],
+    "Vibe coding educatiu responsable (VCER)": [
+      "Les referències permeten seguir l’origen dels criteris utilitzats al taller.",
+      "Consultar la font original us pot ajudar a adaptar les recomanacions al vostre context.",
+      "Citar els projectes que ens inspiren facilita reconèixer-ne l’aportació."
+    ],
+    "CEDEC - seLIA": [
+      "Els projectes educatius de referència poden donar idees per revisar materials propis.",
+      "Consultar-ne la documentació ajuda a situar l’ús d’IA dins de pràctiques docents.",
+      "Guardar les fonts facilita tornar-hi quan actualitzeu la formació."
+    ],
+    "Softcatalà": [
+      "Softcatalà promou recursos digitals i lingüístics per treballar en català.",
+      "Les eines en català poden ajudar a preparar materials més propers al vostre context.",
+      "Consultar el projecte és una manera de descobrir recursos que es continuen actualitzant."
+    ],
+    "Projecte Aina": [
+      "Aina desenvolupa recursos per reforçar el català en tecnologies de llenguatge.",
+      "El projecte és una font útil per entendre la disponibilitat de recursos lingüístics en català.",
+      "Podeu explorar-ne les publicacions per seguir l’evolució dels models disponibles."
+    ],
+    "Rebost": [
+      "Aquesta referència remet a una eina que es pot explorar dins de l’àmbit de la IA local.",
+      "Quan proveu una eina, reviseu-ne la documentació i els requisits tècnics.",
+      "Les aplicacions poden canviar amb el temps; conservar l’enllaç original ajuda a revisar-les."
+    ],
+    "TERMCAT": [
+      "TERMCAT és un recurs útil per consultar terminologia especialitzada en català.",
+      "Quan apareix un concepte tècnic nou, consultar-ne la denominació facilita explicar-lo a l’aula.",
+      "Una terminologia coherent ajuda a fer materials comprensibles per al grup."
+    ],
+    "Contingut pedagògic - CC BY-SA 4.0": [
+      "CC BY-SA 4.0 permet compartir i adaptar continguts respectant les condicions de la llicència.",
+      "El reconeixement de l’autoria forma part de les obligacions d’aquesta llicència.",
+      "Les adaptacions que es distribueixen han de mantenir una llicència compatible amb Compartir Igual."
+    ],
+    "Codi font - GNU GPL v3": [
+      "La GPL v3 és una llicència lliure pensada per al programari.",
+      "Si distribuïu versions modificades del programa, aquesta llicència estableix condicions sobre el codi font.",
+      "La llicència del codi pot ser diferent de la que regula els textos pedagògics."
+    ]
+  }
+});
