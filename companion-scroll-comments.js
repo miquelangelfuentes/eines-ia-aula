@@ -2142,6 +2142,14 @@
         ];
       }
     }
+    if (target.classList?.contains('pedagogical-highlight')) {
+      const main = document.getElementById('contingut-principal') || document.querySelector('main');
+      const highlights = main ? [...main.querySelectorAll('.pedagogical-highlight')] : [];
+      const highlightIndex = highlights.indexOf(target);
+      const highlightNotes = window.companionHighlightedNotes?.[page]?.[highlightIndex];
+      if (highlightNotes?.length) return unique(highlightNotes);
+    }
+
     const title = titleFor(target);
     const curated = specificCommentsByPage[page]?.[title] || window.companionSubsectionComments?.[page]?.[title];
     if (curated?.length) return unique(curated);
