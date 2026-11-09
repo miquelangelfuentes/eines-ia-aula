@@ -128,6 +128,7 @@
 
     window.addEventListener('scroll', schedulePosition, { passive: true });
     window.addEventListener('resize', schedulePosition, { passive: true });
+    window.addEventListener('companion:refresh-position', schedulePosition);
     refreshLucide();
   }
 
@@ -216,7 +217,9 @@
       ':scope > figure',
       '.ordered-step-item',
       '.home-block-card',
-      '.quiz-question-card.active',
+      '.quiz-question-card',
+      '.quiz-results-panel',
+      '.hero-impact-headline',
       'figure',
       '.prompt-box',
       '.comparison-card',
@@ -229,6 +232,8 @@
       '.table-responsive',
       '.pedagogical-highlight',
       '.workshop-access-card',
+      '.infographic-prompt-box',
+      '.pedagogy-infographic',
       '[data-companion-comment]'
     ].join(', ');
 
@@ -245,6 +250,11 @@
   }
 
   function updateActiveTarget() {
+    const contextual = window.companionResolveActiveTarget?.();
+    if (contextual) {
+      activeTarget = contextual;
+      return;
+    }
     const nodes = candidates();
     if (!nodes.length) return;
 
