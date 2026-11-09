@@ -232,6 +232,8 @@
       '.table-responsive',
       '.pedagogical-highlight',
       '.workshop-access-card',
+      '.infographic-prompt-box',
+      '.pedagogy-infographic',
       '[data-companion-comment]'
     ].join(', ');
 
