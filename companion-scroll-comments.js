@@ -1,8 +1,8 @@
 (() => {
-  const READY_DELAY = 6200;
-  const MIN_COMMENT_DURATION = 6500;
-  const MAX_COMMENT_DURATION = 9500;
-  const MIN_REPLACE_GAP = 5200;
+  const READY_DELAY = 8100;
+  const MIN_COMMENT_DURATION = 8000;
+  const MAX_COMMENT_DURATION = 12000;
+  const MIN_REPLACE_GAP = 8000;
 
   let readyAt = Date.now() + READY_DELAY;
   let lastTarget = null;
@@ -10,6 +10,7 @@
   let pendingTimer = null;
   let frame = 0;
   let shownAt = 0;
+  let replaceAfter = 0;
   let bubble;
   let bubbleText;
 
@@ -20,7 +21,7 @@
         'L’adreça curta és pràctica quan el grup ha d’introduir l’enllaç manualment.',
         'Projectar el QR pot agilitzar l’inici d’una activitat quan tothom ha d’arribar al mateix recurs.'
       ],
-      'Qüestionari de coneixements previs per a docents': [
+      'Qüestionari de punt de partida': [
         'Aquest qüestionari serveix per orientar el recorregut. No és una prova de coneixements.',
         'Respondre segons el que feu ara ajuda a identificar quins blocs us poden resultar més útils.',
         'El resultat és una proposta de recorregut: podeu començar pel bloc que respongui millor a la vostra necessitat.'
@@ -29,6 +30,71 @@
         'Llegir els objectius abans de començar ajuda a entendre per què es proposa cada activitat.',
         'Una pregunta útil és aquesta: quin dels objectius respon millor a una necessitat que ja teniu?',
         'Els objectius us permeten distingir què és una pràctica del taller i què us podeu endur després a l’aula.'
+      ],
+      "Marc: de consultar a crear": [
+        "Quina necessitat docent voldríeu convertir en un recurs interactiu? El bloc 1 ajuda a començar per aquesta pregunta.",
+        "Un xat us pot ajudar a pensar una activitat; una pàgina web permet que l’alumnat hi interactuï.",
+        "Per començar a crear un recurs web, una activitat petita que pugueu provar ja és una bona base."
+      ],
+      "Google Antigravity pas a pas": [
+        "Antigravity pot modificar els fitxers d’un projecte. Per això convé revisar què proposa abans d’acceptar els canvis.",
+        "Penseu en una activitat que ara prepareu manualment: pot ser una bona prova per descobrir què us aporta un agent.",
+        "En aquest bloc veureu el procés guiat de crear una primera web des de la carpeta de treball."
+      ],
+      "Configuració de GitHub": [
+        "Un repositori és l’espai on GitHub conserva els fitxers del projecte i els canvis que hi feu.",
+        "Imagineu que voleu recuperar la web de la setmana passada: l’historial de versions us hi pot ajudar.",
+        "GitHub Pages pot publicar com a web els fitxers del repositori. El bloc 3 explica com arribar-hi."
+      ],
+      "Pages en comparació amb Google Sites": [
+        "Google Sites permet editar des del navegador. GitHub Pages publica els fitxers de la web que heu creat.",
+        "Qui actualitzarà el material el curs vinent? Aquesta pregunta us pot ajudar a triar on publicar-lo.",
+        "Una web en fitxers HTML es pot traslladar a un altre allotjament; penseu si aquesta autonomia us interessa."
+      ],
+      "Llicències i codi obert": [
+        "Compartir una activitat i compartir el programa que la fa funcionar són accions que poden tenir llicències diferents.",
+        "Una llicència explica a altres docents en quines condicions poden reutilitzar un recurs.",
+        "Si algú vol adaptar la vostra activitat, saber què li permeteu fer evitarà dubtes."
+      ],
+      "Recursos visuals i citació": [
+        "Una fotografia ben citada mostra a l’alumnat una manera respectuosa de reutilitzar imatges.",
+        "Què ajuda a entendre aquesta imatge? La resposta pot orientar si té una funció pedagògica.",
+        "Al bloc 6 veureu com trobar recursos visuals i indicar-ne la procedència."
+      ],
+      "Bones pràctiques a l'aula": [
+        "Abans de compartir una web amb l’alumnat, proveu-la com ho faria algú que l’obre per primera vegada.",
+        "Una activitat pot funcionar tècnicament i necessitar encara una revisió de les dades que tracta.",
+        "El bloc 7 us proposa criteris per revisar els recursos creats amb ajuda d’IA."
+      ],
+      "Llista de verificació": [
+        "Una llista de verificació transforma recomanacions generals en comprovacions que podeu fer abans de publicar.",
+        "Provar un recurs amb el teclat pot descobrir dificultats d’accés que amb el ratolí passen desapercebudes.",
+        "Podeu reutilitzar aquesta llista amb qualsevol recurs digital que prepareu per al grup classe."
+      ],
+      "Per continuar explorant: IA local": [
+        "En IA local, el model s’executa al vostre dispositiu o en un equip que controleu.",
+        "Què passaria si la connexió a Internet fallés? Alguns recursos locals poden continuar funcionant.",
+        "El bloc 9 us permet explorar models que es poden executar a l’ordinador, també amb recursos en català."
+      ],
+      "Crèdits i llicències": [
+        "Els crèdits permeten trobar les fonts i comprovar les condicions d’ús dels materials del lloc.",
+        "Una pàgina de crèdits ben feta pot servir de model quan publiqueu una web pròpia.",
+        "Quan reutilitzeu recursos d’altres autories, conservar-ne la font facilita actualitzar la citació."
+      ],
+      "Creació d'activitats interactives amb IA (Google Antigravity)": [
+        "Una activitat interactiva pot començar amb una pregunta autocorrectiva senzilla. Després ja podreu ampliar-la.",
+        "Quina resposta espereu de l’alumnat quan interactuï amb el vostre recurs? Penseu-hi abans de començar a crear-lo.",
+        "La primera prova del recurs us ajudarà a descobrir quines explicacions necessita l’alumnat."
+      ],
+      "Publicació lliure i sobirania digital (GitHub Pages)": [
+        "Publicar la web permet obrir-la amb un enllaç des d’un altre dispositiu. És una comprovació útil abans de compartir-la.",
+        "Si conserveu els fitxers originals, podreu continuar actualitzant el recurs encara que canvieu d’eina.",
+        "GitHub Pages és una manera de publicar el projecte directament des del repositori."
+      ],
+      "Criteris ètics i llicències d'ús (vibe coding responsable)": [
+        "Revisar una activitat abans de publicar-la també implica comprovar les dades que tracta.",
+        "La llicència indica com voleu que altres persones reutilitzin el material que heu compartit.",
+        "Una prova amb alumnes ficticis us pot ajudar a revisar el funcionament sense introduir dades personals."
       ]
     },
     'bloc1-marc.html': {
@@ -1945,6 +2011,41 @@
   ]
 ];
 
+
+  // Els identificadors de pregunta es mantenen estables quan el qüestionari actualitza els títols.
+  const homeQuizById = {
+  "1": [
+    "Una web interactiva pot començar amb un exercici de resposta curta. Quina funció voldríeu provar primer?",
+    "Si fins ara heu utilitzat la IA com a xat, aquest taller us mostrarà com donar forma web a una idea.",
+    "Cada resposta d’aquest qüestionari ajuda a orientar el recorregut. Trieu la que descrigui millor la vostra pràctica."
+  ],
+  "2": [
+    "Un agent pot modificar fitxers del vostre ordinador quan li doneu permís. Per això és important revisar la carpeta de treball.",
+    "Quan una eina demana accés a una carpeta, comproveu que sigui la del projecte que esteu preparant.",
+    "Podeu començar observant una modificació petita de l’agent abans de donar-li tasques més àmplies."
+  ],
+  "4": [
+    "Un repositori de GitHub és com la carpeta del projecte, amb un historial que permet seguir-ne els canvis.",
+    "GitHub Pages serveix per convertir els fitxers web del repositori en una pàgina pública.",
+    "Si ja heu publicat alguna web, penseu què us va resultar més fàcil i què us agradaria aprendre a actualitzar."
+  ],
+  "6": [
+    "Quan compartiu una imatge, anoteu la font: us serà útil per comprovar-ne les condicions d’ús.",
+    "El text d’una activitat i el codi que la fa interactiva poden portar llicències diferents.",
+    "Una atribució ben feta permet a qui llegeix el material localitzar-ne l’obra original."
+  ],
+  "7": [
+    "Obriu el recurs com si fóssiu alumnat: les instruccions es poden entendre sense l’ajuda del docent?",
+    "Un bon moment per revisar la privacitat és abans de posar l’activitat a disposició del grup.",
+    "Proveu també el recurs només amb el teclat: és una comprovació senzilla d’accessibilitat."
+  ],
+  "10": [
+    "Una llista de verificació ajuda a recordar els punts que voleu revisar abans de publicar una activitat.",
+    "Un model d’IA local funciona a l’ordinador que el té instal·lat, si disposa dels recursos necessaris.",
+    "Abans de triar una eina local, penseu quina tasca concreta voleu resoldre amb el vostre equip."
+  ]
+};
+
   const STORAGE_VERSION = 'eines-ia:companion-context-v10';
   function currentPage() {
     return location.pathname.split('/').pop() || 'index.html';
@@ -2007,6 +2108,39 @@
     if (explicit) return [cleanVisibleText(explicit)];
 
     const page = currentPage();
+    if (page === 'index.html') {
+      if (target.classList?.contains('quiz-question-card')) {
+        return homeQuizById[target.dataset.q] || [];
+      }
+      if (target.classList?.contains('quiz-results-panel')) {
+        return [
+          'La diagnosi suggereix un recorregut. Podeu adaptar-lo al temps disponible i als vostres interessos.',
+          'El resultat us indica quins blocs poden respondre millor al vostre punt de partida.',
+          'Podeu tornar a qualsevol bloc quan necessiteu recuperar una explicació o provar una activitat.'
+        ];
+      }
+      if (target.classList?.contains('hero-image-banner')) {
+        return [
+          'El peu de la fotografia identifica l’autor i enllaça amb la font original.',
+          'La citació d’aquesta imatge és un exemple que podeu seguir quan publiqueu materials propis.',
+          'El text alternatiu descriu la fotografia perquè la informació arribi també a qui utilitza un lector de pantalla.'
+        ];
+      }
+      if (target.classList?.contains('pedagogical-highlight')) {
+        return [
+          'Podeu fer servir les fletxes del teclat per avançar entre les pàgines del taller.',
+          'Les targetes del final de la portada permeten anar directament al bloc que us interessa.',
+          'Aquesta guia està pensada també per consultar un apartat concret després de la formació.'
+        ];
+      }
+      if (target.classList?.contains('hero-impact-headline')) {
+        return [
+          'Una activitat interactiva creada amb IA també necessita temps de revisió. Aquesta feina forma part del procés.',
+          'El potencial del procés és poder crear recursos ajustats a una necessitat docent concreta.',
+          'Un recurs senzill que podeu modificar acostuma a ser una bona primera prova.'
+        ];
+      }
+    }
     const title = titleFor(target);
     const curated = specificCommentsByPage[page]?.[title];
     if (curated?.length) return unique(curated);
@@ -2045,7 +2179,9 @@
       ':scope > figure',
       '.ordered-step-item',
       '.home-block-card',
-      '.quiz-question-card.active',
+      '.quiz-question-card',
+      '.quiz-results-panel',
+      '.hero-impact-headline',
       'figure',
       '.prompt-box',
       '.comparison-card',
@@ -2148,7 +2284,7 @@
 
   function durationFor(text) {
     const words = cleanVisibleText(text).split(/\s+/).filter(Boolean).length;
-    return Math.min(MAX_COMMENT_DURATION, Math.max(MIN_COMMENT_DURATION, 4300 + words * 170));
+    return Math.min(MAX_COMMENT_DURATION, Math.max(MIN_COMMENT_DURATION, 5200 + words * 190));
   }
 
   function hideCommentAfter(duration) {
@@ -2191,7 +2327,9 @@
 
     shownAt = Date.now();
     lastTarget = target;
-    hideCommentAfter(durationFor(text));
+    const duration = durationFor(text);
+    replaceAfter = shownAt + duration;
+    hideCommentAfter(duration);
   }
 
   function queueLatestTarget(delay) {
@@ -2223,8 +2361,8 @@
     }
 
     const elapsed = Date.now() - shownAt;
-    if (!force && shownAt && elapsed < MIN_REPLACE_GAP) {
-      queueLatestTarget(MIN_REPLACE_GAP - elapsed);
+    if (!force && shownAt && Date.now() < replaceAfter) {
+      queueLatestTarget(Math.max(MIN_REPLACE_GAP - elapsed, replaceAfter - Date.now()));
       return;
     }
 
@@ -2260,8 +2398,17 @@
       subtree: true
     });
 
+    // El moviment i els comentaris utilitzen un mateix punt d’interès.
+    window.companionResolveActiveTarget = activeCandidate;
     window.addEventListener('scroll', scheduleEvaluate, { passive: true });
     window.addEventListener('resize', scheduleEvaluate, { passive: true });
+    if (currentPage() === 'index.html') {
+      const quiz = document.getElementById('diagnostic-quiz-section');
+      if (quiz) new MutationObserver(() => {
+        scheduleEvaluate();
+        window.dispatchEvent(new Event('companion:refresh-position'));
+      }).observe(quiz, { attributes: true, subtree: true, attributeFilter: ['class', 'style'] });
+    }
     window.addEventListener('companion:request-comment', () => {
       const target = activeCandidate();
       if (!target) return;
