@@ -801,3 +801,176 @@ for (const [page, entries] of Object.entries({
 })) {
   Object.assign(window.companionSubsectionComments[page] ||= {}, entries);
 }
+
+window.companionHighlightedNotes = {
+  "bloc1-marc.html": [
+    [
+      "Una primera versió és només el començament. Provar-la us permet descobrir idees noves.",
+      "Un canvi ambiciós és més fàcil de valorar quan ja disposeu d’un recurs que funciona.",
+      "Si heu descobert una necessitat nova, podeu incorporar-la com a pròxima millora."
+    ],
+    [
+      "El TERMCAT proposa una denominació catalana per a aquesta manera de crear codi a partir d’indicacions.",
+      "La programació per intenció comença descrivint què ha de fer el recurs.",
+      "Conèixer la terminologia us pot ajudar a explicar el procés a altres docents."
+    ],
+    [
+      "Git és el sistema que registra els canvis. GitHub és un servei per compartir repositoris.",
+      "L’historial de Git permet recuperar versions anteriors d’un projecte.",
+      "Un repositori compartit pot ajudar altres docents a entendre com està construït un recurs."
+    ],
+    [
+      "La interfície de GitHub és en anglès; conèixer uns quants noms de botó facilita començar.",
+      "Algunes guies oficials es poden consultar en altres llengües.",
+      "Quan un menú no us resulta familiar, podeu buscar-ne l’explicació a la documentació."
+    ],
+    [
+      "Antigravity modifica els fitxers locals. GitHub us ajuda a conservar el projecte fora de l’aplicació.",
+      "Quan publiqueu amb Pages, els fitxers web es converteixen en una pàgina que podeu compartir.",
+      "Distingir el lloc de treball de l’espai de publicació ajuda a comprendre el procés."
+    ]
+  ],
+  "bloc2-antigravity.html": [
+    [
+      "Aquest accés us permet obrir l’aplicació que s’utilitza al bloc.",
+      "Si us falla l’enllaç, podeu consultar el lloc oficial de l’eina.",
+      "Comproveu que teniu la mateixa aplicació que s’utilitza a la pràctica."
+    ],
+    [
+      "Una aplicació instal·lada pot treballar amb carpetes locals quan l’hi autoritzeu.",
+      "Abans de donar accés a una carpeta, comproveu que sigui la del projecte.",
+      "Veure els fitxers modificats ajuda a entendre què ha fet l’agent."
+    ],
+    [
+      "Els comptes XTEC poden mostrar un catàleg de models diferent del d’altres comptes.",
+      "El més important de la pràctica és comprendre el procés de treball amb l’agent.",
+      "Si el selector ofereix menys opcions, podeu continuar amb un model disponible."
+    ],
+    [
+      "La primera activitat és una prova petita que serveix per aprendre el procés.",
+      "Una web que funciona ja ofereix una base per incorporar millores després.",
+      "Comproveu la primera versió al navegador abans de demanar el següent canvi."
+    ],
+    [
+      "Conserveu la carpeta creada: serà la que connectareu amb el repositori de GitHub.",
+      "El projecte local continua existint encara que més endavant el publiqueu.",
+      "Posar un nom reconeixible a la carpeta facilita reprendre el treball al bloc següent."
+    ],
+    [
+      "Els agents poden ajudar amb tasques repetitives de fitxers quan el procés està ben definit.",
+      "Una prova amb pocs documents permet comprovar si l’automatització fa el que espereu.",
+      "Abans de descarregar, reviseu les condicions d’accés del lloc d’origen."
+    ],
+    [
+      "La comparació mostra que diferents agents poden treballar sobre els mateixos tipus de projectes.",
+      "Trieu una eina que us permeti supervisar els canvis amb comoditat.",
+      "Els criteris de revisió del taller es poden aplicar també a altres agents."
+    ]
+  ],
+  "bloc3-github.html": [
+    [
+      "Aquest enllaç dona accés a GitHub per seguir la pràctica.",
+      "Comproveu que esteu connectats al compte en què voleu crear el repositori.",
+      "Podeu tornar a la guia del taller si algun menú us resulta nou."
+    ],
+    [
+      "La carpeta del projecte és la mateixa que heu utilitzat amb Antigravity.",
+      "Primer prepareu el repositori de destinació; després hi connectareu els fitxers.",
+      "Comprovar la carpeta activa evita barrejar projectes diferents."
+    ],
+    [
+      "Un repositori és l’espai de GitHub on es guarda el vostre projecte.",
+      "GitHub Pages pot publicar els fitxers web del repositori com un lloc accessible.",
+      "L’historial del repositori facilita seguir els canvis que heu fet."
+    ],
+    [
+      "Aquesta seqüència connecta el projecte del vostre ordinador amb GitHub.",
+      "Reviseu els fitxers abans d’enviar-los al repositori.",
+      "Quan la pujada acaba, podeu comprovar el resultat des del navegador."
+    ],
+    [
+      "GitHub Desktop ofereix una interfície gràfica per treballar amb l’historial de Git.",
+      "Veure els canvis abans de sincronitzar-los ajuda a comprendre el procés.",
+      "Si preferiu un entorn visual, Desktop pot ser una alternativa per al manteniment."
+    ]
+  ],
+  "bloc4-pages-sites.html": [
+    [
+      "Aquest destacat explica una via per incorporar un artefacte de Gemini a Google Sites.",
+      "Comproveu les opcions disponibles al vostre compte abans de seguir els passos.",
+      "Després d’exportar-lo, reviseu com es veu el recurs dins del lloc."
+    ],
+    [
+      "Google Sites facilita l’edició visual del material.",
+      "GitHub Pages dona més control sobre els fitxers que formen la web.",
+      "La tria depèn de com voleu actualitzar el recurs amb el temps."
+    ]
+  ],
+  "bloc5-llicencies.html": [
+    [
+      "Identifiqueu primer quins materials heu creat vosaltres.",
+      "Els recursos de tercers conserven les seves condicions d’ús originals.",
+      "El codi i els textos pedagògics poden tenir llicències diferents."
+    ],
+    [
+      "L’orientador parteix de decisions pràctiques sobre el codi que voleu compartir.",
+      "Les preguntes ajuden a entendre les condicions abans de veure el nom d’una llicència.",
+      "Podeu comparar la proposta amb el text oficial de la llicència."
+    ]
+  ],
+  "bloc6-recursos-visuals.html": [
+    [
+      "Conèixer l’origen d’una imatge pot influir en com la valorem.",
+      "A l’aula, la funció pedagògica de la imatge ha d’orientar-ne la tria.",
+      "Explicar l’origen del recurs aporta context a qui el consulta."
+    ],
+    [
+      "Una imatge útil pot ajudar a entendre una explicació amb menys esforç.",
+      "Reconèixer-ne l’autoria permet modelar una pràctica responsable davant de l’alumnat.",
+      "Pregunteu-vos què aprendria el grup gràcies a aquesta imatge."
+    ],
+    [
+      "Fer servir la mateixa biblioteca d’icones ajuda a donar unitat visual a la web.",
+      "Lucide proporciona icones vectorials que mantenen la qualitat a diferents mides.",
+      "Una etiqueta escrita ajuda a interpretar les icones que activen accions."
+    ],
+    [
+      "Els bancs d’imatges poden aplicar llicències diferents.",
+      "Consulteu la fitxa de cada fotografia abans de reutilitzar-la.",
+      "Encara que una citació sigui voluntària, reconèixer l’autoria pot ser útil educativament."
+    ],
+    [
+      "Indicar qui ha creat una imatge és una oportunitat per treballar el respecte per les fonts.",
+      "La llicència concreta determina quines condicions s’apliquen a la reutilització.",
+      "Un enllaç a la font original facilita comprovar la procedència del material."
+    ]
+  ],
+  "bloc7-bones-practiques.html": [
+    [
+      "El docent continua sent responsable del material que publica amb ajuda d’IA.",
+      "Una prova tècnica és només una part de la revisió d’una activitat.",
+      "Les recomanacions del bloc us ajuden a formular comprovacions abans de compartir un recurs."
+    ]
+  ],
+  "bloc8-verificacio.html": [
+    [
+      "Aquesta llista converteix recomanacions en comprovacions concretes.",
+      "Podeu utilitzar-la abans de compartir qualsevol activitat digital amb el grup classe.",
+      "Un punt que genera dubtes us indica quin aspecte convé revisar."
+    ]
+  ],
+  "bloc9-per-continuar-explorant.html": [
+    [
+      "Un model local pot processar informació al vostre dispositiu.",
+      "Comproveu si l’aplicació es connecta a serveis externs segons la configuració.",
+      "Executar un model localment també requereix que l’ordinador tingui prou recursos."
+    ]
+  ],
+  "credits.html": [
+    [
+      "Els materials de tercers conserven les seves condicions de reutilització.",
+      "Els noms comercials i els logotips poden tenir condicions diferents de les del contingut pedagògic.",
+      "Els crèdits ajuden a distingir l’autoria del projecte de les aportacions externes."
+    ]
+  ]
+};
